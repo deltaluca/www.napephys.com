@@ -27,6 +27,7 @@ function applyDocLinks()
     links["Listener"] = links["Listeners"] = "types/nape/callbacks/Listener.html";
     links["PreListener"] = links["PreListeners"] = "types/nape/callbacks/PreListener.html";
     links["Geom"] = "types/nape/geom/Geom.html";
+    links["BitmapDebug"] = "types/nape/util/BitmapDebug.html";
 
 
     function docLink(b)
