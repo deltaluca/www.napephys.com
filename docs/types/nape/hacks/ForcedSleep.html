@@ -28,48 +28,94 @@ function divved(html) {
 function showaddSleepingBody() {
     var div = document.getElementById("addSleepingBody");
     div.innerHTML = divved('\
-			<dl>\
-					</dl>\
+		<div class="comment">This method should be used in preference to inserting a Body, and then manually putting it to sleep. <br/><br/> If the Body is already in the Space, then this method will simply put it to sleep. If this Body is in a different Space, then calling this method will first remove the Body from its existing Space.</div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">space ::</font> The Space to add Body to.</dd>\
+									<dd><font class="inlinecode">body ::</font> The Body to insert as a sleeping Body.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If space is null, or body is null.</dd>\
+														</dl>\
 		');
     show("addSleepingBody");
 }
 function showaddSleepingCompound() {
     var div = document.getElementById("addSleepingCompound");
     div.innerHTML = divved('\
-			<dl>\
-					</dl>\
+		<div class="comment">This method should be used in preference to inserting the Compound, and then manually putting its constituents to sleep. <br/><br/> If the Compound is already in the Space, then this method will simply put it to sleep. If this Compound is in a different Space, then calling this method will first remove the Compound from its existing Space.</div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">space ::</font> The Space to add Compound to.</dd>\
+									<dd><font class="inlinecode">constraint ::</font> The Compound to insert as a sleeping Compound.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If space is null, or compound is null.</dd>\
+														</dl>\
 		');
     show("addSleepingCompound");
 }
 function showaddSleepingConstraint() {
     var div = document.getElementById("addSleepingConstraint");
     div.innerHTML = divved('\
-			<dl>\
-					</dl>\
+		<div class="comment">This method should be used in preference to inserting a Constraint, and then manually putting it to sleep. <br/><br/> If the Constraint is already in the Space, then this method will simply put it to sleep. If this Constraint is in a different Space, then calling this method will first remove the Constraint from its existing Space.</div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">space ::</font> The Space to add Constraint to.</dd>\
+									<dd><font class="inlinecode">constraint ::</font> The Constraint to insert as a sleeping Constraint.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If space is null, or constraint is null.</dd>\
+														</dl>\
 		');
     show("addSleepingConstraint");
 }
 function showsleepBody() {
     var div = document.getElementById("sleepBody");
     div.innerHTML = divved('\
-			<dl>\
-					</dl>\
+		<div class="comment">This method will not put to sleep anything that the Body is touching or connected to.</div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">body ::</font> The Body to put to sleep.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If body is null, or is not in a Space.</dd>\
+														</dl>\
 		');
     show("sleepBody");
+}
+function showsleepCompound() {
+    var div = document.getElementById("sleepCompound");
+    div.innerHTML = divved('\
+		<div class="comment">This method will not put to sleep anything that the Compound&#39;s constituents are touching or connected to.</div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">compound ::</font> The Compound to put to sleep.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If compound is null, or is not in a Space.</dd>\
+														</dl>\
+		');
+    show("sleepCompound");
 }
 function showsleepConnected() {
     var div = document.getElementById("sleepConnected");
     div.innerHTML = divved('\
-			<dl>\
-					</dl>\
+		<div class="comment">This method will traverse constraints visible via body.constraints list and put this Body as well as all Bodies it is directly or indirectly connected to; to sleep.</div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">body ::</font> The Body to seed search for manual sleeping.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If body is null, or is not in a Space.</dd>\
+														</dl>\
 		');
     show("sleepConnected");
 }
 function showsleepConstraint() {
     var div = document.getElementById("sleepConstraint");
     div.innerHTML = divved('\
-			<dl>\
-					</dl>\
+		<div class="comment">This method will not put to sleep anything that the Constraint is touching or connected to.</div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">constraint ::</font> The Constraint to put to sleep.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If constraint is null, or is not in a Space.</dd>\
+														</dl>\
 		');
     show("sleepConstraint");
 }
@@ -376,10 +422,16 @@ function shownape__util() {
 	<dl>
 		<dt>type</dt>
 		<dd>class</dd>
-	</dl>
+        <dt>requires</dt>
+        <dd>nape-hacks module.</dd>
+    	</dl>
 
 	<div class="doc">
-	</div>
+			<!-- Comment block -->
+            Methods for manual sleeping and insertion of sleeping objects to a Space.
+                    <br/><br/>
+			Haxe users can make use of the &#39;using&#39; keyword to permit usage like: <pre>body.sleepBody();&#13;&#10;space.addSleepingBody(body);&#13;&#10;</pre> As opposed to the more verbose: <pre>ForcedSleep.sleepBody(body);&#13;&#10;ForcedSleep.addSleepingBody(space, body);&#13;&#10;</pre>
+				</div>
 	<!-- ============ STATIC METHOD DETAIL ========== -->
 	<div class="members-panel">
 		<h2><a name="static_method_detail"></a>Static Methods</h2>
@@ -393,7 +445,13 @@ function shownape__util() {
 		</h3>
 	</div>
                 <div class="body">
-                </div>
+                    <div class="comment">
+                        <a href="javascript:showaddSleepingBody()" class="expand" id="addSleepingBodylink">
+                            <img class="descript" alt="+" src="../../../images/show.png"/>
+                        </a>
+                                            Add a sleeping Body to a Space.
+                    </div>
+                                </div>
 				<div class="body" id="addSleepingBody"></div>
 			</div>
 					<div class="member">
@@ -405,7 +463,13 @@ function shownape__util() {
 		</h3>
 	</div>
                 <div class="body">
-                </div>
+                    <div class="comment">
+                        <a href="javascript:showaddSleepingCompound()" class="expand" id="addSleepingCompoundlink">
+                            <img class="descript" alt="+" src="../../../images/show.png"/>
+                        </a>
+                                            Add a sleeping Compound to a Space.
+                    </div>
+                                </div>
 				<div class="body" id="addSleepingCompound"></div>
 			</div>
 					<div class="member">
@@ -417,7 +481,13 @@ function shownape__util() {
 		</h3>
 	</div>
                 <div class="body">
-                </div>
+                    <div class="comment">
+                        <a href="javascript:showaddSleepingConstraint()" class="expand" id="addSleepingConstraintlink">
+                            <img class="descript" alt="+" src="../../../images/show.png"/>
+                        </a>
+                                            Add a sleeping Constraint to a Space.
+                    </div>
+                                </div>
 				<div class="body" id="addSleepingConstraint"></div>
 			</div>
 					<div class="member">
@@ -429,8 +499,32 @@ function shownape__util() {
 		</h3>
 	</div>
                 <div class="body">
-                </div>
+                    <div class="comment">
+                        <a href="javascript:showsleepBody()" class="expand" id="sleepBodylink">
+                            <img class="descript" alt="+" src="../../../images/show.png"/>
+                        </a>
+                                            Force Body to go to sleep.
+                    </div>
+                                </div>
 				<div class="body" id="sleepBody"></div>
+			</div>
+					<div class="member">
+				<div class="header">
+		<h3>
+			<a name="sleepCompound()"></a>
+		<span class="static  function">static  function</span>
+	<span class="name">sleepCompound</span>(compound:<a href="../../nape/phys/Compound.html" class="type">nape.phys.Compound</a>):<font class="fakelink">Void</font>
+		</h3>
+	</div>
+                <div class="body">
+                    <div class="comment">
+                        <a href="javascript:showsleepCompound()" class="expand" id="sleepCompoundlink">
+                            <img class="descript" alt="+" src="../../../images/show.png"/>
+                        </a>
+                                            Force Compound to go to sleep.
+                    </div>
+                                </div>
+				<div class="body" id="sleepCompound"></div>
 			</div>
 					<div class="member">
 				<div class="header">
@@ -441,7 +535,13 @@ function shownape__util() {
 		</h3>
 	</div>
                 <div class="body">
-                </div>
+                    <div class="comment">
+                        <a href="javascript:showsleepConnected()" class="expand" id="sleepConnectedlink">
+                            <img class="descript" alt="+" src="../../../images/show.png"/>
+                        </a>
+                                            Force Body, and all Bodies connected to go to sleep.
+                    </div>
+                                </div>
 				<div class="body" id="sleepConnected"></div>
 			</div>
 					<div class="member">
@@ -453,7 +553,13 @@ function shownape__util() {
 		</h3>
 	</div>
                 <div class="body">
-                </div>
+                    <div class="comment">
+                        <a href="javascript:showsleepConstraint()" class="expand" id="sleepConstraintlink">
+                            <img class="descript" alt="+" src="../../../images/show.png"/>
+                        </a>
+                                            Force Constraint to go to sleep.
+                    </div>
+                                </div>
 				<div class="body" id="sleepConstraint"></div>
 			</div>
 				</div>

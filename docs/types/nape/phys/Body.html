@@ -311,95 +311,22 @@ function showalign() {
 		');
     show("align");
 }
-function showapplyLocalForce() {
-    var div = document.getElementById("applyLocalForce");
-    div.innerHTML = divved('\
-		<div class="comment">This is equivalent to: <font class="inlinecode">body.applyWorldForce(force, body.localToWorld(pos))</font> <br/><br/> If position argument is not given, then (0,0) is assumed so that force is applied at centre of Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">force ::</font> The force to apply given in world coordinates.</dd>\
-									<dd><font class="inlinecode">pos ::</font> The position to apply force given in local coordinates. </dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If force is null or disposed of.</dd>\
-									<dd><a href=""><font class="inlinecode"></font></a> If pos is non-null and disposed of.</dd>\
-														</dl>\
-		');
-    show("applyLocalForce");
-}
-function showapplyLocalImpulse() {
-    var div = document.getElementById("applyLocalImpulse");
-    div.innerHTML = divved('\
-		<div class="comment">This is equivalent to: <font class="inlinecode">body.applyWorldImpulse(impulse, body.localToWorld(pos))</font> <br/><br/> If position argument is not given, then (0,0) is assumed so that impulse is applied at centre of Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">impulse ::</font> The impulse to apply given in world coordinates.</dd>\
-									<dd><font class="inlinecode">pos ::</font> The position to apply impulse given in local coordinates. </dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If impulse is null or disposed of.</dd>\
-									<dd><a href=""><font class="inlinecode"></font></a> If pos is non-null and disposed of.</dd>\
-														</dl>\
-		');
-    show("applyLocalImpulse");
-}
-function showapplyRelativeForce() {
-    var div = document.getElementById("applyRelativeForce");
-    div.innerHTML = divved('\
-		<div class="comment">This is equivalent to: <font class="inlinecode">body.applyWorldForce(force, body.relativeToWorld(pos))</font> <br/><br/> If position argument is not given, then (0,0) is assumed so that force is applied at centre of Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">force ::</font> The force to apply given in world coordinates.</dd>\
-									<dd><font class="inlinecode">pos ::</font> The position to apply force given in relative coordinates. </dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If force is null or disposed of.</dd>\
-									<dd><a href=""><font class="inlinecode"></font></a> If pos is non-null and disposed of.</dd>\
-														</dl>\
-		');
-    show("applyRelativeForce");
-}
-function showapplyRelativeImpulse() {
-    var div = document.getElementById("applyRelativeImpulse");
-    div.innerHTML = divved('\
-		<div class="comment">This is equivalent to: <font class="inlinecode">body.applyWorldImpulse(impulse, body.relativeToWorld(pos))</font> <br/><br/> If position argument is not given, then (0,0) is assumed so that impulse is applied at centre of Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">impulse ::</font> The impulse to apply given in world coordinates.</dd>\
-									<dd><font class="inlinecode">pos ::</font> The position to apply impulse given in relative coordinates. </dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If impulse is null or disposed of.</dd>\
-									<dd><a href=""><font class="inlinecode"></font></a> If pos is non-null and disposed of.</dd>\
-														</dl>\
-		');
-    show("applyRelativeImpulse");
-}
-function showapplyWorldForce() {
-    var div = document.getElementById("applyWorldForce");
-    div.innerHTML = divved('\
-		<div class="comment">If position argument is not given, then body.position is assumed so that force is applied at centre of Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">force ::</font> The force to apply given in world coordinates.</dd>\
-									<dd><font class="inlinecode">pos ::</font> The position to apply force given in local coordinates. </dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If force is null or disposed of.</dd>\
-									<dd><a href=""><font class="inlinecode"></font></a> If pos is non-null and disposed of.</dd>\
-														</dl>\
-		');
-    show("applyWorldForce");
-}
-function showapplyWorldImpulse() {
-    var div = document.getElementById("applyWorldImpulse");
+function showapplyImpulse() {
+    var div = document.getElementById("applyImpulse");
     div.innerHTML = divved('\
 		<div class="comment">If position argument is not given, then body.position is assumed so that impulse is applied at centre of Body.</div>\
 				<dl>\
 					<dt>parameters</dt>\
 					<dd><font class="inlinecode">impulse ::</font> The impulse to apply given in world coordinates.</dd>\
-									<dd><font class="inlinecode">pos ::</font> The position to apply impulse given in relative coordinates. </dd>\
+									<dd><font class="inlinecode">pos ::</font> The position to apply impulse given in world coordinates. </dd>\
+												<dt>returns</dt>\
+					<dd>A reference to \'this\' Body.</dd>\
 												<dt>debug error</dt>\
 					<dd><a href=""><font class="inlinecode"></font></a> If impulse is null or disposed of.</dd>\
 									<dd><a href=""><font class="inlinecode"></font></a> If pos is non-null and disposed of.</dd>\
 														</dl>\
 		');
-    show("applyWorldImpulse");
+    show("applyImpulse");
 }
 function showbuoyancyImpulse() {
     var div = document.getElementById("buoyancyImpulse");
@@ -497,6 +424,8 @@ function showintegrate() {
 				<dl>\
 					<dt>parameters</dt>\
 					<dd><font class="inlinecode">deltaTime ::</font> The time to integrate body by. This value may be negative.</dd>\
+												<dt>returns</dt>\
+					<dd>A refernce to \'this\' Body</dd>\
 														</dl>\
 		');
     show("integrate");
@@ -581,24 +510,8 @@ function showisStatic() {
 		');
     show("isStatic");
 }
-function showlocalToRelative() {
-    var div = document.getElementById("localToRelative");
-    div.innerHTML = divved('\
-		<div class="comment">Relative meaning world coordinates, relative to the position of the Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">point ::</font> The point to transform.</dd>\
-									<dd><font class="inlinecode">weak ::</font> If true the returned Vec2 will be automatically released back to object pool when used as an argument to a Nape function. </dd>\
-												<dt>returns</dt>\
-					<dd>The result of the transformation.</dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If point is null or disposed of.</dd>\
-														</dl>\
-		');
-    show("localToRelative");
-}
-function showlocalToWorld() {
-    var div = document.getElementById("localToWorld");
+function showlocalPointToWorld() {
+    var div = document.getElementById("localPointToWorld");
     div.innerHTML = divved('\
 		<div class="comment"></div>\
 				<dl>\
@@ -611,7 +524,23 @@ function showlocalToWorld() {
 					<dd><a href=""><font class="inlinecode"></font></a> If point is null or disposed of.</dd>\
 														</dl>\
 		');
-    show("localToWorld");
+    show("localPointToWorld");
+}
+function showlocalVectorToWorld() {
+    var div = document.getElementById("localVectorToWorld");
+    div.innerHTML = divved('\
+		<div class="comment"></div>\
+				<dl>\
+					<dt>parameters</dt>\
+					<dd><font class="inlinecode">vector ::</font> The vector to transform.</dd>\
+									<dd><font class="inlinecode">weak ::</font> If true the returned Vec2 will be automatically released back to object pool when used as an argument to a Nape function. </dd>\
+												<dt>returns</dt>\
+					<dd>The result of the transformation.</dd>\
+												<dt>debug error</dt>\
+					<dd><a href=""><font class="inlinecode"></font></a> If vector is null or disposed of.</dd>\
+														</dl>\
+		');
+    show("localVectorToWorld");
 }
 function shownormalImpulse() {
     var div = document.getElementById("normalImpulse");
@@ -626,38 +555,6 @@ function shownormalImpulse() {
 														</dl>\
 		');
     show("normalImpulse");
-}
-function showrelativeToLocal() {
-    var div = document.getElementById("relativeToLocal");
-    div.innerHTML = divved('\
-		<div class="comment">Relative meaning world coordinates, relative to the position of the Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">point ::</font> The point to transform.</dd>\
-									<dd><font class="inlinecode">weak ::</font> If true the returned Vec2 will be automatically released back to object pool when used as an argument to a Nape function. </dd>\
-												<dt>returns</dt>\
-					<dd>The result of the transformation.</dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If point is null or disposed of.</dd>\
-														</dl>\
-		');
-    show("relativeToLocal");
-}
-function showrelativeToWorld() {
-    var div = document.getElementById("relativeToWorld");
-    div.innerHTML = divved('\
-		<div class="comment">Relative meaning world coordinates, relative to the position of the Body.</div>\
-				<dl>\
-					<dt>parameters</dt>\
-					<dd><font class="inlinecode">point ::</font> The point to transform.</dd>\
-									<dd><font class="inlinecode">weak ::</font> If true the returned Vec2 will be automatically released back to object pool when used as an argument to a Nape function. </dd>\
-												<dt>returns</dt>\
-					<dd>The result of the transformation.</dd>\
-												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If point is null or disposed of.</dd>\
-														</dl>\
-		');
-    show("relativeToWorld");
 }
 function showrollingImpulse() {
     var div = document.getElementById("rollingImpulse");
@@ -849,8 +746,8 @@ function showtranslateShapes() {
 		');
     show("translateShapes");
 }
-function showworldToLocal() {
-    var div = document.getElementById("worldToLocal");
+function showworldPointToLocal() {
+    var div = document.getElementById("worldPointToLocal");
     div.innerHTML = divved('\
 		<div class="comment"></div>\
 				<dl>\
@@ -863,23 +760,23 @@ function showworldToLocal() {
 					<dd><a href=""><font class="inlinecode"></font></a> If point is null or disposed of.</dd>\
 														</dl>\
 		');
-    show("worldToLocal");
+    show("worldPointToLocal");
 }
-function showworldToRelative() {
-    var div = document.getElementById("worldToRelative");
+function showworldVectorToLocal() {
+    var div = document.getElementById("worldVectorToLocal");
     div.innerHTML = divved('\
-		<div class="comment">Relative meaning world coordinates, relative to the position of the Body.</div>\
+		<div class="comment"></div>\
 				<dl>\
 					<dt>parameters</dt>\
-					<dd><font class="inlinecode">point ::</font> The point to transform.</dd>\
+					<dd><font class="inlinecode">vector ::</font> The vector to transform.</dd>\
 									<dd><font class="inlinecode">weak ::</font> If true the returned Vec2 will be automatically released back to object pool when used as an argument to a Nape function. </dd>\
 												<dt>returns</dt>\
 					<dd>The result of the transformation.</dd>\
 												<dt>debug error</dt>\
-					<dd><a href=""><font class="inlinecode"></font></a> If point is null or disposed of.</dd>\
+					<dd><a href=""><font class="inlinecode"></font></a> If vector is null or disposed of.</dd>\
 														</dl>\
 		');
-    show("worldToRelative");
+    show("worldVectorToLocal");
 }
 
 function shownew() {
@@ -2096,120 +1993,20 @@ function shownape__util() {
 				<div class="member">
 					<div class="header">
 		<h3>
-			<a name="applyLocalForce()"></a>
+			<a name="applyImpulse()"></a>
 		<span class=" function"> function</span>
-	<span class="name">applyLocalForce</span>(force:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, pos:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a> = &#40;0,0&#41;):<font class="fakelink">Void</font>
+	<span class="name">applyImpulse</span>(impulse:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, pos:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a> = body.position):<a href="../../nape/phys/Body.html" class="type">Body</a>
 		</h3>
 	</div>
                     <div class="body">
                             <div class="comment">
-                                <a href="javascript:showapplyLocalForce()" class="expand" id="applyLocalForcelink">
+                                <a href="javascript:showapplyImpulse()" class="expand" id="applyImpulselink">
                                 <img class="descript" alt="+" src="../../../images/show.png"/>
                             </a>
-                                                    Apply force to a point on Body defined in local coordinates.
+                                                    Apply impulse to a point on Body.
                         </div>
                                         </div>
-					<div class="body" id="applyLocalForce"></div>
-				</div>
-			</span>
-					<span class="showMethod">
-				<div class="member">
-					<div class="header">
-		<h3>
-			<a name="applyLocalImpulse()"></a>
-		<span class=" function"> function</span>
-	<span class="name">applyLocalImpulse</span>(impulse:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, pos:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a> = &#40;0,0&#41;):<font class="fakelink">Void</font>
-		</h3>
-	</div>
-                    <div class="body">
-                            <div class="comment">
-                                <a href="javascript:showapplyLocalImpulse()" class="expand" id="applyLocalImpulselink">
-                                <img class="descript" alt="+" src="../../../images/show.png"/>
-                            </a>
-                                                    Apply impulse to a point on Body defined in local coordinates.
-                        </div>
-                                        </div>
-					<div class="body" id="applyLocalImpulse"></div>
-				</div>
-			</span>
-					<span class="showMethod">
-				<div class="member">
-					<div class="header">
-		<h3>
-			<a name="applyRelativeForce()"></a>
-		<span class=" function"> function</span>
-	<span class="name">applyRelativeForce</span>(force:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, pos:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a> = &#40;0,0&#41;):<font class="fakelink">Void</font>
-		</h3>
-	</div>
-                    <div class="body">
-                            <div class="comment">
-                                <a href="javascript:showapplyRelativeForce()" class="expand" id="applyRelativeForcelink">
-                                <img class="descript" alt="+" src="../../../images/show.png"/>
-                            </a>
-                                                    Apply force to a point on Body defined in relative coordinates.
-                        </div>
-                                        </div>
-					<div class="body" id="applyRelativeForce"></div>
-				</div>
-			</span>
-					<span class="showMethod">
-				<div class="member">
-					<div class="header">
-		<h3>
-			<a name="applyRelativeImpulse()"></a>
-		<span class=" function"> function</span>
-	<span class="name">applyRelativeImpulse</span>(impulse:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, pos:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a> = &#40;0,0&#41;):<font class="fakelink">Void</font>
-		</h3>
-	</div>
-                    <div class="body">
-                            <div class="comment">
-                                <a href="javascript:showapplyRelativeImpulse()" class="expand" id="applyRelativeImpulselink">
-                                <img class="descript" alt="+" src="../../../images/show.png"/>
-                            </a>
-                                                    Apply impulse to a point on Body defined in relative coordinates.
-                        </div>
-                                        </div>
-					<div class="body" id="applyRelativeImpulse"></div>
-				</div>
-			</span>
-					<span class="showMethod">
-				<div class="member">
-					<div class="header">
-		<h3>
-			<a name="applyWorldForce()"></a>
-		<span class=" function"> function</span>
-	<span class="name">applyWorldForce</span>(force:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, pos:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a> = body.position):<font class="fakelink">Void</font>
-		</h3>
-	</div>
-                    <div class="body">
-                            <div class="comment">
-                                <a href="javascript:showapplyWorldForce()" class="expand" id="applyWorldForcelink">
-                                <img class="descript" alt="+" src="../../../images/show.png"/>
-                            </a>
-                                                    Apply force to a point on Body defined in world coordinates.
-                        </div>
-                                        </div>
-					<div class="body" id="applyWorldForce"></div>
-				</div>
-			</span>
-					<span class="showMethod">
-				<div class="member">
-					<div class="header">
-		<h3>
-			<a name="applyWorldImpulse()"></a>
-		<span class=" function"> function</span>
-	<span class="name">applyWorldImpulse</span>(impulse:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, pos:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a> = body.position):<font class="fakelink">Void</font>
-		</h3>
-	</div>
-                    <div class="body">
-                            <div class="comment">
-                                <a href="javascript:showapplyWorldImpulse()" class="expand" id="applyWorldImpulselink">
-                                <img class="descript" alt="+" src="../../../images/show.png"/>
-                            </a>
-                                                    Apply impulse to a point on Body defined in world coordinates.
-                        </div>
-                                        </div>
-					<div class="body" id="applyWorldImpulse"></div>
+					<div class="body" id="applyImpulse"></div>
 				</div>
 			</span>
 					<span class="showMethod">
@@ -2358,7 +2155,7 @@ function shownape__util() {
 		<h3>
 			<a name="integrate()"></a>
 		<span class=" function"> function</span>
-	<span class="name">integrate</span>(deltaTime:<font class="fakelink">Float</font>):<font class="fakelink">Void</font>
+	<span class="name">integrate</span>(deltaTime:<font class="fakelink">Float</font>):<a href="../../nape/phys/Body.html" class="type">Body</a>
 		</h3>
 	</div>
                     <div class="body">
@@ -2528,40 +2325,40 @@ function shownape__util() {
 				<div class="member">
 					<div class="header">
 		<h3>
-			<a name="localToRelative()"></a>
+			<a name="localPointToWorld()"></a>
 		<span class=" function"> function</span>
-	<span class="name">localToRelative</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
+	<span class="name">localPointToWorld</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
 		</h3>
 	</div>
                     <div class="body">
                             <div class="comment">
-                                <a href="javascript:showlocalToRelative()" class="expand" id="localToRelativelink">
+                                <a href="javascript:showlocalPointToWorld()" class="expand" id="localPointToWorldlink">
                                 <img class="descript" alt="+" src="../../../images/show.png"/>
                             </a>
-                                                    Transform point from Body's local coordinates into relative coordinates.
+                                                    Transform a point from Body's local coordinates to world coordinates.
                         </div>
                                         </div>
-					<div class="body" id="localToRelative"></div>
+					<div class="body" id="localPointToWorld"></div>
 				</div>
 			</span>
 					<span class="showMethod">
 				<div class="member">
 					<div class="header">
 		<h3>
-			<a name="localToWorld()"></a>
+			<a name="localVectorToWorld()"></a>
 		<span class=" function"> function</span>
-	<span class="name">localToWorld</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
+	<span class="name">localVectorToWorld</span>(vector:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
 		</h3>
 	</div>
                     <div class="body">
                             <div class="comment">
-                                <a href="javascript:showlocalToWorld()" class="expand" id="localToWorldlink">
+                                <a href="javascript:showlocalVectorToWorld()" class="expand" id="localVectorToWorldlink">
                                 <img class="descript" alt="+" src="../../../images/show.png"/>
                             </a>
-                                                    Transform a point from Body's local coordinates to world coordinates.
+                                                    Transform vector from Body's local coordinates into world coordinates.
                         </div>
                                         </div>
-					<div class="body" id="localToWorld"></div>
+					<div class="body" id="localVectorToWorld"></div>
 				</div>
 			</span>
 					<span class="showMethod">
@@ -2582,46 +2379,6 @@ function shownape__util() {
                         </div>
                                         </div>
 					<div class="body" id="normalImpulse"></div>
-				</div>
-			</span>
-					<span class="showMethod">
-				<div class="member">
-					<div class="header">
-		<h3>
-			<a name="relativeToLocal()"></a>
-		<span class=" function"> function</span>
-	<span class="name">relativeToLocal</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
-		</h3>
-	</div>
-                    <div class="body">
-                            <div class="comment">
-                                <a href="javascript:showrelativeToLocal()" class="expand" id="relativeToLocallink">
-                                <img class="descript" alt="+" src="../../../images/show.png"/>
-                            </a>
-                                                    Transform point from relative coordinates to Body's local coordinates
-                        </div>
-                                        </div>
-					<div class="body" id="relativeToLocal"></div>
-				</div>
-			</span>
-					<span class="showMethod">
-				<div class="member">
-					<div class="header">
-		<h3>
-			<a name="relativeToWorld()"></a>
-		<span class=" function"> function</span>
-	<span class="name">relativeToWorld</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
-		</h3>
-	</div>
-                    <div class="body">
-                            <div class="comment">
-                                <a href="javascript:showrelativeToWorld()" class="expand" id="relativeToWorldlink">
-                                <img class="descript" alt="+" src="../../../images/show.png"/>
-                            </a>
-                                                    Transform point from relative coordinates to normal world coordinates.
-                        </div>
-                                        </div>
-					<div class="body" id="relativeToWorld"></div>
 				</div>
 			</span>
 					<span class="showMethod">
@@ -2888,40 +2645,40 @@ function shownape__util() {
 				<div class="member">
 					<div class="header">
 		<h3>
-			<a name="worldToLocal()"></a>
+			<a name="worldPointToLocal()"></a>
 		<span class=" function"> function</span>
-	<span class="name">worldToLocal</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
+	<span class="name">worldPointToLocal</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
 		</h3>
 	</div>
                     <div class="body">
                             <div class="comment">
-                                <a href="javascript:showworldToLocal()" class="expand" id="worldToLocallink">
+                                <a href="javascript:showworldPointToLocal()" class="expand" id="worldPointToLocallink">
                                 <img class="descript" alt="+" src="../../../images/show.png"/>
                             </a>
                                                     Transform a point from world coordinates to Body's local coordinates.
                         </div>
                                         </div>
-					<div class="body" id="worldToLocal"></div>
+					<div class="body" id="worldPointToLocal"></div>
 				</div>
 			</span>
 					<span class="showMethod">
 				<div class="member">
 					<div class="header">
 		<h3>
-			<a name="worldToRelative()"></a>
+			<a name="worldVectorToLocal()"></a>
 		<span class=" function"> function</span>
-	<span class="name">worldToRelative</span>(point:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
+	<span class="name">worldVectorToLocal</span>(vector:<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>, weak:<font class="fakelink">Bool</font> = false):<a href="../../nape/geom/Vec2.html" class="type">nape.geom.Vec2</a>
 		</h3>
 	</div>
                     <div class="body">
                             <div class="comment">
-                                <a href="javascript:showworldToRelative()" class="expand" id="worldToRelativelink">
+                                <a href="javascript:showworldVectorToLocal()" class="expand" id="worldVectorToLocallink">
                                 <img class="descript" alt="+" src="../../../images/show.png"/>
                             </a>
-                                                    Transform point from normal world coordinates to relative coordinates
+                                                    Transform vector from world coordinates to Body's local coordinates
                         </div>
                                         </div>
-					<div class="body" id="worldToRelative"></div>
+					<div class="body" id="worldVectorToLocal"></div>
 				</div>
 			</span>
 				</div>
