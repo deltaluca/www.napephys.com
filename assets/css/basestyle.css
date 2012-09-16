@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    font-family: 'Puritan20Normal', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+b {
+    font-family: 'Puritan20Bold', Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #0f70c5;
+}
+
+i {
+    font-family: 'Puritan20Italic', Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+}
+
+strong {
+    font-family: 'Puritan20BoldItalic', Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    color: #333333;
+}
+
+.container {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    width: 940px;
+    height: 100px;
+    background-image: url("../title.png");
+    margin-bottom: 10px;
+}
+
+.navbar {
+    width: 940px;
+    height: 26px;
+
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-color: #c0dff8;
+
+    text-align: center;
+}
+
+.navdivider {
+    height: 100px;
+}
+
+.navbar .item {
+    width: auto;
+    margin-right: 16px;
+    margin-left: 16px;
+    height: 20px;
+    display: inline-block;
+}
+
+.navbar .item a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar .item a:link {
+    color: #a3a3a3;
+}
+.navbar .item a:visited {
+    color: #a3a3a3;
+}
+.navbar .item a:hover {
+    color: #0f70c5;
+}
+.navbar .item .disabled {
+    color: #0f70c5;
+}
+
+.content {
+    width : 96%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.content hr {
+    height : 1px;
+    width : 80%;
+    color: #cccccc;
+    background-color: #cccccc;
+    border-width: 0;
+}
+
+.prettyprint.override {
+    border: 0;
+    background-color: #cecece;
+}
+
+.codestyle {
+    text-align: left;
+    font-family: "Courier New", Monospace;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.about-feature {
+    height: 22px;
+    background-repeat: no-repeat;
+    background-image: url("../thumbsup.png");
+    padding-left: 20px;
+}
+
+.about-logo {
+    height: 80px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.feature {
+    height: 18px;
+    background-repeat: no-repeat;
+    background-image: url("../boxes.png");
+    padding-left: 20px;
+}
+
+.feature-image {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-list {
+}
+
+.feature-list li {
+    margin-top: 5px;
+}
+
+.floatleft {
+    float: left;
+    width: 59%;
+    display: block;
+}
+
+.floatright {
+    float: right;
+    width: 40%;
+    text-align: center;
+    display: block;
+}
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.contrib {
+    width: auto;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+footer {
+    text-align: center
+}

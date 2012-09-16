@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Nape is an open source physics library for Haxe and ActionScript3."/>
+        <meta name="keywords" content="Nape,Physics,Haxe,AS3,Flash,Constraint,Rigid,Body,Shape,"/>
+        <meta name="author" content="Luca Deltodesco"/>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+        <title>Nape Physics</title>
+
+        <link rel="shortcut icon" href="assets/ico/favicon.ico"/>
+        <link rel="stylesheet" href="assets/css/puritan.css"/>
+        <link rel="stylesheet" href="assets/css/basestyle.css"/>
+        <link rel="stylesheet" href="assets/prettify/prettify.css"/>
+    </head>
+
+    <body>
+    <div class="container">
+        <div class="title" id="about"></div>
+
+        <!-- navbar -->
+        <div class="navbar">
+            <div class="item">
+                <a class="disabled">About</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#features">Features</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#samples">Samples</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#download">Download</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#documentation">Documentation</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#">Forum</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#contributors">Contributors</a>
+            </div>
+        </div>
+        <!-- /navbar -->
+
+        <div class="content">
+
+            <h3 class="about-feature">Cross Platform</h3>
+            <div class="content">
+                <img class="about-logo" src="assets/haxe.png" alt="Haxe logo"/>
+                <img class="about-logo" src="assets/as3.png" alt=".swc icon"/>
+                <p>
+                    <b>Nape</b> is written in cross-platform <i>Haxe</i> and is compiled to <i>.swc</i> libraries
+                    for <i>ActionScript3</i> users enabling use across Flash Player, Desktop, HTML5, Android, iOS...
+                </p>
+            </div>
+
+            <hr/>
+            <h3 class="about-feature">Fast</h3>
+            <div class="content">
+                <p>
+                    <b>Nape</b> is <b><strong>fast</strong></b>. Significantly faster than both <b>Box2DAS3</b> and
+                    <b>Box2DAlchemy</b>, it is also very memory concious: leaving flat memory graphs in its wake
+                    with no <i>GC pauses</i> or <i>memory thrashing</i>.
+                </p>
+            </div>
+
+            <hr/>
+            <h3 class="about-feature">Friendly API</h3>
+            <div class="content">
+                <p>
+                    <b>Nape</b>'s API is very flexible and concise, permitting a wide array of manipulations to
+                    be made which are handled seamlessly in a lazy system for best performance.
+                </p>
+                <pre class="prettyprint.override codestyle">
+// Example creating a Box rigid body and adding to a newly created space.
+// No utility methods beyond Polygon.box are used, this is as verbose as we can get.
+var space = new Space();
+var boxBody = new Body();
+boxBody.shapes.add(new Polygon(Polygon.box(width, height)));
+boxBody.space = space;
+
+// Modifying velocity of body
+body.velocity.x += 100;
+                </pre>
+                <p>
+                    <b>Nape</b> uses SI units; but with <i>metres</i> replaced by... <b>pixels</b>! It is my belief - and few have argued otherwise - that <i>pixels</i> is always the most natural unit to use in 2D games, and by extension for 2D physics.
+                </p>
+            </div>
+
+            <hr/>
+            <h3 class="about-feature">Checked API</h3>
+            <div class="content">
+                <p>
+                    <b>Nape</b> is built in two distinct modes, in the <b>development</b> mode, the Nape API
+                    will actively check that you are using it correctly, and inform you when you are misusing
+                    it. This is undoubtedly very helpful when approaching a large library.
+                </p>
+                <p>
+                    The other build mode for Nape is the <b>release</b> mode which is used for benchmarking
+                    and final releases of games which strips out all such checks for a faster, lighter
+                    build.
+                </p>
+                <p>
+                    For <i>ActionScript3</i> users, these modes are achieved through distinct <i>.swc</i>
+                    libraries whilst <i>Haxe</i> users will switch modes with a compiler flag.
+                </p>
+            </div>
+        </div>
+
+        <!-- navbar -->
+        <div class="navdivider"></div>
+        <div class="navbar" id="features">
+            <div class="item">
+                <a class="scroll" href="#about">About</a>
+            </div>
+            <div class="item">
+                <a class="disabled">Features</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#samples">Samples</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#download">Download</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#documentation">Documentation</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#">Forum</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#contributors">Contributors</a>
+            </div>
+        </div>
+        <!-- /navbar -->
+
+        <div class="content">
+
+            <h3 class="feature">Rigid Bodies</h3>
+            <div class="content">
+                <div class="floatleft">
+                    <ul class="feature-list">
+                        <li>Compound rigid <b>Body</b>'s formed of <b>Circle</b> and convex <b>Polygon</b> shape
+                            primitives. Polygons can be given in any winding.</li>
+                        <li>Stable and accurate collisions with block solving of contact patches.</li>
+                        <li>Elastic collisions with <i>static</i>, <i>dynamic</i> and <i>rolling</i> frictions
+                            controlled by <b>Material</b> objects assigned to <b>Shapes</b>.</li>
+                        <li><i>Continuous Collision Detection</i> (CCD) to avoid tunneling at high speeds. Enabled always
+                            for <i>static</i> and <i>kinematic</i> collisions and sensors, and on demand for
+                            <i>dynamic</i>&lt;-&gt;<i>dynamic</i> collisions and sensors by setting <i>isBullet</i>
+                            property on <b>Body</b>.</li>
+                        <li>And lots more!</li>
+                    </ul>
+                </div>
+                <div class="floatright">
+                    <img class="feature-image" width="300" src="assets/pyramid.png" title="Large box pyramid" alt="[Pyramid Sample]"/>
+                </div>
+            </div>
+
+            <hr/>
+            <h3 class="feature" style="text-decoration:line-through">body.wake();</h3>
+            <div class="content">
+                <div class="floatleft">
+                    <ul class="feature-list">
+                        <li>In Nape, you will never (*) need to manually wake up a <b>Body</b>, or call any method that
+                            recomputes certain values at any time. Everything is handled completely by Nape, and
+                            is done lazily.</li>
+                        <li>However, I understand that sometimes... you <i>really</i> want to be able to
+                            manually force something to go to sleep. And this is provided for those who require
+                            it by the <b>nape-hacks</b> module's <b>ForcedSleep</b> object.
+                    </ul>
+                    <h6><i>(*) The only time you will ever need to manually wake up a <b>Body</b>, is if you yourself
+                       manually forced it to sleep</i></h6>
+                </div>
+            </div>
+
+            <hr/>
+            <h3 class="feature">Buoyancy</h3>
+            <div class="content">
+                <div class="floatleft">
+                    <ul class="feature-list">
+                        <li>Rigid body <b>Shapes</b> marked as <i>fluidEnabled</i> are able to interact with buoyancy and
+                            fluid drag in place of standard collisions.</li>
+                        <li>Fluid enabled <b>Shapes</b> can belong to any <b>Body</b>, even <i>dynamic</i> ones
+                            permitting fun, crazy game mechanics and flexibility.</li>
+                        <li>Fluid buoyancy computed <i>accurately</i>, with fluid drag effected by shape profiles (An arrow
+                            pointing forwards moves through fluid easier than against its direction).</li>
+                    </ul>
+                </div>
+                <div class="floatright">
+                    <img class="feature-image" width="350" src="assets/buoyancy.png" title="Dynamic bodies of rigid fluid interacting with lots of circles on a sine-wave terrain built using geometric utilities. Centre of buoyancy and buoyancy impulse rendered." alt="[Buoyancy Sample]"/>
+                </div>
+            </div>
+
+            <hr/>
+            <h3 class="feature">Constraints</h3>
+            <div class="content">
+                <div class="floatleft">
+                    <ul class="feature-list">
+                        <li>Many in-built <b>Constraint</b> types: <b>PivotJoint</b>, <b>DistanceJoint</b>, <b>AngleJoint</b>,
+                            <b>MotorJoint</b>, <b>LineJoint</b>, <b>WeldJoint</b>. All in-built constraints are
+                            single-purpose and designed to be composed.</li>
+                        <li>All constraints can be made <i>stiff</i> or <i>elastic</i> with parameters to control
+                            frequency and damping of elastic constraints. (*Excludes velocity only constraints like
+                            MotorJoint as there is no concept of elasticity or stiffness).</li>
+                        <li>All constraints support parameters to provide limits to how much error may be tolerated before
+                            a constraint is broken, or in the case of <i>elastic</i> constraints, control how much force
+                            is permitted to be used to try and solve the constraint, and how much positional error should
+                            be resolved per second.</li>
+                        <li><b>UserConstraint</b> API providing higher-level access to creating custom constraints.
+                            <b>UserConstraints</b> can still be made stiff or elastic, with all above mentioned features
+                            present with no user effort.</li>
+                        <li>Through use of the <b>nape-symbolic</b> module, make use of the <b>SymbolicConstraint</b> API
+                            using a high-level DSL (<i>Domain Specific Language</i>) to easily, and rapidly prototype new
+                            constraints.</li>
+                    </ul>
+                </div>
+                <div class="floatright">
+                    <img class="feature-image" width="350" src="assets/constraints_walker.png" title="Theo Jansen Walker. Built using a MotorConstraint, PivotJoints and DistanceJoints" alt="[Theo Jansen Walker]"/>
+                    <div style="height: 35px; display: inline-block"></div>
+                    <img class="feature-image" width="350" src="assets/constraints_bridge.png" title="Bridge built with PivotJoints. Circles hung by elastic DistanceJoint, with diamond attached using LineJoints" alt="[Bridge Sample]"/>
+                </div>
+            </div>
+
+            <hr/>
+            <h3 class="feature">High Level Callbacks</h3>
+            <div class="content">
+                <div class="floatleft">
+                    <ul class="feature-list">
+                        <li>Callback system operates on-top of <b>CbType</b>'s which are assigned to <b>Shapes</b>,
+                            <b>Bodies</b>, <b>Compounds</b> and <b>Constraints</b>, and <b>Listeners</b> that listen
+                            over inclusion/exclusion sets of <b>CbTypes</b>.</li>
+                        <li>Callback system is highly modular, objects can be given as many <b>CbTypes</b> as you wish
+                            to add behaviour to the simulation at any time in development without modifying lots of
+                            other code.</li>
+                        <li>Interaction type callbacks operate between pairs of objects, whether they be <b>Shapes</b>
+                            <b>Bodies</b> or <b>Compounds</b>. Events may be raised based on the <b>CbTypes</b> so that
+                            a single callback occurs when a <b>Body</b> of a particular type collides for the first time
+                            with a <b>Compound</b> of a particular type.</li>
+                        <li>Lower level <b>PreListeners</b> give access to contact information before collisions are
+                            resolved permitting case-by-case decisions on whether a collision will go ahead (One-way
+                            platforms for instance) based on contact data, as well as permitting setting precise
+                            friction and elasticity coeffecients on the contact patch.</li>
+                        <li>System is implemented so as to be super effecient without significant overhead</li>
+                    </ul>
+                </div>
+                <div class="floatright">
+                    <pre class="prettyprint.override codestyle">
+var Breakable = new CbType();
+var IgnoreThese = new CbType();
+
+constraint.cbTypes.add(Breakable);
+constraint.cbTypes.add(IgnoreThese);
+
+// Listen for 'any' constraint that does not
+// have the IgnoreThese CbType.
+var wakeListener = new ConstraintListener(
+    CbEvent.WAKE,
+    CbType.ANY_CONSTRAINT.excludes(IgnoreThese),
+    wakeHandler
+);
+wakeListener.space = space;
+
+// Listen for only those constraints having
+// the Breakable CbType.
+var breakListener = new ConstraintListener(
+    CbEvent.BREAK,
+    Breakable,
+    breakHandler
+);
+breakListener.space = space;
+                    </pre>
+                </div>
+            </div>
+
+            <hr/>
+            <h3 class="feature">Fast, Stable Geometric Utilities</h3>
+            <div class="content">
+                <div class="floatleft">
+                    <ul class="feature-list">
+                        <li>Nape's <b>GeomPoly</b> API provides the majority of such utilities with methods such as to
+                            perform <i>convex decompositions</i>: turning <i>concave</i> polygons which Nape does not
+                            support for physics, into <i>convex</i> partitions which can be used in Nape. Among other
+                            utilities, <b>GeomPoly</b> object also provides a method to <i>cut</i> a polygon into
+                            sub-polygons based on a given line segment. As well as simplification to reduce the
+                            number of vertices.</li>
+                        <li>Nape's <b>MarchingSquares</b> object provides methods to perform <i>surface extractions</i>
+                            of a scalar field into <i>weakly-simply</i> polygons that may be directly fed into the
+                            <i>convex decomposition</i> method. Perfect for converting bitmaps into polygons based on
+                            alpha tolerances or generating procedural objects with <i>Perlin Noise</i></li>
+                        <li>Nape's <b>Geom</b> object provides an interface onto Nape's collision detection routines,
+                            with methods such as to compute the signed distance between two <b>Shapes</b>.</li>
+                    </ul>
+                </div>
+                <div class="floatright">
+                    <img class="feature-image" width="350" src="assets/geomutils.png" title="Using Perlin Noise as the scalar field: (bottom-right): Marching squares, with no combining of polygons. (bottom-left): Marching squares, with polygons combined. (top-right): Bottom-left polygons are simplified, and then decomposed into convex polygons. (top-left): Botom-left polygons are decomposed directly to convex polygons." alt="[Geom Utils]"/>
+                </div>
+            </div>
+            <hr style="height: 0"/>
+        </div>
+
+        <!-- navbar -->
+        <div class="navdivider"></div>
+        <div class="navbar" id="samples">
+            <div class="item">
+                <a class="scroll" href="#about">About</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#features">Features</a>
+            </div>
+            <div class="item">
+                <a class="disabled">Samples</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#download">Download</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#documentation">Documentation</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#">Forum</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#contributors">Contributors</a>
+            </div>
+        </div>
+        <!-- /navbar -->
+
+        <div class="content">
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+        </div>
+
+        <!-- navbar -->
+        <div class="navdivider"></div>
+        <div class="navbar" id="downloads">
+            <div class="item">
+                <a class="scroll" href="#about">About</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#features">Features</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#samples">Samples</a>
+            </div>
+            <div class="item">
+                <a class="disabled">Download</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#documentation">Documentation</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#">Forum</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#contributors">Contributors</a>
+            </div>
+        </div>
+        <!-- /navbar -->
+
+        <div class="content">
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+        </div>
+
+        <!-- navbar -->
+        <div class="navdivider"></div>
+        <div class="navbar" id="documentation">
+            <div class="item">
+                <a class="scroll" href="#about">About</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#features">Features</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#samples">Samples</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#download">Download</a>
+            </div>
+            <div class="item">
+                <a class="disabled">Documentation</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#">Forum</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#contributors">Contributors</a>
+            </div>
+        </div>
+        <!-- /navbar -->
+
+        <div class="content">
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+            a<br/><br/>
+        </div>
+
+        <!-- navbar -->
+        <div class="navdivider"></div>
+        <div class="navbar" id="contributors">
+            <div class="item">
+                <a class="scroll" href="#about">About</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#features">Features</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#samples">Samples</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#download">Download</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#documentation">Documentation</a>
+            </div>
+            <div class="item">
+                <a class="scroll" href="#">Forum</a>
+            </div>
+            <div class="item">
+                <a class="disabled">Contributors</a>
+            </div>
+        </div>
+        <!-- /navbar -->
+
+        <div class="content">
+            <p>
+                Donating to Nape is a great way to help support your favourite physics library and say thank you for using it.
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=529X57YZ637LW"><img src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" alt="Donate"/></a>
+            </p>
+
+            <img width="660" height="230" src="assets/graph.png" alt="(donation graphs)"/>
+
+            <h3> Contributors: </h3>
+            <div class="contrib">Peter Achberger</div>
+
+            <div class="contrib">Benjamin Barnard</div>
+            <div class="contrib">Joey Betz</div>
+
+            <div class="contrib">Bennett Foddy</div>
+
+            <div class="contrib">Dmitry Garkavenko</div>
+            <div class="contrib">Mariel Gonzalez</div>
+
+            <div class="contrib">Colin Holgate</div>
+
+            <div class="contrib">Thibault Imbert</div>
+
+            <div class="contrib">Eugene Karataev</div>
+            <div class="contrib">Yvan Klaver</div>
+
+            <div class="contrib">LongAnimals</div>
+            <div class="contrib">Andreas Löw</div>
+
+            <div class="contrib">Charles Maragna</div>
+            <div class="contrib">Grzegorz Markowski</div>
+
+            <div class="contrib">ninjabonsai</div>
+
+            <div class="contrib">ozdy</div>
+
+            <div class="contrib">Nick Pearce</div>
+            <div class="contrib">Makeevsky Pereulok</div>
+            <div class="contrib">Pozirk Games</div>
+            <div class="contrib">Ryan Pridgeon</div>
+
+            <div class="contrib">Raul Sabirov</div>
+            <div class="contrib">Daniel Sedlacek</div>
+            <div class="contrib">Alexander Sinelnikov</div>
+            <div class="contrib">Tarwin Stroh-Spijer</div>
+
+            <div class="contrib">tAMAS Games</div>
+
+            <div class="contrib">Vortix Games Studio</div>
+
+            <div class="contrib">Michał Wróblewski</div>
+
+            <div class="contrib">Zanpo Virtual Cities</div>
+            <div class="contrib">Eugene Zavgorodniy</div>
+            <div class="contrib">Leon Qi Zhang</div>
+
+            <div class="contrib">(anonymous)</div>
+        </div>
+
+        <footer>
+            &copy; Luca Deltodesco 2012
+        </footer>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/prettify/prettify.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                prettyPrint();
+
+                $(".scroll").click(function(event){
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 300);
+                });
+            });
+        </script>
+    </div>
+    </body>
+</html>
