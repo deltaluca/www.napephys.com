@@ -109,6 +109,11 @@ strong {
     line-height: 15px;
 }
 
+.doclink {
+    text-decoration : none;
+    color: #0f50df;
+}
+
 /*  - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 .about-feature {

@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/tr/html4/frameset.dtd">
+<html>
+<head>
+    <title>Nape Physics Library</title>
+	<link href="stylesheet.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript">
+function windowTitle() {
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Overview (Nape Physics Library)";
+    }
+}
+
+function show(name) {
+    var link = document.getElementById(name+"link");
+    link.href = "javascript:hide(\""+name+"\")";
+    var img = link.children[0];
+    img.alt = "-";
+    img.src = "images/hide.png";
+}
+
+function hide(name) {
+    var div = document.getElementById(name);
+    div.innerHTML = '';
+    var link = document.getElementById(name+"link");
+    link.href = "javascript:show"+name+"()";
+    var img = link.children[0];
+    img.alt = "+";
+    img.src = "images/show.png";
+}
+function shownape() {
+    var div = document.getElementById("nape");
+    var html = '';
+    html += '<li class="alias"><a href="types/nape/ARRAY.html" title="ARRAY">ARRAY</a></li>';
+    div.innerHTML = html;
+    show("nape");
+}
+function shownape__callbacks() {
+    var div = document.getElementById("nape__callbacks");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/callbacks/BodyCallback.html" title="BodyCallback">BodyCallback</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/BodyListener.html" title="BodyListener">BodyListener</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/Callback.html" title="Callback">Callback</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/CbEvent.html" title="CbEvent">CbEvent</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/CbType.html" title="CbType">CbType</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/CbTypeIterator.html" title="CbTypeIterator">CbTypeIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/CbTypeList.html" title="CbTypeList">CbTypeList</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/ConstraintCallback.html" title="ConstraintCallback">ConstraintCallback</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/ConstraintListener.html" title="ConstraintListener">ConstraintListener</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/InteractionCallback.html" title="InteractionCallback">InteractionCallback</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/InteractionListener.html" title="InteractionListener">InteractionListener</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/InteractionType.html" title="InteractionType">InteractionType</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/Listener.html" title="Listener">Listener</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/ListenerIterator.html" title="ListenerIterator">ListenerIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/ListenerList.html" title="ListenerList">ListenerList</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/ListenerType.html" title="ListenerType">ListenerType</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/OptionType.html" title="OptionType">OptionType</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/PreCallback.html" title="PreCallback">PreCallback</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/PreFlag.html" title="PreFlag">PreFlag</a></li>';
+    html += '<li class="class"><a href="types/nape/callbacks/PreListener.html" title="PreListener">PreListener</a></li>';
+    div.innerHTML = html;
+    show("nape__callbacks");
+}
+function shownape__constraint() {
+    var div = document.getElementById("nape__constraint");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/constraint/AngleJoint.html" title="AngleJoint">AngleJoint</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/Constraint.html" title="Constraint">Constraint</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/ConstraintIterator.html" title="ConstraintIterator">ConstraintIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/ConstraintList.html" title="ConstraintList">ConstraintList</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/DistanceJoint.html" title="DistanceJoint">DistanceJoint</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/LineJoint.html" title="LineJoint">LineJoint</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/MotorJoint.html" title="MotorJoint">MotorJoint</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/PivotJoint.html" title="PivotJoint">PivotJoint</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/UserConstraint.html" title="UserConstraint">UserConstraint</a></li>';
+    html += '<li class="class"><a href="types/nape/constraint/WeldJoint.html" title="WeldJoint">WeldJoint</a></li>';
+    div.innerHTML = html;
+    show("nape__constraint");
+}
+function shownape__dynamics() {
+    var div = document.getElementById("nape__dynamics");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/dynamics/Arbiter.html" title="Arbiter">Arbiter</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/ArbiterIterator.html" title="ArbiterIterator">ArbiterIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/ArbiterList.html" title="ArbiterList">ArbiterList</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/ArbiterType.html" title="ArbiterType">ArbiterType</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/CollisionArbiter.html" title="CollisionArbiter">CollisionArbiter</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/Contact.html" title="Contact">Contact</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/ContactIterator.html" title="ContactIterator">ContactIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/ContactList.html" title="ContactList">ContactList</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/FluidArbiter.html" title="FluidArbiter">FluidArbiter</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/InteractionFilter.html" title="InteractionFilter">InteractionFilter</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/InteractionGroup.html" title="InteractionGroup">InteractionGroup</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/InteractionGroupIterator.html" title="InteractionGroupIterator">InteractionGroupIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/dynamics/InteractionGroupList.html" title="InteractionGroupList">InteractionGroupList</a></li>';
+    div.innerHTML = html;
+    show("nape__dynamics");
+}
+function shownape__geom() {
+    var div = document.getElementById("nape__geom");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/geom/AABB.html" title="AABB">AABB</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/ConvexResult.html" title="ConvexResult">ConvexResult</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/ConvexResultIterator.html" title="ConvexResultIterator">ConvexResultIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/ConvexResultList.html" title="ConvexResultList">ConvexResultList</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Geom.html" title="Geom">Geom</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/GeomPoly.html" title="GeomPoly">GeomPoly</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/GeomPolyIterator.html" title="GeomPolyIterator">GeomPolyIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/GeomPolyList.html" title="GeomPolyList">GeomPolyList</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/GeomVertexIterator.html" title="GeomVertexIterator">GeomVertexIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/MarchingSquares.html" title="MarchingSquares">MarchingSquares</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Mat23.html" title="Mat23">Mat23</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/MatMN.html" title="MatMN">MatMN</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Ray.html" title="Ray">Ray</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/RayResult.html" title="RayResult">RayResult</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/RayResultIterator.html" title="RayResultIterator">RayResultIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/RayResultList.html" title="RayResultList">RayResultList</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Vec2.html" title="Vec2">Vec2</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Vec2Iterator.html" title="Vec2Iterator">Vec2Iterator</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Vec2List.html" title="Vec2List">Vec2List</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Vec3.html" title="Vec3">Vec3</a></li>';
+    html += '<li class="class"><a href="types/nape/geom/Winding.html" title="Winding">Winding</a></li>';
+    div.innerHTML = html;
+    show("nape__geom");
+}
+function shownape__hacks() {
+    var div = document.getElementById("nape__hacks");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/hacks/ForcedSleep.html" title="ForcedSleep">ForcedSleep</a></li>';
+    div.innerHTML = html;
+    show("nape__hacks");
+}
+function shownape__phys() {
+    var div = document.getElementById("nape__phys");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/phys/Body.html" title="Body">Body</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/BodyIterator.html" title="BodyIterator">BodyIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/BodyList.html" title="BodyList">BodyList</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/BodyType.html" title="BodyType">BodyType</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/Compound.html" title="Compound">Compound</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/CompoundIterator.html" title="CompoundIterator">CompoundIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/CompoundList.html" title="CompoundList">CompoundList</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/FluidProperties.html" title="FluidProperties">FluidProperties</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/GravMassMode.html" title="GravMassMode">GravMassMode</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/InertiaMode.html" title="InertiaMode">InertiaMode</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/Interactor.html" title="Interactor">Interactor</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/InteractorIterator.html" title="InteractorIterator">InteractorIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/InteractorList.html" title="InteractorList">InteractorList</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/MassMode.html" title="MassMode">MassMode</a></li>';
+    html += '<li class="class"><a href="types/nape/phys/Material.html" title="Material">Material</a></li>';
+    div.innerHTML = html;
+    show("nape__phys");
+}
+function shownape__shape() {
+    var div = document.getElementById("nape__shape");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/shape/Circle.html" title="Circle">Circle</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/Edge.html" title="Edge">Edge</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/EdgeIterator.html" title="EdgeIterator">EdgeIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/EdgeList.html" title="EdgeList">EdgeList</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/Polygon.html" title="Polygon">Polygon</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/Shape.html" title="Shape">Shape</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/ShapeIterator.html" title="ShapeIterator">ShapeIterator</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/ShapeList.html" title="ShapeList">ShapeList</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/ShapeType.html" title="ShapeType">ShapeType</a></li>';
+    html += '<li class="class"><a href="types/nape/shape/ValidationResult.html" title="ValidationResult">ValidationResult</a></li>';
+    div.innerHTML = html;
+    show("nape__shape");
+}
+function shownape__space() {
+    var div = document.getElementById("nape__space");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/space/Broadphase.html" title="Broadphase">Broadphase</a></li>';
+    html += '<li class="class"><a href="types/nape/space/Space.html" title="Space">Space</a></li>';
+    div.innerHTML = html;
+    show("nape__space");
+}
+function shownape__symbolic() {
+    var div = document.getElementById("nape__symbolic");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/symbolic/SymbolicConstraint.html" title="SymbolicConstraint">SymbolicConstraint</a></li>';
+    div.innerHTML = html;
+    show("nape__symbolic");
+}
+function shownape__util() {
+    var div = document.getElementById("nape__util");
+    var html = '';
+    html += '<li class="class"><a href="types/nape/util/BitmapDebug.html" title="BitmapDebug">BitmapDebug</a></li>';
+    html += '<li class="class"><a href="types/nape/util/Debug.html" title="Debug">Debug</a></li>';
+    html += '<li class="class"><a href="types/nape/util/ShapeDebug.html" title="ShapeDebug">ShapeDebug</a></li>';
+    div.innerHTML = html;
+    show("nape__util");
+}
+
+</script>
+
+<noscript></noscript>
+</head>
+<body onload="windowTitle();">
+
+<script type="text/javascript" language="javascript" src="chxdoc.js"></script>
+
+<div class="tdoc">
+    <div class="tdoctitle">
+        <h1 class="null">Overview</h1>
+    </div>
+    <div class="tdoclink">
+        <a href="#top">Top</a>
+        | <a href="#mod-nape">nape</a>
+        | <a href="#mod-nape-hacks">nape-hacks</a>
+        | <a href="#mod-nape-symbolic">nape-symbolic</a>
+    </div>
+</div>
+
+<div class="tmenu" id="menu">
+<ul class="types">
+    <li class="overview">
+        <a href="index.html" title="Overview">&nbsp;&nbsp;Overview</a>
+    </li>
+    <li class="pckg">
+        <a href="javascript:shownape()" class="expand" id="napelink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape
+    </li>
+    <div class="pckgtypes" id="nape">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__callbacks()" class="expand" id="nape__callbackslink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.callbacks
+    </li>
+    <div class="pckgtypes" id="nape__callbacks">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__constraint()" class="expand" id="nape__constraintlink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.constraint
+    </li>
+    <div class="pckgtypes" id="nape__constraint">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__dynamics()" class="expand" id="nape__dynamicslink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.dynamics
+    </li>
+    <div class="pckgtypes" id="nape__dynamics">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__geom()" class="expand" id="nape__geomlink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.geom
+    </li>
+    <div class="pckgtypes" id="nape__geom">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__hacks()" class="expand" id="nape__hackslink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.hacks
+    </li>
+    <div class="pckgtypes" id="nape__hacks">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__phys()" class="expand" id="nape__physlink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.phys
+    </li>
+    <div class="pckgtypes" id="nape__phys">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__shape()" class="expand" id="nape__shapelink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.shape
+    </li>
+    <div class="pckgtypes" id="nape__shape">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__space()" class="expand" id="nape__spacelink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.space
+    </li>
+    <div class="pckgtypes" id="nape__space">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__symbolic()" class="expand" id="nape__symboliclink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.symbolic
+    </li>
+    <div class="pckgtypes" id="nape__symbolic">
+    </div>
+    <li class="pckg">
+        <a href="javascript:shownape__util()" class="expand" id="nape__utillink">
+            <img class="descript" alt="+" src="images/show.png"/>
+        </a>
+        nape.util
+    </li>
+    <div class="pckgtypes" id="nape__util">
+    </div>
+</ul>
+</div>
+
+<div class="gdoc" id="main">
+<a name="top"></a>
+	<div class="type-frame" id="class-frame">
+    <h1>API Documentation for Nape Physics Library</h1>
+    <a name="mod-nape"></a><div class="module">
+        <dl>
+            <dt>module</dt>
+            <dd>nape</dd>
+            <dt>dependencies</dt>
+            <dd>None</dd>
+        </dl>
+        Base library of Nape, including everything required for a simulation together with geometric utilities
+        and debug drawing.
+        <br/><br/>
+        Various constraints included with the UserConstraint API for hand-written custom constraints.
+        <br/><br/>
+        UML Diagram of relationships between Nape classes in the core library:
+        <br/><br/>
+        <img src="images/structure.png"/>
+    </div>
+    <br/><br/>
+    <a name="mod-nape-hacks"></a><div class="module">
+        <dl>
+            <dt>module</dt>
+            <dd>nape-hacks</dd>
+            <dt>dependencies</dt>
+            <dd>nape</dd>
+        </dl>
+        nape-hacks provides additional methods permitting manual sleeping of objects in a Space as well as
+        addition of already sleeping objects to a Space.
+        <br/><br/>
+        This is not included in the core library as it goes against the mantra of Nape where sleeping is
+        something that is handled completely by Nape with no user input necessary.
+        <br/><br/>
+        See: <a href="types/nape/hacks/ForcedSleep.html">ForcedSleep</a>
+    </div>
+    <br/><br/>
+    <a name="mod-nape-symbolic"></a><div class="module">
+        <dl>
+            <dt>module</dt>
+            <dd>nape-symbolic</dd>
+            <dt>dependencies</dt>
+            <dd>nape, parsex (Haxe only)</dd>
+        </dl>
+        nape-symbolic provides an additional constraint type built ontop of the UserConstraint API.
+        This constraint takes as input a single String written in a light weight DSL permitting rapid
+        prototyping of complex custom constraints which may be used, or further transformed by hand
+        into a hand-optimised UserConstraint.
+        <br/><br/>
+        See: <a href="types/nape/symbolic/SymbolicConstraint.html">SymbolicConstraint</a>
+    </div>
+    </div>
+    <br/>
+</div>
+<script type="text/javascript">window.onresize();</script>
+</body>
+</html>

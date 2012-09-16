@@ -142,15 +142,16 @@ body.velocity.x += 100;
             <div class="content">
                 <div class="floatleft">
                     <ul class="feature-list">
-                        <li>Compound rigid <b>Body</b>'s formed of <b>Circle</b> and convex <b>Polygon</b> shape
+                        <li>Compound rigid <b class="doc">Body</b>'s formed of <b class="doc">Circle</b>
+                            and convex <b class="doc">Polygon</b> shape
                             primitives. Polygons can be given in any winding.</li>
                         <li>Stable and accurate collisions with block solving of contact patches.</li>
                         <li>Elastic collisions with <i>static</i>, <i>dynamic</i> and <i>rolling</i> frictions
-                            controlled by <b>Material</b> objects assigned to <b>Shapes</b>.</li>
+                            controlled by <b class="doc">Material</b> objects assigned to <b class="doc">Shapes</b>.</li>
                         <li><i>Continuous Collision Detection</i> (CCD) to avoid tunneling at high speeds. Enabled always
                             for <i>static</i> and <i>kinematic</i> collisions and sensors, and on demand for
                             <i>dynamic</i>&lt;-&gt;<i>dynamic</i> collisions and sensors by setting <i>isBullet</i>
-                            property on <b>Body</b>.</li>
+                            property on <b class="doc">Body</b>.</li>
                         <li>And lots more!</li>
                     </ul>
                 </div>
@@ -164,14 +165,14 @@ body.velocity.x += 100;
             <div class="content">
                 <div class="floatleft">
                     <ul class="feature-list">
-                        <li>In Nape, you will never (*) need to manually wake up a <b>Body</b>, or call any method that
+                        <li>In Nape, you will never (*) need to manually wake up a <b class="doc">Body</b>, or call any method that
                             recomputes certain values at any time. Everything is handled completely by Nape, and
                             is done lazily.</li>
                         <li>However, I understand that sometimes... you <i>really</i> want to be able to
                             manually force something to go to sleep. And this is provided for those who require
-                            it by the <b>nape-hacks</b> module's <b>ForcedSleep</b> object.
+                            it by the <b class="doc">nape-hacks</b> module's <b class="doc">ForcedSleep</b> object.
                     </ul>
-                    <h6><i>(*) The only time you will ever need to manually wake up a <b>Body</b>, is if you yourself
+                    <h6><i>(*) The only time you will ever need to manually wake up a <b class="doc">Body</b>, is if you yourself
                        manually forced it to sleep</i></h6>
                 </div>
             </div>
@@ -181,9 +182,9 @@ body.velocity.x += 100;
             <div class="content">
                 <div class="floatleft">
                     <ul class="feature-list">
-                        <li>Rigid body <b>Shapes</b> marked as <i>fluidEnabled</i> are able to interact with buoyancy and
+                        <li>Rigid body <b class="doc">Shapes</b> marked as <i>fluidEnabled</i> are able to interact with buoyancy and
                             fluid drag in place of standard collisions.</li>
-                        <li>Fluid enabled <b>Shapes</b> can belong to any <b>Body</b>, even <i>dynamic</i> ones
+                        <li>Fluid enabled <b class="doc">Shapes</b> can belong to any <b class="doc">Body</b>, even <i>dynamic</i> ones
                             permitting fun, crazy game mechanics and flexibility.</li>
                         <li>Fluid buoyancy computed <i>accurately</i>, with fluid drag effected by shape profiles (An arrow
                             pointing forwards moves through fluid easier than against its direction).</li>
@@ -199,9 +200,10 @@ body.velocity.x += 100;
             <div class="content">
                 <div class="floatleft">
                     <ul class="feature-list">
-                        <li>Many in-built <b>Constraint</b> types: <b>PivotJoint</b>, <b>DistanceJoint</b>, <b>AngleJoint</b>,
-                            <b>MotorJoint</b>, <b>LineJoint</b>, <b>WeldJoint</b>. All in-built constraints are
-                            single-purpose and designed to be composed.</li>
+                        <li>Many in-built <b class="doc">Constraint</b> types: <b class="doc">PivotJoint</b>,
+                            <b class="doc">DistanceJoint</b>, <b class="doc">AngleJoint</b>,
+                            <b class="doc">MotorJoint</b>, <b class="doc">LineJoint</b>, <b class="doc">WeldJoint</b>.
+                            All in-built constraints are single-purpose and designed to be composed.</li>
                         <li>All constraints can be made <i>stiff</i> or <i>elastic</i> with parameters to control
                             frequency and damping of elastic constraints. (*Excludes velocity only constraints like
                             MotorJoint as there is no concept of elasticity or stiffness).</li>
@@ -209,10 +211,11 @@ body.velocity.x += 100;
                             a constraint is broken, or in the case of <i>elastic</i> constraints, control how much force
                             is permitted to be used to try and solve the constraint, and how much positional error should
                             be resolved per second.</li>
-                        <li><b>UserConstraint</b> API providing higher-level access to creating custom constraints.
-                            <b>UserConstraints</b> can still be made stiff or elastic, with all above mentioned features
+                        <li><b class="doc">UserConstraint</b> API providing higher-level access to creating custom constraints.
+                            <b class="doc">UserConstraints</b> can still be made stiff or elastic, with all above mentioned features
                             present with no user effort.</li>
-                        <li>Through use of the <b>nape-symbolic</b> module, make use of the <b>SymbolicConstraint</b> API
+                        <li>Through use of the <b class="doc">nape-symbolic</b> module, make use of the
+                            <b class="doc">SymbolicConstraint</b> API
                             using a high-level DSL (<i>Domain Specific Language</i>) to easily, and rapidly prototype new
                             constraints.</li>
                     </ul>
@@ -229,17 +232,17 @@ body.velocity.x += 100;
             <div class="content">
                 <div class="floatleft">
                     <ul class="feature-list">
-                        <li>Callback system operates on-top of <b>CbType</b>'s which are assigned to <b>Shapes</b>,
-                            <b>Bodies</b>, <b>Compounds</b> and <b>Constraints</b>, and <b>Listeners</b> that listen
-                            over inclusion/exclusion sets of <b>CbTypes</b>.</li>
-                        <li>Callback system is highly modular, objects can be given as many <b>CbTypes</b> as you wish
+                        <li>Callback system operates on-top of <b class="doc">CbType</b>'s which are assigned to <b class="doc">Shapes</b>,
+                            <b class="doc">Bodies</b>, <b class="doc">Compounds</b> and <b class="doc">Constraints</b>, and <b class="doc">Listeners</b> that listen
+                            over inclusion/exclusion sets of <b class="doc">CbTypes</b>.</li>
+                        <li>Callback system is highly modular, objects can be given as many <b class="doc">CbTypes</b> as you wish
                             to add behaviour to the simulation at any time in development without modifying lots of
                             other code.</li>
-                        <li>Interaction type callbacks operate between pairs of objects, whether they be <b>Shapes</b>
-                            <b>Bodies</b> or <b>Compounds</b>. Events may be raised based on the <b>CbTypes</b> so that
-                            a single callback occurs when a <b>Body</b> of a particular type collides for the first time
-                            with a <b>Compound</b> of a particular type.</li>
-                        <li>Lower level <b>PreListeners</b> give access to contact information before collisions are
+                        <li>Interaction type callbacks operate between pairs of objects, whether they be <b class="doc">Shapes</b>
+                            <b class="doc">Bodies</b> or <b class="doc">Compounds</b>. Events may be raised based on the <b class="doc">CbTypes</b> so that
+                            a single callback occurs when a <b class="doc">Body</b> of a particular type collides for the first time
+                            with a <b class="doc">Compound</b> of a particular type.</li>
+                        <li>Lower level <b class="doc">PreListeners</b> give access to contact information before collisions are
                             resolved permitting case-by-case decisions on whether a collision will go ahead (One-way
                             platforms for instance) based on contact data, as well as permitting setting precise
                             friction and elasticity coeffecients on the contact patch.</li>
@@ -280,18 +283,18 @@ breakListener.space = space;
             <div class="content">
                 <div class="floatleft">
                     <ul class="feature-list">
-                        <li>Nape's <b>GeomPoly</b> API provides the majority of such utilities with methods such as to
+                        <li>Nape's <b class="doc">GeomPoly</b> API provides the majority of such utilities with methods such as to
                             perform <i>convex decompositions</i>: turning <i>concave</i> polygons which Nape does not
                             support for physics, into <i>convex</i> partitions which can be used in Nape. Among other
-                            utilities, <b>GeomPoly</b> object also provides a method to <i>cut</i> a polygon into
+                            utilities, <b class="doc">GeomPoly</b> object also provides a method to <i>cut</i> a polygon into
                             sub-polygons based on a given line segment. As well as simplification to reduce the
                             number of vertices.</li>
-                        <li>Nape's <b>MarchingSquares</b> object provides methods to perform <i>surface extractions</i>
+                        <li>Nape's <b class="doc">MarchingSquares</b> object provides methods to perform <i>surface extractions</i>
                             of a scalar field into <i>weakly-simply</i> polygons that may be directly fed into the
                             <i>convex decomposition</i> method. Perfect for converting bitmaps into polygons based on
                             alpha tolerances or generating procedural objects with <i>Perlin Noise</i></li>
-                        <li>Nape's <b>Geom</b> object provides an interface onto Nape's collision detection routines,
-                            with methods such as to compute the signed distance between two <b>Shapes</b>.</li>
+                        <li>Nape's <b class="doc">Geom</b> object provides an interface onto Nape's collision detection routines,
+                            with methods such as to compute the signed distance between two <b class="doc">Shapes</b>.</li>
                     </ul>
                 </div>
                 <div class="floatright">
@@ -480,7 +483,7 @@ breakListener.space = space;
                 Donating to Nape is a great way to help support your favourite physics library and say thank you for using it.
                 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=529X57YZ637LW"><img src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" alt="Donate"/></a>
             </p>
-
+            <b class="doc lol">h</b>
             <img width="660" height="230" src="assets/graph.png" alt="(donation graphs)"/>
 
             <h3> Contributors: </h3>
@@ -540,14 +543,17 @@ breakListener.space = space;
 
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/prettify/prettify.js"></script>
+        <script src="assets/js/doclinks.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-
-                prettyPrint();
 
                 $(".scroll").click(function(event){
                     $('html,body').animate({scrollTop:$(this.hash).offset().top}, 300);
                 });
+
+                prettyPrint();
+
+                applyDocLinks();
             });
         </script>
     </div>
