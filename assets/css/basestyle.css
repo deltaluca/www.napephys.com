@@ -108,9 +108,9 @@ strong {
 }
 .codestyle {
     text-align: left;
-    font-family: "Courier New", Monospace;
-    font-size: 12px;
-    line-height: 14px;
+    font-family: "Consolas", "Droid Sans Mono", "DejaVu Sans Mono", Monospace;
+    font-size: 11px;
+    line-height: 13px;
 }
 .doclink {
     text-decoration : none;

@@ -24,6 +24,7 @@ typedef TemplateParams = {
     ?broadphase : Broadphase,
     ?noSpace : Bool,
     ?noHand : Bool,
+    ?generator : Vec2->Void,
     ?variableStep : Bool
 };
 
@@ -41,6 +42,7 @@ class Template extends Sprite {
     var baseMemory:Float;
 
     var params:TemplateParams;
+    var useHand:Bool;
     function new(params:TemplateParams) {
         baseMemory = System.totalMemoryNumber;
         super();
@@ -62,15 +64,15 @@ class Template extends Sprite {
         if (params.noSpace == null || !params.noSpace) {
             space = new Space(params.gravity, params.broadphase);
 
-            if (params.noHand == null || !params.noHand) {
+            if (useHand = (params.noHand == null || !params.noHand)) {
                 hand = new PivotJoint(space.world, null, Vec2.weak(), Vec2.weak());
                 hand.active = false;
                 hand.stiff = false;
                 hand.maxForce = 5e4;
                 hand.space = space;
-                stage.addEventListener(MouseEvent.MOUSE_DOWN, handMouseDown);
                 stage.addEventListener(MouseEvent.MOUSE_UP, handMouseUp);
             }
+            stage.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
         }
 
         stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
@@ -133,14 +135,27 @@ class Template extends Sprite {
         }
     }
 
-    function handMouseDown(_) {
+    function mouseDown(_) {
         var mp = Vec2.get(mouseX, mouseY);
-        for (body in space.bodiesUnderPoint(mp)) {
-            if (body.isDynamic()) {
-                hand.body2 = body;
-                hand.anchor2 = body.worldPointToLocal(mp, true);
-                hand.active = true;
-                break;
+        if (useHand) {
+            for (body in space.bodiesUnderPoint(mp)) {
+                if (body.isDynamic()) {
+                    hand.body2 = body;
+                    hand.anchor2 = body.worldPointToLocal(mp, true);
+                    hand.active = true;
+                    break;
+                }
+            }
+
+            if (!hand.active) {
+                if (params.generator != null) {
+                    params.generator(mp);
+                }
+            }
+        }
+        else {
+            if (params.generator != null) {
+                params.generator(mp);
             }
         }
         mp.dispose();
