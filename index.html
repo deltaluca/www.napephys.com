@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="description" content="Nape is an open source physics library for Haxe and ActionScript3."/>
-        <meta name="keywords" content="Nape,Physics,Haxe,AS3,Flash,Constraint,Rigid,Body,Shape,"/>
-        <meta name="author" content="Luca Deltodesco"/>
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+        <meta name="description" section-content="Nape is an open source physics library for Haxe and ActionScript3."/>
+        <meta name="keywords" section-content="Nape,Physics,Haxe,AS3,Flash,Constraint,Rigid,Body,Shape,"/>
+        <meta name="author" section-content="Luca Deltodesco"/>
+        <meta charset="UTF-8"/>
 
         <title>Nape Physics</title>
 
@@ -18,36 +18,34 @@
     <div class="container">
         <div class="title" id="about"></div>
 
-        <!-- navbar -->
-        <div class="navbar">
-            <div class="item">
-                <a class="disabled">About</a>
+        <!-- nav-bar -->
+        <div class="nav-bar">
+            <div class="nav-item">
+                <a class="nav-disabled">About</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#features">Features</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#features">Features</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#samples">Samples</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#samples">Samples</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#download">Download</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#download">Download</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#documentation">Documentation</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#documentation">Documentation</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#">Forum</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#">Forum</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#contributors">Contributors</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#contributors">Contributors</a>
             </div>
         </div>
-        <!-- /navbar -->
-
-        <div class="content">
-
+        <!-- /nav-bar -->
+        <div class="section-content">
             <h3 class="about-feature">Cross Platform</h3>
-            <div class="content">
+            <div class="section-content">
                 <img class="about-logo" src="assets/haxe.png" alt="Haxe logo"/>
                 <img class="about-logo" src="assets/as3.png" alt=".swc icon"/>
                 <p>
@@ -59,7 +57,7 @@
 
             <hr/>
             <h3 class="about-feature">Fast</h3>
-            <div class="content">
+            <div class="section-content">
                 <p>
                     <b>Nape</b> is <b><strong>fast</strong></b>. Significantly faster than both <b>Box2DAS3</b> and
                     <b>Box2DAlchemy</b>, it is also very memory concious: leaving flat memory graphs in its wake
@@ -74,12 +72,12 @@
 
             <hr/>
             <h3 class="about-feature">Friendly API</h3>
-            <div class="content">
+            <div class="section-content">
                 <p>
                     <b>Nape</b>'s API is very flexible and concise, permitting a wide array of manipulations to
                     be made which are handled seamlessly in a lazy system for best performance.
                 </p>
-                <pre class="prettyprint.override codestyle">
+                <pre class="prettyprint standard codestyle">
 // Example creating a Box rigid body and adding to a newly created space.
 // No utility methods beyond Polygon.box are used, this is as verbose as we can get.
 var space = new Space();
@@ -91,13 +89,15 @@ boxBody.space = space;
 body.velocity.x += 100;
                 </pre>
                 <p>
-                    <b>Nape</b> uses SI units; but with <i>metres</i> replaced by... <b>pixels</b>! It is my belief - and few have argued otherwise - that <i>pixels</i> is always the most natural unit to use in 2D games, and by extension for 2D physics.
+                    <b>Nape</b> uses SI units; but with <i>metres</i> replaced by... <b>pixels</b>! It is
+                    mybelief - and few have argued otherwise - that <i>pixels</i> is always the most natural
+                    unit to use in 2D games, and by extension for 2D physics.
                 </p>
             </div>
 
             <hr/>
             <h3 class="about-feature">Checked API</h3>
-            <div class="content">
+            <div class="section-content">
                 <p>
                     <b>Nape</b> is built in two distinct modes, in the <b>development</b> mode, the Nape API
                     will actively check that you are using it correctly, and inform you when you are misusing
@@ -115,38 +115,38 @@ body.velocity.x += 100;
             </div>
         </div>
 
-        <!-- navbar -->
-        <div class="navdivider"></div>
-        <div class="navbar" id="features">
-            <div class="item">
-                <a class="scroll" href="#about">About</a>
+        <!-- nav-bar -->
+        <div class="nav-divider"></div>
+        <div class="nav-bar" id="features">
+            <div class="nav-item">
+                <a class="nav-scroll" href="#about">About</a>
             </div>
-            <div class="item">
-                <a class="disabled">Features</a>
+            <div class="nav-item">
+                <a class="nav-disabled">Features</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#samples">Samples</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#samples">Samples</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#download">Download</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#download">Download</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#documentation">Documentation</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#documentation">Documentation</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#">Forum</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#">Forum</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#contributors">Contributors</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#contributors">Contributors</a>
             </div>
         </div>
-        <!-- /navbar -->
-
-        <div class="content">
-
-            <h3 class="feature">Rigid Bodies</h3>
-            <div class="content">
-                <div class="floatleft">
+        <!-- /nav-bar -->
+        <div class="section-content">
+            <h3 class="about-feature">Rigid Bodies</h3>
+            <div class="section-content">
+            <table class="feature-table">
+            <tr>
+                <td class="feature-left">
                     <ul class="feature-list">
                         <li>Compound rigid <b class="doc">Body</b>'s formed of <b class="doc">Circle</b>
                             and convex <b class="doc">Polygon</b> shape
@@ -160,16 +160,21 @@ body.velocity.x += 100;
                             property on <b class="doc">Body</b>.</li>
                         <li>And lots more!</li>
                     </ul>
-                </div>
-                <div class="floatright">
+                </td>
+                <td class="feature-spacer"></td>
+                <td class="feature-right">
                     <img class="feature-image" width="300" src="assets/pyramid.png" title="Large box pyramid" alt="[Pyramid Sample]"/>
-                </div>
+                </td>
+            </tr>
+            </table>
             </div>
 
             <hr/>
-            <h3 class="feature" style="text-decoration:line-through">body.wake();</h3>
-            <div class="content">
-                <div class="floatleft">
+            <h3 class="about-feature" style="text-decoration:line-through">body.wake()</h3>
+            <div class="section-content">
+            <table class="feature-table">
+            <tr>
+                <td class="feature-left">
                     <ul class="feature-list">
                         <li>In Nape, you will never (*) need to manually wake up a <b class="doc">Body</b>, or call any method that
                             recomputes certain values at any time. Everything is handled completely by Nape, and
@@ -180,13 +185,20 @@ body.velocity.x += 100;
                     </ul>
                     <h6><i>(*) The only time you will ever need to manually wake up a <b class="doc">Body</b>, is if you yourself
                        manually forced it to sleep</i></h6>
-                </div>
+                </td>
+                <td class="feature-spacer"></td>
+                <td class="feature-right">
+                </td>
+            </tr>
+            </table>
             </div>
 
             <hr/>
-            <h3 class="feature">Buoyancy</h3>
-            <div class="content">
-                <div class="floatleft">
+            <h3 class="about-feature">Buoyancy</h3>
+            <div class="section-content">
+            <table class="feature-table">
+            <tr>
+                <td class="feature-left">
                     <ul class="feature-list">
                         <li>Rigid body <b class="doc">Shapes</b> marked as <i>fluidEnabled</i> are able to interact with buoyancy and
                             fluid drag in place of standard collisions.</li>
@@ -195,17 +207,21 @@ body.velocity.x += 100;
                         <li>Fluid buoyancy computed <i>accurately</i>, with fluid drag effected by shape profiles (An arrow
                             pointing forwards moves through fluid easier than against its direction).</li>
                     </ul>
-                </div>
-                <div class="floatright">
+                </td>
+                <td class="feature-spacer"></td>
+                <td class="feature-right">
                     <img class="feature-image" width="350" src="assets/buoyancy.png" title="Dynamic bodies of rigid fluid interacting with lots of circles on a sine-wave terrain built using geometric utilities. Centre of buoyancy and buoyancy impulse rendered." alt="[Buoyancy Sample]"/>
-                </div>
+                </td>
+            </tr>
+            </table>
             </div>
 
             <hr/>
-            <h3 class="feature">Constraints</h3>
-            <div class="content">
-                <div class="floatleft">
-                    <ul class="feature-list">
+            <h3 class="about-feature">Constraints</h3>
+            <div class="section-content">
+            <table class="feature-table">
+            <tr>
+                <td class="feature-left">
                         <li>Many in-built <b class="doc">Constraint</b> types: <b class="doc">PivotJoint</b>,
                             <b class="doc">DistanceJoint</b>, <b class="doc">AngleJoint</b>,
                             <b class="doc">MotorJoint</b>, <b class="doc">LineJoint</b>, <b class="doc">WeldJoint</b>.
@@ -225,18 +241,23 @@ body.velocity.x += 100;
                             using a high-level DSL (<i>Domain Specific Language</i>) to easily, and rapidly prototype new
                             constraints.</li>
                     </ul>
-                </div>
-                <div class="floatright">
+                </td>
+                <td class="feature-spacer"></td>
+                <td class="feature-right">
                     <img class="feature-image" width="350" src="assets/constraints_walker.png" title="Theo Jansen Walker. Built using a MotorConstraint, PivotJoints and DistanceJoints" alt="[Theo Jansen Walker]"/>
                     <div style="height: 35px; display: inline-block"></div>
                     <img class="feature-image" width="350" src="assets/constraints_bridge.png" title="Bridge built with PivotJoints. Circles hung by elastic DistanceJoint, with diamond attached using LineJoints" alt="[Bridge Sample]"/>
-                </div>
+                </td>
+            </tr>
+            </table>
             </div>
 
             <hr/>
-            <h3 class="feature">High Level Callbacks</h3>
-            <div class="content">
-                <div class="floatleft">
+            <h3 class="about-feature">High Level Callbacks</h3>
+            <div class="section-content">
+            <table class="feature-table">
+            <tr>
+                <td class="feature-left">
                     <ul class="feature-list">
                         <li>Callback system operates on-top of <b class="doc">CbType</b>'s which are assigned to <b class="doc">Shapes</b>,
                             <b class="doc">Bodies</b>, <b class="doc">Compounds</b> and <b class="doc">Constraints</b>, and <b class="doc">Listeners</b> that listen
@@ -254,9 +275,10 @@ body.velocity.x += 100;
                             friction and elasticity coeffecients on the contact patch.</li>
                         <li>System is implemented so as to be super effecient without significant overhead</li>
                     </ul>
-                </div>
-                <div class="floatright">
-                    <pre class="prettyprint.override codestyle">
+                </td>
+                <td class="feature-spacer"></td>
+                <td class="feature-right">
+                    <pre class="prettyprint standard codestyle">
 var Breakable = new CbType();
 var IgnoreThese = new CbType();
 
@@ -281,13 +303,17 @@ var breakListener = new ConstraintListener(
 );
 breakListener.space = space;
                     </pre>
-                </div>
+                </td>
+            </tr>
+            </table>
             </div>
 
             <hr/>
-            <h3 class="feature">Fast, Stable Geometric Utilities</h3>
-            <div class="content">
-                <div class="floatleft">
+            <h3 class="about-feature">Fast, Stable Geometric Utilities</h3>
+            <div class="section-content">
+            <table class="feature-table">
+            <tr>
+                <td class="feature-left">
                     <ul class="feature-list">
                         <li>Nape's <b class="doc">GeomPoly</b> API provides the majority of such utilities with methods such as to
                             perform <i>convex decompositions</i>: turning <i>concave</i> polygons which Nape does not
@@ -302,191 +328,158 @@ breakListener.space = space;
                         <li>Nape's <b class="doc">Geom</b> object provides an interface onto Nape's collision detection routines,
                             with methods such as to compute the signed distance between two <b class="doc">Shapes</b>.</li>
                     </ul>
-                </div>
-                <div class="floatright">
+                </td>
+                <td class="feature-spacer"></td>
+                <td class="feature-right">
                     <img class="feature-image" width="350" src="assets/geomutils.png" title="Using Perlin Noise as the scalar field: (bottom-right): Marching squares, with no combining of polygons. (bottom-left): Marching squares, with polygons combined. (top-right): Bottom-left polygons are simplified, and then decomposed into convex polygons. (top-left): Botom-left polygons are decomposed directly to convex polygons." alt="[Geom Utils]"/>
+                </td>
+            </tr>
+            </table>
+            </div>
+        </div>
+
+        <!-- nav-bar -->
+        <div class="nav-divider"></div>
+        <div class="nav-bar" id="samples">
+            <div class="nav-item">
+                <a class="nav-scroll" href="#about">About</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#features">Features</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-disabled">Samples</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#download">Download</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#documentation">Documentation</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#">Forum</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#contributors">Contributors</a>
+            </div>
+        </div>
+        <!-- /nav-bar -->
+        <div id="sample-overlay" class="sample-overlay"></div>
+        <div id="sample-panel" class="sample-panel">
+            <div class="sample-panel-inner">
+                <div class="sample-panel-title">
+                    <b id="sample-title"></b>
+                    <div class="sample-title-block">
+                        <a class="tab-enabled" id="sample-tab-swf"  href="#swf">.swf</a>
+                        <a class="tab-enabled" id="sample-tab-as3"  href="#as3">.as3</a>
+                        <a class="tab-enabled" id="sample-tab-haxe" href="#haxe">.hx</a>
+                    </div>
+                </div>
+                <div id="sample-panel-content" class="sample-panel-content">
+                </div>
+                <div class="sample-panel-footer">
+                    <div class="sample-panel-info" id="sample-info">
+                        <b>R:</b><i>Reset Demo.</i>
+                        <b>Mouse:</b><i>Drag Objects.</i>
+                    </div>
+                    <div class="sample-close">
+                        <a href="#" id="sample-close">Close</a>
+                    </div>
                 </div>
             </div>
-            <hr style="height: 0"/>
+        </div>
+        <div class="section-content">
+            <a class="sample-link" id="Test">Test</a>
         </div>
 
-        <!-- navbar -->
-        <div class="navdivider"></div>
-        <div class="navbar" id="samples">
-            <div class="item">
-                <a class="scroll" href="#about">About</a>
+        <!-- nav-bar -->
+        <div class="nav-divider"></div>
+        <div class="nav-bar" id="downloads">
+            <div class="nav-item">
+                <a class="nav-scroll" href="#about">About</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#features">Features</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#features">Features</a>
             </div>
-            <div class="item">
-                <a class="disabled">Samples</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#samples">Samples</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#download">Download</a>
+            <div class="nav-item">
+                <a class="nav-disabled">Download</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#documentation">Documentation</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#documentation">Documentation</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#">Forum</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#">Forum</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#contributors">Contributors</a>
-            </div>
-        </div>
-        <!-- /navbar -->
-
-        <div class="content">
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-        </div>
-
-        <!-- navbar -->
-        <div class="navdivider"></div>
-        <div class="navbar" id="downloads">
-            <div class="item">
-                <a class="scroll" href="#about">About</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#features">Features</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#samples">Samples</a>
-            </div>
-            <div class="item">
-                <a class="disabled">Download</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#documentation">Documentation</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#">Forum</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#contributors">Contributors</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#contributors">Contributors</a>
             </div>
         </div>
-        <!-- /navbar -->
-
-        <div class="content">
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
+        <!-- /nav-bar -->
+        <div class="section-content">
         </div>
 
-        <!-- navbar -->
-        <div class="navdivider"></div>
-        <div class="navbar" id="documentation">
-            <div class="item">
-                <a class="scroll" href="#about">About</a>
+        <!-- nav-bar -->
+        <div class="nav-divider"></div>
+        <div class="nav-bar" id="documentation">
+            <div class="nav-item">
+                <a class="nav-scroll" href="#about">About</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#features">Features</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#features">Features</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#samples">Samples</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#samples">Samples</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#download">Download</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#download">Download</a>
             </div>
-            <div class="item">
-                <a class="disabled">Documentation</a>
+            <div class="nav-item">
+                <a class="nav-disabled">Documentation</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#">Forum</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#">Forum</a>
             </div>
-            <div class="item">
-                <a class="scroll" href="#contributors">Contributors</a>
-            </div>
-        </div>
-        <!-- /navbar -->
-
-        <div class="content">
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-            a<br/><br/>
-        </div>
-
-        <!-- navbar -->
-        <div class="navdivider"></div>
-        <div class="navbar" id="contributors">
-            <div class="item">
-                <a class="scroll" href="#about">About</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#features">Features</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#samples">Samples</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#download">Download</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#documentation">Documentation</a>
-            </div>
-            <div class="item">
-                <a class="scroll" href="#">Forum</a>
-            </div>
-            <div class="item">
-                <a class="disabled">Contributors</a>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#contributors">Contributors</a>
             </div>
         </div>
-        <!-- /navbar -->
+        <!-- /nav-bar -->
+        <div class="section-content">
+        </div>
 
-        <div class="content">
+        <!-- nav-bar -->
+        <div class="nav-divider"></div>
+        <div class="nav-bar" id="contributors">
+            <div class="nav-item">
+                <a class="nav-scroll" href="#about">About</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#features">Features</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#samples">Samples</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#download">Download</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#documentation">Documentation</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-scroll" href="#">Forum</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-disabled">Contributors</a>
+            </div>
+        </div>
+        <!-- /nav-bar -->
+
+        <div class="section-content">
             <p>
-                <b>Nape</b> is developed by a single person <i>(myself; Luca Deltodesco)</i> and though I give
+                <b>Nape</b> is developed by a single person and though I give
                 it free for use, I am incredibly thankful for any donations that make it worth my while!
             </p>
             <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=529X57YZ637LW"><img src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" alt="Donate"/></a>
@@ -509,7 +502,7 @@ breakListener.space = space;
             <div class="contrib">Yvan Klaver</div>
 
             <div class="contrib">LongAnimals</div>
-            <div class="contrib">Andreas Löw</div>
+            <div class="contrib">Andreas Low</div>
 
             <div class="contrib">Charles Maragna</div>
             <div class="contrib">Grzegorz Markowski</div>
@@ -532,7 +525,7 @@ breakListener.space = space;
 
             <div class="contrib">Vortix Games Studio</div>
 
-            <div class="contrib">Michał Wróblewski</div>
+            <div class="contrib">Michal Wroblewski</div>
 
             <div class="contrib">Zanpo Virtual Cities</div>
             <div class="contrib">Eugene Zavgorodniy</div>
@@ -546,22 +539,275 @@ breakListener.space = space;
         <footer>
             &copy; Luca Deltodesco 2012
         </footer>
+    </div>
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/prettify/prettify.js"></script>
-        <script src="assets/js/doclinks.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.flash.js"></script>
+    <script src="assets/prettify/prettify.js"></script>
+    <script src="assets/js/doclinks.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Nav-bar scrolling.
+            // =========================================
 
-                $(".scroll").click(function(event){
-                    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 300);
+            $(".nav-scroll").click(function (event) {
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 300);
+            });
+
+            // Sample panel.
+            // ==========================================
+
+            var oldHash;
+            var sampleName
+            function fadeInSample(name) {
+                oldHash = window.location.hash;
+                sampleName = name;
+
+                // Fade in overlay and panels.
+                var overlay = $("#sample-overlay");
+                var panel = $("#sample-panel");
+
+                overlay.css("display", "block");
+                overlay.css("opacity", 0);
+                overlay.fadeTo(200, 0.4);
+                panel.css("dispaly", "block");
+                panel.css("opactity", 0);
+                panel.fadeTo(200, 1.0);
+
+                // Set title name.
+                $("#sample-title").html(name);
+            }
+
+            function sampleSWF() {
+                window.location.hash = ("swf-" + sampleName);
+
+                var name = $("#sample-title").html();
+                $("#sample-panel-content").empty();
+                $("#sample-panel-content").flash(
+                    { src: "samples/"+name+"/"+name+".swf",
+                      bgColor: 333333,
+                      width: 800,
+                      height: 600, },
+                    { version: '11.0.0' }
+                );
+                $("#sample-panel-content").removeAttr("style");
+                $("#sample-panel-content").css("background-color", "#333333");
+
+                $("#sample-tab-swf").addClass("tab-disabled").
+                                     removeClass("tab-enabled").
+                                     removeAttr('href');
+
+                $("#sample-info").css("display", "inline");
+
+                var as3 = $("#sample-tab-as3");
+                if (as3.hasClass("tab-disabled")) {
+                    as3.addClass("tab-enabled").
+                        removeClass("tab-disabled").
+                        attr('href', '#as3');
+                }
+
+                var haxe = $("#sample-tab-haxe");
+                if (haxe.hasClass("tab-disabled")) {
+                    haxe.addClass("tab-enabled").
+                         removeClass("tab-disabled").
+                         attr('href', '#haxe');
+                }
+            }
+
+            function sampleAS3() {
+                window.location.hash = ("as3-" + sampleName);
+
+                $("#sample-panel-content").html('');
+                $("#sample-panel-content").empty();
+                var pre = $('<pre class="prettyprint darkered codestyle"></pre>');
+                $("#sample-panel-content").append(pre);
+
+                $.ajax({
+                    url: "samples/"+sampleName+"/"+sampleName+".as",
+                    mimeType: "text/plain",
+                    processData: false,
+                    success : function (data) {
+                        pre.html(data);
+                        prettyPrint();
+                    },
+                    error : function () {
+                        pre.html("Could not load file");
+                    }
                 });
 
-                prettyPrint();
+                $("#sample-info").css("display", "none");
 
-                applyDocLinks();
+                $("#sample-panel-content").css("overflow", "auto");
+                $("#sample-tab-as3").addClass("tab-disabled").
+                                     removeClass("tab-enabled").
+                                     removeAttr('href');
+
+                var swf = $("#sample-tab-swf");
+                if (swf.hasClass("tab-disabled")) {
+                    $("#sample-panel-content").removeClass("flash-replaced");
+                    swf.addClass("tab-enabled").
+                        removeClass("tab-disabled").
+                        attr('href', '#swf');
+                }
+
+                var haxe = $("#sample-tab-haxe");
+                if (haxe.hasClass("tab-disabled")) {
+                    haxe.addClass("tab-enabled").
+                         removeClass("tab-disabled").
+                         attr('href', '#haxe');
+                }
+            }
+
+            function sampleHaxe() {
+                window.location.hash = ("haxe-" + sampleName);
+
+                $("#sample-panel-content").html('');
+                $("#sample-panel-content").empty();
+                var pre = $('<pre class="prettyprint darkered codestyle"></pre>');
+                $("#sample-panel-content").append(pre);
+
+                $.ajax({
+                    url: "samples/"+sampleName+"/"+sampleName+".hx",
+                    mimeType: "text/plain",
+                    processData: false,
+                    success : function (data) {
+                        pre.html(data);
+                        prettyPrint();
+                    },
+                    error : function () {
+                        pre.html("Could not load file");
+                    }
+                });
+
+                $("#sample-info").css("display", "none");
+
+                $("#sample-panel-content").css("overflow", "auto");
+                $("#sample-tab-haxe").addClass("tab-disabled").
+                                      removeClass("tab-enabled").
+                                      removeAttr('href');
+
+                var swf = $("#sample-tab-swf");
+                if (swf.hasClass("tab-disabled")) {
+                    $("#sample-panel-content").removeClass("flash-replaced");
+                    swf.addClass("tab-enabled").
+                        removeClass("tab-disabled").
+                        attr('href', '#swf');
+                }
+
+                var as3 = $("#sample-tab-as3");
+                if (as3.hasClass("tab-disabled")) {
+                    as3.addClass("tab-enabled").
+                        removeClass("tab-disabled").
+                        attr('href', '#as3');
+                }
+            }
+
+
+            $("#sample-close").click(function (event) {
+                // Reset hash, keep current scroll positions.
+                var x = $(window).scrollLeft();
+                var y = $(window).scrollTop();
+                window.location.hash = oldHash;
+                window.scrollTo(x, y);
+                event.preventDefault();
+
+                // fade out sample box and overlay.
+                $("#sample-overlay").fadeTo(200, 0, function () {
+                    $(this).css("display", "none");
+                });
+                $("#sample-panel").fadeTo(200, 0, function () {
+                    $(this).css("display", "none");
+                });
+
+                // Clear sample content.
+                $("#sample-panel-content").html("");
             });
-        </script>
-    </div>
+
+            $(".sample-link").click(function (event) {
+                var name = $(this).attr("id");
+                fadeInSample(name);
+                sampleSWF();
+            });
+
+            $(".tab-enabled").click(function (event) {
+                event.preventDefault();
+
+                if ($(this).hasClass("tab-disabled")) {
+                    return;
+                }
+
+                console.log("hiya" + $(this).attr('href'));
+                var href = $(this).attr('href');
+                if (href === '#swf') {
+                    sampleSWF();
+                }
+                else if (href === '#as3') {
+                    sampleAS3();
+                }
+                else if (href === '#haxe') {
+                    sampleHaxe();
+                }
+            });
+
+            $(window).resize(function () {
+                var samplePanel = $("#sample-panel");
+
+                var width  = $(window).width();
+                var height = $(window).height();
+
+                var boxWidth  = parseInt(samplePanel.css("width"));
+                var boxHeight = parseInt(samplePanel.css("height"));
+
+                var leftValue = (width  >= boxWidth  ? ((width / 2)  - (boxWidth / 2))  : (width  - boxWidth));
+                var topValue  = (height >= boxHeight ? ((height / 2) - (boxHeight / 2)) : (height - boxHeight));
+
+                samplePanel.css("left", (leftValue + "px"));
+                samplePanel.css("top",  (topValue  + "px"));
+            });
+            $(window).resize();
+
+            // Pretty Print code segments.
+            // ==========================================
+            prettyPrint();
+
+            // Add doc links.
+            // ==========================================
+            applyDocLinks();
+
+            // Handle sample #hash-tags
+            // ==========================================
+            var hash = window.location.hash;
+            if (hash) {
+                if (hash.substr(0, 5) === '#swf-') {
+                    var pos = $('#samples').offset();
+                    window.scrollTo(pos.left, pos.top);
+
+                    var name = hash.substr(5);
+                    fadeInSample(name);
+                    sampleSWF();
+                }
+                else if (hash.substr(0, 5) === '#as3-') {
+                    var pos = $('#samples').offset();
+                    window.scrollTo(pos.left, pos.top);
+
+                    var name = hash.substr(5);
+                    fadeInSample(name);
+                    sampleAS3();
+                }
+                else if (hash.substr(0, 6) === '#haxe-') {
+                    var pos = $('#samples').offset();
+                    window.scrollTo(pos.left, pos.top);
+
+                    var name = hash.substr(6);
+                    fadeInSample(name);
+                    sampleHaxe();
+                }
+            }
+
+        });
+    </script>
     </body>
 </html>
+
