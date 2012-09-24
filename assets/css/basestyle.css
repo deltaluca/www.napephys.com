@@ -39,7 +39,9 @@ strong {
     margin-bottom: 10px;
 }
 
-
+dt {
+    margin-top: 10px;
+}
 
 
 
@@ -113,8 +115,12 @@ strong {
     line-height: 13px;
 }
 .doclink {
-    text-decoration : none;
+    text-decoration : underline;
     color: #0f50df;
+}
+.doclink:hover {
+    text-decoration : underline;
+    color: #af50df;
 }
 
 
@@ -152,12 +158,14 @@ strong {
 }
 .feature-left {
     width: 59%;
+    vertical-align: middle;
 }
 .feature-spacer {
     width: 1%;
 }
 .feature-right {
     width: 40%;
+    vertical-align: middle;
 }
 
 
@@ -282,6 +290,52 @@ strong {
 /*  - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
+
+.downloads-table {
+    width: 100%;
+}
+.downloads-segment {
+    width: 50%;
+    vertical-align: top;
+}
+
+.as3-table {
+    width: 100%;
+}
+.as3-segment {
+    width: 33.3%;
+    vertical-align: top;
+}
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+.doc-header {
+    height: 22px;
+    background-repeat: no-repeat;
+    background-image: url("../doc.png");
+    padding-left: 22px;
+}
+
+.doc-table {
+    width: 100%;
+}
+.doc-left {
+    width: 79%;
+    vertical-align: middle;
+    padding-left : 20px;
+}
+.doc-spacer {
+    width: 1%;
+}
+.doc-right {
+    width: 20%;
+    vertical-align: middle;
+}
+
+
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 

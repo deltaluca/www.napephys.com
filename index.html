@@ -30,7 +30,7 @@
                 <a class="nav-scroll" href="#samples">Samples</a>
             </div>
             <div class="nav-item">
-                <a class="nav-scroll" href="#download">Download</a>
+                <a class="nav-scroll" href="#downloads">Downloads</a>
             </div>
             <div class="nav-item">
                 <a class="nav-scroll" href="#documentation">Documentation</a>
@@ -128,7 +128,7 @@ body.velocity.x += 100;
                 <a class="nav-scroll" href="#samples">Samples</a>
             </div>
             <div class="nav-item">
-                <a class="nav-scroll" href="#download">Download</a>
+                <a class="nav-scroll" href="#downloads">Downloads</a>
             </div>
             <div class="nav-item">
                 <a class="nav-scroll" href="#documentation">Documentation</a>
@@ -351,7 +351,7 @@ breakListener.space = space;
                 <a class="nav-disabled">Samples</a>
             </div>
             <div class="nav-item">
-                <a class="nav-scroll" href="#download">Download</a>
+                <a class="nav-scroll" href="#downloads">Downloads</a>
             </div>
             <div class="nav-item">
                 <a class="nav-scroll" href="#documentation">Documentation</a>
@@ -386,7 +386,6 @@ breakListener.space = space;
             </div>
         </div>
         <div class="section-content">
-            <a class="sample-link" id="Test">Test</a>
         </div>
 
         <!-- nav-bar -->
@@ -402,7 +401,7 @@ breakListener.space = space;
                 <a class="nav-scroll" href="#samples">Samples</a>
             </div>
             <div class="nav-item">
-                <a class="nav-disabled">Download</a>
+                <a class="nav-disabled">Downloads</a>
             </div>
             <div class="nav-item">
                 <a class="nav-scroll" href="#documentation">Documentation</a>
@@ -416,6 +415,77 @@ breakListener.space = space;
         </div>
         <!-- /nav-bar -->
         <div class="section-content">
+            <h2>Build types</h2>
+            </p>
+                Nape exists in 3 different build types:
+                <dl>
+                    <dt><b>Development:</b></dt><dd>To be used during development of games. This build contains extra
+                      logic that checks you are using the <b>Nape</b> API correctly and is invaluable in reducing
+                      development time and ensuring you have no bugs with respect to <b>Nape</b>.</dd>
+                    <dt><b>Release:</b></dt><dd>Release builds remove all such API checks so that the best performance
+                      may be found. This built type should be used for <b>FINAL</b> builds and performance testing only.</dd>
+                    <dt><b>Debug:</b></dt><dd>Debug builds should not be used in general. This build type is very slow; containing
+                      tens of thousands of internal assertions whose purpose is to identify bugs internal to Nape.</dd>
+                </dl>
+            </p>
+            <table class="downloads-table">
+            <tr>
+            <td class="downloads-segment">
+                <h2>Haxe</h2>
+                <p>
+                    <b>Haxe</b> users can make use of <b>Nape</b> via <i>haxelib</i>
+                </p>
+                    <pre class="prettyprint codestyle">
+// For core library.
+haxelib install nape
+
+// For hacks module.
+haxelib install nape-hacks
+
+// For symbolic module.
+haxelib install nape-symbolic
+                    </pre>
+                <p>
+                    Build types in <b>Haxe</b> are controlled by use of compiler flags.
+                    <dl>
+                        <dt><b>Development:</b></dt><dd>This is the default build type.</dd>
+                        <dt><b>Release:</b></dt><dd>Use additional flags <b>-D NAPE_RELEASE_BUILD</b></dd>
+                        <dt><b>Debug:</b></dt><dd>Use additional flags <b>-D NAPE_ASSERT</b></dd>
+                    </dl>
+                </p>
+             </td>
+             <td class="downloads-segment">
+                <h2>AS3</h2>
+                <p>
+                    <b>AS3</b> users must make use of <b>Nape</b> through the compiled <i>.swc</i> libraries, one
+                    per each build type:
+                </p>
+                <p>
+                    When making use of modules, you must ensure the core library is linked first.
+                </p>
+                <p>
+                    <h3>Core Library:</h3>
+                    <table class="as3-table">
+                    <tr>
+                        <td class="as3-segment">
+                            <a class="doclink" href="#">nape-dev.swc</a>
+                        </td>
+                        <td class="as3-segment">
+                            <a class="doclink" href="#">nape-release.swc</a>
+                        </td>
+                        <td class="as3-segment">
+                            <a class="doclink" href="#">nape-debug.swc</a>
+                        </td>
+                    </tr>
+                    </table>
+                    <h3>Hacks module:</h3>
+                    <a class="doclink" href="#">nape-hacks.swc</a>
+                    <h3>Symbolic module:</h3>
+                    <a class="doclink" href="#">nape-symbolic.swc</a>
+                </p>
+             </td>
+             </tr>
+             </table>
         </div>
 
         <!-- nav-bar -->
@@ -431,7 +501,7 @@ breakListener.space = space;
                 <a class="nav-scroll" href="#samples">Samples</a>
             </div>
             <div class="nav-item">
-                <a class="nav-scroll" href="#download">Download</a>
+                <a class="nav-scroll" href="#downloads">Downloads</a>
             </div>
             <div class="nav-item">
                 <a class="nav-disabled">Documentation</a>
@@ -445,6 +515,50 @@ breakListener.space = space;
         </div>
         <!-- /nav-bar -->
         <div class="section-content">
+            <h3 class="doc-header">Manual</h3>
+            <div class="section-content">
+            <table class="doc-table">
+            <tr>
+                <td class="doc-left">
+                    A Manual, detailing the majority of nape features from start to finish is available also: <a class="doclink" href="manual.pdf">manual</a>.
+                </td>
+                <td class="doc-spacer"></td>
+                <td class="doc-right">
+                    <img class="doc-image" width="128" height="128" src="assets/manual.png" alt="[Manual]"/>
+                </td>
+            </tr>
+            </table>
+            </div>
+
+            <h3 class="doc-header">API Documentation</h3>
+            <div class="section-content">
+            <table class="doc-table">
+            <tr>
+                <td class="doc-left">
+                    API Documentation is available at <a class="doclink" href="docs/index.html">docs.napephys.com</a>
+                </td>
+                <td class="doc-spacer"></td>
+                <td class="doc-right">
+                    <img class="doc-image" width="128" height="128" src="assets/apidocs.png" alt="[API Docs]"/>
+                </td>
+            </tr>
+            </table>
+            </div>
+
+            <h3 class="doc-header">Code Samples</h3>
+            <div class="section-content">
+            <table class="doc-table">
+            <tr>
+                <td class="doc-left">
+                    Samples demonstrating nape features alongside code can be viewed in the <a class="nav-scroll doclink" href="#samples">Samples</a> section.
+                </td>
+                <td class="doc-spacer"></td>
+                <td class="doc-right">
+                    <img class="doc-image" width="128" height="128" src="assets/samples.png" alt="[Samples]"/>
+                </td>
+            </tr>
+            </table>
+            </div>
         </div>
 
         <!-- nav-bar -->
@@ -460,7 +574,7 @@ breakListener.space = space;
                 <a class="nav-scroll" href="#samples">Samples</a>
             </div>
             <div class="nav-item">
-                <a class="nav-scroll" href="#download">Download</a>
+                <a class="nav-scroll" href="#downloads">Downloads</a>
             </div>
             <div class="nav-item">
                 <a class="nav-scroll" href="#documentation">Documentation</a>
