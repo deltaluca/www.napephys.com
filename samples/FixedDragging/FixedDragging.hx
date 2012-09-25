@@ -66,7 +66,7 @@ class FixedDragging extends Sprite {
         stage.addEventListener(Event.ENTER_FRAME, enterFrameHandler);
     }
 
-    function setUp() {
+    function setUp():Void {
         var w = stage.stageWidth;
         var h = stage.stageHeight;
 
