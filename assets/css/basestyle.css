@@ -287,6 +287,39 @@ dt {
     height : 600px;
 }
 
+
+.sample-link {
+    height: 20px;
+    width: 34px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url("../play.png");
+    float: right;
+}
+
+.sample-header {
+    height: 22px;
+    background-repeat: no-repeat;
+    background-image: url("../sample.png");
+    padding-left: 22px;
+}
+
+.sample-table {
+    width: 100%;
+}
+.sample-desc {
+    width: auto;
+    vertical-align: middle;
+}
+.sample-image {
+    width: 128px;
+    vertical-align: middle;
+}
+.sample-spacer {
+    width: 35px;
+}
+
+
 /*  - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
