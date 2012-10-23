@@ -5,12 +5,13 @@ body {
     line-height: 18px;
 
     background-image: url("../bg.png");
+    overflow-y: scroll;
 }
 b {
-    font-family: 'Puritan20Bold', Arial, sans-serif;
+    font-family: 'Puritan20Normal', Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
-    color: #0f70c5;
+    color: #df35a0;
 }
 i {
     font-family: 'Puritan20Italic', Arial, sans-serif;
@@ -490,7 +491,8 @@ dt {
     margin-right: 20px;
     display: inline-block;
     font-size: 17px;
-    color: #0f70c5;
+/*    color: #0f70c5;*/
+    color: #df35a0;
 }
 
 .graphs {
