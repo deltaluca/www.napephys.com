@@ -402,14 +402,23 @@ dt {
 
 .sample-table {
     width: 100%;
+    border-spacing: 0;
+}
+.sample-table tr {
+    height: 128px;
 }
 .sample-desc {
-    width: 138px;
+    width: 128px;
     vertical-align: middle;
 }
 .sample-image {
     width: 128px;
+    height: 128px;
     vertical-align: middle;
+    padding: 0;
+}
+.sample-image img {
+    box-shadow: 1px 1px 6px #aaa;
 }
 .sample-spacer {
     width: 35px;
