@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Nape is an open source physics library for Haxe and ActionScript3."/>
+        <meta name="keywords" content="Nape,Physics,Haxe,AS3,Flash,Constraint,Rigid,Body,Shape,"/>
+        <meta name="author" content="Luca Deltodesco"/>
+        <meta charset="UTF-8"/>
+
+        <title>Nape Physics</title>
+
+        <link rel="shortcut icon" href="assets/ico/favicon.ico"/>
+        <link rel="stylesheet" href="assets/css/puritan.css"/>
+        <link rel="stylesheet" href="assets/css/basestyle.css"/>
+        <link rel="stylesheet" href="assets/prettify/prettify.css"/>
+    </head>
+
+    <body>
+    <div class="container">
+        <div class="title-area">
+            <div id="title"></div>
+            <script type="text/javascript"> var page="Downloads"; </script>
+            <div id="menu"></div>
+        </div>
+
+        <div class="section-content">
+            <h2>Build types</h2>
+            <p>
+                <span class="samples-font">Nape exists in 3 different build types:</span>
+                <dl>
+                    <dt><b class="samples-bold-font">Development:</b></dt><dd>To be used during <b>development</b> of games. This build contains extra
+                      logic that checks you are using the <b>Nape</b> API correctly and is invaluable in reducing
+                      development time and ensuring you have no bugs with respect to <b>Nape</b>.</dd>
+                    <dt><b class="samples-bold-font">Release:</b></dt><dd>Release builds <i>remove</i> all such API checks so that the best performance
+                      may be found. This built type should be used for <b>FINAL</b> builds and performance testing only.</dd>
+                    <dt><b class="samples-bold-font">Debug:</b></dt><dd>Debug builds should <i>not</i> be used in general. This build type is <i>very</i> slow; containing
+                      tens of thousands of internal assertions whose purpose is to identify bugs internal to <b>Nape</b>. The only time this build type would be used, is if you feel you have discovered a bug.</dd>
+                </dl>
+            </p>
+            <table class="downloads-table">
+            <tr>
+            <td class="downloads-segment">
+                <h2>Haxe</h2>
+                <p class="samples-font">
+                    <b>Haxe</b> users can make use of <b>Nape</b> via <i>haxelib</i>
+                </p>
+                    <pre class="largecodestyle">
+<span class="code-doc">// For core library.</span>
+haxelib install nape
+
+<span class="code-doc">// For hacks module.</span>
+haxelib install nape-hacks
+
+<span class="code-doc">// For symbolic module.</span>
+haxelib install nape-symbolic
+                    </pre>
+                <p>
+                    <span class="samples-font">Build types in <b>Haxe</b> are controlled by use of compiler flags.</span>
+                    <dl>
+                        <dt><b>Development:</b></dt><dd>This is the default build type.</dd>
+                        <dt><b>Release:</b></dt><dd>Use additional flags <b>-D NAPE_RELEASE_BUILD</b></dd>
+                        <dt><b>Debug:</b></dt><dd>Use additional flags <b>-D NAPE_ASSERT</b></dd>
+                    </dl>
+                </p>
+             </td>
+             <td class="downloads-spacer">
+             </td>
+             <td class="downloads-segment">
+                <h2>AS3</h2>
+                <p class="samples-font">
+                    <b>AS3</b> users must make use of <b>Nape</b> through the compiled <i>.swc</i> libraries, one
+                    per each build type:
+                </p>
+                <p class="samples-font">
+                    When making use of modules, you must ensure the core library is linked first.
+                </p>
+                <p>
+                    <h3>Core Library:</h3>
+                    <table class="as3-table">
+                    <tr>
+                        <td class="as3-segment">
+                            <a class="doclink" href="#">nape-dev.swc</a>
+                        </td>
+                        <td class="as3-segment">
+                            <a class="doclink" href="#">nape-release.swc</a>
+                        </td>
+                        <td class="as3-segment">
+                            <a class="doclink" href="#">nape-debug.swc</a>
+                        </td>
+                    </tr>
+                    </table>
+                    <h3>Hacks module:</h3>
+                    <a class="doclink" href="#">nape-hacks.swc</a>
+                    <h3>Symbolic module:</h3>
+                    <a class="doclink" href="#">nape-symbolic.swc</a>
+                </p>
+             </td>
+             </tr>
+             </table>
+        </div>
+
+        <footer>
+            &copy; Luca Deltodesco 2012
+        </footer>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.flash.js"></script>
+    <script src="assets/prettify/prettify.js"></script>
+    <script src="assets/js/doclinks.js"></script>
+    <script src="assets/js/doclinks.js"></script>
+    <script src="assets/js/default.js"></script>
+    </body>
+</html>
+

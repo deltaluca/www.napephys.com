@@ -3,6 +3,8 @@ body {
     font-family: 'Puritan20Normal', Arial, sans-serif;
     font-size: 16px;
     line-height: 18px;
+
+    background-image: url("../bg.png");
 }
 b {
     font-family: 'Puritan20Bold', Arial, sans-serif;
@@ -31,18 +33,76 @@ strong {
     width: 940px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.title-area {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #fafafa;
 }
 .title {
-    width: 940px;
-    height: 100px;
-    background-image: url("../title.png");
-    margin-bottom: 10px;
+    width: 900px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.title-image {
+    height: 120px;
+    margin-top: 10px;
+    margin-left: -12px;
+    display: inline-block;
+}
+.title-right {
+    margin-left: 10px;
+}
+.title-right tr {
+}
+.menu-space td {
+    height: 26px;
+}
+.title-font-div {
+    display: inline-block;
+    margin-left: 23px;
+    vertical-align: 300%;
+}
+.title-font {
+    font-size: 32px;
+    font-weight: bold;
+}
+.title-font-sm {
+    font-size: 14px;
+    color: #888;
+    margin-left: 5px;
+}
+.github {
+    width: 70px;
+    display: inline-block;
+    margin-left: 200px;
 }
 
 dt {
     margin-top: 10px;
 }
 
+.home-font {
+    font-size: 28px;
+    line-height: 28px;
+    color: #484848;
+}
+.samples-font {
+    font-size: 20px;
+    line-height: 20px;
+    color: #484848;
+}
+.samples-bold-font {
+    font-size: 20px;
+    line-height: 20px;
+}
+.code-doc {
+    color: #c50f70;
+}
 
 
 .nav-bar {
@@ -56,25 +116,29 @@ dt {
 
     text-align: center;
 }
+.nav-left {
+    width: 52px;
+    display: inline-block;
+}
 .nav-divider {
     height: 100px;
 }
 .nav-bar .nav-item {
     width: auto;
-    margin-right: 16px;
-    margin-left: 16px;
+    margin-right: 20px;
+    margin-left: 20px;
     height: 20px;
     display: inline-block;
 }
 .nav-bar .nav-item a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 28px;
 }
 .nav-bar .nav-item a:link {
-    color: #a3a3a3;
+    color: #636363;
 }
 .nav-bar .nav-item a:visited {
-    color: #a3a3a3;
+    color: #636363;
 }
 .nav-bar .nav-item a:hover {
     color: #0f70c5;
@@ -107,6 +171,12 @@ dt {
 .prettyprint .override {
     border: 0;
     background-color: #cecece;
+}
+.largecodestyle {
+    text-align: left;
+    font-family: "Consolas", "Droid Sans Mono", "DejaVu Sans Mono", Monospace;
+    font-size: 13px;
+    line-height: 15px;
 }
 .codestyle {
     text-align: left;
@@ -144,6 +214,51 @@ dt {
     display: inline-block;
 }
 
+.feature-list li {
+    margin: 5px;
+}
+
+.feature-list .li1 {
+    font-size: 14px;
+}
+.feature-list .li2 {
+    font-size: 17px;
+}
+.feature-list .li3 {
+    font-size: 20px;
+}
+
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+.feature-image {
+    display: inline-block;
+    width: 280px;
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+.feature-image-table {
+    display: inline-block;
+    width: 280px;
+    height: 240px;
+}
+
+.feature-image-table tr {
+    height : 100%;
+}
+
+
+.feature-segment {
+    width: auto;
+    background-color: #efefef;
+    border-radius: 20px;
+    border-color: #dadada;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+}
 
 
 
@@ -151,31 +266,13 @@ dt {
 
 
 
-
-
-.feature-table {
-    width: 100%;
+.sample-content {
+    width : 96%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    color: #555;
 }
-.feature-left {
-    width: 59%;
-    vertical-align: middle;
-}
-.feature-spacer {
-    width: 1%;
-}
-.feature-right {
-    width: 40%;
-    vertical-align: middle;
-}
-
-
-
-
-
-/*  - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-
-
 
 .sample-overlay {
     position: fixed;
@@ -197,7 +294,6 @@ dt {
     background-color: #454545;
     z-index:100001;
     display:none;
-    -moz-border-radius: 10px;
     border-radius: 10px;
     color: #ffffff;
 }
@@ -328,8 +424,17 @@ dt {
     width: 100%;
 }
 .downloads-segment {
-    width: 50%;
+    width: 49.5%;
     vertical-align: top;
+    background-color: #efefef;
+    border-radius: 20px;
+    border-color: #dadada;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+}
+.downloads-spacer {
+    width: auto;
 }
 
 .as3-table {
@@ -370,13 +475,37 @@ dt {
 
 /*  - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+.donate {
+    margin-left: 20px;
+}
 
-
-.contrib {
+.contrib1 {
     width: auto;
     margin-right: 20px;
     display: inline-block;
+    font-size: 17px;
 }
+.contrib2 {
+    width: auto;
+    margin-right: 20px;
+    display: inline-block;
+    font-size: 17px;
+    color: #0f70c5;
+}
+
+.graphs {
+    width: 660px;
+    height: 230px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.graphs img {
+    width: 660px;
+    height: 230px;
+}
+
+
 
 footer {
     text-align: center
