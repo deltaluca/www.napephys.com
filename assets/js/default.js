@@ -35,13 +35,15 @@ $(document).ready(function () {
         right.append(topRow);
         topRow.append($('<td></td>').
               append($('<span class="title-font">Nape Physics Engine</span>')).
-              append($('<span class="title-font-sm"> / Cross platform 2D physics for AS3/Haxe</span>')).
+              append($('<span class="title-font-sm"> / Cross platform 2D physics for AS3/Haxe</span>'))
+        );
+        topRow.append($('<td width="auto"></td>').
               append($('<a href="http://www.github.com/deltaluca/nape"><img class="github" src="assets/github.png" alt="github"/></a>'))
         );
         right.append($('<tr class="menu-space"><td></td></tr>'));
 
 
-        title.append($('<table></table>').append($('<tr></tr>').
+        title.append($('<table style="width: 100%"></table>').append($('<tr></tr>').
                 append($('<td></td>').append(left)).
                 append($('<td></td>').append(right))
         ));

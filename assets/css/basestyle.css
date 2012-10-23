@@ -11,13 +11,12 @@ b {
     font-family: 'Puritan20Normal', Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
-    color: #df35a0;
+    color: #bf1580;
 }
 i {
     font-family: 'Puritan20Italic', Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
-    color: #000000;
 }
 strong {
     font-family: 'Puritan20BoldItalic', Arial, sans-serif;
@@ -56,6 +55,7 @@ strong {
     display: inline-block;
 }
 .title-right {
+    width: 100%;
     margin-left: 10px;
 }
 .title-right tr {
@@ -80,7 +80,6 @@ strong {
 .github {
     width: 70px;
     display: inline-block;
-    margin-left: 200px;
 }
 
 dt {
@@ -492,7 +491,7 @@ dt {
     display: inline-block;
     font-size: 17px;
 /*    color: #0f70c5;*/
-    color: #df35a0;
+    color: #bf1580;
 }
 
 .graphs {
