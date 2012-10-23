@@ -146,8 +146,18 @@ dt {
 .nav-bar .nav-item .nav-disabled {
     color: #0f70c5;
 }
-
-
+a {
+    text-decoration: underline;
+}
+a:link {
+    color: #0f70c5;
+}
+a:visited {
+    color: #0f70c5;
+}
+a:hover {
+    color: #636363;
+}
 
 
 
