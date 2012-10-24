@@ -19,11 +19,11 @@ i {
     font-style: normal;
 }
 strong {
-    font-family: 'Puritan20BoldItalic', Arial, sans-serif;
+    font-family: 'Puritan20Bold', Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: 16px;
-    color: #333333;
+    color: #b45;
 }
 
 
@@ -159,7 +159,32 @@ a:hover {
     color: #636363;
 }
 
-
+.subnav-bar {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    float: right;
+    text-align: right;
+}
+.subnav-bar .subdiv {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+.subnav-bar .subspan {
+    font-size: 16px;
+    color: #0f70c5;
+}
+.subnav-bar .subspan a {
+    text-decoration: none;
+}
+.subnav-bar .subspan a:link {
+    color: #636363;
+}
+.subnav-bar .subspan a:visited {
+    color: #636363;
+}
+.subnav-bar .subspan a:hover {
+    color: #0f70c5;
+}
 
 .section-content {
     width : 96%;
@@ -526,6 +551,43 @@ a:hover {
 .graphs img {
     width: 660px;
     height: 230px;
+}
+
+/* *--------------------------------------- */
+
+.contents {
+    float: right;
+    box-shadow: 1px 1px 6px #aaa;
+    display: table;
+    background-color: #ffe;
+    padding: 10px;
+    margin: 5px;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.chapter-number {
+    font-size : 29px;
+    margin-right : 5px;
+    line-height : 35px;
+}
+.hrchapter {
+    margin-top: 50px;
+}
+.chapter .title {
+    font-size : 29px;
+}
+.section-number {
+    font-size : 23px;
+    margin-right : 4px;
+    line-height : 30px;
+}
+.section {
+    font-size : 23px;
+}
+
+.chapter p {
+    font-size : 16px;
 }
 
 

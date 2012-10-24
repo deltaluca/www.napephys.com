@@ -18,7 +18,7 @@ $(document).ready(function () {
                 navitem.append($('<a class="nav-disabled">'+name+'</a>'));
             }
             else {
-                navitem.append($('<a class="nav-scroll" href="'+url+'.html">'+name+'</a>'));
+                navitem.append($('<a class="nav-scroll" href="'+root+url+'.html">'+name+'</a>'));
             }
         }
     })();
@@ -29,7 +29,8 @@ $(document).ready(function () {
         if (!title) return;
 
         title.addClass("title");
-        var left = $('<img class="title-image" src="assets/nape.png" alt="nape-logo"/>');
+        var rt = root;
+        var left = $('<img class="title-image" src="'+rt+'assets/nape.png" alt="nape-logo"/>');
         var right = $('<table class="title-right"></table>');
         var topRow = $('<tr></tr>');
         right.append(topRow);
@@ -38,7 +39,7 @@ $(document).ready(function () {
               append($('<span class="title-font-sm"> / Cross platform 2D physics for AS3/Haxe</span>'))
         );
         topRow.append($('<td width="auto"></td>').
-              append($('<a href="http://www.github.com/deltaluca"><img class="github" src="assets/github.png" alt="github"/></a>'))
+              append($('<a href="http://www.github.com/deltaluca"><img class="github" src="'+rt+'assets/github.png" alt="github"/></a>'))
         );
         right.append($('<tr class="menu-space"><td></td></tr>'));
 

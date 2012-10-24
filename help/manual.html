@@ -11,6 +11,7 @@
         <link rel="shortcut icon" href="../assets/ico/favicon.ico"/>
         <link rel="stylesheet" href="../assets/css/puritan.css"/>
         <link rel="stylesheet" href="../assets/css/basestyle.css"/>
+        <link rel="stylesheet" href="../assets/prettify/prettify.css"/>
     </head>
 
     <body>
@@ -24,7 +25,116 @@
 
         <div class="section-content">
             <div id="submenu"></div>
+            <div style="height: 40px"></div>
+            <div class="chapter"><strong><span class="title">Introduction</span></strong>
+                <div class="contents"></div>
+                <strong><span class="section">About</span></strong>
+                <p>
+                    <b>Nape</b> is a 2D rigid body physics engine designed for games, written in <b>Haxe</b>, and
+                    supporting all Haxe targets. <b>Nape</b> is compiled into <b>.swc</b> libraries for AS3 users.
+                    <b>Nape</b> is written for ease of development, with a powerful and succint API that
+                    <i>(outside of a release build)</i> checks it is being used correctly, and reports <b>errors</b> if it is not.
+                </p>
+                <p>
+                    <b>Nape</b> is higher performing than <b>Box2D</b> solutions in AS3/Haxe, and its memory usage is
+                    stable and far less than Box2D. <b>Nape</b> supports the majority of Box2D features, as well as many
+                    features not included in Box2D such as the <b>geometric utilities</b>, the <b>high-level callbacks</b>
+                    system, and more sophisticated <b>buoyancy</b>.
+                </p>
+                <p>
+                    We except the performance of <b>Nape</b> to be somewhere between 3 and 6 times faster than <b>Box2D</b>
+                    on average, whilst using about half the amount of memory (And importantly, having constant memory size).
+                    You may also except the equivalent solution to a problem in <b>Nape</b> to 2-3 times smaller than in <b>Box2D</b>.
+                </p>
+                <strong><span class="section">Prerequisites</span></strong>
+                <p>
+                    I will assume that you are familiar with the physics concepts: <b>mass</b>, <b>moment of inertia</b>,
+                    <b>force</b>, <b>torque</b>, <b>density</b>, <b>impulses</b>. If you are not familiar with the term
+                    <b>moment of inertia</b>, this is the angular equivalent to <b>mass</b>, similarly <b>torque</b> is
+                    the angular equivalent to <b>force</b>. If you are not otherwise familiar with these terms, I suggest
+                    you consult Wikipedia.
+                </p>
+                <strong><span class="section">Units</span></strong>
+                <p>
+                    <b>Nape</b> uses units of <b>pixels</b> for distances, <i>not</i> metres such as in <b>Box2D</b>. You
+                    should keep this in mind as - like with Box2D - physics tuning assumes a rough range of expected sizes
+                    in objects; objects should be in most cases, somewhere between 2px at the absolute smallest up to 200px.
+                </p>
+                <p>
+                    <b>Nape</b> uses <b>SI</b> units in all other cases:
+                    <ul>
+                    <li>
+                        <b>seconds</b> as units of time.
+                    </li>
+                    <li>
+                        <b>kilograms</b> as units of mass.
+                    </li>
+                    <li>
+                        <b>clockwise radians</b> as units of angle <i>(Assuming the y-axis is pointing down)</i>.
+                    </li>
+                    </ul>
+                    Other measurements will take expected forms, eg. <b>velocity</b> has units of <b>pixels/second</b>;
+                    the single exception is <b>density</b>, which takes units of <b>grams/pixel/pixel</b> so as to keep values sensible
+                    <i>(A box measuring 100x100 pixels, with density 1 will in this format have a mass of 10 kilograms)</i>.
+                </p>
+                <strong><span class="section">API design</span></strong>
+                <p>
+                    <b>Nape</b> has an API that is in some regards, perhaps unusual compared to the majority of Haxe and AS3
+                    APIs. These aspects should be intuitive <i>(if suprisingly so)</i>. For <b>Haxe</b> users, <b>Nape</b> has been written
+                    with the <b>flash</b> target as its main focus, and many API choices reflect this by using only a
+                    subset of <b>Haxe</b> that has direct equivalents in <b>AS3</b>.
+                </p>
+                <ul>
+                    <li>
+                        In <b>AS3</b> you may be more familiar with enumerations <i>(eg. Event::type)</i> as being
+                        <b>Strings</b>; in <b>Nape</b> enumerations are strictly-typed as a set of read-only, static
+                        fields of the corresponding enum class. <i>(Haxe users, these are not the same as Haxe enums).</i>
+                        <pre class="prettyprint standard largecodestyle">
+var dynamicType:BodyType = BodyType.DYNAMIC;</pre>
+                        There are of course, reasons why this is very good; it is <b>impossible</b> to assign an enumeration
+                        value that is invalid, and when accessing a property of an object, you <b>know</b> that it is an
+                        enumeration, and what values it can take.
+                    </li>
+                    <br/>
+                    <li>
+                        In the <b>Flash</b> API, you can often find instances where you have to do things like:
+                        <pre class="prettyprint standard largecodestyle">
+sprite.filters.push(blurFilter);
+sprite.filters = sprite.filters; // &lt;--
 
+sprite.transform.a = 2;
+sprite.transform = sprite.transform; // &lt;--</pre>
+                        In <b>Nape</b>, you do not need to do things like this, the effects of modifying an objects properties
+                        is automatically taken into account as part of a <b>lazy</b> system that avoid repeated work.
+                        <pre class="prettyprint standard largecodestyle">
+var bodyPosition:Vec2 = body.position;
+bodyPosition.x = 10;
+// no need to 'refresh' the body, informing it that the position was changed.</pre>
+                    </li>
+                    <li>
+                        In <b>most</b> physics libraries, it is necessary to constantly <i>wake up</i> or <i>activate</i> an object
+                        that may have gone to sleep. In <b>Nape</b> these actions are - similar to above - <b>automatic</b>.
+                    </li>
+                    <br/>
+                    <li>
+                        In <b>most</b> APIs, you can never be quite sure that you are using the API correctly. It is common to
+                        find issues where someone has misused the API but their code has otherwise worked in <b>most</b> cases.
+                        Such bugs can be hard to find.
+                        <br/>
+                        In <b>Nape</b>, when working with the <b>development</b> build, each API usage is checked to ensure that
+                        it is <b>valid</b>, and you can be sure that you are not misusing the API - introducing bugs.
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+
+            <hr class="hrchapter"/>
+            <div class="chapter"><strong><span class="title">Packages</span></strong>
+                <div class="contents"></div>
+            </div>
         </div>
         <footer>
             &copy; Luca Deltodesco 2012
@@ -34,6 +144,13 @@
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/default.js"></script>
     <script src="../assets/js/submenu.js"></script>
+    <script src="../assets/js/contents.js"></script>
+    <script src="../assets/prettify/prettify.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            prettyPrint();
+        });
+    </script>
     </body>
 </html>
 
