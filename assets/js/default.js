@@ -38,7 +38,7 @@ $(document).ready(function () {
               append($('<span class="title-font-sm"> / Cross platform 2D physics for AS3/Haxe</span>'))
         );
         topRow.append($('<td width="auto"></td>').
-              append($('<a href="http://www.github.com/deltaluca/nape"><img class="github" src="assets/github.png" alt="github"/></a>'))
+              append($('<a href="http://www.github.com/deltaluca"><img class="github" src="assets/github.png" alt="github"/></a>'))
         );
         right.append($('<tr class="menu-space"><td></td></tr>'));
 
