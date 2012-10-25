@@ -8,7 +8,7 @@ function applyDocLinks()
     links["Constraint"] = links["Constraints"] = "types/nape/constraint/Constraint.html";
     links["Compound"] = links["Compounds"] = "types/nape/phys/Compound.html";
     links["CbType"] = links["CbTypes"] = "types/nape/callbacks/CbType.html";
-    links["Material"] = links["Material"] = "types/nape/phys/Material.html";
+    links["Material"] = links["Materials"] = "types/nape/phys/Material.html";
     links["Circle"] = links["Circles"] = "types/nape/shape/Circle.html";
     links["Polygon"] = links["Polygons"] = "types/nape/shape/Polygon.html";
     links["GeomPoly"] = links["GeomPolys"] = "types/nape/geom/GeomPoly.html";
@@ -28,7 +28,14 @@ function applyDocLinks()
     links["PreListener"] = links["PreListeners"] = "types/nape/callbacks/PreListener.html";
     links["Geom"] = "types/nape/geom/Geom.html";
     links["BitmapDebug"] = "types/nape/util/BitmapDebug.html";
-
+    links["Vec2"] = "types/nape/geom/Vec2.html";
+    links["Space"] = "types/nape/space/Space.html";
+    links["Debug"] = "types/nape/util/Debug.html";
+    links["Mat23"] = "types/nape/geom/Mat23.html";
+    links["Callback"] = "types/nape/callbacks/Callback.html";
+    links["InteractionListener"] = "types/nape/callbacks/InteractionListener.html";
+    links["Arbiter"] = links["Arbiters"] = "types/nape/dynamics/Arbiter.html";
+    links["Contact"] = links["Contacts"] = "types/nape/dynamics/Contact.html";
 
     function docLink(b)
     {
@@ -36,11 +43,7 @@ function applyDocLinks()
         var link = links[name];
         if (link)
         {
-            b.innerHTML = "<a class='doclink' href='docs/"+link+"'>"+name+"</a>";
-        }
-        else
-        {
-            b.innerHTML = "BROKEN LINK TO::"+name;
+            b.innerHTML = "<a class='doclink' href='"+root+"docs/"+link+"'>"+name+"</a>";
         }
     }
 
@@ -48,14 +51,8 @@ function applyDocLinks()
     for (var i = 0; i < bs.length; i ++)
     {
         var b = bs[i];
-        var cls = b.getAttribute("class");
-        if (cls && cls.indexOf("doc") !== -1)
-        {
-            var classes = "."+cls.split(" ").join(".")+".";
-            if (classes.indexOf(".doc.") !== -1)
-            {
-                docLink(b);
-            }
+        if ($(b).attr("id") != "disabled-doc") {
+            docLink(b);
         }
     }
 

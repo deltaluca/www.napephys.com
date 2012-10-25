@@ -147,16 +147,19 @@ dt {
     color: #0f70c5;
 }
 a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:link {
-    color: #0f70c5;
+    color: #636363;
 }
 a:visited {
-    color: #0f70c5;
+    color: #636363;
 }
 a:hover {
-    color: #636363;
+    color: #0f70c5;
+}
+.disabled {
+    color: #0f70c5;
 }
 
 .subnav-bar {
@@ -213,6 +216,16 @@ a:hover {
     font-size: 13px;
     line-height: 15px;
 }
+.boxedcode {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-style: dashed;
+    border-color: #ccc;
+    background-color: #fcfcfc;
+    padding: 3px;
+}
 .codestyle {
     text-align: left;
     font-family: "Consolas", "Droid Sans Mono", "DejaVu Sans Mono", Monospace;
@@ -220,12 +233,17 @@ a:hover {
     line-height: 13px;
 }
 .doclink {
-    text-decoration : underline;
+    text-decoration : none;
     color: #0f50df;
 }
+.doclink:link {
+    color: #0f70c5;
+}
+.doclink:visited {
+    color: #0f70c5;
+}
 .doclink:hover {
-    text-decoration : underline;
-    color: #af50df;
+    color: #bf1580;
 }
 
 
@@ -565,6 +583,23 @@ a:hover {
     font-size: 20px;
     line-height: 22px;
 }
+.contents .subcontent {
+    font-size: 14px;
+    line-height: 12px;
+}
+
+.chapter .dl {
+}
+.chapter .dl td {
+    height: 20px;
+}
+.chapter .dt {
+    vertical-align: top;
+    text-align: right;
+}
+.chapter .tdsp {
+    width: 10px;
+}
 
 .chapter-number {
     font-size : 29px;
@@ -586,9 +621,14 @@ a:hover {
     font-size : 23px;
 }
 
+.chapter li {
+    margin-bottom: 5px;
+}
+
 .chapter p {
     font-size : 16px;
 }
+
 
 
 

@@ -27,7 +27,7 @@
             <div id="submenu"></div>
             <div style="height: 40px"></div>
             <div class="chapter"><strong><span class="title">Introduction</span></strong>
-                <div class="contents"></div>
+                <div class="contents" id="skip-Introduction"></div>
                 <strong><span class="section">About</span></strong>
                 <p>
                     <b>Nape</b> is a 2D rigid body physics engine designed for games, written in <b>Haxe</b>, and
@@ -89,7 +89,7 @@
                         In <b>AS3</b> you may be more familiar with enumerations <i>(eg. Event::type)</i> as being
                         <b>Strings</b>; in <b>Nape</b> enumerations are strictly-typed as a set of read-only, static
                         fields of the corresponding enum class. <i>(Haxe users, these are not the same as Haxe enums).</i>
-                        <pre class="prettyprint standard largecodestyle">
+                        <pre class="prettyprint standard boxedcode largecodestyle">
 var dynamicType:BodyType = BodyType.DYNAMIC;</pre>
                         There are of course, reasons why this is very good; it is <b>impossible</b> to assign an enumeration
                         value that is invalid, and when accessing a property of an object, you <b>know</b> that it is an
@@ -98,15 +98,15 @@ var dynamicType:BodyType = BodyType.DYNAMIC;</pre>
                     <br/>
                     <li>
                         In the <b>Flash</b> API, you can often find instances where you have to do things like:
-                        <pre class="prettyprint standard largecodestyle">
+                        <pre class="prettyprint standard boxedcode largecodestyle">
 sprite.filters.push(blurFilter);
 sprite.filters = sprite.filters; // &lt;--
 
 sprite.transform.a = 2;
 sprite.transform = sprite.transform; // &lt;--</pre>
                         In <b>Nape</b>, you do not need to do things like this, the effects of modifying an objects properties
-                        is automatically taken into account as part of a <b>lazy</b> system that avoid repeated work.
-                        <pre class="prettyprint standard largecodestyle">
+                        is automatically taken into account as part of a <b>lazy</b> system that avoids repeated calculations.
+                        <pre class="prettyprint standard boxedcode largecodestyle">
 var bodyPosition:Vec2 = body.position;
 bodyPosition.x = 10;
 // no need to 'refresh' the body, informing it that the position was changed.</pre>
@@ -125,6 +125,44 @@ bodyPosition.x = 10;
                         it is <b>valid</b>, and you can be sure that you are not misusing the API - introducing bugs.
                     </li>
                 </ul>
+                <strong><span class="section">Bug Reports</span></strong>
+                <p>
+                    If you think you have found a <b>bug</b> in Nape, the very first question I will aks you is: "Are you
+                    using the <b>development build</b>?". If, when running your project with the <b>development build</b>, you
+                    receive errors then I will <i>not</i> accept your report as it means you are misusing the API and that is
+                    the more likely reason why something bad is happening.
+                </p>
+                <p>
+                    If that is not the case, then the procedure for reporting bugs should be to run your project using the
+                    <b>debug build</b> (To see if any internal assertions are thrown) and issue a report on
+                    <a class="doclink" href="http://github.com/deltaluca/nape">github</a>.
+                </p>
+                <p>
+                    As part
+                    of your bug report you should include a <b>minimal test case</b>. The smaller your test case is, the
+                    easier it is to track a bug; preferably your test case should <i>not</i> have a <b>main loop</b>, and should
+                    certainly not have any <b>user interaction</b>, or be dependent on <b>random numbers</b>.
+                </p>
+                <strong><span class="section">Packages</span></strong>
+                <p>
+                    The <b>Nape</b> core is split into the following packages:
+                    <table class="dl">
+                        <tr><td class="dt"><b>nape:</b></td><td class="tdsp"></td><td>Top-level package</td></tr>
+                        <tr><td class="dt"><b>nape.callbacks:</b></td><td class="tdsp"></td><td>Objects related to the callback system, such as
+                            <b>CbType</b>, and <b>InteractionListener</b> objects.</td></tr>
+                        <tr><td class="dt"><b>nape.constraint:</b></td><td class="tdsp"></td><td>Physics constraints such as the <b>WeldJoint</b> and <b>LineJoint</b></td></tr>
+                        <tr><td class="dt"><b>nape.dynamics:</b></td><td class="tdsp"></td><td>Objects related to dynamical interactions such as the <b>Arbiter</b> and <b>Contact</b> types.</td></tr>
+                        <tr><td class="dt"><b>nape.geom:</b></td><td class="tdsp"></td><td>Geometric objects such as <b>Vec2</b> and <b>Mat23</b>, as well as geometric utilities
+                            available through the <b>Geom</b> and <b>GeomPoly</b> objects among others.</td></tr>
+                        <tr><td class="dt"><b>nape.phys:</b></td><td class="tdsp"></td><td>Physics objects such as <b>Body</b>, <b>Compound</b> <i>(Groups bodies
+                            and constraints together)</i> and <b>Material</b> <i>(Defines physical properties of <b>Shapes</b>)</i>.</td></tr>
+                        <tr><td class="dt"><b>nape.shape:</b></td><td class="tdsp"></td><td>Physics shapes: <b>Circle</b>, <b>Polygon</b> and related objects.</td></tr>
+                        <tr><td class="dt"><b>nape.space:</b></td><td class="tdsp"></td><td>Contains the <b>Space</b> object responsible for controlling simulations and related objects.</td></tr>
+                        <tr><td class="dt"><b>nape.util:</b></td><td class="tdsp"></td><td>Contains such things as <b>Debug</b> drawing utilities and versioning information.</td></tr>
+                    </table>
+                    <dl>
+                    </dl>
+                </p>
             </div>
 
 
@@ -132,8 +170,147 @@ bodyPosition.x = 10;
 
 
             <hr class="hrchapter"/>
-            <div class="chapter"><strong><span class="title">Packages</span></strong>
-                <div class="contents"></div>
+            <div class="chapter"><strong><span class="title">Hello Nape</span></strong>
+                <div class="contents" id="skip-Hello Nape"></div>
+                <p>
+                    In this chapter, we will look at creating a basic simulation with Nape.
+                </p>
+                <strong><span class="section">Setting up a Space</span></strong>
+                <p>
+                    A <b>Space</b> is responsive for simulating physics in <b>Nape</b>. We add physics objects such
+                    as <b>Bodies</b> and <b>Constraints</b> that will be simulated, and add <b>Listeners</b> to make
+                    use of <b>Nape</b> callbacks.
+                </p>
+                <p>
+                    A <b>Space</b> object is instantiated with an optional <b>gravity</b> vector which will be applied
+                    to all rigid bodies.
+                </p>
+                <pre class="prettyprint standard largecodestyle boxedcode">
+var gravity:Vec2 = new Vec2(0, 600); // units are pixels/second/second
+var space:Space = new Space(gravity);</pre>
+                <strong><span class="section">Adding some Bodies</span></strong>
+                <p>
+                    Creating rigid bodies involves constructing a <b>Body</b> object, and giving it some <b>Shapes</b>.
+                </p>
+                <p>
+                    The <b>Body</b> defines physical <b>positions</b>/<b>rotations</b>/<b>velocities</b>, and <b>Shapes</b> give it a physical
+                    form; each <b>Shape</b> has a <b>Material</b> that defines physical properties like <b>friction</b> and <b>density</b>.
+                </p>
+                <p>
+                    When creating a <b>Body</b> we define what type of body it is with the <b>BodyType</b> enumeration.
+                </p>
+                <pre class="prettyprint standard largecodestyle boxedcode">
+var staticBody   :Body = new Body(BodyType.STATIC);
+var kinematicBody:Body = new Body(BodyType.KINEMATIC);
+var dynamicBody  :Body = new Body(BodyType.DYNAMIC);
+var anotherDynamicBody:Body = new Body(); // Default value for BodyType argument is DYNAMIC.</pre>
+                <p>
+                    <ul>
+                        <li>A <b>static</b> body - once assigned to a <b>Space</b> - is fixed; it cannot be moved or rotated, or have <b>Shapes</b> removed from it; a <b>static</b> body has no velocity. We can, however, perform mutations such as changing the shape materials.</li>
+                        <li>A <b>kinematic</b> body is similar to a <b>static</b> body, except that it is permitted to have a velocity which will strictly define how the <b>kinematic</b> body moves. Such bodies will not be effected by gravity or any constraints including contacts. You can think of <b>kinematic</b> bodies as being animated.</li>
+                        <li>A <b>dynamic</b> body is under control of the physics simulation, it will fall under gravity, be pulled at by constraints and be effected by collisions and buoyancy forces.</li>
+                    </ul>
+                </p>
+                <strong><span class="section">Creating a static floor</span></strong>
+                <p>
+                    To create a <b>floor</b>, we can make use of a <b>Polygon</b> shape.
+                </p>
+                <p>
+                    <b>Polygons</b> in <b>Nape</b> are defined by a set of convex coordinates; it doesn't matter whether they are in clockwise, or counter-clockwise order. The constructor for the <b>Polygon</b> shape takes as its first argument, the set of coordinates which is dynamically typed to accept one of: <b>Array&lt;Vec2&gt;</b>, <b>Vec2List</b>, <b>flash.Vector&lt;Vec2&gt;</b> or a <b>GeomPoly</b>.
+                </p>
+                <img width="200" src="../assets/convexity.png" alt="[Convexity]"/>
+                <p>
+                    The <b>Polygon</b> class also has a few <b>static</b> methods for generating <b>Arrays</b> of <b>Vec2</b> that can be used to construct <b>Polygons</b>.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var rectangleVertices:Array<Vec2> = Polygon.rect(top-left-x, top-left-y, width, height);
+var boxVertices      :Array<Vec2> = Polygon.box(width, height);
+// ^ equivalent to Polygon.rect(-width/2, -height/2, width, height);
+var pentagonVertices :Array<Vec2> = Polygon.regular(width, height, 5);</pre>
+                <p>
+                    <table><tr>
+                    <td class="dt"><b>NOTE:</b></td>
+                    <td class="tdsp"></td>
+                    <td>
+                    A <b>Body</b> will always rotate about its centre, regardless of where the <b>centre-of-mass</b> exists.
+                    For this reason, it is important that a <b>dynamic</b> type <b>Body</b> has its centre-of-mass at local
+                    coordinates <b>(0,0)</b>. The <b>Body</b> object has methods to translate its shapes in the local
+                    coordinate system, as well as a method <b>align</b> which will apply the necessary translation to move
+                    the centre-of-mass to the origin.
+                    <br/><br/>
+                    If you are creating a <b>dynamic</b> box object, you would then want to use the <b>Polygon.box</b> method
+                    to define the vertices, and set the <b>position</b> of the <b>Body</b> to be where you want the box to
+                    be created in the <b>Space</b>.
+                    </td>
+                    </tr></table>
+                </p>
+                <p>
+                    For a <b>static</b> floor object, that is not rotating it does not matter where the <b>centre-of-mass</b> lies, and we are free to use the <b>Polygon.rect</b> method.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var floorBody:Body = new Body(BodyType.STATIC);
+var floorShape:Polygon = new Polygon(Polygon.rect(0, stage.height, stage.width, 1));</pre>
+                <p>
+                    To add the <b>Shape</b> to the <b>Body</b> we can use one of two methods:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// Either
+floorShape.body = floorBody;
+// Or
+floorBody.shapes.add(floorShape); // or use the push or unshift methods </pre>
+                <p>
+                    The choice is entirely up to you, and whichever you consider to be the appropriate style. You can also
+                    remove <b>Shapes</b> in the equivalent ways by using the <b>remove</b> method on the <b>ShapeList</b>, or simply setting the <b>body</b> property of the <b>Shape</b> to <b>null</b>.
+                </p>
+                <p>
+                    To add the <b>Body</b> to the <b>Space</b> we have a similar set of choices for adding/removing:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// Either
+floorBody.space = space;
+// Or
+space.bodies.add(floorBody);</pre>
+                <strong><span class="section">Adding a dynamic circle</span></strong>
+                <p>
+                    For our circle object, we will use the <b>Circle</b> shape type.
+                </p>
+                <p>
+                    <b>Circles</b> in <b>Nape</b> are defined by a <b>radius</b> and a <b>local position</b> in the <b>Body</b> it is assigned to, these are respectively, the arguments to the <b>Circle</b> constructor.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var circle:Circle = new Circle(10); // local position argument is optional.
+var anotherCircle:Circle = new Circle(10, new Vec2(5, 0));</pre>
+                <p>
+                    We'll position the circle so that it is in the middle of the <b>stage</b> and give it an initial <b>velocity</b>
+                    to throw it down to the floor.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var circleBody:Body = new Body(); // Implicit BodyType.DYNAMIC
+circleBody.position.setxy(stage.width/2, stage.height/2);
+// or circleBody.position = new Vec2(stage.width/2, stage.height/2);
+// or circleBody.position.x = stage.width/2; etc.
+circleBody.velocity.setxy(0, 1000);</pre>
+                <p>
+                    We'd also like this object to be bouncy, for which we defer to the <b>Material</b> object.
+                </p>
+                <strong><span class="section">Shape Materials</span></strong>
+                <p>
+                    <b>Materials</b> in <b>Nape</b> define coefficients of <b>dynamic</b>, <b>static</b> and <b>rolling</b>
+                    friction, <b>elasticity</b> and <b>density</b> for the <b>Shapes</b> they are assigned to. The <b>density</b> is used in computing the mass, moment of inertia, and centre of mass of a <b>Body</b> whilst the other values are combined in contact calculations and other frictional computations like fluid drag.
+                </p>
+                <p>
+                    We can change the <b>Material</b> of a <b>Shape</b> at any time, even for <b>static</b> <b>Bodies</b>. For
+                    the construction of <b>Materials</b>, there are also some pre-set factories as static methods of the <b>Material</b> class.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+circleShape.material.elasticity = 1;
+circleShape.material.density = 4;
+
+circleShape.material = Material.rubber();</pre>
+                <p>
+                    To learn how the values of the <b>Materials</b> will be combined, and what the valid ranges are for the properties you should check the API page for <b>Material</b>.
+                </p>
+                <strong><span class="section">Setting up a <b id="disabled-doc">Debug Draw</b></span></strong>
             </div>
         </div>
         <footer>
@@ -146,9 +323,11 @@ bodyPosition.x = 10;
     <script src="../assets/js/submenu.js"></script>
     <script src="../assets/js/contents.js"></script>
     <script src="../assets/prettify/prettify.js"></script>
+    <script src="../assets/js/doclinks.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             prettyPrint();
+            applyDocLinks();
         });
     </script>
     </body>
