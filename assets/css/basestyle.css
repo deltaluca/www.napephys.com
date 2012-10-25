@@ -587,6 +587,15 @@ a:hover {
     font-size: 14px;
     line-height: 12px;
 }
+.section-contents {
+    border: 0;
+    border-spacing: 0;
+    line-height: 14px;
+}
+.section-contents td {
+    height: 14px;
+    padding-left: 5px;
+}
 
 .chapter .dl {
 }
