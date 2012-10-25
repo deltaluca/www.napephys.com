@@ -356,25 +356,16 @@
             var hash = window.location.hash;
             if (hash) {
                 if (hash.substr(0, 5) === '#swf-') {
-                    var pos = $('#samples').offset();
-                    window.scrollTo(pos.left, pos.top);
-
                     var name = hash.substr(5);
                     fadeInSample(name);
                     sampleSWF();
                 }
                 else if (hash.substr(0, 5) === '#as3-') {
-                    var pos = $('#samples').offset();
-                    window.scrollTo(pos.left, pos.top);
-
                     var name = hash.substr(5);
                     fadeInSample(name);
                     sampleAS3();
                 }
                 else if (hash.substr(0, 6) === '#haxe-') {
-                    var pos = $('#samples').offset();
-                    window.scrollTo(pos.left, pos.top);
-
                     var name = hash.substr(6);
                     fadeInSample(name);
                     sampleHaxe();

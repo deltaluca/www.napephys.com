@@ -28,6 +28,7 @@ function applyDocLinks()
     links["PreListener"] = links["PreListeners"] = "types/nape/callbacks/PreListener.html";
     links["Geom"] = "types/nape/geom/Geom.html";
     links["BitmapDebug"] = "types/nape/util/BitmapDebug.html";
+    links["ShapeDebug"] = "types/nape/util/ShapeDebug.html";
     links["Vec2"] = "types/nape/geom/Vec2.html";
     links["Space"] = "types/nape/space/Space.html";
     links["Debug"] = "types/nape/util/Debug.html";

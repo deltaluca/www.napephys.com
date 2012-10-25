@@ -32,7 +32,7 @@
                 <p>
                     <b>Nape</b> is a 2D rigid body physics engine designed for games, written in <b>Haxe</b>, and
                     supporting all Haxe targets. <b>Nape</b> is compiled into <b>.swc</b> libraries for AS3 users.
-                    <b>Nape</b> is written for ease of development, with a powerful and succint API that
+                    <b>Nape</b> is written for ease of development, with a powerful and succinct API that
                     <i>(outside of a release build)</i> checks it is being used correctly, and reports <b>errors</b> if it is not.
                 </p>
                 <p>
@@ -80,7 +80,7 @@
                 <strong><span class="section">API design</span></strong>
                 <p>
                     <b>Nape</b> has an API that is in some regards, perhaps unusual compared to the majority of Haxe and AS3
-                    APIs. These aspects should be intuitive <i>(if suprisingly so)</i>. For <b>Haxe</b> users, <b>Nape</b> has been written
+                    APIs. These aspects should be intuitive <i>(if surprisingly so)</i>. For <b>Haxe</b> users, <b>Nape</b> has been written
                     with the <b>flash</b> target as its main focus, and many API choices reflect this by using only a
                     subset of <b>Haxe</b> that has direct equivalents in <b>AS3</b>.
                 </p>
@@ -127,7 +127,7 @@ bodyPosition.x = 10;
                 </ul>
                 <strong><span class="section">Bug Reports</span></strong>
                 <p>
-                    If you think you have found a <b>bug</b> in Nape, the very first question I will aks you is: "Are you
+                    If you think you have found a <b>bug</b> in Nape, the very first question I will ask you is: "Are you
                     using the <b>development build</b>?". If, when running your project with the <b>development build</b>, you
                     receive errors then I will <i>not</i> accept your report as it means you are misusing the API and that is
                     the more likely reason why something bad is happening.
@@ -158,7 +158,7 @@ bodyPosition.x = 10;
                             and constraints together)</i> and <b>Material</b> <i>(Defines physical properties of <b>Shapes</b>)</i>.</td></tr>
                         <tr><td class="dt"><b>nape.shape:</b></td><td class="tdsp"></td><td>Physics shapes: <b>Circle</b>, <b>Polygon</b> and related objects.</td></tr>
                         <tr><td class="dt"><b>nape.space:</b></td><td class="tdsp"></td><td>Contains the <b>Space</b> object responsible for controlling simulations and related objects.</td></tr>
-                        <tr><td class="dt"><b>nape.util:</b></td><td class="tdsp"></td><td>Contains such things as <b>Debug</b> drawing utilities and versioning information.</td></tr>
+                        <tr><td class="dt"><b>nape.util:</b></td><td class="tdsp"></td><td>Contains such things as <b>Debug</b> drawing utilities and version information.</td></tr>
                     </table>
                     <dl>
                     </dl>
@@ -173,7 +173,10 @@ bodyPosition.x = 10;
             <div class="chapter"><strong><span class="title">Hello Nape</span></strong>
                 <div class="contents" id="skip-Hello Nape"></div>
                 <p>
-                    In this chapter, we will look at creating a basic simulation with Nape.
+                    In this chapter, we will look at creating a basic simulation with <b>Nape</b>.
+                </p>
+                <p>
+                    This chapter reads like a <b>tutorial</b>, and for example source code you should check the <a class="doclink" href="../samples.html#swf-BasicSimulation">BasicSimulation</a> code sample.
                 </p>
                 <strong><span class="section">Setting up a Space</span></strong>
                 <p>
@@ -299,18 +302,77 @@ circleBody.velocity.setxy(0, 1000);</pre>
                     friction, <b>elasticity</b> and <b>density</b> for the <b>Shapes</b> they are assigned to. The <b>density</b> is used in computing the mass, moment of inertia, and centre of mass of a <b>Body</b> whilst the other values are combined in contact calculations and other frictional computations like fluid drag.
                 </p>
                 <p>
-                    We can change the <b>Material</b> of a <b>Shape</b> at any time, even for <b>static</b> <b>Bodies</b>. For
+                    We can change the <b>Material</b> of a <b>Shape</b> at any time, even for <b>static</b> <b>Bodies</b>. <b>Shapes</b> are constructed with their own <b>Material</b> object corresponding to the default <b>Material</b>. For
                     the construction of <b>Materials</b>, there are also some pre-set factories as static methods of the <b>Material</b> class.
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
+// Set individual values
 circleShape.material.elasticity = 1;
 circleShape.material.density = 4;
 
+// Assign a totally different Material, can use this style to share Materials.
 circleShape.material = Material.rubber();</pre>
                 <p>
                     To learn how the values of the <b>Materials</b> will be combined, and what the valid ranges are for the properties you should check the API page for <b>Material</b>.
                 </p>
+                <strong><span class="section">Running the simulation</span></strong>
+                <p>
+                    To run a simulation, we use the <b>step</b> function on the <b>Space</b>. We will call this function sequentially
+                    each frame to advance the simulation, objects will be moved forward based on velocities with <b>gravity</b> and <b>drag</b> being applied. Collision detection will occur with new <b>contacts</b> created, and all <b>constraints</b> will be solved. When using the <b>callbacks</b> system, this function will also invoke your callback handlers.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// Step forwards in simulation by given amount of seconds.
+space.step(deltaTime);</pre>
+                <p>
+                    We can also specify the number of physics iterations that should be used. These iterations are used to solve the physics
+                    constraints and are split into two categories.
+                    <table class="dl">
+                        <tr><td class="dt"><b>Velocity Iterations</b></td><td class="tdsp"></td><td>In this stage, we are solving all the
+                            constraints and contacts to resolve errors in <b>velocities</b> of objects. This is the most important stage
+                            in solving the physics system. The default value is <b>10</b></td></tr>
+                        <tr><td class="dt"><b>Position Iterations</b></td><td class="tdsp"></td><td>In this stage, we are solving all the
+                            constraints and contacts to resolve errors in <b>positions</b> of objects that remain after having solved for
+                            velocity errors, and integrated the positions of objects. This stage is necessary to resolve <b>penetrations</b>
+                            between objects, and to resolve positional errors of <b>stiff</b> constraints. Position iterations are
+                            lighter-weight than velocity iterations and the default value is <b>10</b></td></tr>
+                    </table>
+                </p>
                 <strong><span class="section">Setting up Debug Draw</span></strong>
+                <p>
+                    <b>Nape</b> provides two methods of debug drawing:
+                    <table class="dl">
+                        <tr><td class="dt"><b>ShapeDebug</b></td><td class="tdsp"></td><td>Debug drawing using a <b>Sprite</b> with the flash drawing API. This is the most portable debug drawer, working in <b>Haxe</b> through <b>NME</b> for all <b>NME</b> targets.</td></tr>
+                        <tr><td class="dt"><b>BitmapDebug</b></td><td class="tdsp"></td><td>Debug drawing using a <b>Bitmap</b> and <b>Alchemy</b> opcodes for extremely fast line drawing. This is available only for <b>flash10+</b> targets and when targeting flash should generally be preferred due to the much higher performance.</td></tr>
+                    </table>
+                    These objects have equivalent APIs.
+                </p>
+                <p>
+                    The constructors for both debug drawers take as arguments, the <b>width/height</b> of the viewport, and a background colour.
+                </p>
+                <p>
+                    This viewport is used to cull drawing of objects that are not visible (when enabled), and for the <b>BitmapDebug</b>
+                    object, defines the size of the bitmap. The background colour is used to <b>tint</b> colours to emulate alpha
+                    drawing (Avoiding more expensive alpha-based rendering); for <b>BitmapDebug</b> this defines the base colour
+                    for the bitmap.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var debug:Debug = new BitmapDebug(stage.stageWidth, stage.stageHeight, stage.color);</pre>
+                <p>
+                    To display the debug view on the screen, you will add <b>debug.display</b> to the <b>DisplayList</b>.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var display:DisplayObject = debug.display;
+addChild(display);</pre>
+                <p>
+                    The <b>Debug</b> objects have many methods for drawing things like <b>lines</b> and <b>curves</b>, as well as a <b>transform</b> <b>Mat23</b> property that can be used to transform the input geometry (With which we can 'move' our viewport around the world). For this chapter we need only to draw the <b>Space</b>.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// Clear the debug display.
+debug.clear();
+// Draw our Space.
+debug.draw(space);
+// Flush draw calls, until this is called nothing will actually be displayed.
+debug.flush();</pre>
             </div>
         </div>
         <footer>
