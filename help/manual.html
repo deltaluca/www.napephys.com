@@ -459,7 +459,7 @@ donutFilter.collisionGroup = 4; // in binary this is 0000...00100</pre>
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
 ballFilter .collisionMask = ~(2|4); // in binary this is 1111...11001
-boxFilter  .collisionMask = ~1; // in binary this is 1111...11111
+boxFilter  .collisionMask = ~1;     // in binary this is 1111...11111
 donutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
                 <p>
                     The reason this works, is that we can interpret the expression
