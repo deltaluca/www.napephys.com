@@ -506,8 +506,74 @@ donutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
                 </p>
                 <strong><span class="section">Constraints</span></strong>
                 <p>
-                    Though we have not introduced <b>Constraints</b> yet, we must mention one further feature. All <b>Constraints</b> have an <b>ignore</b> property, which if set to <b>true</b> will not permit any of the <b>Bodies</b> related to the <b>Constraint</b> to interact.
+                    Though we have not introduced <b>Constraints</b> yet, we must mention one further feature. All
+                    <b>Constraints</b> have an <b>ignore</b> property, which if set to <b>true</b> will not permit any of
+                    the <b>Bodies</b> related to the <b>Constraint</b> to interact.
                 </p>
+            </div>
+
+            <hr class="hrchapter"/>
+            <div class="chapter"><strong><span class="title">Constraints</span></strong>
+                <div class="contents" id="skip-Constraints"></div>
+                <p>
+                    <b>Constraints</b> in <b>Nape</b> bind bodies together. Typical examples uses would be for things such
+                    as rag dolls, cars, and mechanical contraptions.
+                </p>
+                <p>
+                    Most of the <b>Constraint</b> types are <b>positional</b> constraints, such as the <b>PivotJoint</b>
+                    which, given two local positions on the <b>Bodies</b>, locks those points together allowing the bodies
+                    to mutually rotate about that point. Many constraints are given upper and lower limits such as the
+                    <b>DistanceJoint</b> which locks the points on two <b>Bodies</b> to be within a given range of values.
+                </p>
+                <p>
+                    All <b>positional</b> constraints can be set as <b>stiff</b> or <b>elastic</b>.
+                </p>
+                <p>
+                    Compared to other physics engines, in <b>Nape</b> there is no concept of <b>ownership</b> when it comes
+                    to <b>Constraints</b>. If you remove a <b>Body</b>, then any <b>Constraints</b> using the <b>Body</b>
+                    that are in the <b>Space</b> will <i>not</i> be removed automatically.
+                </p>
+                <strong><span class="section">PivotJoint</span></strong>
+                <p>
+                    A <b>PivotJoint</b> locks two points, defined locally to the assigned <b>Bodies</b>, to be the same
+                    in <b>world</b> space. The <b>Bodies</b> will then rotate about this point.
+                </p>
+                <img src="../assets/PivotJoint.png" alt="[PivotJoint diagram]"/>
+                <p>
+                    You could represent this like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+body2.localPointToWorld(anchor2) == body1.localPointToWorld(anchor1)</pre>
+
+                <strong><span class="section">WeldJoint</span></strong>
+                <p>
+                    A <b>WeldJoint</b> is like a <b>PivotJoint</b>, except that the relative rotations of the <b>Bodies</b>
+                    is also locked to a fixed value. This system is solved together for extra stability compared to using
+                    seperate <b>PivotJoint</b> and <b>AngleJoint</b>.
+                </p>
+                <img src="../assets/WeldJoint.png" alt="[WeldJoint diagram]"/>
+                <p>
+                    You could represent this like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+body2.localPointToWorld(anchor2) == body1.localPointToWorld(anchor1)
+body2.rotation == body1.rotation + phase</pre>
+
+                <strong><span class="section">DistanceJoint</span></strong>
+                <p>
+                    A <b>DistanceJoint</b> constrains the distance between two locally defined points on the <b>Bodies</b>
+                    to be restricted to a given range.
+                </p>
+                <p>
+                    Please note, that defining a <b>DistanceJoint</b> to have upper and lower limits of <b>0</b> would
+                    better be served by using a <b>PivotJoint</b>
+                </p>
+                <img src="../assets/DistanceJoint.png" alt="[DistanceJoint diagram]"/>
+                <p>
+                    You could represent this like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+jointMin &lt;= distance(body2.localPointToWorld(anchor2), body1.localPointToWorld(anchor1)) &lt;= jointMax<lt;/pre>
             </div>
         </div>
         <footer>
