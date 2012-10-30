@@ -740,12 +740,31 @@ var motorJoint:Constraint = new MotorJoint(body1, body2, rate = 0, ratio = 1);</
 var c = new Compound();
 body1.compound = c;
 body2.compound = c;
+constraint.compound = c;
 c.space = space;</pre>
                 <p>
                     Note that we added the <b>Compound</b> to the <b>Space</b> instead of the individual objects that form
-                    the <b>Compound</b>. When it comes to the <b>callbacks</b> system, we can handle events between
-                    <b>Compounds</b> like we can between <b>Bodies</b> and <b>Shapes</b>.
+                    the <b>Compound</b>. Equally, we remove the <b>Compound</b> from the <b>Space</b> instead of its seperate
+                    constituents.
                 </p>
+                <img src="../assets/Compound.png" alt="[Compound diagram]"/>
+                <p>
+                    When it comes to producing a <b>copy</b> of a <b>Compound</b> then you may find that not all
+                    <b>Constraints</b> have their body references set, as it is not required for a <b>Constraint</b> to
+                    reference only <b>Bodies</b> contained in the <b>Compound</b>. In the <b>diagram</b> we have the
+                    <b>Constraint</b> <b>Co1</b> that is assigned to <b>Compound</b> <b>C2</b>, but references <b>Body</b>
+                    <b>B2</b> that is outside of the visibility of <b>C2</b>.
+                </p>
+                <p>
+                    In this example, if we produce a copy of <b>C1</b>, then everything will turn out okay. However if we produce
+                    a copy of <b>C2</b>, then the <b>Constraint</b> <b>Co1</b> will have a <b>null</b> reference where the
+                    original referenced <b>B2</b> as that <b>Body</b> was not part of the <b>Compound</b> being copied.
+                </p>
+            </div>
+
+            <hr class="hrchapter">
+            <div class="chapter"><strong><span class="title">Callbacks</span></strong>
+                <div class="contents" id="skip-Callbacks"></div>
             </div>
         </div>
         <footer>
