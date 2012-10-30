@@ -526,12 +526,48 @@ donutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
                     <b>DistanceJoint</b> which locks the points on two <b>Bodies</b> to be within a given range of values.
                 </p>
                 <p>
-                    All <b>positional</b> constraints can be set as <b>stiff</b> or <b>elastic</b>.
+                    All <b>positional</b> constraints can be set as <b>stiff</b> or <b>elastic</b>. When using <b>elastic</b> constraints,
+                    we can set <b>frequency</b> and <b>damping</b> values to control the elastic behaviour, and can set <b>maxForce</b>
+                    and <b>maxError</b> to determine how much force is used, and how much error we resolve per second.
                 </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+constraint.stiff = false;
+constraint.frequency = 30; //Hz
+constraint.damping = 10; //Large over-dampening
+
+constraint.maxForce = 1000; // Constraint will use no more than 1000 Newtons to resolve constraint.
+constraint.maxError = 10; // Constraint will resolve no more than 10 units of positional error per second.
+// The exact behaviour of maxError is dependent on constraint formulation.</pre>
+                <p>
+                    By setting the appropriate properties, we can also permit a <b>Constraint</b> to be broken if its error becomes too
+                    large, or for <b>elastic</b> constraints, if the force required to solve the constraint becomes too large. With
+                    the <b>callbacks</b> system, we can receive a callback when a constraint is broken.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+constraint.breakUnderError = true;
+constraint.maxError = 10; // If constraint exceeds 10 units of error, constraint will break.
+constraint.removeOnBreak = false; // Instead of removing constraint, it will simply be de-activated when broken.</pre>
                 <p>
                     Compared to other physics engines, in <b>Nape</b> there is no concept of <b>ownership</b> when it comes
                     to <b>Constraints</b>. If you remove a <b>Body</b>, then any <b>Constraints</b> using the <b>Body</b>
-                    that are in the <b>Space</b> will <i>not</i> be removed automatically.
+                    that are in the <b>Space</b> will <i>not</i> be removed automatically. The main reason is that you are
+                    free to modify what <b>Bodies</b> a <b>Constraint</b> works upon at any time.
+                </p>
+                <p>
+                    To emulate behaviour of other engines, you could use the pattern:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+while (!body.constraints.empty()) {
+        body.constraints.at(0).space = null;
+}
+body.space = null;</pre>
+                <p>
+                    However, it is very likely that you could achieve better code by making use of <b>Nape</b> <b>Compounds</b>.
+                </p>
+                <p>
+                    As you will be able to see, <b>Constraints</b> have a similar API to <b>Bodies</b> when it comes to adding/removing
+                    them from <b>Spaces</b>. The <b>Body</b> <b>constraints</b> list tracks those <b>Constraints</b> which make use of the
+                    <b>Body</b>, and which are assigned to a <b>Space</b>, which is why the above pattern works.
                 </p>
                 <strong><span class="section">PivotJoint</span></strong>
                 <p>
@@ -544,6 +580,20 @@ donutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
 body2.localPointToWorld(anchor2) == body1.localPointToWorld(anchor1)</pre>
+                <p>
+                    Construction of a <b>PivotJoint</b> requires two <b>Bodies</b> together with two <b>Vec2s</b> defining the local anchor points.
+                    As is common with all <b>Nape</b> constraints, you are permitted to assign <b>null</b> <b>Bodies</b> whenever the constraint
+                    is <b>inactive</b> or not part of a <b>Space</b>.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var pivotJoint:Constraint = new PivotJoint(body1, body2, anchor1, anchor2);</pre>
+                <p>
+                    If instead, you already have the <b>Bodies</b> positioned correctly, and know the <b>world</b> position of the anchors, then you could use the following pattern to construct the <b>PivotJoint</b>
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var anchor1:Vec2 = body1.worldPointToLocal(anchor);
+var anchor2:Vec2 = body2.worldPointToLocal(anchor);
+var pivotJoint:Constraint = new PivotJoint(body1, body2, anchor1, anchor2);</pre>
 
                 <strong><span class="section">WeldJoint</span></strong>
                 <p>
