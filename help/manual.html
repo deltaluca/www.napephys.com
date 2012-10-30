@@ -374,6 +374,141 @@ debug.draw(space);
 // Flush draw calls, until this is called nothing will actually be displayed.
 debug.flush();</pre>
             </div>
+
+            <hr class="hrchapter"/>
+            <div class="chapter"><strong><span class="title">Interactions</span></strong>
+                <div class="contents" id="skip-Interactions"></div>
+                <p>
+                    <table class="dl">
+                        <tr><td class="dt"><b>Collision</b></td><td class="tdsp"></td><td>Default interaction type; when two
+                            <b>Shapes</b> intersect (and are able to collide), they will collide with <b>friction</b> and
+                            <b>elasticity</b> as defined by the shape <b>Materials</b>.</td></tr>
+                        <tr><td class="dt"><b>Sensor</b></td><td class="tdsp"></td><td>With this interaction type, two intersecting <b>Shapes</b> will simply pass through eachother. <b>Arbiter</b> objects will still be created to catalogue the overlap, and you can still receive <b>callbacks</b>.</td></tr>
+                        <tr><td class="dt"><b>Fluid</b></td><td class="tdsp"></td><td>This interaction type corresponds to <b>Nape</b>'s implementatino of <b>buoyancy</b>. When two <b>Shapes</b> intersect, the <b>Bodies</b> will receive <b>buoyancy</b> and <b>drag</b> forces as determined by the <b>fluidEnabled</b> <b>Shapes</b>' <b>FluidProperties</b>, and the profiles of the <b>Shapes</b> (A stick will experiance differing drag depending on the direction it moves through the fluid).</td></tr>
+                    </table>
+                </p>
+                <strong><span class="section">Controlling Interactions</span></strong>
+                <p>
+                    The type of interaction that occurs depends on the shape's <b>InteractionFilters</b>, and the
+                    <b>sensorEnabled</b> and <b>fluidEnabled</b> <b>Shape</b> flags.
+                </p>
+                <p>
+                    At a basic level, two <b>static</b> bodies can never interact in any way, and with the exception of
+                    <b>sensor</b> interactions, at least one of the bodies must be <b>dynamic</b> for an interaction to occur.
+                    This means that the only interaction which can occur between two <b>kinematic</b> bodies, is that of a
+                    <b>sensor</b> interaction.
+                </p>
+                <p>
+                    <b>Sensor</b> interactions have the highest precedence, followed by <b>fluid</b> interactions, and finally
+                    <b>collision</b> interactions. For any interaction to occur, the <b>InteractionFilters</b> of the shapes
+                    must <i>agree</i> to interact. For <b>sensor</b> and <b>fluid</b> interactions, we must additionally have at
+                    least one of the <b>Shapes</b> <i>enabled</i> for that interaction type.
+                </p>
+                <p>
+                    The specific procedure used by <b>Nape</b> to decide what sort of interaction occurs is defined like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+if ((shapeA.sensorEnabled || shapeB.sensorEnabled) &amp;&amp; shapeA.filter.shouldSense(shapeB.filter)) {
+    SENSOR INTERACTION!!
+}
+else if (bodyA.isDynamic() || bodyB.isDynamic()) {
+    if ((shapeA.fluidEnabled || shapeB.fluidEnabled) &amp;&amp; shapeA.filter.shouldFlow(shapeB.filter)) {
+        FLUID INTERACTION!!
+    }
+    else if (shapeA.filter.shouldCollide(shapeB.filter)) {
+        COLLISION INTERACTION!!
+    }
+}</pre>
+                <strong><span class="section">InteractionFilters</span></strong>
+                <p>
+                    <b>InteractionFilters</b> work much like you may be familiar with in <b>Box2D</b> and other physics engines.
+                    The filters define a <b>group</b> and <b>mask</b> integer, and two filters <i>agree</i> to
+                    interact only if:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+(filterA.group &amp; filterB.mask != 0) &amp;&amp; (filterB.group &amp; filterA.mask != 0)</pre>
+                <p>
+                    <b>Nape</b> takes this concept a step further, by having seperate <b>group</b> and <b>masks</b> for each
+                    interaction type. This permits finer grained control on what sort of interaction occurs; it is for
+                    example, possible to have a <b>fluidEnabled</b> <b>Shape</b> which due to interaction filters,
+                    collides instead.
+                </p>
+                <p>
+                    If you are unfamiliar with thinking of integers are binary values, it is still easy to contruct suitable
+                    <b>group</b>/<b>mask</b> values in a pragmatic way. Say we have 3 types of objects: <b>balls</b>,
+                    <b>boxes</b> and... <b>donuts</b>. Furthermore let's say that the <b>balls</b> should not collide with
+                    <b>boxes</b> or <b>donuts</b>, and <b>donuts</b> should not collide with other <b>donuts</b>.
+                </p>
+                <p>
+                    <table class="table">
+                        <tr><td class="border-right border-bottom"></td><td class="border-bottom">Balls</td><td class="border-bottom">Boxes</td><td class="border-bottom">Donuts</td></tr>
+                        <tr><td class="border-right">Balls</td><td><b>Yes</b></td><td>No</td><td>No</td></tr>
+                        <tr><td class="border-right">Boxes</td><td>No</td><td><b>Yes</b></td><td><b>Yes</b></td></tr>
+                        <tr><td class="border-right">Donuts</td><td>No</td><td><b>Yes</b></td><td>No</td></tr>
+                    </table>
+                </p>
+                <p>
+                    It is clear this table is symmetric. Now, if we assign <b>groups</b> like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+ballFilter .collisionGroup = 1; // in binary this is 0000...00001
+boxFilter  .collisionGroup = 2; // in binary this is 0000...00010
+donutFilter.collisionGroup = 4; // in binary this is 0000...00100</pre>
+                <p>
+                    Then we can assign <b>masks</b> to match our table - in the most permissive way - like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+ballFilter .collisionMask = ~(2|4); // in binary this is 1111...11001
+boxFilter  .collisionMask = ~1; // in binary this is 1111...11111
+donutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
+                <p>
+                    The reason this works, is that we can interpret the expression
+                    <span class="codestyle">(group &amp; mask) != 0</span> as meaning "Group and Mask have at least one bit both
+                    equal to 1". In our case, we did not want the <b>donuts</b> to collide amongst themselves, and we seen in
+                    the binary representation of the <b>group</b>/<b>mask</b> that the only place the donut group has bit
+                    equal to 1 is in the 3rd position, and in the mask, this bit is 0.
+                </p>
+                <p>
+                    The default values for all <b>group</b>/<b>mask</b> properties is <b>1</b> and <b>~0</b> which have
+                    binary representations <b>0000...00001</b> and <b>1111...11111</b>.
+                </p>
+                <strong><span class="section">InteractionGroups</span></strong>
+                <p>
+                    <b>InteractionGroups</b> provide an additional way of controlling interactions between objects.
+                    <b>InteractionGroups</b> can be formed into <b>trees</b> and assigned to <b>Shapes</b>, <b>Bodies</b> and
+                    <b>Compounds</b> (Compounds will be discussed later).
+                </p>
+                <p>
+                    Before two <b>Shapes</b> interact, we search for the <b>most-recent common ancestor</b> in the
+                    <b>InteractionGroup</b> tree; if that group exists, and is set to <b>ignore</b> interactions, then the
+                    two <b>Shapes</b> will not interact.
+                </p>
+                <img src="../assets/InteractionGroup.png" alt="[InteractionGroup ex.]"/>
+                <p>
+                    In this example, we have group <b>G1</b> assigned to body <b>B1</b>, group <b>G2</b> assigned to shape
+                    <b>S2</b> and compound <b>C1</b>, and has <b>G1</b> as its <b>parent</b>. Group <b>G3</b> is assigned to
+                    compound <b>C2</b>. We can compress the example case into the right-hand side graph by looking up the
+                    tree to find the closest <b>InteractionGroup</b>.
+                </p>
+                <p>
+                    In this example, should we look at shapes <b>S2</b> and <b>S3</b>, and if <b>G2</b> is set to
+                    <b>accept</b> interactions, then <b>S2</b> and <b>S3</b> are permitted to interact. If <b>G1</b> is set
+                    to <b>ignore</b> interactions, then <b>S1</b> and <b>S2</b> will <i>not</i> be permitted to interact.
+                </p>
+                <p>
+                    <b>InteractionFilters</b> are more powerful than <b>InteractionGroups</b> in controlling interaction,
+                    however <b>InteractionGroups</b> can be very useful. Imagine that we have a robotic mechanism, and we
+                    do not want the robot to collide with itself, the easiest way to implement this is to create a
+                    <b>Compound</b> containing the robot, and then assigning it to a unique <b>InteractionGroup</b> set
+                    to <b>ignore</b> interactions. If we were to use <b>InteractionFilters</b> for this, then we would be
+                    forced to <b>use up</b> a bit in the <b>group</b>/<b>mask</b> values, and we would be limited to only
+                    a small number of robots.
+                </p>
+                <strong><span class="section">Constraints</span></strong>
+                <p>
+                    Though we have not introduced <b>Constraints</b> yet, we must mention one further feature. All <b>Constraints</b> have an <b>ignore</b> property, which if set to <b>true</b> will not permit any of the <b>Bodies</b> related to the <b>Constraint</b> to interact.
+                </p>
+            </div>
         </div>
         <footer>
             &copy; Luca Deltodesco 2012

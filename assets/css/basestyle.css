@@ -638,6 +638,22 @@ a:hover {
     font-size : 16px;
 }
 
+.chapter .table {
+    border-collapse: collapse;
+    border-padding: 0;
+}
+.chapter .table td {
+    padding: 4px;
+    text-align: center;
+}
+.chapter .border-right {
+    border-right: 1px;
+    border-style: solid;
+}
+.chapter .border-bottom {
+    border-bottom: 1px;
+    border-style: solid;
+}
 
 
 

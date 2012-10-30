@@ -37,6 +37,9 @@ function applyDocLinks()
     links["InteractionListener"] = "types/nape/callbacks/InteractionListener.html";
     links["Arbiter"] = links["Arbiters"] = "types/nape/dynamics/Arbiter.html";
     links["Contact"] = links["Contacts"] = "types/nape/dynamics/Contact.html";
+    links["FluidProperties"] = "types/nape/phys/FluidProperties.html";
+    links["InteractionFilter"] = links["InteractionFilters"] = "types/nape/dynamics/InteractionFilter.html";
+    links["InteractionGroup"] = links["InteractionGroups"] = "types/nape/dynamics/InteractionGroup.html";
 
     function docLink(b)
     {
