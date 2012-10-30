@@ -608,6 +608,25 @@ var pivotJoint:Constraint = new PivotJoint(body1, body2, anchor1, anchor2);</pre
                 <pre class="prettyprint largecodestyle standard boxedcode">
 body2.localPointToWorld(anchor2) == body1.localPointToWorld(anchor1)
 body2.rotation == body1.rotation + phase</pre>
+                <p>
+                    The choice of anchors is important as it defines where the bodies will rotate relative to eachother
+                    whenever the joint is forced to stretch, or when it is set as <b>elastic</b>.
+                </p>
+                <p>
+                    Construction of a <b>WeldJoint</b> requires two <b>Bodies</b> together with two <b>Vec2s</b> defining the local anchor points. The phase can optionally be defined here, and is defaulted to <b>0</b>.
+                    As is common with all <b>Nape</b> constraints, you are permitted to assign <b>null</b> <b>Bodies</b> whenever the constraint
+                    is <b>inactive</b> or not part of a <b>Space</b>.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var weldJoint:Constraint = new WeldJoint(body1, body2, anchor1, anchor2, phase=0);</pre>
+                <p>
+                    If instead, you already have the <b>Bodies</b> positioned correctly, and know the <b>world</b> position of the anchors, then you could use the following pattern to construct the <b>WeldJoint</b>
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var anchor1:Vec2 = body1.worldPointToLocal(anchor);
+var anchor2:Vec2 = body2.worldPointToLocal(anchor);
+var phase:Float = body2.rotation - body1.rotation;
+var weldJoint:Constraint = new WeldJoint(body1, body2, anchor1, anchor2, phase);</pre>
 
                 <strong><span class="section">DistanceJoint</span></strong>
                 <p>
