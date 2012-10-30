@@ -700,6 +700,20 @@ var direction:Vec2 = segmentEnd.sub(segmentStart);
 var jointMin:Float = 0;
 var jointMax:Float = direction.length;</pre>
                 <strong><span class="section">MotorJoint</span></strong>
+                <p>
+                    A <b>MotorJoint</b> is a velocity-only constraint, which constrains the angular velocities of the two bodies, so that their weighted sum is set to a specific rate.
+                </p>
+                <img src="../assets/MotorJoint.png" alt="[MotorJoint diagram]"/>
+                <p>
+                    You could represent this like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+(ratio * body2.angularVel) - body1.angularVel = rate</pre>
+                <p>
+                    Construction of a <b>MotorJoint</b> requires two <b>Bodies</b> together with the optional <b>rate</b> and <b>ratio</b>.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var motorJoint:Constraint = new MotorJoint(body1, body2, rate = 0, ratio = 1);</pre>
                 <strong><span class="section">UserConstraint</span></strong>
                 <p>
                     The <b>UserConstraint</b> is an advanced API for power-users; <b>UserConstraint</b> provides a way to implement
@@ -708,6 +722,29 @@ var jointMax:Float = direction.length;</pre>
                 <p>
                     The <b>nape-symbolic</b> module, provides a higher-level interface to <b>UserConstraint</b> where constraint definitions can be written in a <b>DSL</b> that is compiled at run-time to a <b>SymbolicConstraint</b> object derived from
                     <b>UserConstraint</b>.
+                </p>
+            </div>
+
+            <hr class="hrchapter"/>
+            <div class="chapter"><strong><span class="title">Compounds</span></strong>
+                <div class="contents" id="skip-Compounds"></div>
+                <p>
+                    <b>Compounds</b> are a way of logically grouping <b>Bodies</b>, <b>Constraints</b> and other
+                    <b>Compounds</b> together into a single object. With respect to the <b>Nape</b> API, this <b>Compound</b>
+                    can largely be treat as a single object.
+                </p>
+                <p>
+                    Example:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var c = new Compound();
+body1.compound = c;
+body2.compound = c;
+c.space = space;</pre>
+                <p>
+                    Note that we added the <b>Compound</b> to the <b>Space</b> instead of the individual objects that form
+                    the <b>Compound</b>. When it comes to the <b>callbacks</b> system, we can handle events between
+                    <b>Compounds</b> like we can between <b>Bodies</b> and <b>Shapes</b>.
                 </p>
             </div>
         </div>
