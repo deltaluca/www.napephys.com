@@ -614,8 +614,6 @@ body2.rotation == body1.rotation + phase</pre>
                 </p>
                 <p>
                     Construction of a <b>WeldJoint</b> requires two <b>Bodies</b> together with two <b>Vec2s</b> defining the local anchor points. The phase can optionally be defined here, and is defaulted to <b>0</b>.
-                    As is common with all <b>Nape</b> constraints, you are permitted to assign <b>null</b> <b>Bodies</b> whenever the constraint
-                    is <b>inactive</b> or not part of a <b>Space</b>.
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
 var weldJoint:Constraint = new WeldJoint(body1, body2, anchor1, anchor2, phase=0);</pre>
@@ -642,7 +640,75 @@ var weldJoint:Constraint = new WeldJoint(body1, body2, anchor1, anchor2, phase);
                     You could represent this like:
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
-jointMin &lt;= distance(body2.localPointToWorld(anchor2), body1.localPointToWorld(anchor1)) &lt;= jointMax<lt;/pre>
+jointMin &lt;= distance(body2.localPointToWorld(anchor2), body1.localPointToWorld(anchor1)) &lt;= jointMax;</pre>
+                <p>
+                    Construction of a <b>DistanceJoint</b> requires two <b>Bodies</b> together with two <b>Vec2s</b> defining
+                    the local anchor points, as well as the two lower and upper limits for the joint.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var distanceJoint:Constraint = new DistanceJoint(body1, body2, anchor1, anchor2, jointMin, jointMax);</pre>
+
+                <strong><span class="section">AngleJoint</span></strong>
+                <p>
+                    An <b>AngleJoint</b> constrains the weighted, relative rotation of two <b>Bodies</b> to be restricted to a given range. Remembering that <b>Body</b> rotations are unbounded, we can define a range greater than <b>2*Math.PI</b>.
+                </p>
+                <img src="../assets/AngleJoint.png" alt="[AngleJoint diagram]"/>
+                <p>
+                    You could represent this like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+jointMin &lt;= (ratio * body2.rotation) - body1.rotation &lt;= jointMax</pre>
+                <p>
+                    Construction of a <b>AngleJoint</b> requires two <b>Bodies</b> together with the joint limits.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var angleJoint:Constraint = new AngleJoint(body1, body2, jointMin, jointMax);</pre>
+
+                <strong><span class="section">LineJoint</span></strong>
+                <p>
+                    A <b>LineJoint</b> constrains the anchor of one body, to be constrained to a <b>line segment</b> defined
+                    on the other. You can think of this as a <b>PivotJoint</b> except that the first body anchor is
+                    replaced by a <b>line segment</b>.
+                </p>
+                <p>
+                    This <b>line segment</b> is represented in the most general way, by use of: a <b>position</b> on the line,
+                    the line <b>direction</b>, and an <b>upper</b> and <b>lower</b> limit on signed distance along the line.
+                    This way we can represent normal line segments, as well as rays and infinite lines.
+                </p>
+                <img src="../assets/LineJoint.png" alt="[LineJoint diagram]"/>
+                <p>
+                    You could represent this like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+let dir = body1.localVectorToWorld(direction).unit();
+let del = body2.localPointToWorld(anchor2).sub(body1.localPointToWorld(anchor1));
+
+jointMin &lt;= dir.dot(del) &lt;= jointMax
+dir.cross(del) == 0;</pre>
+                <p>
+                    Construction of a <b>LineJoint</b> requires two <b>Bodies</b> together with the <b>anchors</b> and the <b>line direction</b> and joint limits.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var lineJoint:Constraint = new LineJoint(body1, body2, anchor1, anchor2, direction, jointMin, jointMax);</pre>
+                <p>
+                    To convert from an actual <b>line segment</b> to the required format used by the <b>LineJoint</b> we
+                    can do:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var anchor1:Vec2 = segmentStart;
+var direction:Vec2 = segmentEnd.sub(segmentStart);
+var jointMin:Float = 0;
+var jointMax:Float = direction.length;</pre>
+                <strong><span class="section">MotorJoint</span></strong>
+                <strong><span class="section">UserConstraint</span></strong>
+                <p>
+                    The <b>UserConstraint</b> is an advanced API for power-users; <b>UserConstraint</b> provides a way to implement
+                    low-level, custom constraints whilst still being able to make constraints <b>elastic</b>, or <b>breakable</b> without any work on your side.
+                </p>
+                <p>
+                    The <b>nape-symbolic</b> module, provides a higher-level interface to <b>UserConstraint</b> where constraint definitions can be written in a <b>DSL</b> that is compiled at run-time to a <b>SymbolicConstraint</b> object derived from
+                    <b>UserConstraint</b>.
+                </p>
             </div>
         </div>
         <footer>
