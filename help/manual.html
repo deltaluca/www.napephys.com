@@ -963,6 +963,62 @@ function pureHandler(cb:PreCallback):PreFlag {
 }</pre>
 
             </div>
+
+            <hr class="hrchapter">
+            <div class="chapter"><strong><span class="title">Object Pooling</span></strong>
+                <div class="contents" id="skip-Object Pooling"></div>
+                <p>
+                    <b>Nape</b> uses <b>object pooling</b> for a large amount of internal objects such as the <b>Contacts</b> and <b>Arbiters</b> where it is suggested you do not hold reference to them as they may be recycled.
+                </p>
+                <p>
+                    More specifically, <b>Nape</b> has <b>object pooling</b> for the <b>Vec2</b> and <b>Vec3</b> objects that
+                    may be used extensively on the public side of the <b>API</b> too.
+                </p>
+                <p>
+                    In both cases, instead of using the <b>constructor</b>, it is suggested you use the <b>static</b> <b>get</b> method to allocate an object from the <b>pool</b> if possible.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var heapVec2 = new Vec2(?x, ?y);
+var heapVec3 = new Vec3(?x, ?y, ?z);
+
+// better to use
+var pooledVec2 = Vec2.get(?x, ?y);
+var pooledVec3 = Vec3.get(?x, ?y, ?z);
+
+// And to release back to object pool
+pooledVec2.dispose();
+pooledVec3.dispose();</pre>
+
+                <strong><span class="section">Weak Vec2s</span></strong>
+                <p>
+                    For <b>Vec2s</b> there is an additional API named <b>weak</b> <b>Vec2s</b>. The purpose of this is to
+                    make using object pooled <b>Vec2s</b> easier, when they are used as temporary values. When a <b>weak</b>
+                    <b>Vec2</b> is passed to <i>any</i> <b>Nape</b> function, it will be automatically released to the object
+                    pool on exit.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// Instead of:
+var tmp = Vec2.get(x, y);
+someNapeFunctionCall(tmp);
+tmp.dispose();
+
+// Or
+var tmp = Vec2.get(x, y);
+napeObject.vec2Property = tmp; // equivalent to napeObject.vec2Property.set(tmp);
+tmp.dispose();
+
+// We can do:
+someNapeFunction(Vec2.weak(x, y));
+napeObject.vec2Property = Vec2.weak(x, y);</pre>
+                <p>
+                    <b>Nape</b> functions which return a <b>Vec2</b> will also have an optional argument that specifies if
+                    you want the returned <b>Vec2</b> to be weak or not. This is also the case for methods like <b>Polygon</b>.</b>box</b> which can be asked to return an <b>Array</b> of <b>weak</b> <b>Vec2s</b> which when used as argument to <b>Polygon</b> constructor will have all the <b>Vec2s</b> sent to object pool automatically.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var boxPoints = Polygon.box(w, h, true);
+var box = new Polygon(boxPoints);
+trace(boxPoints.length); // 0, they were automatically sent to object pool.</pre>
+            </div>
         </div>
         <footer>
             &copy; Luca Deltodesco 2012
