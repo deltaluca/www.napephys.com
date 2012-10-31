@@ -535,8 +535,10 @@ constraint.stiff = false;
 constraint.frequency = 30; //Hz
 constraint.damping = 10; //Large over-dampening
 
-constraint.maxForce = 1000; // Constraint will use no more than 1000 Newtons to resolve constraint.
-constraint.maxError = 10; // Constraint will resolve no more than 10 units of positional error per second.
+// Constraint will use no more than 1000 Newtons to resolve constraint.
+constraint.maxForce = 1000;
+// Constraint will resolve no more than 10 units of positional error per second.
+constraint.maxError = 10;
 // The exact behaviour of maxError is dependent on constraint formulation.</pre>
                 <p>
                     By setting the appropriate properties, we can also permit a <b>Constraint</b> to be broken if its error becomes too
@@ -962,6 +964,40 @@ function pureHandler(cb:PreCallback):PreFlag {
     else return PreFlag.ACCEPT_ONCE;
 }</pre>
 
+            </div>
+
+            <hr class="hrchapter">
+            <div class="chapter"><strong><span class="title">Arbiters &amp; Contacts</span></strong>
+                <div class="contents" id="skip-Arbiters &amp; Contacts"></div>
+                <p>
+                    <b>Arbiter</b> objects represent the state of <b>interactions</b> in <b>Nape</b>. They can be accessed
+                    through the <b>arbiters</b> lists on <b>Bodies</b>, <b>InteractionCallbacks</b> and the <b>arbiter</b> property on <b>PreCallback</b> objects.
+                </p>
+                <p>
+                    Apart from the <b>Arbiter</b> class, there are two sub-types <b>FluidArbiter</b> and <b>CollisionArbiter</b> corresponding to the associated interaction types that record additional information.
+                </p>
+                <p>
+                    The <b>arbiters</b> list on <b>Bodies</b> records all <b>Arbiters</b> that exist making us of that <b>Body</b>. The <b>arbiters</b> list on <b>InteractionCallbacks</b> records all <b>Arbiters</b> between the two <b>Interactors</b> (Note that this list does not discriminate based on the <b>InteractionType</b> handled by <b>Listener</b>). The <b>arbiter</b> property on the <b>PreCallback</b> objects, corresponds to the first pair of <b>Shapes</b> that are tested during collision detection for the pair of <b>Interactors</b>.
+                </p>
+
+                <strong><span class="section">FluidArbiters</span></strong>
+                <p>
+                    <b>FluidArbiters</b> correspond to <b>fluid</b> type interactions, and record the <b>centre of buoyancy</b> corresponding to the centre of the intersection of the associated <b>Shapes</b>, and the <b>area</b> of the intersection.
+                </p>
+                <img src="../assets/fluidarbiter.png" width="190" alt="[FluidArbiter diagram]"/>
+                <p>
+                    There is no access to the profile of the intersection area, as this is not computed in a suitable format
+                    for exposure.
+                </p>
+
+                <strong><span class="section">CollisionArbiters</span></strong>
+                <p>
+                    <b>CollisionArbiters</b> correspond to normal <b>collision</b> type interactions, and record the <b>collision normal</b> together with a set of <b>Contact</b> objects (Maximum 2) corresponding to the collision manifold.
+                </p>
+                <img src="../assets/colarbiter.png" width="320" alt="[CollisionArbiter diagram]"/>
+                <p>
+                    Specifically, a collision between <b>two polygons</b> will always have <b>2</b> contacts, though in the general case one of these (Represented in blue in diagram) is a speculative contact that will have <b>negative</b> penetration. A collision between a <b>circle</b> and a <b>polygon</b> will always have exactly <b>1</b> contact.
+                </p>
             </div>
 
             <hr class="hrchapter">

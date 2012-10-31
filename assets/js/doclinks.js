@@ -41,6 +41,8 @@ function applyDocLinks()
     links["Mat23"] = "types/nape/geom/Mat23.html";
     links["Callback"] = "types/nape/callbacks/Callback.html";
     links["Arbiter"] = links["Arbiters"] = "types/nape/dynamics/Arbiter.html";
+    links["FluidArbiter"] = links["FluidArbiters"] = "types/nape/dynamics/Arbiter.html";
+    links["CollisionArbiter"] = links["CollisionArbiters"] = "types/nape/dynamics/Arbiter.html";
     links["Contact"] = links["Contacts"] = "types/nape/dynamics/Contact.html";
     links["FluidProperties"] = "types/nape/phys/FluidProperties.html";
     links["InteractionFilter"] = links["InteractionFilters"] = "types/nape/dynamics/InteractionFilter.html";
@@ -48,10 +50,10 @@ function applyDocLinks()
     links["Vec2List"] = links["Vec2Lists"] = "types/nape/geom/Vec2List.html";
     links["CbTypeList"] = links["CbTypeLists"] = "types/nape/callbacks/CbTypeList.html";
     links["BodyCallback"] = "types/nape/callbacks/BodyCallback.html";
-    links["InteractionCallback"] = "types/nape/callbacks/InteractionCallback.html";
+    links["InteractionCallback"] = links["InteractionCallbacks"] = "types/nape/callbacks/InteractionCallback.html";
     links["InteractionType"] = "types/nape/callbacks/InteractionType.html";
     links["ConstraintCallback"] = "types/nape/callbacks/ConstraintCallback.html";
-    links["PreCallback"] = "types/nape/callbacks/PreCallback.html";
+    links["PreCallback"] = links["PreCallbacks"] = "types/nape/callbacks/PreCallback.html";
     links["PreFlag"] = "types/nape/callbacks/PreFlag.html";
     links["Interactor"] = links["Interactors"] = "types/nape/phys/Interactor.html";
 
