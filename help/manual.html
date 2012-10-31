@@ -219,7 +219,7 @@ var anotherDynamicBody:Body = new Body(); // Default value for BodyType argument
                     To create a <b>floor</b>, we can make use of a <b>Polygon</b> shape.
                 </p>
                 <p>
-                    <b>Polygons</b> in <b>Nape</b> are defined by a set of convex coordinates; it doesn't matter whether they are in clockwise, or counter-clockwise order. The constructor for the <b>Polygon</b> shape takes as its first argument, the set of coordinates which is dynamically typed to accept one of: <b>Array&lt;Vec2&gt;</b>, <b>Vec2List</b>, <b>flash.Vector&lt;Vec2&gt;</b> or a <b>GeomPoly</b>.
+                    <b>Polygons</b> in <b>Nape</b> are defined by a set of convex coordinates; it doesn't matter whether they are in clockwise, or counter-clockwise order. The constructor for the <b>Polygon</b> shape takes as its first argument, the set of coordinates which is dynamically typed to accept one of: <b>Array&lt;</b><b>Vec2</b><b>&gt;</b>, <b>Vec2List</b>, <b>flash.Vector&lt;</b><b>Vec2</b><b>&gt;</b> or a <b>GeomPoly</b>.
                 </p>
                 <img width="200" src="../assets/convexity.png" alt="[Convexity]"/>
                 <p>
@@ -747,6 +747,7 @@ c.space = space;</pre>
                     the <b>Compound</b>. Equally, we remove the <b>Compound</b> from the <b>Space</b> instead of its seperate
                     constituents.
                 </p>
+                <strong><span class="section">Copying</span></strong>
                 <img src="../assets/Compound.png" alt="[Compound diagram]"/>
                 <p>
                     When it comes to producing a <b>copy</b> of a <b>Compound</b> then you may find that not all
@@ -765,6 +766,152 @@ c.space = space;</pre>
             <hr class="hrchapter">
             <div class="chapter"><strong><span class="title">Callbacks</span></strong>
                 <div class="contents" id="skip-Callbacks"></div>
+                <p>
+                    The <b>callbacks</b> system in <b>Nape</b> lets you receive <b>events</b> when certain actions occur such
+                    as a <b>Body</b> going to sleep, or a <b>Constraint</b> being broken, or two <b>Interactors</b> (shapes, bodies, compounds) beginning an interaction.
+                </p>
+                <p>
+                    The <b>callbacks</b> system in <b>Nape</b> is much higher-level than you may be familiar with if coming
+                    from another physics engine, or even the events system in <b>Flash</b>.
+                </p>
+
+                <strong><span class="section">CbTypes</span></strong>
+                <p>
+                    <b>CbTypes</b> may be considered as <b>tags</b> that you assign to objects. In <b>Nape</b> it is these <b>CbTypes</b> over which we listen for <b>events</b>. We can assign as many <b>CbTypes</b> as you wish to an object, so we can make our code <b>modular</b>.
+                </p>
+                <p>
+                    For example; we could have behaviour in your game where certain types of objects are killed by <b>spikes</b>. We could give the <b>spikes</b> a <i>SPIKE</i> <b>CbType</b>, and any object that can be killed by them a <i>SPIKEABLE</i> <b>CbType</b>. Additionally we could have some collectable objects, and give them a <b>CbType</b> <i>COLLECTABLE</i>, and objects that can pick up those <i>collectables</i> a <i>COLLECTOR</i> <b>CbType</b>; since we can assign multiple <b>CbTypes</b> we don't need to worry about overlaps, or the need to add new behaviours later.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var SPIKE       = new CbType();
+var SPIKEABLE   = new CbType();
+var COLLECTABLE = new CbType();
+var COLLECTOR   = new CbType();
+
+for (obj in spikeyObjects) {
+    obj.cbTypes.add(SPIKE);
+}
+for (obj in collectables) {
+    obj.cbTypes.add(COLLECTABLE);
+}
+// etc.</pre>
+
+                <strong><span class="section">Listener Options</span></strong>
+                <p>
+                    <b>Listeners</b> operator over <b>CbTypes</b>, or specifically over sets of <b>CbTypes</b> using an inclusion-exclusion API. This is represented by the <b>OptionType</b> object which has an inclusion, and exclusion set of <b>CbTypes</b>. An objects set of <b>CbTypes</b> matches the <b>options</b> if it contains at least one of the <b>included</b> types, and contains none of the <b>excluded</b> types.
+                </p>
+                <p>
+                    The <b>constructors</b> for the various listeners take this <b>options</b> object as argument, but are typed dynamically to accept one of: <b>CbType</b>, <b>OptionType</b>,
+                    <b>CbTypeList</b>, <b>Array&lt;</b><b>CbType</b><b>&gt;</b>, <b>flash.Vector&lt;</b><b>CbType</b><b>&gt;</b>.
+                    This means that we can specify our <b>Cbtypes</b> to match against like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// match against any object having the SPIKE type.
+options = SPIKE
+
+// match against any object having - inclusively - the SPIKE or COLLECTABLE type
+options = [SPIKE, COLLECTABLE]
+
+// match against any object having the SPIKE type, but that does not have the COLLECTABLE type.
+options = SPIKE.excluding(COLLECTABLE)
+
+// match against any object having - inclusively - the SPIKE OR COLLECTABLE type
+// but that does not have either one of the COLLECTOR type or SPIKEABLE type.
+options = new OptionType([SPIKE, COLLECTABLE]).excluding([COLLECTOR, SPIKEABLE])
+// or
+options = SPIKE.including(COLLECTABLE).excluding(COLLECTOR).excluding(SPIKEABLE)
+// etc.
+</pre>
+                <p>
+                    This API was chosen, as it is powerful, but still highly efficient to implement internally. If you wish to have
+                    any further constraints, such as requiring <b>both</b> of two <b>CbTypes</b>, then you will need to perform this additional logic in your <b>event handlers</b>. Specifically, this system is powerful enough for the following:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// match against 'any' Body that does not have the SPIKE type
+options = CbType.ANY_BODY.excluding(SPIKE)
+
+// match against 'any' Shape, or body
+options = [CbType.ANY_BODY, CbType.ANY_SHAPE]</pre>
+                <p>
+                    There is no special magic going on here, <b>CbType</b>.<b>ANY_BODY</b> is just a normal <b>CbType</b> that happens to be
+                    assigned to all <b>Bodies</b> on construction. There is also <b>CbType</b>.<b>ANY_COMPOUND</b> and <b>CbType</b>.<b>ANY_CONSTRAINT</b>.
+                </p>
+
+                <strong><span class="section">BodyListeners</span></strong>
+                <p>
+                    <b>BodyListeners</b> handle <b>events</b> associated with a single <b>Body</b> object, these callbacks occur at the end of a <b>space.step()</b> call, and so you are free to do whatever you wish. Supported <b>events</b> are:
+                    <ul>
+                        <li><b>CbEvent</b>.SLEEP</li>
+                        <li><b>CbEvent</b>.WAKE</li>
+                    </ul>
+                </p>
+                <p>
+                    Creating a <b>BodyListener</b>, we use the constructor - having the following format:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var listener:Listener = new BodyListener(event, options, handler, precedence = 0);</pre>
+                <p>
+                    Where the handler has type <b>BodyCallback</b>-&gt;Void. The <b>precedence</b> determines in what order the
+                    handlers will be called in the situation that there are multiple <b>BodyListeners</b> that can be applied
+                    to the situation.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+function bodyWakeHandler(cb:BodyCallback):Void {
+    var wokenBody:Body = cb.body;
+}</pre>
+                <strong><span class="section">ConstraintListeners</span></strong>
+                <p>
+                    <b>ConstraintListeners</b> handle <b>events</b> associated with a single <b>Constraint</b> object, these
+                    callbacks occur at the end of a <b>space.step()</b> call, and so you are free to do whatever you wish. Supported <b>events</b> are:
+                    <ul>
+                        <li><b>CbEvent</b>.SLEEP</li>
+                        <li><b>CbEvent</b>.WAKE</li>
+                        <li><b>CbEvent</b>.BREAK</li>
+                    </ul>
+                </p>
+                <p>
+                    Creating a <b>ConstraintListener</b>, we use the constructor - having the following format:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var listener:Listener = new ConstraintListener(event, options, handler, precedence = 0);</pre>
+                <p>
+                    Where the handler has type <b>ConstraintCallback</b>-&gt;Void.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+function constraintWakeHandler(cb:ConstraintCallback):Void {
+    var wokenConstraint:Constraint = cb.constraint;
+}</pre>
+
+                <strong><span class="section">InteractionListeners</span></strong>
+                <p>
+                    <b>InteractionListeners</b> handle <b>events</b> associated with a pair of <b>Interactor</b> objects (<b>Shapes</b>, <b>Compounds</b>, <b>Bodies</b>), these
+                    callbacks occur at the end of a <b>space.step()</b> call, and so you are free to do whatever you wish. Supported <b>events</b> are:
+                    <ul>
+                        <li><b>CbEvent</b>.BEGIN</li>
+                        <li><b>CbEvent</b>.ONGOING</li>
+                        <li><b>CbEvent</b>.END</li>
+                    </ul>
+                </p>
+                <p>
+                    The <b>BEGIN</b> event occurs in the first <b>step</b> of which the objects interact. The <b>End</b> event in the first <b>step</b> in which the objects no longer interact. The <b>ONGOING</b> event in all steps for which the objects interact, overlapping with the <b>BEGIN</b> event.
+                </p>
+                <p>
+                    Creating a <b>InteractionListener</b>, we use the constructor - having the following format:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var listener = new InteractionListener(event, interactionType, options1, options2, handler, precedence = 0);</pre>
+                <p>
+                    Where the handler has type <b>InteractionCallback</b>-&gt;Void, and the interactionType argument is one of the enumerations specified by <b>InteractionType</b> object.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+function beginHandler(cb:InteractionCallback):Void {
+    var firstObject:Interactor = cb.int1;
+    var secondObject:Interactor = cb.int2;
+}</pre>
+                <p>
+                    The <b>int1</b> property of the callback, will always match against the first <b>options</b> property of
+                    the listener, and <b>int2</b> the second.
+                </p>
             </div>
         </div>
         <footer>
