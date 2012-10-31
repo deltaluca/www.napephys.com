@@ -912,6 +912,56 @@ function beginHandler(cb:InteractionCallback):Void {
                     The <b>int1</b> property of the callback, will always match against the first <b>options</b> property of
                     the listener, and <b>int2</b> the second.
                 </p>
+
+                <strong><span class="section">PreListeners</span></strong>
+                <p>
+                    <b>PreListeners</b> are a special variation of <b>InteractionListeners</b> for a specific event type.
+                    This sort of event occurs as soon as two <b>Interactors</b> are found to be intersecting, but before
+                    any physics is performed. The handler can choose to <b>ignore</b> the interaction, or perform actions
+                    like modifying <b>Arbiter</b> friction values.
+                </p>
+                <p>
+                    The handler for these events occurs right in the middle of a <b>space step</b>, and so what we can do
+                    is limited. We cannot add or remove bodies etc; these are better done with a <b>BEGIN</b> event handler
+                    using the <b>InteractionListener</b>.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var listener = new PreListener(interactionType, options1, options2, handler, precedence = 0, pure = false);</pre>
+                <p>
+                    The handler for this listener has type <b>PreListener</b>-&gt;Null&lt;<b>PreFlag</b>&gt;. The <b>PreFlag</b> enumeration has possible values:
+                    <table class="dl">
+                        <tr><td class="dt"><b>PreFlag</b>.<b>ACCEPT</b></td><td class="tdsp"></td><td>Accept the interaction, for <b>this step</b>, and <b>all steps</b> that follow. If this is the final state of the interaction, then the <b>PreListener</b> will no longer take effect until the objects have seperated and interact anew.</td></tr>
+                        <tr><td class="dt"><b>PreFlag</b>.<b>IGNORE</b></td><td class="tdsp"></td><td>Ignore the interaction, for <b>this step</b>, and <b>all steps</b> that follow. If this is the final state of the interaction, then the <b>PreListener</b> will no longer take effect until the objects have seperated and interact anew.</td></tr>
+                        <tr><td class="dt"><b>PreFlag</b>.<b>ACCEPT_ONCE</b></td><td class="tdsp"></td><td>Accept the interaction for <b>this step</b>. If this is the final state of the interaction, then the <b>PreListener</b> will be invoked in the following step to ask again.</td></tr>
+                        <tr><td class="dt"><b>PreFlag</b>.<b>IGNORE_ONCE</b></td><td class="tdsp"></td><td>Ignore the interaction for <b>this step</b>. If this is the final state of the interaction, then the <b>PreListener</b> will be invoked in the following step to ask again.</td></tr>
+                    </table>
+                </p>
+                <p>
+                    If the handler returns <b>null</b>, then the handler will have no effect on the state of the interaction. The default is <b>PreFlag</b>.<b>ACCEPT_ONCE</b>.
+                </p>
+                <p>
+                    The <b>pure</b> argument, is important when it comes to using the <b>ACCEPT_ONCE</b>, <b>IGNORE_ONCE</b> states. If your handler is non-deterministic, then it is not possible for <b>Nape</b> to permit objects to go to sleep as your handler may suddenly change its mind about what to do with the interaction. If your handler <b>is</b> deterministic, then you should set <b>pure</b> to <b>true</b> and it is no longer necessary to stop objects going to sleep.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+// Non-deterministic (pure=false) handler
+function impureHandler(cb:PreCallback):PreFlag {
+    if (Math.random() < 0.5) return PreFlag.IGNORE_ONCE;
+    else return null;
+}
+
+// Non-deterministic (pure=false) handler
+function impureHandler2(cb:PreCallback):PreFlag {
+    if (getTimer() > 2000) return PreFlag.ACCEPT_ONCE;
+    else return PreFlag.IGNORE_ONCE;
+}
+
+// Deterministic (pure=true) handler.
+function pureHandler(cb:PreCallback):PreFlag {
+    // cb.arbiter is an input to the function, so we can make decisions with it.
+    if (cb.arbiter.normal.y > 0) return PreFlag.IGNORE_ONCE;
+    else return PreFlag.ACCEPT_ONCE;
+}</pre>
+
             </div>
         </div>
         <footer>

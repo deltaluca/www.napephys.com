@@ -51,6 +51,7 @@ function applyDocLinks()
     links["InteractionType"] = "types/nape/callbacks/InteractionType.html";
     links["ConstraintCallback"] = "types/nape/callbacks/ConstraintCallback.html";
     links["PreCallback"] = "types/nape/callbacks/PreCallback.html";
+    links["PreFlag"] = "types/nape/callbacks/PreFlag.html";
     links["Interactor"] = links["Interactors"] = "types/nape/phys/Interactor.html";
 
     function docLink(b)
