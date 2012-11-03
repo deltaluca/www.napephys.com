@@ -1055,6 +1055,53 @@ var boxPoints = Polygon.box(w, h, true);
 var box = new Polygon(boxPoints);
 trace(boxPoints.length); // 0, they were automatically sent to object pool.</pre>
             </div>
+
+
+            <hr class="hrchapter">
+            <div class="chapter"><strong><span class="title">Geometric Utilities</span></strong>
+                <div class="contents" id="skip-Geometric Utilities"></div>
+                <p>
+                    The <b>GeomPoly</b> object encapsulates the majority of <b>geometric utilities</b> in <b>Nape</b>. It
+                    can be constructed in the same way as a <b>Polygon</b> accepting one of: <b>Array</b>&lt;<b>Vec2</b>&gt;, <b>flash.Vector</b>&lt;<b>Vec2</b>&gt;, <b>Vec2List</b> or another <b>GeomPoly</b>.
+                </p>
+                <p>
+                    <b>GeomPoly</b> can represent any polygon, representable by a single chain of vertices including representing holes via cuts in the polygon. With the exception of the <b>simpleDecomposition</b>, all geometric utilities should be <b>100%</b> robust.
+                </p>
+                <img src="../assets/polyTypes.png" width="620" alt="[Polygon types diagram]"/>
+                <p>
+                <table class="dl">
+                    <tr><td class="dt"><b>Triangular</b></td><td class="tdsp"></td><td>Having 3 vertices.</td></tr>
+                    <tr><td class="dt"><b>Convex</b></td><td class="tdsp"></td><td>Having no internal angles greater than 180 degrees; intuitively no <i>dips</i> in the surface. <b>Polygons</b> in <b>Nape</b> must be convex.</td></tr>
+                    <tr><td class="dt"><b>Y-Monotone</b></td><td class="tdsp"></td><td>Any horizontal line cuts the polygon at most twice. You could think of a <b>convex</b> polygon, as being one that is monotone in <b>every</b> direction.</td></tr>
+                    <tr><td class="dt"><b>Concave</b></td><td class="tdsp"></td><td>Any non self-intersecting polygon.</td></tr>
+                    <tr><td class="dt"><b>Weakly-Simple</b></td><td class="tdsp"></td><td>A self intersecting polygon, where all self-intersections are areas of the polygon <b>touching</b> itself, but not actually overlapping.</td></tr>
+                    <tr><td class="dt"><b>Complex</b></td><td class="tdsp"></td><td>Any polygon.</td></tr>
+                </table>
+                </p>
+
+                <strong><span class="section">Simple Decomposition</span></strong>
+                <p>
+                    The <b>simpleDecomposition</b> method of the <b>GeomPoly</b> type transforms <b>complex</b> polygons, into a set of <b>weakly-simple</b> ones. This decomposition will consider a point to be inside of the <b>complex</b> polygon following the normal rule of having an odd number of intersections on any <b>ray</b> beginning at the point.
+                </p>
+                <img src="../assets/inout.png" alt="[Polygon in-out diagram]"/>
+                <p>
+                <table class="dl">
+                    <tr><td class="dt"><b>NOTE:</b></td><td class="tdsp"></td><td>This method is <b>not</b> 100% robust, you should not rely on it <b>always</b> producing the correct result, or producing a runtime error!</td></tr>
+                </table>
+                </p>
+
+                <strong><span class="section">Other Decompositions</span></strong>
+                <p>
+                    The rest of the <b>GeomPoly</b> decomposition methods: <b>monotoneDecomposition</b>, <b>convexDecomposition</b> and <b>triangularDecomposition</b> all handle as input, a <b>weakly-simple</b> (or lesser) polygon. All of these methods should be <b>100%</b> robust.
+                </p>
+                <img src="../assets/decomp.png" alt="[Decomposition diagram]"/>
+                <p>
+                    All of these algorithms have <b>O(n.log(n))</b> runtime.
+                </p>
+
+                <strong><span class="section">Simplification</span></strong>
+                <strong><span class="section">Marching Squares</span></strong>
+            </div>
         </div>
         <footer>
             &copy; Luca Deltodesco 2012
