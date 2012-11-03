@@ -34,10 +34,11 @@ function applyDocLinks()
     links["Geom"] = "types/nape/geom/Geom.html";
     links["BitmapDebug"] = "types/nape/util/BitmapDebug.html";
     links["ShapeDebug"] = "types/nape/util/ShapeDebug.html";
-    links["Vec2"] = "types/nape/geom/Vec2.html";
-    links["Vec3"] = "types/nape/geom/Vec3.html";
+    links["Vec2"] = links["Vec2s"] = "types/nape/geom/Vec2.html";
+    links["Vec3"] = links["Vec3s"] = "types/nape/geom/Vec3.html";
     links["Space"] = "types/nape/space/Space.html";
     links["Debug"] = "types/nape/util/Debug.html";
+    links["Edge"] = links["Edges"] = "types/nape/shape/Edge.html";
     links["Mat23"] = "types/nape/geom/Mat23.html";
     links["Callback"] = "types/nape/callbacks/Callback.html";
     links["Arbiter"] = links["Arbiters"] = "types/nape/dynamics/Arbiter.html";

@@ -998,6 +998,13 @@ function pureHandler(cb:PreCallback):PreFlag {
                 <p>
                     Specifically, a collision between <b>two polygons</b> will always have <b>2</b> contacts, though in the general case one of these (Represented in blue in diagram) is a speculative contact that will have <b>negative</b> penetration. A collision between a <b>circle</b> and a <b>polygon</b> will always have exactly <b>1</b> contact.
                 </p>
+                <p>
+                    You can also get access to the <b>colliding features</b> of the objects through the <b>CollisionArbiter</b>.
+                </p>
+                <img src="../assets/features.png" alt="[Collision Features diagram]"/>
+                <p>
+                    The <b>referenceEdge1</b>/<b>referenceEdge2</b> properties correlate to the colliding <b>Edge</b> of the respective <b>Polygon</b> or <b>null</b> if the corresponding shape is a <b>Circle</b>. In the case of a <b>Circle</b>-<b>Polygon</b> collision, there are the methods <b>firstVertex</b>/<b>secondVertex</b> of which one may return <b>true</b> if the <b>Circle</b> is colliding with a <b>vertex</b> of the reference edge, instead of the edge itself.
+                </p>
             </div>
 
             <hr class="hrchapter">
@@ -1100,11 +1107,34 @@ trace(boxPoints.length); // 0, they were automatically sent to object pool.</pre
                 </p>
 
                 <strong><span class="section">Simplification</span></strong>
+                <p>
+                    Polygons can be <b>simplified</b> in <b>Nape</b> using the Ramer-Douglas-Peucker algorithm implemented by the <b>simplify</b> method. This algorithm
+                    takes a distance threshold as input, and produces a polygon so that the distance <b>between</b> the polygons is at most the given distance.
+                </p>
+                <img src="../assets/simpling.png" alt="[Simplification diagram]"/>
+                <p>
+                    This algorithm has <b>O(n.log(n))</b> runtime. <b>NOTE:</b> you must be careful when using this method, as
+                    if you have a polygon that has complex features that nearly touch eachother, but do not self-intersect, and you use too high a distance threshold it is possible for the output polygon to now be self-intersecting! A <b>convex</b> polygon will however always be transformed into a new <b>convex</b> polygon.
+                </p>
+
                 <strong><span class="section">Marching Squares</span></strong>
+                <p>
+                    The <b>MarchingSquares</b> class, gives access to a very effecient, and <b>100%</b> stable implementation of the <b>marching squares</b> algorithm producing <b>weakly-simple</b> polygons suitable for further decomposition in <b>Nape</b>. The <b>marching squares</b> algorithm performs iso-surface extractions given a scalar function over a rectangular region.
+                </p>
+                <img src="../assets/march.png" alt="[Marching Squares diagram]"/>
+                <p>
+                   Along with the rectangular region, the algorithm takes a grid size that is used to <b>discretise</b> the domain. The iso-function is defined to take the <b>(x,y)</b> coordinates of point, and return another scalar value; the algorithm produces polygons in areas where the iso-function returns a value <b>&lt;=0</b>.
+                </p>
+                <p>
+                    Assuming a <b>constant time</b> iso-function, this <b>marching squares</b> implementation, including combining output into larger polygons shown in the diagram, runs in <b>linear time</b> for the number of cells in the grid.
+                </p>
+                <p>
+                    The most useful application of this, is that we can define the iso-function to sample a <b>Bitmap</b>, we could for example define the iso-function to return <b>0x80-alphaAt(x, y)</b> so that we extract polygons representing the visible areas of the <b>Bitmap</b>.
+                </p>
             </div>
         </div>
         <footer>
-            &copy; Luca Deltodesco 2012
+            copy; Luca Deltodesco 2012
         </footer>
     </div>
 
