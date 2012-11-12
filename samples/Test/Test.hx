@@ -83,7 +83,7 @@ class Test extends Template {
 
             // Teleporter sensor
             var teleporter = new Polygon(Polygon.rect(550, 600, 150, 1));
-            teleporter.isSensor = true;
+            teleporter.sensorEnabled = true;
             teleporter.cbTypes.add(TELEPORTER);
             teleporter.body = bottom;
             bottom.space = space;
@@ -100,7 +100,7 @@ class Test extends Template {
             var tractionBeam = new Polygon(Polygon.rect(0, 100, 800, 50));
             // We use a fluid so that we can make use of buoyancy and drag to counteract
             // gravity and provide dampening of body in traction beam.
-            tractionBeam.isFluid = true;
+            tractionBeam.fluidEnabled = true;
             tractionBeam.fluidProperties.density = 1;
             tractionBeam.fluidProperties.viscosity = 8;
 

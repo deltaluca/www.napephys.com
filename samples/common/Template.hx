@@ -111,6 +111,7 @@ class Template extends Sprite {
     // to be overriden
     function init() {}
     function update(deltaTime:Float) {}
+    function postUpdate() {}
 
     var resetted = false;
     function keyUp(ev:KeyboardEvent) {
@@ -185,11 +186,11 @@ class Template extends Sprite {
         debug.clear();
 
         if (variableStep) {
+            if (deltaTime > (1000 / 30)) {
+                deltaTime = (1000 / 30);
+            }
             update(deltaTime * 0.001);
             if (space != null) {
-                if (deltaTime > (1000 / 30)) {
-                    deltaTime = (1000 / 30);
-                }
                 space.step(deltaTime * 0.001);
             }
             prevTime = curTime;
@@ -216,6 +217,7 @@ class Template extends Sprite {
         if (space != null) {
             debug.draw(space);
         }
+        postUpdate();
         debug.flush();
     }
 }

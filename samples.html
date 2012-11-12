@@ -101,8 +101,11 @@
                     <td class="sample-spacer"></td>
 
                     <td class="sample-desc">
+                        Creating Soft Bodies through use of Constriants and additional logic.
+                        <a class="sample-link" id="SoftBodies"></a>
                     </td>
                     <td class="sample-image">
+                        <img width="128" height="128" src="assets/SoftBodies.png" alt="[SoftBodies]"/>
                     </td>
                     <td class="sample-spacer"></td>
 
@@ -130,10 +133,8 @@
             // Sample panel.
             // ==========================================
 
-            var oldHash;
             var sampleName
             function fadeInSample(name) {
-                oldHash = window.location.hash;
                 sampleName = name;
 
                 // Fade in overlay and panels.
@@ -286,7 +287,7 @@
                 // Reset hash, keep current scroll positions.
                 var x = $(window).scrollLeft();
                 var y = $(window).scrollTop();
-                window.location.hash = oldHash;
+                window.location.hash = "";
                 window.scrollTo(x, y);
                 event.preventDefault();
 
