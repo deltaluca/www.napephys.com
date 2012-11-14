@@ -99,12 +99,7 @@ class SoftBodies extends Template {
                 // So that if the soft body is at rest, application of the impulse
                 // does not need to wake up the body. This permits the soft body
                 // to sleep.
-                //
-                // Because of this, we have to be careful not to apply impulses when body
-                // is sleeping or when it is woken it will explode from built up velocity.
-                if (!body.isSleeping) {
-                    body.applyImpulse(e.worldNormal.mul(pressure, true), body.position, true);
-                }
+                body.applyImpulse(e.worldNormal.mul(pressure, true), body.position, true);
             }
         }
     }

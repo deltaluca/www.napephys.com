@@ -1,5 +1,6 @@
 package;
 
+import flash.display.StageQuality;
 import flash.display.Sprite;
 import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
@@ -17,10 +18,12 @@ import nape.shape.Polygon;
 import nape.geom.Vec2;
 import nape.util.Debug;
 import nape.util.BitmapDebug;
+import nape.util.ShapeDebug;
 import nape.constraint.PivotJoint;
 
 typedef TemplateParams = {
     ?gravity : Vec2,
+    ?shapeDebug : Bool,
     ?broadphase : Broadphase,
     ?noSpace : Bool,
     ?noHand : Bool,
@@ -78,7 +81,14 @@ class Template extends Sprite {
         stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
         stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
 
-        debug = new BitmapDebug(stage.stageWidth, stage.stageHeight, stage.color);
+        if (params.shapeDebug == null || !params.shapeDebug) {
+            debug = new BitmapDebug(stage.stageWidth, stage.stageHeight, stage.color);
+        }
+        else {
+            debug = new ShapeDebug(stage.stageWidth, stage.stageHeight, stage.color);
+            stage.quality = StageQuality.LOW;
+        }
+
         debug.drawConstraints = true;
         addChild(debug.display);
 
