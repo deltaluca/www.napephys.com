@@ -1,5 +1,6 @@
 package {
 
+    import flash.display.StageQuality;
     import flash.display.Sprite;
     import flash.events.KeyboardEvent;
     import flash.events.MouseEvent;
@@ -18,6 +19,7 @@ package {
     import nape.geom.Vec2;
     import nape.util.Debug;
     import nape.util.BitmapDebug;
+    import nape.util.ShapeDebug;
     import nape.constraint.PivotJoint;
 
     public class Template extends Sprite {
@@ -71,7 +73,13 @@ package {
             stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
             stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
 
-            debug = new BitmapDebug(stage.stageWidth, stage.stageHeight, stage.color);
+            if (params.shapeDebug == null || !params.shapeDebug) {
+                debug = new BitmapDebug(stage.stageWidth, stage.stageHeight, stage.color);
+            }
+            else {
+                debug = new ShapeDebug(stage.stageWidth, stage.stageHeight, stage.color);
+                stage.quality = StageQuality.LOW;
+            }
             debug.drawConstraints = true;
             addChild(debug.display);
 
@@ -106,6 +114,7 @@ package {
         // to be overriden
         protected function init():void {}
         protected function update(deltaTime:Number):void {}
+        protected function postUpdate():void {}
 
         private var resetted:Boolean = false;
         private function keyUp(ev:KeyboardEvent):void {
@@ -171,8 +180,8 @@ package {
 
             var fps:Number = (1000 / deltaTime);
             smoothFps = (smoothFps == -1 ? fps : (smoothFps * 0.99) + (fps * 0.01));
-            textField.text = "fps: " + (Std.string(smoothFps).substr(0, 5)) + "\n" +
-                             "mem: " + (Std.string((System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
+            textField.text = "fps: " + ((""+smoothFps).substr(0, 5)) + "\n" +
+                             "mem: " + ((""+(System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
 
             if (hand != null && hand.active) {
                 hand.anchor1.setxy(mouseX, mouseY);
@@ -182,11 +191,11 @@ package {
             debug.clear();
 
             if (variableStep) {
+                if (deltaTime > (1000 / 30)) {
+                    deltaTime = (1000 / 30);
+                }
                 update(deltaTime * 0.001);
                 if (space != null) {
-                    if (deltaTime > (1000 / 30)) {
-                        deltaTime = (1000 / 30);
-                    }
                     space.step(deltaTime * 0.001);
                 }
                 prevTime = curTime;
@@ -213,6 +222,7 @@ package {
             if (space != null) {
                 debug.draw(space);
             }
+            postUpdate();
             debug.flush();
         }
     }

@@ -1015,7 +1015,7 @@ function pureHandler(cb:PreCallback):PreFlag {
                 </p>
                 <p>
                     More specifically, <b>Nape</b> has <b>object pooling</b> for the <b>Vec2</b> and <b>Vec3</b> objects that
-                    may be used extensively on the public side of the <b>API</b> too.
+                    may be used extensively on the public side of the <b>API</b> too, as well as the <b>GeomPoly</b> object type.
                 </p>
                 <p>
                     In both cases, instead of using the <b>constructor</b>, it is suggested you use the <b>static</b> <b>get</b> method to allocate an object from the <b>pool</b> if possible.
@@ -1023,14 +1023,17 @@ function pureHandler(cb:PreCallback):PreFlag {
                 <pre class="prettyprint largecodestyle standard boxedcode">
 var heapVec2 = new Vec2(?x, ?y);
 var heapVec3 = new Vec3(?x, ?y, ?z);
+var helpPoly = new GeomPoly(?vertices);
 
 // better to use
 var pooledVec2 = Vec2.get(?x, ?y);
 var pooledVec3 = Vec3.get(?x, ?y, ?z);
+var pooledPoly = GeomPoly.get(?vertices);
 
 // And to release back to object pool
 pooledVec2.dispose();
-pooledVec3.dispose();</pre>
+pooledVec3.dispose();
+pooledPoly.dispose();</pre>
 
                 <strong><span class="section">Weak Vec2s</span></strong>
                 <p>

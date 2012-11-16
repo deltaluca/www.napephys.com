@@ -185,8 +185,8 @@ class Template extends Sprite {
 
         var fps = (1000 / deltaTime);
         smoothFps = (smoothFps == -1 ? fps : (smoothFps * 0.99) + (fps * 0.01));
-        textField.text = "fps: " + (Std.string(smoothFps).substr(0, 5)) + "\n" +
-                         "mem: " + (Std.string((System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
+        textField.text = "fps: " + ((""+smoothFps).substr(0, 5)) + "\n" +
+                         "mem: " + ((""+(System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
 
         if (hand != null && hand.active) {
             hand.anchor1.setxy(mouseX, mouseY);
