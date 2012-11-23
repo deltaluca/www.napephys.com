@@ -3,6 +3,7 @@ package {
     import nape.geom.AABB;
     import nape.geom.GeomPoly;
     import nape.geom.GeomPolyList;
+    import nape.geom.IsoFunction;
     import nape.geom.Mat23;
     import nape.geom.MarchingSquares;
     import nape.geom.Vec2;
@@ -12,7 +13,7 @@ package {
     // any of the boilerplate that makes up the sample interfaces.
     import Template;
     
-    public class PerlinSquares extends Template {
+    public class PerlinSquares  extends Template implements IsoFunction {
         public function PerlinSquares():void {
             // We use ShapeDebug as rendering large amounts of filled polygons
             // is slower with BitmapDebug.
@@ -67,7 +68,7 @@ package {
             // Here, we're supplying a GeomPolyList in which to return the results
             // to avoid creating a new List every single time.
             var polygons:GeomPolyList = MarchingSquares.run(
-                iso, bounds, cellSize, 2,
+                this, bounds, cellSize, 2,
                 gridSize, true, output
             );
     
@@ -95,7 +96,7 @@ package {
             polygons.clear();
         }
     
-        private function iso(x:Number, y:Number):Number {
+        public function iso(x:Number, y:Number):Number {
             return Perlin3D.noise(x/40, y/30, perlinZ) - threshold;            
         }
     

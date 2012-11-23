@@ -30,13 +30,12 @@
             </p>
             <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=529X57YZ637LW"><img class="donate" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" alt="Donate"/></a>
 
-            <h3> Contributors: </h3>
+            <h4> Contributors: </h4>                
             <div class="section-content">
                 <div id="contribs"></div>
-                <br/>
-                <div class="graphs">
-                    <img src="assets/graph.png" alt="(donation graphs)"/>
-                </div>
+            </div>
+            <div class="graphs">
+                <img src="assets/graph.png" alt="(donation graphs)"/>
             </div>
         </div>
 
@@ -49,92 +48,73 @@
     <script src="assets/js/default.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var dons = [
-                "Peter Achberger",
+            function table(dons, container) {
+                container.css("width","100%");
 
-                "Benjamin Barnard",
-                "Joey Betz",
-                "Karim Beyrouti",
+                var i, name;
+                for (i = 0; i < dons.length; i ++) {
+                    name = $('<span>'+dons[i]+'</span>');
+                    dons[i] = name;
+                }
 
-                "Bennett Foddy",
+                var width = 5;
+                var height = Math.ceil(dons.length / width);
 
-                "Dmitry Garkavenko",
-                "Mariel Gonzalez",
-
-                "Colin Holgate",
-
-                "Thibault Imbert",
-
-                "Eugene Karataev",
-                "Yvan Klaver",
-
-                "LongAnimals",
-                "Andreas Low",
-
-                "Charles Maragna",
-                "Grzegorz Markowski",
-
-                "ninjabonsai",
-
-                "ozdy",
-
-                "Nick Pearce",
-                "Makeevsky Pereulok",
-                "Pozirk Games",
-                "Ryan Pridgeon",
-
-                "Raul Sabirov",
-                "Daniel Sedlacek",
-                "Alexander Sinelnikov",
-                "Massimo Sforzini",
-                "Tarwin Stroh-Spijer",
-
-                "tAMAS Games",
-
-                "Vortix Games Studio",
-
-                "Forsh Vladislav",
-
-                "Michal Wroblewski",
-
-                "Zanpo Virtual Cities",
-                "Eugene Zavgorodniy",
-                "Leon Qi Zhang",
-
-                "(anonymous)"
-            ];
-
-            var container = $("#contribs");
-            container.css("width","100%");
-
-            var i, name;
-            for (i = 0; i < dons.length; i ++) {
-                name = $('<span>'+dons[i]+'</span>');
-                dons[i] = name;
-            }
-
-            var width = 5;
-            var height = Math.ceil(dons.length / width);
-
-            var x, y;
-            i = 0;
-            var classes = ["contrib1","contrib2"];
-            var table = $('<table class="contribs"></table>');
-            container.append(table);
-            for (y = 0; y < height; y ++) {
-                var row = $('<tr></tr>');
-                table.append(row);
-                for (x = 0; x < width; x ++) {
-                    var col = $('<td></td>');
-                    row.append(col);
-                    if (i < dons.length) {
-                        name = dons[i];
-                        name.addClass(classes[x%classes.length]);
-                        col.append(name);
-                        i++;
+                var x, y;
+                i = 0;
+                var classes = ["contrib1","contrib2"];
+                var table = $('<table class="contribs"></table>');
+                container.append(table);
+                for (y = 0; y < height; y ++) {
+                    var row = $('<tr></tr>');
+                    table.append(row);
+                    for (x = 0; x < width; x ++) {
+                        var col = $('<td></td>');
+                        row.append(col);
+                        if (i < dons.length) {
+                            name = dons[i];
+                            name.addClass(classes[x%classes.length]);
+                            col.append(name);
+                            i++;
+                        }
                     }
                 }
             }
+
+            table([
+                "LongAnimals",
+                "Eugene Karataev",
+                "Vortix Games Studio",
+                "Thibault Imbert",
+                "Joey Betz",
+                "Peter Achberger",
+                "Alexander Sinelnikov",
+                "Andreas Low",
+                "ozdy",
+                "Bennet Foddy",
+                "(anonymous)",
+                "Lion Qi Zhang",
+                "Benjamin Bernard",
+                "tAMAS Games",
+                "Charles Maragna",
+                "Zanpo Virtual Cities",
+                "Pozirk Games",
+                "ninjabonsai",
+                "Nick Pearce",
+                "Karim Beyrouti",
+                "Arek Rebacz",
+                "Yvan Klaver",
+                "Eugene Zavgorodniy",
+                "Tarwin Stroh-Spijer",
+                "Raul Sabirov",
+                "Michal Wroblewski",
+                "Mariel Gonzalez",
+                "Daniel Sedlacek",
+                "Dmitry Garkavenko",
+                "Grzegorz Markowski",
+                "Massimo Sforzini",
+                "Ryan Pridgeon"
+            ],$("#contribs"));
         });
     </script>
     </body>
