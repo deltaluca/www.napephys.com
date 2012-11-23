@@ -286,22 +286,9 @@ a:hover {
 
 
 .feature-image {
-    display: inline-block;
-    width: 280px;
-    margin-left: 9px;
-    margin-right: 9px;
+    margin-left: auto;
+    margin-right: auto;        
 }
-
-.feature-image-table {
-    display: inline-block;
-    width: 280px;
-    height: 240px;
-}
-
-.feature-image-table tr {
-    height : 100%;
-}
-
 
 .feature-segment {
     width: auto;
