@@ -1,7 +1,7 @@
 haxe:
 	haxe -cp . -cp "/" -cp ../common \
 		-main PerlinSquares -swf main.swf -swf-header 800:600:60:333333 -swf-version 11 \
-		-lib nape -D haxe3 -D NAPE_RELEASE_BUILD
+		-lib nape -D haxe3 -D NAPE_RELEASE_BUILD --dead-code-elimination
 	flib --combine ../preloader/preloader.swf main.swf PerlinSquares.swf
 
 as3:

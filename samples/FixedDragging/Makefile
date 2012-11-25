@@ -1,7 +1,7 @@
 haxe:
 	haxe -cp . -cp "/" \
 		-main FixedDragging -swf main.swf -swf-header 800:600:60:333333 -swf-version 11 \
-		-lib nape -D haxe3
+		-lib nape -D haxe3 -D NAPE_RELEASE_BUILD --dead-code-elimination
 	flib --combine ../preloader/preloader.swf main.swf FixedDragging.swf
 
 as3:

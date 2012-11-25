@@ -1,0 +1,46 @@
+#!/bin/bash
+
+dirs=`find . -type d -wholename "\./*"`
+
+total=0
+pass=0
+
+cd preloader
+make
+cd ../
+
+for d in $dirs
+do
+    if ([ -e "$d/Makefile" ] || [ -e "$d/makefile" ]) && [ "$d" != "./common" ] && [ "$d" != "./preloader" ]
+    then
+        echo ""
+        echo " >> testing demo $d"
+        cd $d
+        make as3
+        if [ "$?" = "0" ]
+        then
+            pass=$((pass+1))
+        else
+            read -p "Press ENTER key to continue"
+        fi
+        total=$((total+1))
+        make
+        if [ "$?" = "0" ]
+        then
+            pass=$((pass+1))
+        else
+            read -p "Press ENTER key to continue"
+        fi
+        total=$((total+1))
+        cd ../
+    fi
+done
+
+echo ""
+echo " Total tests: $total"
+echo " Passed: $pass"
+fail=$((total-pass))
+echo " Failed: $fail"
+
+[ "$fail" = "0" ]
+exit
