@@ -3164,6 +3164,373 @@ Impulses:
 
 \end_layout
 
+\begin_layout Subsection
+PulleyJoint
+\end_layout
+
+\begin_layout Standard
+The PulleyJoint is the only inbuilt Nape constraint to have more than 2
+ bodies involved.
+ It exists in a few varients, unlike other nape joints it permits certain
+ of the bodies to be assigned to the same body for 3-body pulleys, and even
+ 2-body pulleys.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3-body pulleys must have either body2=body3 or body1=body4, and the 2-body
+ pulley must have body2=body3 and body1=body4
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset Formula $\rho$
+\end_inset
+
+ for the ratio once more and limits 
+\begin_inset Formula $x_{0},x_{1}$
+\end_inset
+
+ we now have 
+\begin_inset Formula $4$
+\end_inset
+
+ anchors which I will label as usual.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Positional Constraint: 
+\begin_inset Formula $x_{0}\leq(c(\vec{x})=\left\Vert \left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)\right\Vert +\rho\left\Vert \left(\vec{x}_{4}+\vec{r}_{4}\right)-\left(\vec{x}_{3}+\vec{r}_{3}\right)\right\Vert \leq x_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\noun on
+Transformed 
+\noun default
+in the usual way, noting that whatever varient of pulley is used this remains
+ unchanged.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simplifying in a similar way to the DistanceJoint; let
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{n}_{12}=w\cdot\text{unit}\left(\left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)\right),\ \vec{n}_{34}=w\rho\cdot\text{unit}\left(\left(\vec{x}_{4}+\vec{r}_{4}\right)-\left(\vec{x}_{3}+\vec{r}_{3}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity Constraint: 
+\begin_inset Formula $V(\vec{v})=\vec{n}_{12}\cdot\left(\left(\vec{v}_{2}+\omega_{2}\times r_{2}\right)-\left(\vec{v}_{1}+\omega_{1}\times r_{1}\right)\right)+\vec{n}_{34}\cdot\left(\left(\vec{v}_{4}+\omega_{4}\times r_{4}\right)-\left(\vec{v}_{3}+\omega_{3}\times r_{3}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+noting that whatever varient of pulley is used this remains unchanged.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Letting 
+\begin_inset Formula $c_{1}=\vec{r}_{1}\times\vec{n}_{12},\ c_{2}=\vec{r}_{2}\times\vec{n}_{12},\ c_{3}=\vec{r}_{3}\times\vec{n}_{34},\ c_{4}=\vec{r}_{4}\times\vec{n}_{34}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then we have Jacobian by rearranging V like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V(\vec{v})=\vec{n}_{12}\cdot(\vec{v}_{2}-\vec{v}_{1})+(\omega_{2}c_{2}-\omega_{1}c_{1})+\vec{n}_{34}\cdot(\vec{v}_{4}-\vec{v}_{3})+(\omega_{4}c_{4}-\omega_{3}c_{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Jacobian:
+\end_layout
+
+\begin_layout Plain Layout
+
+\noun on
+\begin_inset Formula $\mathbf{J}=\left[\begin{array}{cccccccc}
+-\vec{n}_{12}^{T} & -c_{1} & \vec{n}_{12}^{T} & c_{2} & -\vec{n}_{34}^{T} & -c_{3} & \vec{n}_{34}^{T} & c_{4}\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+When it comes to application of impulses we do not need to do anything further
+ as
+\end_layout
+
+\begin_layout Plain Layout
+application is linear.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 4 body case is trivial to compute the effective mass.
+\end_layout
+
+\begin_layout Standard
+In the 3 body cases and 2 body cases we get some varient(s) of:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\vec{n}_{12}^{T}-\vec{n}_{34}^{T}\right)\otimes\left(\vec{n}_{12}^{T}-\vec{n}_{34}^{T}\right)=\left(\vec{n}_{12}-\vec{n}_{34}\right)\cdot\left(\vec{n}_{12}-\vec{n}_{34}\right)=w^{2}\left(1+\rho^{2}\right)-2\vec{n}_{12}\cdot\vec{n}_{34}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(c_{2}-c_{3}\right)\otimes\left(c_{2}-c_{3}\right)=c_{2}^{2}+c_{3}^{2}-2c_{2}c_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Eff-Mass: 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{K}=w^{2}\left(\frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{\rho^{2}}{m_{3}}+\frac{\rho^{2}}{m_{4}}+\frac{c_{1}^{2}}{i_{1}}+\frac{c_{2}^{2}}{i_{2}}+\frac{c_{3}^{2}}{i_{3}}+\frac{c_{4}^{2}}{i_{4}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{K}_{2=3}=\mathbf{K}-2\left(\frac{\vec{n}_{12}\cdot\vec{n}_{34}}{m_{2/3}}+\frac{c_{2}c_{3}}{i_{2/3}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{K}_{1=4}=\mathbf{K}-2\left(\frac{\vec{n}_{12}\cdot\vec{n}_{34}}{m_{1/4}}+\frac{c_{1}c_{4}}{i_{1/4}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{K}_{2=3\wedge1=4}=\mathbf{K}-2\left(\left(\vec{n}_{12}\cdot\vec{n}_{34}\right)\left(\frac{1}{m_{2/3}}+\frac{1}{m_{1/4}}\right)+\frac{c_{2}c_{3}}{i_{2/3}}+\frac{c_{1}c_{4}}{i_{1/4}}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+impulses:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\left(\begin{array}{cccccccc}
+-\vec{n}_{12}^{T} & -c_{1} & \vec{n}_{12}^{T} & c_{2} & -\vec{n}_{34}^{T} & -c_{3} & \vec{n}_{34}^{T} & c_{4}\end{array}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+again noting that whatever varient is used this remains unchanged.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 UserConstraint
 \end_layout
