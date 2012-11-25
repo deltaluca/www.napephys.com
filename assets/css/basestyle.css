@@ -444,7 +444,7 @@ a:hover {
     width: 100%;
     border-spacing: 0;
 }
-.sample-table tr {
+.sample-tr {
     height: 128px;
 }
 .sample-desc {
@@ -456,6 +456,14 @@ a:hover {
     height: 128px;
     vertical-align: middle;
     padding: 0;
+}
+.sample-title {
+    width: 256px;
+    vertical-align: middle;
+    padding: 0;
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 5px;
 }
 .sample-image img {
     box-shadow: 1px 1px 6px #aaa;

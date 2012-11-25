@@ -1,0 +1,4889 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+  language=Java,                % the language of the code
+  basicstyle=\footnotesize,           % the size of the fonts that are used for the code
+%  numbers=left,                   % where to put the line-numbers
+%  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+%  stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+%  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+%  frame=single,                   % adds a frame around the code
+%  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  tabsize=4,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{dkgreen},       % comment style
+  stringstyle=\color{mauve},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  morekeywords={*,...},              % if you want to add more keywords to the set
+  deletekeywords={...}              % if you want to delete keywords from the given language
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 1.5cm
+\rightmargin 1.5cm
+\bottommargin 1.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Nape Constraints
+\end_layout
+
+\begin_layout Author
+Luca Deltodesco
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Notations
+\end_layout
+
+\begin_layout Paragraph
+Types
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Scalar
+\noun default
+ values will be denoted as simple variables 
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Vector
+\noun default
+ values will be denoted with an arrow decoration like 
+\begin_inset Formula $\vec{v}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Matrix
+\noun default
+ values will be denoted with bold, capitals like 
+\begin_inset Formula $\mathbf{M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Operator Notation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Dot products
+\noun default
+ 
+\begin_inset Formula $\cdot:\mathbb{R}^{n}\times\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+ with 
+\begin_inset Formula $\vec{u}\cdot\vec{v}=\vec{u}^{T}\vec{v}=u_{x}v_{x}+u_{y}v_{y}$
+\end_inset
+
+ in the case of 
+\begin_inset Formula $n=2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Norm 
+\noun default
+
+\begin_inset Formula $\left\Vert \cdot\right\Vert :\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+ with 
+\begin_inset Formula $\left\Vert \vec{u}\right\Vert =\sqrt{\vec{u}\cdot\vec{u}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Cross products
+\noun default
+ 
+\begin_inset Formula $\times:\mathbb{R}^{2}\times\mathbb{R}^{2}\to\mathbb{R}$
+\end_inset
+
+ with 
+\begin_inset Formula $\vec{u}\times\vec{v}=u_{x}v_{y}-u_{y}v_{x}$
+\end_inset
+
+ (Perhaps more commonly denoted the perp-dot product)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\cdot\right]_{\times}:\mathbb{R}^{2}\to\mathbb{R}^{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $\left[\vec{u}\right]_{\times}=\left(\begin{array}{c}
+-u_{y}\\
+u_{x}
+\end{array}\right)$
+\end_inset
+
+ so that 
+\begin_inset Formula $\vec{u}\times\vec{v}=\left[\vec{u}\right]_{\times}\cdot\vec{v}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Overloading the 
+\begin_inset Formula $\times$
+\end_inset
+
+ operator; let 
+\begin_inset Formula $s\times\vec{u}=s\left[\vec{u}\right]_{\times}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{u}\times s=-s\times\vec{u}$
+\end_inset
+
+ as hoped.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Outer products:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{u}\vec{v}^{T}=\vec{u}\otimes\vec{v}=\left(\begin{array}{cc}
+u_{x}v_{x} & u_{x}v_{y}\\
+u_{y}v_{x} & u_{y}v_{y}
+\end{array}\right)$
+\end_inset
+
+ and in general for non-vectors too.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\vec{u}\right]_{\times}\left[\vec{v}\right]_{\times}^{T}=\vec{u}\odot\vec{v}=\left(\begin{array}{cc}
+u_{y}v_{y} & -u_{y}v_{x}\\
+-u_{x}v_{y} & u_{x}v_{x}
+\end{array}\right)$
+\end_inset
+
+ and in general for non-vectors too.
+\end_layout
+
+\begin_layout Paragraph
+Useful results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}$
+\end_inset
+
+ (symmetric)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(s\vec{u}+t\vec{v})\cdot\vec{w}=s(\vec{u}\cdot\vec{w})+t(\vec{v}\cdot\vec{w})$
+\end_inset
+
+ (linear)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{u}\times\vec{v}=-\vec{v}\times\vec{u}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\left[\vec{u}\right]_{\times}\cdot\vec{v}=-\vec{u}\cdot\left[\vec{v}\right]_{\times}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(s\vec{u}+t\vec{v})\times\vec{w}=s(\vec{u}\times\vec{w})+t(\vec{v}\times\vec{w})$
+\end_inset
+
+ (linear)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\vec{v}\right]_{\times}\cdot\left[\vec{u}\right]_{\times}=\vec{v}\cdot\vec{u}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\left[\vec{v}\right]_{\times}\right]_{\times}=-\vec{v}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{u}\otimes\vec{v}=(\vec{v}\otimes\vec{u})^{T}$
+\end_inset
+
+ (similarly for 
+\begin_inset Formula $\odot$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(s\vec{u}+t\vec{v})\otimes\vec{w}=s(\vec{u}\otimes\vec{w})+t(\vec{v}\otimes\vec{w})$
+\end_inset
+
+ (linear) (similarly for 
+\begin_inset Formula $\odot$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+and in general for non-vectors too with regards to outer products.
+\end_layout
+
+\begin_layout Standard
+Specifically 
+\begin_inset Formula $\left[\begin{array}{c}
+\mathbf{A}\\
+\mathbf{B}
+\end{array}\right]\otimes\left[\begin{array}{c}
+\mathbf{C}\\
+\mathbf{D}
+\end{array}\right]=\left[\begin{array}{c}
+\mathbf{A}\\
+\mathbf{B}
+\end{array}\right]\left[\begin{array}{cc}
+\mathbf{C}^{T} & \mathbf{D}^{T}\end{array}\right]=\left[\begin{array}{cc}
+\mbox{\mathbf{A}}\otimes\mbox{\mathbf{C}} & \mbox{\mathbf{A}}\otimes\mbox{\mathbf{D}}\\
+\mbox{\mathbf{B}}\otimes\mbox{\mathbf{C}} & \mbox{\mathbf{B}}\otimes\mbox{\mathbf{D}}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Triple products:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{v}\times(\vec{u}\times\vec{w})=-(\vec{v}\times\vec{w})\left[\vec{u}\right]_{\times}\leftarrow$
+\end_inset
+
+ a vector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\vec{u}\times\vec{v}\right)\times\vec{w}=(\vec{u}\times\vec{v})\left[\vec{w}\right]_{\times}\leftarrow$
+\end_inset
+
+a vector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{u}\times(s\times\vec{v})=s(\vec{u}\cdot\vec{v})\leftarrow$
+\end_inset
+
+a scalar
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(s\times\vec{u})\times\vec{v}=-s(\vec{u}\cdot\vec{v})\leftarrow$
+\end_inset
+
+a scalar
+\end_layout
+
+\begin_layout Paragraph
+Useful derivatives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}(\vec{u}\cdot\vec{v})=\left(\frac{d\vec{u}}{dt}\cdot\vec{v}\right)+\left(\vec{u}\cdot\frac{d\vec{v}}{dt}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\frac{d}{dt}(\vec{u}\times\vec{v})=\left(\frac{d\vec{u}}{dt}\times\vec{v}\right)+\left(\vec{u}\times\frac{d\vec{v}}{dt}\right)$
+\end_inset
+
+ (also true when permitting one of 
+\begin_inset Formula $\vec{u},\vec{v}$
+\end_inset
+
+ to be scalar)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\left\Vert \vec{u}\right\Vert =\frac{1}{\left\Vert \vec{u}\right\Vert }\left(\vec{u}\cdot\frac{d\vec{u}}{dt}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Reserved variables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\noun on
+Position
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vec{v}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\noun on
+Mass
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\noun on
+Rotation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\noun on
+Angular Velocity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\noun on
+Moment of Inertia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Related derivatives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\vec{x}=\vec{v}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\theta=\omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d\vec{u}}{dt}=\omega\times\vec{u}$
+\end_inset
+
+ for 
+\begin_inset Formula $\vec{u}$
+\end_inset
+
+ defined local to the coordinate system of the body (an anchor)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Constraint Deriviations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A (positional) constraint is defined by a linear function of all the bodies'
+ positions and rotations collectively grouped into block-vector like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{x}=\left[\begin{array}{c}
+\vec{x}_{1}\\
+\theta_{1}\\
+\vdots
+\end{array}\right]$
+\end_inset
+
+ and velocity block-vector 
+\begin_inset Formula $\vec{v}=\frac{d}{dt}\vec{x}=\left[\begin{array}{c}
+\vec{v}_{1}\\
+\omega_{1}\\
+\vdots
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The positional constraint is then the function 
+\begin_inset Formula $C:\mathbb{R}^{3n}\to\mathbb{R}^{m}$
+\end_inset
+
+ for an 
+\begin_inset Formula $m$
+\end_inset
+
+-dimensional constraint satisfying 
+\begin_inset Formula $C(\vec{x})=\vec{0}$
+\end_inset
+
+ exactly when the constraint is satisfied, any additional variables used
+ in the positional constraint should be constant whenever the positions
+ are constant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The related velocity constraint is then determined by 
+\begin_inset Formula $V(\vec{v})=\frac{d}{dt}C(\vec{x})+\vec{\beta}$
+\end_inset
+
+ for a velocity-bias 
+\begin_inset Formula $\vec{\beta}$
+\end_inset
+
+ (Normally 
+\begin_inset Formula $\vec{0}$
+\end_inset
+
+) so that 
+\begin_inset Formula $V(\vec{v})=\vec{0}$
+\end_inset
+
+ exactly when the constraint is satisfied, the bias should be constant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the velocity constraint we derive the constraint 
+\noun on
+jacobian 
+\noun default
+as the block-row-vector formed by the partial derivatives of 
+\begin_inset Formula $V$
+\end_inset
+
+ with respect to the velocity components.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{J}=\left[\begin{array}{ccc}
+\frac{\partial}{\partial\vec{v}_{1}}V & \frac{\partial}{\partial\omega_{1}}V & \cdots\end{array}\right]$
+\end_inset
+
+ this is in-fact a function of the positions 
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+ and remains fixed whenever the position vector is unchanged.
+ The jacobian is such that 
+\begin_inset Formula $V(\vec{v})=\mathbf{J}\vec{v}+\vec{\beta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally we determine the 
+\noun on
+effective mass matrix 
+\noun default
+defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{K}=\mathbf{J}\mathbf{M}^{-1}\mathbf{J}^{T}$
+\end_inset
+
+ for the 
+\noun on
+mass matrix 
+\begin_inset Formula $\mathbf{M}$
+\end_inset
+
+; 
+\noun default
+defined like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{M}=\left[\begin{array}{ccc}
+m_{1}\mathbf{E}_{2} &  & 0\\
+ & i_{1}\\
+0 &  & \ddots
+\end{array}\right]$
+\end_inset
+
+ for 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ identity matrix 
+\begin_inset Formula $\mathbf{E}_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The effective mass matrix computation is simplified as 
+\begin_inset Formula $\mathbf{M}$
+\end_inset
+
+ is diagonal, giving:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{K}=\frac{1}{m_{1}}\left(\frac{\partial V}{\partial\vec{v}_{1}}\right)\otimes\left(\frac{\partial V}{\partial\vec{v}_{1}}\right)+\frac{1}{i_{1}}\left(\frac{\partial V}{\partial\omega_{1}}\right)\otimes\left(\frac{\partial V}{\partial\omega_{1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The effective mass matrix is 
+\emph on
+always 
+\emph default
+both symmetric, and positive-definite (Positive definiteness is a very nice
+ property for matrices, akin to positive scalars so that 
+\begin_inset Formula $\vec{u}\mathbf{K}\vec{u}^{T}>0$
+\end_inset
+
+ for all 
+\begin_inset Formula $\vec{u}\neq\vec{0}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The constraint jacobian 
+\begin_inset Formula $\mathbf{J}$
+\end_inset
+
+ determines the impulses we apply to the bodies; give the constraint-space
+ impulse 
+\begin_inset Formula $\vec{\lambda}\in\mathbb{R}^{m}$
+\end_inset
+
+ we get the world-space impulse 
+\begin_inset Formula $\in\mathbb{R}^{3n}$
+\end_inset
+
+ via 
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For inequality constraints 
+\begin_inset Formula $C(\vec{x})\leq0$
+\end_inset
+
+ and more generaly permitting 
+\begin_inset Formula $C(\vec{x})\cdot\vec{e}_{i}$
+\end_inset
+
+ to be either 
+\begin_inset Formula $0$
+\end_inset
+
+ or 
+\begin_inset Formula $\leq0$
+\end_inset
+
+ for standard basis vectors 
+\begin_inset Formula $\vec{e_{i}}$
+\end_inset
+
+ (Intuitively, some coordinates of constraint space should be fixed at 
+\begin_inset Formula $0$
+\end_inset
+
+ whilst others are only limited-above at 
+\begin_inset Formula $0$
+\end_inset
+
+).
+ We can model these constraints by selectively 
+\emph on
+zeroing
+\emph default
+ appropriate coordinates of 
+\begin_inset Formula $C(\vec{x}),V(\vec{v}),\mathbf{J},\mathbf{K}$
+\end_inset
+
+ (permitting a more general interpretation of matrix inverse when it comes
+ to inverting 
+\begin_inset Formula $\mathbf{K}$
+\end_inset
+
+ internally)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For inequality constraints 
+\begin_inset Formula $a\leq C(\vec{x})\leq b$
+\end_inset
+
+ (and more generally on coordinate basis) introduce a weight vector 
+\begin_inset Formula $\vec{w}$
+\end_inset
+
+ with 
+\begin_inset Formula $w_{i}\in\left\{ -1,0,1\right\} $
+\end_inset
+
+ so that we can (on a coordinate basis) transform the positional constraint
+ into a one-sided inequality (which we know how to handle) 
+\begin_inset Formula $C_{i}(\vec{x})-b\leq0$
+\end_inset
+
+ and 
+\begin_inset Formula $(-1)\cdot(C_{i}(\vec{x})-a)\leq0$
+\end_inset
+
+ or simply disable the coordinate.
+ The purpose of using the weight being that the constraint space does not
+ become mirrored when the inequality side is swapped.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The more general interpretation of a matrix inverse, is to note that when
+ we disable a constraint row, we end up with a matrix 
+\begin_inset Formula $\mathbf{K}$
+\end_inset
+
+ which has a zero-cross intersecting in the diagonal like: 
+\begin_inset Formula $\mathbf{K}=\left(\begin{array}{ccc}
+k_{11} & 0 & k_{13}\\
+0 & 0 & 0\\
+k_{31} & 0 & k_{33}
+\end{array}\right)$
+\end_inset
+
+ and its 
+\begin_inset Quotes eld
+\end_inset
+
+inverse
+\begin_inset Quotes erd
+\end_inset
+
+ is given by the matrix 
+\begin_inset Formula $\mathbf{K}^{-1}$
+\end_inset
+
+ having the same zero-crosses such that 
+\begin_inset Formula $\mathbf{K}\mathbf{K}^{-1}=\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 1
+\end{array}\right)$
+\end_inset
+
+; the identity matrix with the same zero-cross applied.
+ This always exists and is unique no matter how many zero-crosses through
+ the diagonal we add and is equivalent to removing the row/columns of all
+ zero-crosses, performing the inverse, then re-adding those rows and columns.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Predefined Constraints
+\end_layout
+
+\begin_layout Subsection
+PivotJoint
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The PivotJoint is the simplest (non-trivial) constraint in Nape.
+\end_layout
+
+\begin_layout Standard
+This joint defines two local anchor positions (hereafter labeled 
+\begin_inset Formula $\vec{a}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{a}_{2}$
+\end_inset
+
+) whose world-coordinates are locked together.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can define the 2-dimensional position constraint as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C(\vec{x})=\left(\vec{x}_{2}+\mathbf{R}_{\theta_{2}}\vec{a}_{2}\right)-\left(\vec{x}_{1}+\mathbf{R}_{\theta_{1}}\vec{a}_{1}\right)=\vec{0}$
+\end_inset
+
+ for rotation matrix 
+\begin_inset Formula $\mathbf{R}_{\theta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Clearly when position vector is unchanged, 
+\begin_inset Formula $\mathbf{R}_{\theta}\vec{a}=\vec{r}$
+\end_inset
+
+ is constant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Positional constraint: 
+\noun default
+
+\begin_inset Formula $C(\vec{x})=\left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)=\vec{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 2-dimensional velocity constraint is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V(\vec{v})=\frac{d}{dt}C(\vec{x})$
+\end_inset
+
+ and we define no velocity bias (since we want velocity at anchor points
+ to be equal).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity constraint: 
+\noun default
+
+\begin_inset Formula $V(\vec{v})=\left(\vec{v}_{2}+\omega_{2}\times\vec{r}_{2}\right)-\left(\vec{v}_{1}+\omega_{1}\times\vec{r}_{1}\right)=\vec{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the jacobian, it will be helpful to write the velocity constraint like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V(\vec{v})=-\mathbf{E}_{2}\vec{v}_{1}-\left[\vec{r}_{1}\right]_{\times}\omega_{1}+\mathbf{E}_{2}\vec{v}_{2}+\left[\vec{r}_{2}\right]_{\times}\omega_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+from which we can identify the Jacobian easily.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Jacobian: 
+\begin_inset Formula $\mathbf{J}=\left[\begin{array}{cccc}
+-\mathbf{E}_{2} & -\left[\vec{r}_{1}\right]_{\times} & \mathbf{E}_{2} & \left[\vec{r}_{2}\right]_{\times}\end{array}\right]=\left(\begin{array}{cccccc}
+-1 & 0 & r_{1y} & 1 & 0 & -r_{2y}\\
+0 & -1 & -r_{1x} & 0 & 1 & r_{2x}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The effective mass matrix is then given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{K}=\frac{1}{m_{1}}(-\mathbf{E}_{2})\otimes(-\mathbf{E}_{2})+\frac{1}{i_{1}}\left(-\left[\vec{r}_{1}\right]_{\times}\right)\otimes\left(-\left[\vec{r}_{1}\right]_{\times}\right)\dots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Eff-Mass: 
+\begin_inset Formula $\mathbf{K}=\left(\frac{1}{m_{1}}+\frac{1}{m_{2}}\right)\mathbf{E}_{2}+\frac{1}{i_{1}}\left(\vec{r}_{1}\odot\vec{r_{1}}\right)+\frac{1}{i_{2}}\left(\vec{r}_{2}\odot\vec{r_{2}}\right)=\left(\begin{array}{cc}
+\frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{r_{1y}^{2}}{i_{1}}+\frac{r_{2y}^{2}}{i_{2}} & -\frac{r_{1x}r_{1y}}{i_{2}}-\frac{r_{2x}r_{2y}}{i_{2}}\\
+\# & \frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{r_{1x}^{2}}{i_{1}}+\frac{r_{2x}^{2}}{i_{2}}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The impulse applied to bodies in world space is then given by the coordinates
+ of
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\left[\begin{array}{c}
+-\mathbf{E}_{2}\\
+-\left[\vec{r}_{1}\right]_{\times}^{T}\\
+\mathbf{E}_{2}\\
+\left[\vec{r}_{2}\right]_{\times}^{T}
+\end{array}\right]\left(\begin{array}{c}
+\lambda_{x}\\
+\lambda_{y}
+\end{array}\right)=\left(\begin{array}{c}
+-\mathbf{E}_{2}\vec{\lambda}\\
+-\left[\vec{r}_{1}\right]_{\times}^{T}\vec{\lambda}\\
+\mathbf{E}_{2}\vec{\lambda}\\
+\left[\vec{r}_{2}\right]_{\times}^{T}\vec{\lambda}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Impulses: 
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\left(\begin{array}{c}
+-\vec{\lambda}\\
+-\vec{r}_{1}\times\vec{\lambda}\\
+\vec{\lambda}\\
+\vec{r}_{2}\times\vec{\lambda}
+\end{array}\right)\Rightarrow\begin{cases}
+\vec{v}_{1}'=\vec{v}_{1}-\frac{1}{m_{1}}\vec{\lambda}\\
+\omega_{1}'=\omega_{1}-\frac{1}{i_{1}}\left(\vec{r}_{1}\times\vec{\lambda}\right)\\
+\vec{v}_{2}'=\vec{v}_{2}+\frac{1}{m_{2}}\vec{\lambda}\\
+\omega_{2}'=\omega_{2}+\frac{1}{i_{2}}\left(\vec{r}_{2}\times\vec{\lambda}\right)
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+WeldJoint
+\end_layout
+
+\begin_layout Standard
+The WeldJoint is an extension of the PivotJoint to lock the rotations of
+ the bodies to a fixed phase, this is; like the PivotJoint fairly trivial
+ as we have no inequalities, this constraint is 3-dimensional.
+\end_layout
+
+\begin_layout Standard
+Like the PivotJoint we have anchors 
+\begin_inset Formula $\vec{a}$
+\end_inset
+
+ and world-space anchors 
+\begin_inset Formula $\vec{r}$
+\end_inset
+
+.
+ We also have an angular phase 
+\begin_inset Formula $\phi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Positional constraint: 
+\begin_inset Formula $C(\vec{x})=\left[\begin{array}{c}
+\left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)\\
+\theta_{2}-\theta_{1}-\phi
+\end{array}\right]=\vec{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again a velocity bias of 
+\begin_inset Formula $\vec{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity constraint: 
+\noun default
+
+\begin_inset Formula $V(\vec{v})=\left[\begin{array}{c}
+\left(\vec{v}_{2}+\omega_{2}\times\vec{r}_{2}\right)-\left(\vec{v}_{1}+\omega_{1}\times\vec{r}_{1}\right)\\
+\omega_{2}-\omega_{1}
+\end{array}\right]=\vec{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the jacobian, we can use a trick of taking the jacobian of each row
+ in the velocity
+\end_layout
+
+\begin_layout Standard
+constraint and composing the results:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Jacobian: 
+\begin_inset Formula $\mathbf{J}=\left[\begin{array}{cccc}
+-\mathbf{E}_{2} & -\left[\vec{r}_{1}\right]_{\times} & \mathbf{E}_{2} & \left[\vec{r}_{2}\right]_{\times}\\
+\vec{0}^{T} & -1 & \vec{0}^{T} & 1
+\end{array}\right]=\left(\begin{array}{cccccc}
+-1 & 0 & r_{1y} & 1 & 0 & -r_{2y}\\
+0 & -1 & -r_{1x} & 0 & 1 & r_{2x}\\
+0 & 0 & -1 & 0 & 0 & 1
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using our results to partially compute effective mass, we see:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\begin{array}{c}
+\mathbf{E}_{2}\\
+\vec{0}^{T}
+\end{array}\right]\otimes\left[\begin{array}{c}
+\mathbf{E}_{2}\\
+\vec{0}^{T}
+\end{array}\right]=\left[\begin{array}{cc}
+\mathbf{E}_{2} & \vec{0}\\
+\vec{0}^{T} & 0
+\end{array}\right]=\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\begin{array}{c}
+\left[\vec{r}\right]_{\times}\\
+1
+\end{array}\right]\otimes\left[\begin{array}{c}
+\left[\vec{r}\right]_{\times}\\
+1
+\end{array}\right]=\left[\begin{array}{cc}
+\vec{r}\odot\vec{r} & \left[r\right]_{\times}\\
+\left[r\right]_{\times}^{T} & 1
+\end{array}\right]=\left(\begin{array}{ccc}
+r_{y}^{2} & -r_{x}r_{y} & -r_{y}\\
+-r_{x}r_{y} & r_{x}^{2} & r_{x}\\
+-r_{y} & r_{x} & 1
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Eff-Mass: 
+\begin_inset Formula $\mathbf{K}=\left(\begin{array}{ccc}
+\frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{r_{1y}^{2}}{i_{1}}+\frac{r_{2y}^{2}}{i_{2}} & -\frac{r_{1x}r_{1y}}{i_{2}}-\frac{r_{2x}r_{2y}}{i_{2}} & -\frac{r_{1y}}{i_{1}}-\frac{r_{2y}}{i_{2}}\\
+ & \frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{r_{1x}^{2}}{i_{1}}+\frac{r_{2x}^{2}}{i_{2}} & \frac{r_{1x}}{i_{1}}+\frac{r_{2x}}{i_{2}}\\
+\# &  & \frac{1}{i_{1}}+\frac{1}{i_{2}}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\left[\begin{array}{cc}
+-\mathbf{E}_{2} & \vec{0}\\
+-\left[\vec{r}_{1}\right]_{\times}^{T} & -1\\
+\mathbf{E}_{2} & \vec{0}\\
+\left[\vec{r}_{2}\right]_{\times}^{T} & 1
+\end{array}\right]\left(\begin{array}{c}
+\lambda_{x}\\
+\lambda_{y}\\
+\lambda_{z}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Impulses: 
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\left(\begin{array}{c}
+-\vec{\lambda}_{xy}\\
+-\left(\vec{r}_{1}\times\vec{\lambda}_{xy}\right)-\lambda_{z}\\
+\vec{\lambda}_{xy}\\
+\left(\vec{r}_{2}\times\vec{\lambda}_{xy}\right)+\lambda_{z}
+\end{array}\right)$
+\end_inset
+
+ 
+\noun default
+where
+\noun on
+ 
+\begin_inset Formula $\vec{\lambda}_{xy}=\left(\begin{array}{c}
+\lambda_{x}\\
+\lambda_{y}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+AngleJoint
+\end_layout
+
+\begin_layout Standard
+The AngleJoint is a double inequality constraint, which means we now introduce
+ the weight vector 
+\begin_inset Formula $\vec{w}$
+\end_inset
+
+.
+ The AngleJoint is 1 dimensional, so in this case we just have a scalar
+ weight 
+\begin_inset Formula $w$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The AngleJoint constrains the weighted sum of body rotations by a ratio,
+ to be in a given range.
+ I introduce variable 
+\begin_inset Formula $\rho$
+\end_inset
+
+ for the ratio, and 
+\begin_inset Formula $x_{0},x_{1}$
+\end_inset
+
+ with 
+\begin_inset Formula $x_{0}\leq x_{1}$
+\end_inset
+
+ for the joint limits.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Positional constraint: 
+\begin_inset Formula $x_{0}\leq\left(c(\vec{x})=\rho\theta_{2}-\theta_{1}\right)\leq x_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\noun on
+transform:
+\end_layout
+
+\begin_layout Plain Layout
+
+\noun on
+\begin_inset Formula $C(\vec{x})=c(\vec{x})-x_{0}=0$
+\end_inset
+
+ when 
+\begin_inset Formula $x_{0}=x_{1}$
+\end_inset
+
+
+\noun default
+ (standard constraint with 
+\begin_inset Formula $w=1$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C(\vec{x})=x_{0}-c(\vec{x})\leq0$
+\end_inset
+
+ 
+\noun on
+when 
+\begin_inset Formula $c(\vec{x})\leq x_{0}$
+\end_inset
+
+ (
+\noun default
+inequality constraint with
+\noun on
+ 
+\begin_inset Formula $w=-1$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C(\vec{x})=0$
+\end_inset
+
+ 
+\noun on
+when
+\noun default
+ 
+\begin_inset Formula $x_{0}<c(\vec{x})<x_{1}$
+\end_inset
+
+ (disabled inequality constraint with 
+\begin_inset Formula $w=0$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C(\vec{x})=c(\vec{x})-x_{1}\leq0$
+\end_inset
+
+ 
+\noun on
+when 
+\begin_inset Formula $c(\vec{x})\geq x_{1}$
+\end_inset
+
+ 
+\noun default
+(inequality constraint with 
+\begin_inset Formula $w=1$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the weight 
+\begin_inset Formula $w$
+\end_inset
+
+ we can leave the rest of the mathematics untouched by complication.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity constraint: 
+\noun default
+
+\begin_inset Formula $V(\vec{v})=w\left(\rho\omega_{2}-\omega_{1}\right)\leq0$
+\end_inset
+
+.
+ Can see this is 
+\begin_inset Formula $0$
+\end_inset
+
+ when 
+\begin_inset Formula $w=0$
+\end_inset
+
+ as required; in the case that we have a standard constraint we replace
+ 
+\begin_inset Formula $\leq$
+\end_inset
+
+ with 
+\begin_inset Formula $=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Jacobian: 
+\begin_inset Formula $\mathbf{J}=\left[\begin{array}{cccc}
+\vec{0}^{T} & -w & \vec{0}^{T} & w\rho\end{array}\right]$
+\end_inset
+
+=
+\begin_inset Formula $\left(\begin{array}{cccccc}
+0 & 0 & -w & 0 & 0 & w\rho\end{array}\right)$
+\end_inset
+
+.
+ 
+\noun default
+Can see this is 
+\begin_inset Formula $0$
+\end_inset
+
+ when 
+\begin_inset Formula $w=0$
+\end_inset
+
+ as required.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Eff-Mass: 
+\begin_inset Formula $\mathbf{K}=w^{2}\left(\frac{1}{i_{1}}+\frac{\rho^{2}}{i_{2}}\right)$
+\end_inset
+
+.
+ 
+\noun default
+Can see this is 
+\begin_inset Formula $0$
+\end_inset
+
+ when 
+\begin_inset Formula $w=0$
+\end_inset
+
+ as required.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Impulses: 
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=w\lambda\left(\begin{array}{c}
+\vec{0}\\
+-1\\
+\vec{0}\\
+\rho
+\end{array}\right)$
+\end_inset
+
+
+\noun default
+.
+ Which is 
+\begin_inset Formula $0$
+\end_inset
+
+ when 
+\begin_inset Formula $w=0$
+\end_inset
+
+ as required, when we have a true inequality constraint we will always have
+ 
+\begin_inset Formula $\lambda\leq0$
+\end_inset
+
+\SpecialChar \@.
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the case of the AngleJoint, as it's 1 dimensional.
+ When 
+\begin_inset Formula $w=0$
+\end_inset
+
+ we simply skip any subsequent calculations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+DistanceJoint
+\end_layout
+
+\begin_layout Standard
+The DistanceJoint constrains the distance between two anchors 
+\begin_inset Formula $\vec{a_{1}},\vec{a}_{2}$
+\end_inset
+
+ of the bodies to be in a given positive range of values.
+ This like the AngleJoint is a double inequality constraint, and is also
+ a 1-dimensional constraint.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Positional constraint: 
+\begin_inset Formula $x_{0}\leq\left(c(\vec{x})=\left\Vert \left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)\right\Vert \right)\leq x_{1}$
+\end_inset
+
+ with 
+\begin_inset Formula $x_{0}\geq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\noun on
+transform 
+\emph on
+\noun default
+into 
+\begin_inset Formula $C(\vec{x})$
+\end_inset
+
+ 
+\emph default
+as previously introducing weight
+\noun on
+ 
+\begin_inset Formula $w$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We then have the velocity constraint given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V(\vec{v})=w\frac{d}{dt}c(\vec{x})=\frac{w}{\left\Vert \left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)\right\Vert }\left(\left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)\right)\cdot\left(\left(v_{2}+\omega_{2}\times\vec{r}_{2}\right)-\left(\vec{v}_{1}+\omega_{1}\times\vec{r}_{1}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the purposes of simplifying the mathematics (and code) we introduce
+ the vector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{n}=w\cdot\text{unit}\left(\left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)\right)$
+\end_inset
+
+.
+ It is clear that should the distance between anchors be exactly 
+\begin_inset Formula $0$
+\end_inset
+
+ we have a problem; the constraint degenerates; to solve this we cache the
+ previously used 
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+ and recommend that the lower limit be strictly greater than 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity constraint: 
+\begin_inset Formula $V(\vec{v})=\vec{n}\cdot\left(\left(v_{2}+\omega_{2}\times\vec{r}_{2}\right)-\left(\vec{v}_{1}+\omega_{1}\times\vec{r}_{1}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To extract the jacobian, we can rewrite 
+\begin_inset Formula $V(\vec{v})$
+\end_inset
+
+ like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V(\vec{v})=-\vec{n}\cdot\vec{v}_{1}-\omega_{1}\vec{n}\cdot\left[\vec{r}_{1}\right]_{\times}+\vec{n}\cdot\vec{v}_{2}+\omega_{2}\vec{n}\cdot\left[\vec{r}_{2}\right]_{\times}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and noting that 
+\begin_inset Formula $\vec{n}\cdot\left[\vec{r}\right]_{\times}=\vec{r}\times\vec{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simplifying the mathematics and code again, let 
+\begin_inset Formula $c_{1}=\vec{r}_{1}\times\vec{n}$
+\end_inset
+
+ and similarly for 
+\begin_inset Formula $c_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Jacobian: 
+\begin_inset Formula $\mathbf{J}=\left[\begin{array}{cccc}
+-\vec{n}^{T} & -c_{1} & \vec{n}^{T} & c_{2}\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Noting that 
+\begin_inset Formula $\vec{n}^{T}\otimes\vec{n}^{T}=\vec{n}^{T}\vec{n}=\vec{n}\cdot\vec{n}=\left\Vert \vec{n}\right\Vert =w^{2}$
+\end_inset
+
+ by definition.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Eff-mass: 
+\begin_inset Formula $\mathbf{K}=w^{2}\left(\frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{c_{1}^{2}}{i_{1}}+\frac{c_{2}^{2}}{i_{2}}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Impulses: 
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\lambda\left(\begin{array}{c}
+-\vec{n}\\
+-c_{1}\\
+\vec{n}\\
+c_{2}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+LineJoint
+\end_layout
+
+\begin_layout Standard
+The LineJoint constrains the anchor of the second body 
+\begin_inset Formula $\vec{a}_{2}$
+\end_inset
+
+ to be restricted to a possibly infinite line-segment defined by the anchor
+ of the first body 
+\begin_inset Formula $\vec{a}_{1}$
+\end_inset
+
+ and a local direction to which we will assign the world-space vector 
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+, normalised.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The LineJoint is a two-dimensional constraint which is in one dimension,
+ a standard constraint, and in the other dimension, a two-way inequality.
+\end_layout
+
+\begin_layout Standard
+To simplify the mathematics and code, define 
+\begin_inset Formula $\vec{d}=\left(\vec{x}_{2}+\vec{r}_{2}\right)-\left(\vec{x}_{1}+\vec{r}_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Position Constraint: 
+\noun default
+
+\begin_inset Formula $c_{1}(\vec{x})=\vec{n}\times\vec{d}=0,\ x_{0}\leq\left(c_{2}\left(\vec{x}\right)=\vec{n}\cdot\vec{d}\right)\leq x_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\noun on
+transform
+\noun default
+ into 
+\begin_inset Formula $C(\vec{x})$
+\end_inset
+
+ with a weight vector 
+\begin_inset Formula $\vec{w}=\left(\begin{array}{c}
+1\\
+w
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The velocity constraint is then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V(\vec{v})=\vec{w}\left[\begin{array}{c}
+\frac{d}{dt}\vec{n}\times\vec{d}+\vec{n}\times\frac{d}{dt}\vec{d}\\
+\frac{d}{dt}\vec{n}\cdot\vec{d}+\vec{n}\cdot\frac{d}{dt}\vec{d}
+\end{array}\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $\frac{d}{dt}\vec{n}=\omega_{1}\times\vec{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{d}{dt}\vec{d}=\left(\vec{v}_{2}+\omega_{2}\times\vec{r}_{2}\right)-\left(\vec{v}_{1}+\omega_{1}\times\vec{r}_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V(\vec{v})=\vec{w}\left[\begin{array}{c}
+(\omega_{1}\times\vec{n})\times\vec{d}+\vec{n}\times v_{2}-\vec{n}\times v_{1}+\vec{n}\times(\omega_{2}\times\vec{r}_{2})-\vec{n}\times(\omega_{1}\times\vec{r}_{1})\\
+(\omega_{1}\times\vec{n})\cdot\vec{d}+\vec{n}\cdot v_{2}-\vec{n}\cdot v_{1}+\vec{n}\cdot(\omega_{2}\times\vec{r}_{2})-\vec{n}\cdot(\omega_{1}\times\vec{r}_{1})
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We introduce the following to simplifify the maths and code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{1}=\vec{n}\cdot(\vec{d}-\vec{r}_{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{2}=\vec{n}\cdot\vec{r}_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c_{1}=\vec{n}\times(\vec{d}-\vec{r}_{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c_{2}=\vec{n}\times\vec{r}_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity Constraint: 
+\noun default
+
+\begin_inset Formula $V(\vec{v})=\vec{w}\left[\begin{array}{c}
+\vec{n}\times(\vec{v}_{2}-\vec{v}_{1})+\omega_{2}d_{2}-\omega_{1}d_{1}\\
+\vec{n}\cdot(\vec{v}_{2}-\vec{v}_{1})-\omega_{2}c_{2}+\omega_{1}c_{1}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Jacobian: 
+\noun default
+
+\begin_inset Formula $\mathbf{J}=\vec{w}\left[\begin{array}{cccc}
+-\left[\vec{n}\right]_{\times}^{T} & -d_{1} & \left[\vec{n}\right]_{\times}^{T} & d_{2}\\
+-\vec{n}^{T} & c_{1} & \vec{n}^{T} & c_{2}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We normalised 
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+ so that 
+\begin_inset Formula $\left(\vec{w}\left[\begin{array}{c}
+\left[\vec{n}\right]_{\times}^{T}\\
+\vec{n}^{T}
+\end{array}\right]\right)\otimes\left(\vec{w}\left[\begin{array}{c}
+\left[\vec{n}\right]_{\times}^{T}\\
+\vec{n}^{T}
+\end{array}\right]\right)=\vec{w}\mathbf{E}_{2}\vec{w}^{T}=\left(\begin{array}{cc}
+1 & 0\\
+0 & w^{2}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And 
+\begin_inset Formula $\left(\vec{w}\left[\begin{array}{c}
+a\\
+b
+\end{array}\right]\right)\otimes\left(\vec{w}\left[\begin{array}{c}
+a\\
+b
+\end{array}\right]\right)=\left(\begin{array}{cc}
+a^{2} & wab\\
+wab & w^{2}b^{2}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Eff-Mass: 
+\noun default
+
+\begin_inset Formula $\mathbf{K}=\left(\begin{array}{cc}
+\frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{d_{1}^{2}}{i_{1}}+\frac{d_{2}^{2}}{i_{2}} & -w\left(\frac{d_{1}c_{1}}{i_{1}}+\frac{d_{2}c_{2}}{i_{2}}\right)\\
+\# & w^{2}\left(\frac{1}{m_{1}}+\frac{1}{m_{2}}+\frac{c_{1}^{2}}{i_{1}}+\frac{c_{2}^{2}}{i_{2}}\right)
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Impulses: 
+\noun default
+
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\left(\begin{array}{c}
+-\vec{\gamma}\\
+wc_{1}\lambda_{y}-d_{1}\lambda_{x}\\
+\vec{\gamma}\\
+d_{2}\lambda_{x}-wc_{1}\lambda_{y}
+\end{array}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\vec{\gamma}=\left(\begin{array}{c}
+wn_{x}\lambda_{y}-n_{y}\lambda_{x}\\
+n_{x}\lambda_{x}-wn_{y}\lambda_{y}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+MotorJoint
+\end_layout
+
+\begin_layout Standard
+The MotorJoint is a velocity-only constraint (It has no positional constraint)
+ which locks the weighted difference of body angular velocities to be at
+ a given rate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset Formula $\rho$
+\end_inset
+
+ for ratio as previous and recycling 
+\begin_inset Formula $\phi$
+\end_inset
+
+ as the rate:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Velocity Constraint: 
+\noun default
+
+\begin_inset Formula $V(\vec{v})=\rho\omega_{2}-\omega_{1}-\phi$
+\end_inset
+
+.
+ Noticing that 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is free and forms the velocity bias.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Jacobian: 
+\noun default
+
+\begin_inset Formula $\mathbf{J}=\left[\begin{array}{cccc}
+\vec{0}^{T} & -1 & \vec{0}^{T} & \rho\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Eff-Mass: 
+\noun default
+
+\begin_inset Formula $\mathbf{K}=\frac{1}{i_{1}}+\frac{\rho^{2}}{i_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+Impulses: 
+\noun default
+
+\begin_inset Formula $\mathbf{J}^{T}\vec{\lambda}=\left(\begin{array}{c}
+\vec{0}\\
+-\lambda\\
+\vec{0}\\
+\rho\lambda
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+UserConstraint
+\end_layout
+
+\begin_layout Standard
+The UserConstraint API provides a way to define a customised Nape constraint
+ at a reasonably low-level.
+ Performance is not going to be good as writing one by hand entirely, but
+ is FAR simpler and quicker and unless you have hundreds of them will be
+ perfectly performant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+UserConstraints can automatically be made into soft constraints, have force
+ limits set, breakable just like normal Nape constraints without any user
+ code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A UserConstraint looks like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+typedef TArray<T> = #if flash9 flash.Vector<T> #else Array<T> #end;
+\end_layout
+
+\begin_layout Plain Layout
+
+class MyConstraint extends UserConstraint {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public function new() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		super(/*number of dimensions*/, /*is velocity only*/=false);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __position(err:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// populate 'err' with values of C(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[0] = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+		 ...
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[dimensions-1] = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __velocity(err:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// populate 'err' with values of V(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[0] = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+		 ...
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[dimensions-1] = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __eff_mass(eff:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// populate 'eff' with values of the effective mass.
+\end_layout
+
+\begin_layout Plain Layout
+
+		// the matrix is compressed abusing mass symmetry and is indexed like
+\end_layout
+
+\begin_layout Plain Layout
+
+		// K = [eff[0], eff[1], eff[2],
+\end_layout
+
+\begin_layout Plain Layout
+
+		//              eff[3], eff[4],
+\end_layout
+
+\begin_layout Plain Layout
+
+		//              eff[5], eff[6]] for a 3-dimensional constraint.
+\end_layout
+
+\begin_layout Plain Layout
+
+		eff[0] = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+		 ...
+\end_layout
+
+\begin_layout Plain Layout
+
+		eff[#] = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __impulse(imp:TArray<Float>, body:Body, out:Vec3):Void
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// populate 'out' Vec3 with impulse to be applied to 'body' given
+\end_layout
+
+\begin_layout Plain Layout
+
+		// constraint space impulse (lambda) 'imp'.
+\end_layout
+
+\begin_layout Plain Layout
+
+		// Note we do not 'apply' any impulse here, only populate 'out'
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.x = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.y = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.z = ..;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __clamp(jAcc:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// perform any required clamping of accumulated impulses
+\end_layout
+
+\begin_layout Plain Layout
+
+		// such as for inequality constraints
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __draw(debug:Debug):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// draw a representation of constraint to Debug object.
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	...
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __copy():UserConstraint {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// produce and return an exact copy of this UserConstraint
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __broken():Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// called when constraint is broken, before it is removed from the
+\end_layout
+
+\begin_layout Plain Layout
+
+		// space or deactivated.
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __validate():Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// perform any verification steps on the integrity of the constraint
+\end_layout
+
+\begin_layout Plain Layout
+
+		// if there are any computations that can be re-used through both
+\end_layout
+
+\begin_layout Plain Layout
+
+		// the velocity and positional iterations, they can be done here.
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __prepare():Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// perform any computations that are dependent only on the positions
+\end_layout
+
+\begin_layout Plain Layout
+
+		// of the bodies and remain fixed during velocity iterations.
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A UserConstraint should have an API that is indistinguishable from the other
+ Nape constraints, and to provide this you should use the following models
+ for common property types:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\text{Body properties}:$
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+We want to ensure that when we set and change Body type properties that
+ all necessary internal actions are performed, this can be achieved with
+ the following model:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+//Haxe
+\end_layout
+
+\begin_layout Plain Layout
+
+public var body1(default, set_body1):Body;
+\end_layout
+
+\begin_layout Plain Layout
+
+function set_body1(body1:Body) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return this.body1 = __registerBody(this.body1, body1);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//AS3
+\end_layout
+
+\begin_layout Plain Layout
+
+var body1:Body;
+\end_layout
+
+\begin_layout Plain Layout
+
+public function get body1():Body {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return this.body1;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+public function set body1(body1:Body):void {
+\end_layout
+
+\begin_layout Plain Layout
+
+	this.body1 = __registerBody(this.body1, body1);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $\text{Vec2 properties:}$
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+We want to ensure that not only does the Constraint be refreshed when the
+ Vec2 property is changed directly, but also when its x/y values are changed
+ indirectly.
+ This can be achieved with the following model:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+//Haxe
+\end_layout
+
+\begin_layout Plain Layout
+
+public var anchor1(default, set_anchor1):Vec2;
+\end_layout
+
+\begin_layout Plain Layout
+
+function set_anchor1(anchor1:Vec2) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (this.anchor1 == null) this.anchor1 = __bindVec2();
+\end_layout
+
+\begin_layout Plain Layout
+
+	return this.anchor1.set(anchor1);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//AS3
+\end_layout
+
+\begin_layout Plain Layout
+
+var anchor1:Vec2 = __bindVec2();
+\end_layout
+
+\begin_layout Plain Layout
+
+public function get anchor1():Vec2 {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return this.anchor1;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+public function set anchor1(anchor1:Vec2):void {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return this.anchor1.set(anchor1);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $\text{Other types:}$
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+For other parameter types, you need to ensure yourself that mutations of
+ the property invalidate the appropariate constraint the property belongs
+ to.
+\end_layout
+
+\begin_layout Standard
+For basic types, this is trivial:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+//Haxe
+\end_layout
+
+\begin_layout Plain Layout
+
+public var ratio(default, set_ratio):Float;
+\end_layout
+
+\begin_layout Plain Layout
+
+function set_ratio(ratio:Float) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (this.ratio != ratio) __invalidate();
+\end_layout
+
+\begin_layout Plain Layout
+
+	return this.ratio = ratio;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//AS3
+\end_layout
+
+\begin_layout Plain Layout
+
+var ratio:Number;
+\end_layout
+
+\begin_layout Plain Layout
+
+public function get ratio():Number {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return this.ratio;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+public function set ratio(ratio:Number):void {
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (this.ratio != ratio) __invalidate();
+\end_layout
+
+\begin_layout Plain Layout
+
+	this.ratio = ratio;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+UserConstraint :: PivotJoint
+\end_layout
+
+\begin_layout Standard
+Implementing a PivotJoint with the UserConstraint could then be done like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+typedef TArray<T> = #if flash9 flash.Vector<T> #else Array<T> #end;
+\end_layout
+
+\begin_layout Plain Layout
+
+class UserPivotJoint extends UserConstraint {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public var body1(default, set_body1):Body;
+\end_layout
+
+\begin_layout Plain Layout
+
+	public var body2(default, set_body2):Body;
+\end_layout
+
+\begin_layout Plain Layout
+
+	function set_body1(body1:Body) return this.body1 = __registerBody(this.body1,
+ body1)
+\end_layout
+
+\begin_layout Plain Layout
+
+	function set_body2(body2:Body) return this.body2 = __registerBody(this.body2,
+ body2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public var anchor1(default, set_anchor1):Vec2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	public var anchor2(default, set_anchor2):Vec2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	function set_anchor1(anchor1:Vec2) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (this.anchor1 == null) this.anchor1 = __bindVec2();
+\end_layout
+
+\begin_layout Plain Layout
+
+		return this.anchor1.set(anchor1);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	function set_anchor2(anchor2:Vec2) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (this.anchor2 == null) this.anchor2 = __bindVec2();
+\end_layout
+
+\begin_layout Plain Layout
+
+		return this.anchor2.set(anchor2);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public function new(body1:Null<Body>, body2:Null<Body>, anchor1:Vec2, anchor2:V
+ec2) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		super(2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		this.body1 = body1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		this.body2 = body2;
+\end_layout
+
+\begin_layout Plain Layout
+
+		this.anchor1 = anchor1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		this.anchor2 = anchor2;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		rel1 = Vec2.get();
+\end_layout
+
+\begin_layout Plain Layout
+
+		rel2 = Vec2.get();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __copy():UserConstraint {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return new UserPivotJoint(body1, body2, anchor1, anchor2);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __validate():Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// example:
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (body1 == null || body2 == null)
+\end_layout
+
+\begin_layout Plain Layout
+
+			throw "Error: UserPivotJoint cannot be simulated with null bodies!";
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	var rel1:Vec2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	var rel2:Vec2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __prepare():Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		rel1.set(body1.localVectorToWorld(anchor1, true));
+\end_layout
+
+\begin_layout Plain Layout
+
+		rel2.set(body2.localVectorToWorld(anchor2, true));
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __position(err:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[0] = (body2.position.x + rel2.x) - (body1.position.x + rel1.x);
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[1] = (body2.position.y + rel2.y) - (body1.position.y + rel1.y);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __velocity(err:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		var v1 = body1.constraintVelocity;
+\end_layout
+
+\begin_layout Plain Layout
+
+		var v2 = body2.constraintVelocity;
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[0] = (v2.x - rel2.y * v2.z) - (v1.x - rel1.y * v1.z);
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[1] = (v2.y + rel2.x * v2.z) - (v1.y + rel1.x * v1.z);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __eff_mass(eff:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		var m1 = body1.constraintMass; var i1 = body1.constraintInertia;
+\end_layout
+
+\begin_layout Plain Layout
+
+		var m2 = body2.constraintMass; var i2 = body2.constraintInertia;
+\end_layout
+
+\begin_layout Plain Layout
+
+		eff[0] = m1 + m2 + (rel1.y * rel1.y * i1) + (rel2.y * rel2.y * i2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		eff[1] =         - (rel1.x * rel1.y * i1) - (rel2.x * rel2.y * i2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		eff[2] = m1 + m2 + (rel1.x * rel1.x * i1) + (rel2.x * rel2.x * i2);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __impulse(imp:TArray<Float>, body:Body, out:Vec3):Void
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+		var scale = if (body == body1) -1.0 else 1.0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		var relv  = if (body == body1) rel1 else rel2;
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.x = scale * imp[0];
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.y = scale * imp[1];
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.z = scale * relv.cross(Vec2.weak(imp[0], imp[1]));
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+UserConstraint :: AngleJoint
+\end_layout
+
+\begin_layout Standard
+Implementing an AngleJoint is more fun :)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+typedef TArray<T> = #if flash9 flash.Vector<T> #else Array<T> #end;
+\end_layout
+
+\begin_layout Plain Layout
+
+class UserAngleJoint extends UserConstraint {
+\end_layout
+
+\begin_layout Plain Layout
+
+	...
+ body1, body2 as above
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public var ratio(default, set_ratio):Float;
+\end_layout
+
+\begin_layout Plain Layout
+
+	public var jointMin(default, set_jointMin):Float;
+\end_layout
+
+\begin_layout Plain Layout
+
+	public var jointMax(default, set_jointMax):Float;
+\end_layout
+
+\begin_layout Plain Layout
+
+	...
+ + the model setters.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public function new(body1:Null<Body>, body2:Null<Body>, ...) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		super(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+		...
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override functino __copy():UserConstraint {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return new UserAngleJoint(body1, body2, ratio, jointMin, jointMax);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	var equality:Bool = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __validate():Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		equality = (jointMin == jointMax);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	var weight:Float = 1.0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	var error:Float;
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __prepare():Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// We compute positional error in here too to avoid repeating
+\end_layout
+
+\begin_layout Plain Layout
+
+		// any calculations.
+\end_layout
+
+\begin_layout Plain Layout
+
+		var cx = (ratio * body2.rotation - body1.rotation);
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (equality) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			weight = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+			error = cx - jointMax;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else if(cx <= jointMin) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			error = jointMin - cx;
+\end_layout
+
+\begin_layout Plain Layout
+
+			weight = -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else if(cx >= jointMax) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			error = cx - jointMax;
+\end_layout
+
+\begin_layout Plain Layout
+
+			weight = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else {
+\end_layout
+
+\begin_layout Plain Layout
+
+			error = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+			weight = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __position(err:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[0] = error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __velocity(err:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		var v1 = body1.constraintVelocity;
+\end_layout
+
+\begin_layout Plain Layout
+
+		var v2 = body2.constraintVelocity;
+\end_layout
+
+\begin_layout Plain Layout
+
+		err[0] = (weight * (ratio * v2.w)) - v1.w;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __eff_mass(eff:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		var i1 = body1.constraintInertia;
+\end_layout
+
+\begin_layout Plain Layout
+
+		var i2 = body2.constraintInertia;
+\end_layout
+
+\begin_layout Plain Layout
+
+		eff[0] = i1 + (ratio * ratio * i2);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __impulse(imp:TArray<Float>, body:Body, out:Vec3):Void
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+		var scale = if (body == body1) -weight else (weight * ratio);
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.x = out.y = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		out.z = scale * imp[0];
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public override function __clamp(jAcc:TArray<Float>):Void {
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (!equality && jAcc[0] > 0) jAcc[0] = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+SymbolicConstraint
+\end_layout
+
+\begin_layout Standard
+The SymbolicConstraint class from the nape-symbolic module provides an 'even
+ higher' path to creating custom constraints.
+ It does this through an expressive DSL (Domain Specific Language) to define
+ positional constraints in (nape-symbolic does not at present support velocity
+ only constraints).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These SymbolicConstraints have a slightly more obtuse API for setting properties
+ like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+symbolicConstraint.setBody("body1", someBody);
+\end_layout
+
+\begin_layout Plain Layout
+
+symbolicConstraint.setVector("anchor1", someVec2);
+\end_layout
+
+\begin_layout Plain Layout
+
+symbolicConstraint.setScalar("ratio", someFloat);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Check the SymbolicConstraint API entry for details on the syntax of the
+ DSL, for this manual I will simply give some example usages:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var symbolicWeldJoint = new SymbolicConstraint("
+\end_layout
+
+\begin_layout Plain Layout
+
+	body body1, body2
+\end_layout
+
+\begin_layout Plain Layout
+
+	vector anchor1, anchor2
+\end_layout
+
+\begin_layout Plain Layout
+
+	scalar phase
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	constraint
+\end_layout
+
+\begin_layout Plain Layout
+
+		let r1 = relative body1.rotation anchor1 in
+\end_layout
+
+\begin_layout Plain Layout
+
+		let r2 = relative body2.rotation anchor2 in
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ (body2.position + r2) - (body1.position + r1)
+\end_layout
+
+\begin_layout Plain Layout
+
+		  body2.rotation - body1.rotation - phase }
+\end_layout
+
+\begin_layout Plain Layout
+
+");
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var symbolicDistanceJoint = new SymbolicConstraint("
+\end_layout
+
+\begin_layout Plain Layout
+
+	body body1, body2
+\end_layout
+
+\begin_layout Plain Layout
+
+	vector anchor1, anchor2
+\end_layout
+
+\begin_layout Plain Layout
+
+	scalar jointMin, jointMax
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	limit jointMin 0 jointMax # 0 <= jointMin <= jointMax
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	constraint
+\end_layout
+
+\begin_layout Plain Layout
+
+		let r1 = relative body1.rotation anchor1 in
+\end_layout
+
+\begin_layout Plain Layout
+
+		let r2 = relative body2.rotation anchor2 in
+\end_layout
+
+\begin_layout Plain Layout
+
+		|(body2.position + r2) - (body1.position + r1)|
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	limit constraint jointMin jointMax # jointMin <= constraint <= jointMax
+\end_layout
+
+\begin_layout Plain Layout
+
+");
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var symbolicLineJoint = new SymbolicConstraint("
+\end_layout
+
+\begin_layout Plain Layout
+
+	body body1, body2
+\end_layout
+
+\begin_layout Plain Layout
+
+	vector anchor1, anchor2, direction
+\end_layout
+
+\begin_layout Plain Layout
+
+	scalar jointMin, jointMax
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	limit jointMin (-inf) jointMax # jointMin <= jointMax
+\end_layout
+
+\begin_layout Plain Layout
+
+	limit |direction| eps inf  # direction != 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	constraint
+\end_layout
+
+\begin_layout Plain Layout
+
+		let r1 = relative body1.rotation anchor1 in
+\end_layout
+
+\begin_layout Plain Layout
+
+		let r2 = relative body2.rotation anchor2 in
+\end_layout
+
+\begin_layout Plain Layout
+
+		let dir = unit(relative body1.rotation direction) in
+\end_layout
+
+\begin_layout Plain Layout
+
+		let del = (body2.position + r2) - (body1.position + r1) in
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ dir  dot  del
+\end_layout
+
+\begin_layout Plain Layout
+
+		  dir cross del }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	# limit first dimension of constraint between jointMin, jointMax
+\end_layout
+
+\begin_layout Plain Layout
+
+	# and limit second dimension to exactly 0
+\end_layout
+
+\begin_layout Plain Layout
+
+	limit constraint { jointMin 0 } { jointMax 0 }
+\end_layout
+
+\begin_layout Plain Layout
+
+");
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

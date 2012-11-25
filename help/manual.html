@@ -571,6 +571,9 @@ body.space = null;</pre>
                     them from <b>Spaces</b>. The <b>Body</b> <b>constraints</b> list tracks those <b>Constraints</b> which make use of the
                     <b>Body</b>, and which are assigned to a <b>Space</b>, which is why the above pattern works.
                 </p>
+                <p>
+                    If you wish to know more about the mathematics behind the constraint deriviations checkout <a class="doclink" href="Constraints.pdf">this</a> pdf.
+                </p>
                 <strong><span class="section">PivotJoint</span></strong>
                 <p>
                     A <b>PivotJoint</b> locks two points, defined locally to the assigned <b>Bodies</b>, to be the same
@@ -724,6 +727,9 @@ var motorJoint:Constraint = new MotorJoint(body1, body2, rate = 0, ratio = 1);</
                 <p>
                     The <b>nape-symbolic</b> module, provides a higher-level interface to <b>UserConstraint</b> where constraint definitions can be written in a <b>DSL</b> that is compiled at run-time to a <b>SymbolicConstraint</b> object derived from
                     <b>UserConstraint</b>.
+                </p>
+                <p>
+                    For information on using the <b>UserConstraint</b> type, and examples of the <b>SymbolicConstraint</b>, checkout <a class="doclink" href="Constraints.pdf">this</a> pdf.
                 </p>
             </div>
 
