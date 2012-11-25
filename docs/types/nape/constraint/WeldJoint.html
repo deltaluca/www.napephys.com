@@ -297,6 +297,7 @@ function shownape__constraint() {
     html += '<li class="class"><a href="../../nape/constraint/LineJoint.html" title="LineJoint">LineJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/MotorJoint.html" title="MotorJoint">MotorJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/PivotJoint.html" title="PivotJoint">PivotJoint</a></li>';
+    html += '<li class="class"><a href="../../nape/constraint/PulleyJoint.html" title="PulleyJoint">PulleyJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/UserConstraint.html" title="UserConstraint">UserConstraint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/WeldJoint.html" title="WeldJoint">WeldJoint</a></li>';
     div.innerHTML = html;
@@ -554,7 +555,7 @@ function shownape__util() {
 			<!-- Comment block -->
             WeldJoint constraining two bodies to be exactly locked together.
                     <br/><br/>
-			The equation for this constraint is: <pre>[ body2.localToWorld(anchor2) ] = [ body1.localToWorld(anchor1) ]&#13;&#10;[       body2.rotation        ]   [   body1.rotation + phase    ]&#13;&#10;</pre> This constraint is equivalent to using a PivotJoint and AngleJoint together except that it is solved as a single constraint and thus will be more stable. <br/><br/> This constraint is 3 dimensional. <br/><br/> Although this constraint is very stable, if you chain bodies together using this constraint, you should except to see a small amount of rotation about the anchor points so you should chose them accordingly.
+			The equation for this constraint is: <pre>[ body2.localPointToWorld(anchor2) ] = [ body1.localPointToWorld(anchor1) ]&#13;&#10;[          body2.rotation          ]   [      body1.rotation + phase      ]&#13;&#10;</pre> This constraint is equivalent to using a PivotJoint and AngleJoint together except that it is solved as a single constraint and thus will be more stable. <br/><br/> This constraint is 3 dimensional. <br/><br/> Although this constraint is very stable, if you chain bodies together using this constraint, you should except to see a small amount of rotation about the anchor points so you should chose them accordingly.
 				</div>
 	<!-- ========= CONSTRUCTOR DETAIL ======== -->
 	<div class="members-panel">

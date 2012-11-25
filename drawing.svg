@@ -13,7 +13,7 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.1 r9760"
+   inkscape:version="0.48.3.1 r9886"
    inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/PivotJoint.png"
    inkscape:export-xdpi="87.398842"
    inkscape:export-ydpi="87.398842"
@@ -27,16 +27,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4540422"
-     inkscape:cx="600.99976"
-     inkscape:cy="-111.94778"
+     inkscape:zoom="1.0281631"
+     inkscape:cx="-428.35695"
+     inkscape:cy="733.71516"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1327"
-     inkscape:window-height="729"
-     inkscape:window-x="401"
-     inkscape:window-y="146"
+     inkscape:window-height="808"
+     inkscape:window-x="522"
+     inkscape:window-y="222"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
@@ -66,23 +66,27 @@
        id="g3984"
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
        inkscape:export-xdpi="87.398842"
-       inkscape:export-ydpi="87.398842">
+       inkscape:export-ydpi="87.398842"
+       transform="translate(-57.769988,-213.19876)">
       <path
          id="path3982"
          d="m 95.5,359.86218 143.5,1.5"
-         style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
       <path
          id="path3980"
          d="m 239,361.36218 c 0,0 80.66608,0.74715 121,1"
-         style="fill:none;stroke:#ffcd01;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffcd01;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
       <path
          id="path3976"
          d="m 360,362.36218 c 38.99959,0.24449 117,0.5 117,0.5"
-         style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
     </g>
     <g
        id="g3813"
-       transform="matrix(0,-1,1,0,-402.81538,696.01153)"
+       transform="matrix(0,-1,1,0,-460.58537,482.81277)"
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
        inkscape:export-xdpi="87.398842"
        inkscape:export-ydpi="87.398842">
@@ -104,7 +108,7 @@
     </g>
     <g
        id="g3813-0"
-       transform="translate(147.10051,-154.34315)"
+       transform="translate(89.330522,-367.54191)"
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
        inkscape:export-xdpi="87.398842"
        inkscape:export-ydpi="87.398842">
@@ -126,7 +130,7 @@
     </g>
     <g
        id="g3936"
-       transform="matrix(0.25881905,-0.96592583,0.96592583,0.25881905,-275.03287,527.01717)"
+       transform="matrix(0.25881905,-0.96592583,0.96592583,0.25881905,-332.80286,313.81841)"
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
        inkscape:export-xdpi="87.398842"
        inkscape:export-ydpi="87.398842">
@@ -175,7 +179,7 @@
     </g>
     <g
        id="g3931"
-       transform="matrix(0.5,0.86602541,-0.86602541,0.5,578.86337,-116.25154)"
+       transform="matrix(0.5,0.86602541,-0.86602541,0.5,521.09338,-329.4503)"
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
        inkscape:export-xdpi="87.398842"
        inkscape:export-ydpi="87.398842">
@@ -224,7 +228,7 @@
     </g>
     <g
        id="g3860"
-       transform="matrix(-0.13917312,-0.99026807,0.99026807,-0.13917312,-120.09308,668.29366)"
+       transform="matrix(-0.13917312,-0.99026807,0.99026807,-0.13917312,-177.86307,455.0949)"
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
        inkscape:export-xdpi="87.398842"
        inkscape:export-ydpi="87.398842">
@@ -242,7 +246,7 @@
     </g>
     <g
        id="g3860-5"
-       transform="translate(134.48894,22.097088)"
+       transform="translate(76.718952,-191.10168)"
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
        inkscape:export-xdpi="87.398842"
        inkscape:export-ydpi="87.398842">
@@ -327,7 +331,7 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 359.64645,350.1802 359.5,373.83705"
+       d="m 301.87646,136.98144 -0.14645,23.65685"
        id="path3991"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -336,7 +340,7 @@
        inkscape:export-ydpi="87.398842" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 238.36821,349.33688 -0.14645,23.65685"
+       d="m 180.59822,136.13812 -0.14645,23.65685"
        id="path3991-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -345,7 +349,7 @@
        inkscape:export-ydpi="87.398842" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 477.01674,351.10465 -0.14645,23.65685"
+       d="m 419.24675,137.90589 -0.14645,23.65685"
        id="path3991-9-8"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -354,7 +358,7 @@
        inkscape:export-ydpi="87.398842" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 95.179092,348.27622 -0.14645,23.65685"
+       d="m 37.409104,135.07746 -0.14645,23.65685"
        id="path3991-9-8-2"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -935,5 +939,1271 @@
        inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/features.png"
        inkscape:export-xdpi="87.398842"
        inkscape:export-ydpi="87.398842" />
+    <g
+       id="g4200"
+       transform="matrix(0,-0.60710074,0.5992506,0,-839.74063,144.21788)"
+       inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/PulleyJoint.png"
+       inkscape:export-xdpi="73.825172"
+       inkscape:export-ydpi="73.825172">
+      <g
+         transform="translate(-567.99725,-5.3861467)"
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         id="g3984-9">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 95.5,359.86218 143.5,1.5"
+           id="path3982-7" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#ffcd01;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 239,361.36218 c 0,0 80.66608,0.74715 121,1"
+           id="path3980-4" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 360,362.36218 c 38.99959,0.24449 117,0.5 117,0.5"
+           id="path3976-6" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,-1,1,0,-970.81262,690.62538)"
+         id="g3813-8">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-3"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-83"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="translate(-420.89674,-159.7293)"
+         id="g3813-0-0">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-5-5"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-1-3"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.25881905,-0.96592583,0.96592583,0.25881905,-843.03011,521.63102)"
+         id="g3936-7">
+        <path
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-1"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="84.948967"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="0.73781506"
+           sodipodi:arg2="1.3661336"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 274.28572,520.9336 c -6.71755,7.3893 -88.67583,24.4013 -97.77931,20.29595 -9.10348,-4.10534 -50.60935,-76.79531 -49.51806,-86.72185 1.09128,-9.92654 57.39752,-71.86341 67.17545,-73.89301 9.77794,-2.02959 86.08298,32.38128 91.03479,41.05347 4.9518,8.67218 -4.19533,91.87614 -10.91287,99.26544 z"
+           inkscape:transform-center-x="1.8337261"
+           inkscape:transform-center-y="-1.134016"
+           transform="matrix(0.76715325,0,0,0.79047453,29.453267,79.619779)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-6"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(-35,-158)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 194,445.36218 81,-45"
+           id="path3841-0"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.5,0.86602541,-0.86602541,0.5,10.866125,-121.63769)"
+         id="g3931-9">
+        <path
+           transform="matrix(0.76715325,0,0,0.79047453,235.28078,84.672293)"
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-7-3"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="82.462112"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="1.3258176"
+           sodipodi:arg2="1.9541362"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 231.42858,543.79074 c -9.40457,2.35114 -84.76195,-28.03978 -89.90418,-36.2575 -5.14224,-8.21773 0.47452,-89.27817 6.70101,-96.70815 6.22649,-7.42998 85.05522,-27.13717 94.04564,-23.51142 8.99042,3.62575 52.09249,72.50648 51.42239,82.17729 -0.67011,9.67082 -52.8603,71.94864 -62.26486,74.29978 z"
+           inkscape:transform-center-x="1.833724"
+           inkscape:transform-center-y="-1.134016"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-8-7"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(11,-160)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 399,450.36218 -76,-54"
+           id="path3843-8"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.13917312,-0.99026807,0.99026807,-0.13917312,-688.09033,662.90751)"
+         id="g3860-54">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-6" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-1"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="translate(-433.50831,16.710933)"
+         id="g3860-5-8">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-0-1" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-3-3"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-2"
+         d="m -208.35079,344.79405 -0.14645,23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-3"
+         d="m -329.62903,343.95073 -0.14645,23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-5"
+         d="m -90.980505,345.7185 -0.14645,23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-2-3"
+         d="m -472.81815,342.89007 -0.14645,23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path3982-7-4"
+         d="m -80.833026,296.14737 -143.500004,-1.5"
+         style="fill:none;stroke:#ff0101;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3980-4-0"
+         d="m -224.33303,294.64737 c 0,0 -80.66608,-0.74715 -121,-1"
+         style="fill:none;stroke:#01f6ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3976-6-6"
+         d="m -345.33303,293.64737 c -38.99959,-0.24449 -117,-0.5 -117,-0.5"
+         style="fill:none;stroke:#ff0101;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,1,-1,0,417.48234,-40.001985)"
+         id="g3813-8-3">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-3-0"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-83-1"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-1,0,0,-1,-132.43354,810.3527)"
+         id="g3813-0-0-1">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-5-5-4"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-1-3-1"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.25881905,0.96592583,-0.96592583,-0.25881905,289.69983,128.99238)"
+         id="g3936-7-8">
+        <path
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-1-9"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="84.948967"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="0.73781506"
+           sodipodi:arg2="1.3661336"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 274.28572,520.9336 c -6.71755,7.3893 -88.67583,24.4013 -97.77931,20.29595 -9.10348,-4.10534 -50.60935,-76.79531 -49.51806,-86.72185 1.09128,-9.92654 57.39752,-71.86341 67.17545,-73.89301 9.77794,-2.02959 86.08298,32.38128 91.03479,41.05347 4.9518,8.67218 -4.19533,91.87614 -10.91287,99.26544 z"
+           inkscape:transform-center-x="1.8337261"
+           inkscape:transform-center-y="-1.134016"
+           transform="matrix(0.76715325,0,0,0.79047453,29.453267,79.619779)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-6-8"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(-35,-158)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 194,445.36218 81,-45"
+           id="path3841-0-9"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.5,-0.86602541,0.86602541,-0.5,-564.19641,772.26109)"
+         id="g3931-9-6">
+        <path
+           transform="matrix(0.76715325,0,0,0.79047453,235.28078,84.672293)"
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-7-3-0"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="82.462112"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="1.3258176"
+           sodipodi:arg2="1.9541362"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 231.42858,543.79074 c -9.40457,2.35114 -84.76195,-28.03978 -89.90418,-36.2575 -5.14224,-8.21773 0.47452,-89.27817 6.70101,-96.70815 6.22649,-7.42998 85.05522,-27.13717 94.04564,-23.51142 8.99042,3.62575 52.09249,72.50648 51.42239,82.17729 -0.67011,9.67082 -52.8603,71.94864 -62.26486,74.29978 z"
+           inkscape:transform-center-x="1.833724"
+           inkscape:transform-center-y="-1.134016"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-8-7-8"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(11,-160)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 399,450.36218 -76,-54"
+           id="path3843-8-1"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.13917312,0.99026807,-0.99026807,0.13917312,134.76005,-12.284115)"
+         id="g3860-54-0">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-6-8" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-1-7"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-1,0,0,-1,-119.82197,633.91247)"
+         id="g3860-5-8-4">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-0-1-4" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-3-3-0"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-2-3"
+         d="m -344.97949,305.82935 0.14645,-23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-3-6"
+         d="m -223.70125,306.67267 0.14645,-23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-5-3"
+         d="m -462.34978,304.9049 0.14646,-23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-2-3-7"
+         d="m -80.512126,307.73333 0.14645,-23.65685"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <g
+       id="g4534"
+       transform="matrix(-0.86602538,0.50000001,-0.50000001,-0.86602538,-273.01884,616.753)"
+       inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/PulleyJoint.png"
+       inkscape:export-xdpi="73.825172"
+       inkscape:export-ydpi="73.825172">
+      <g
+         transform="matrix(0.09497148,-0.59962632,0.59187283,0.09374344,-389.9565,447.69794)"
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         id="g3984-9-1">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 95.5,359.86218 143.5,1.5"
+           id="path3982-7-0" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#ffcd01;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 239,361.36218 c 0,0 80.66608,0.74715 121,1"
+           id="path3980-4-2" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 360,362.36218 c 38.99959,0.24449 117,0.5 117,0.5"
+           id="path3976-6-5" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.5992506,0,0,-0.60710074,40.927123,727.78904)"
+         id="g3813-8-2">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-3-8"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-83-0"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,-0.60710074,0.5992506,0,-447.25105,391.98948)"
+         id="g3813-0-0-3">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-5-5-2"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-1-3-3"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.57883163,-0.15712924,0.15509747,-0.58641429,-60.342848,650.21218)"
+         id="g3936-7-9">
+        <path
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-1-3"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="84.948967"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="0.73781506"
+           sodipodi:arg2="1.3661336"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 274.28572,520.9336 c -6.71755,7.3893 -88.67583,24.4013 -97.77931,20.29595 -9.10348,-4.10534 -50.60935,-76.79531 -49.51806,-86.72185 1.09128,-9.92654 57.39752,-71.86341 67.17545,-73.89301 9.77794,-2.02959 86.08298,32.38128 91.03479,41.05347 4.9518,8.67218 -4.19533,91.87614 -10.91287,99.26544 z"
+           inkscape:transform-center-x="1.8337261"
+           inkscape:transform-center-y="-1.134016"
+           transform="matrix(0.76715325,0,0,0.79047453,29.453267,79.619779)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-6-1"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(-35,-158)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 194,445.36218 81,-45"
+           id="path3841-0-8"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.51896625,-0.30355037,0.2996253,0.52576467,-424.42463,129.86593)"
+         id="g3931-9-4">
+        <path
+           transform="matrix(0.76715325,0,0,0.79047453,235.28078,84.672293)"
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-7-3-3"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="82.462112"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="1.3258176"
+           sodipodi:arg2="1.9541362"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 231.42858,543.79074 c -9.40457,2.35114 -84.76195,-28.03978 -89.90418,-36.2575 -5.14224,-8.21773 0.47452,-89.27817 6.70101,-96.70815 6.22649,-7.42998 85.05522,-27.13717 94.04564,-23.51142 8.99042,3.62575 52.09249,72.50648 51.42239,82.17729 -0.67011,9.67082 -52.8603,71.94864 -62.26486,74.29978 z"
+           inkscape:transform-center-x="1.833724"
+           inkscape:transform-center-y="-1.134016"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-8-7-6"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(11,-160)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 399,450.36218 -76,-54"
+           id="path3843-8-6"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.59341874,0.0844921,-0.08339958,-0.60119248,24.317173,556.14813)"
+         id="g3860-54-3">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-6-0" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-1-6"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,-0.60710074,0.5992506,0,-341.51913,399.64598)"
+         id="g3860-5-8-2">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-0-1-7" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-3-3-1"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-2-6"
+         d="m -148.53821,264.87155 13.98796,2.30549"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-3-9"
+         d="m -160.55532,337.51412 13.98795,2.30548"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-5-4"
+         d="m -136.84421,194.57991 13.98794,2.30547"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-2-3-2"
+         d="m -174.78197,423.27466 13.98794,2.30547"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path3982-7-4-3"
+         d="m -30.410766,159.97494 5.180422,86.96944"
+         style="fill:none;stroke:#ff0101;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3980-4-0-1"
+         d="m -25.230344,246.94438 c 0,0 2.969504,48.88437 4.526464,73.32205"
+         style="fill:none;stroke:#01f6ff;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3976-6-6-3"
+         d="m -20.70388,320.26643 c 1.505448,23.62923 4.655965,70.87865 4.655965,70.87865"
+         style="fill:none;stroke:#ff0101;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,-0.60710074,0.5992506,0,-329.66882,482.66578)"
+         id="g3813-0-0-1-1">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-5-5-4-5"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-1-3-1-8"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.51896625,-0.30355037,0.2996253,0.52576467,-306.8424,220.54222)"
+         id="g3931-9-6-1">
+        <path
+           transform="matrix(0.76715325,0,0,0.79047453,235.28078,84.672293)"
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-7-3-0-6"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="82.462112"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="1.3258176"
+           sodipodi:arg2="1.9541362"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 231.42858,543.79074 c -9.40457,2.35114 -84.76195,-28.03978 -89.90418,-36.2575 -5.14224,-8.21773 0.47452,-89.27817 6.70101,-96.70815 6.22649,-7.42998 85.05522,-27.13717 94.04564,-23.51142 8.99042,3.62575 52.09249,72.50648 51.42239,82.17729 -0.67011,9.67082 -52.8603,71.94864 -62.26486,74.29978 z"
+           inkscape:transform-center-x="1.833724"
+           inkscape:transform-center-y="-1.134016"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-8-7-8-1"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(11,-160)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 399,450.36218 -76,-54"
+           id="path3843-8-1-0"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,-0.60710074,0.5992506,0,-223.93691,490.32227)"
+         id="g3860-5-8-4-8">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-0-1-4-7" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-3-3-0-8"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-2-3-5"
+         d="m -13.436575,319.54309 -14.14805,0.9002"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-3-6-9"
+         d="m -18.068484,246.05908 -14.148049,0.90021"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-5-3-7"
+         d="m -9.0186675,390.66374 -14.1480495,0.90021"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-2-3-7-6"
+         d="m -23.498377,159.29629 -14.148049,0.90021"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+         transform="matrix(0.57883163,0.15712924,-0.15509747,0.58641429,-120.78591,-144.59939)"
+         d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+         sodipodi:ry="4"
+         sodipodi:rx="4"
+         sodipodi:cy="557.36218"
+         sodipodi:cx="313"
+         id="path3773-6-8-0-2"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+         inkscape:connector-curvature="0"
+         id="path3841-0-9-7-0"
+         d="m -81.813407,245.20341 53.864745,-13.66117"
+         style="fill:none;stroke:#878787;stroke-width:0.60316288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.82530322, 2.41265161;stroke-dashoffset:0" />
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.59341874,-0.0844921,0.08339958,0.60119248,-209.69222,47.617641)"
+         id="g3860-54-0-2-2">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-6-8-4-5" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-1-7-8-6"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+    </g>
+    <g
+       id="g4830"
+       transform="translate(-96.288225,17.50695)"
+       inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/PulleyJoint.png"
+       inkscape:export-xdpi="73.825172"
+       inkscape:export-ydpi="73.825172">
+      <g
+         transform="matrix(0,-0.60710074,0.5992506,0,-317.8017,492.96561)"
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         id="g3984-9-8">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 95.5,359.86218 143.5,1.5"
+           id="path3982-7-49" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#ffcd01;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 239,361.36218 c 0,0 80.66608,0.74715 121,1"
+           id="path3980-4-3" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#01d7ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 360,362.36218 c 38.99959,0.24449 117,0.5 117,0.5"
+           id="path3976-6-4" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.5992506,0,0,-0.60710074,99.283623,737.51512)"
+         id="g3813-8-5">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-3-6"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-83-7"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,-0.60710074,0.5992506,0,-410.29193,403.66078)"
+         id="g3813-0-0-5">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-5-5-7"
+           width="1"
+           height="11"
+           x="241"
+           y="603.36218" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="rect3793-2-1-3-36"
+           width="1"
+           height="11"
+           x="607.86218"
+           y="-247.5"
+           transform="matrix(0,1,-1,0,0,0)" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.57883163,-0.15712924,0.15509747,-0.58641429,-1.9863483,659.93826)"
+         id="g3936-7-97">
+        <path
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-1-2"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="84.948967"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="0.73781506"
+           sodipodi:arg2="1.3661336"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 274.28572,520.9336 c -6.71755,7.3893 -88.67583,24.4013 -97.77931,20.29595 -9.10348,-4.10534 -50.60935,-76.79531 -49.51806,-86.72185 1.09128,-9.92654 57.39752,-71.86341 67.17545,-73.89301 9.77794,-2.02959 86.08298,32.38128 91.03479,41.05347 4.9518,8.67218 -4.19533,91.87614 -10.91287,99.26544 z"
+           inkscape:transform-center-x="1.8337261"
+           inkscape:transform-center-y="-1.134016"
+           transform="matrix(0.76715325,0,0,0.79047453,29.453267,79.619779)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-6-0"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(-35,-158)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 194,445.36218 81,-45"
+           id="path3841-0-5"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.51896625,-0.30355037,0.2996253,0.52576467,-387.46551,141.53723)"
+         id="g3931-9-9">
+        <path
+           transform="matrix(0.76715325,0,0,0.79047453,235.28078,84.672293)"
+           sodipodi:type="star"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path2985-7-3-02"
+           sodipodi:sides="5"
+           sodipodi:cx="211.42857"
+           sodipodi:cy="463.79074"
+           sodipodi:r1="82.462112"
+           sodipodi:r2="68.725159"
+           sodipodi:arg1="1.3258176"
+           sodipodi:arg2="1.9541362"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.1"
+           inkscape:randomized="0"
+           d="m 231.42858,543.79074 c -9.40457,2.35114 -84.76195,-28.03978 -89.90418,-36.2575 -5.14224,-8.21773 0.47452,-89.27817 6.70101,-96.70815 6.22649,-7.42998 85.05522,-27.13717 94.04564,-23.51142 8.99042,3.62575 52.09249,72.50648 51.42239,82.17729 -0.67011,9.67082 -52.8603,71.94864 -62.26486,74.29978 z"
+           inkscape:transform-center-x="1.833724"
+           inkscape:transform-center-y="-1.134016"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+           id="path3773-8-7-1"
+           sodipodi:cx="313"
+           sodipodi:cy="557.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           transform="translate(11,-160)"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+        <path
+           style="fill:none;stroke:#878787;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 4;stroke-dashoffset:0"
+           d="m 399,450.36218 -76,-54"
+           id="path3843-8-8"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+           inkscape:export-xdpi="87.398842"
+           inkscape:export-ydpi="87.398842" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(-0.59341874,0.0844921,-0.08339958,-0.60119248,82.673673,565.87421)"
+         id="g3860-54-8">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-6-9" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-1-72"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,-0.60710074,0.5992506,0,-304.56001,411.31728)"
+         id="g3860-5-8-1">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-0-1-9" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-3-3-7"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-2-7"
+         d="m -107.95601,274.62398 14.176383,0.0889"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-3-7"
+         d="m -108.46137,348.25209 14.176383,0.0889"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-5-5"
+         d="m -107.40203,203.36839 14.17638,0.0889"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-2-3-3"
+         d="m -109.09697,435.18231 14.176382,0.0889"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path3982-7-4-8"
+         d="m 11.215211,190.39959 -0.89888,87.11896"
+         style="fill:none;stroke:#ff0101;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3980-4-0-18"
+         d="m 10.316331,277.51855 c 0,0 -0.44773,48.97244 -0.59925,73.45919"
+         style="fill:none;stroke:#01f6ff;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3976-6-6-4"
+         d="m 9.717081,350.97774 c -0.14651,23.67668 -0.29962,71.03078 -0.29962,71.03078"
+         style="fill:none;stroke:#ff0101;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+         transform="matrix(0.57883163,0.15712924,-0.15509747,0.58641429,-84.706229,-132.70416)"
+         d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+         sodipodi:ry="4"
+         sodipodi:rx="4"
+         sodipodi:cy="557.36218"
+         sodipodi:cx="313"
+         id="path3773-6-8-1"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+         inkscape:connector-curvature="0"
+         id="path3841-0-9-8"
+         d="M -45.733729,257.09864 8.131021,243.43746"
+         style="fill:none;stroke:#878787;stroke-width:0.60316288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.82530322, 2.41265161;stroke-dashoffset:0" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+         transform="matrix(-0.51896625,0.30355037,-0.2996253,-0.52576467,338.75806,571.31126)"
+         d="m 317,557.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+         sodipodi:ry="4"
+         sodipodi:rx="4"
+         sodipodi:cy="557.36218"
+         sodipodi:cx="313"
+         id="path3773-8-7-8-8"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:10"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/WeldJoint.png"
+         inkscape:connector-curvature="0"
+         id="path3843-8-1-7"
+         d="m -45.480799,368.18193 55.6212,5.32147"
+         style="fill:none;stroke:#878787;stroke-width:0.60316288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.82530324, 2.41265162;stroke-dashoffset:0" />
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0.59341874,-0.0844921,0.08339958,0.60119248,-173.61254,59.512876)"
+         id="g3860-54-0-3">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-6-8-8" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-1-7-7"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <g
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         transform="matrix(0,0.60710074,-0.5992506,0,213.62115,214.06981)"
+         id="g3860-5-8-4-4">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 253.22046,340.25792 c 0.57697,-4.16257 4.35935,-7.3769 8.93939,-7.3769 4.97919,0 9.01561,3.79899 9.01561,8.48528 l 0,0 c 0,4.68629 -4.03642,8.48528 -9.01561,8.48528 -0.31069,0 -0.61772,-0.0148 -0.92032,-0.0437"
+           id="path3856-0-1-4-5" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 265.16505,345.9625 -3.71232,4.06587 5.65686,2.2981"
+           id="path3858-3-3-0-0"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+      </g>
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-2-3-6"
+         d="M 17.017141,350.7631 2.840761,350.6742"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-3-6-6"
+         d="m 17.522501,277.13499 -14.17638,-0.0889"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-5-3-75"
+         d="m 16.463161,422.01869 -14.17638,-0.0889"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="87.398842"
+         inkscape:export-xdpi="87.398842"
+         inkscape:export-filename="/home/luca/Projects/www.napephys.com/assets/DistanceJoint.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3991-9-8-2-3-7-5"
+         d="m 18.158101,190.20477 -14.17638,-0.0889"
+         style="fill:none;stroke:#000000;stroke-width:0.60316288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
   </g>
 </svg>

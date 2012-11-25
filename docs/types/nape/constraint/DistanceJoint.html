@@ -318,6 +318,7 @@ function shownape__constraint() {
     html += '<li class="class"><a href="../../nape/constraint/LineJoint.html" title="LineJoint">LineJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/MotorJoint.html" title="MotorJoint">MotorJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/PivotJoint.html" title="PivotJoint">PivotJoint</a></li>';
+    html += '<li class="class"><a href="../../nape/constraint/PulleyJoint.html" title="PulleyJoint">PulleyJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/UserConstraint.html" title="UserConstraint">UserConstraint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/WeldJoint.html" title="WeldJoint">WeldJoint</a></li>';
     div.innerHTML = html;
@@ -575,7 +576,7 @@ function shownape__util() {
 			<!-- Comment block -->
             DistanceJoint limiting the distance between two local anchor points of Bodies.
                     <br/><br/>
-			The equation for this constraint could be written like: <pre>jointMin <= distance(body2.localToWorld(anchor2), body1.localToWorld(anchor1)) <= jointMax&#13;&#10;</pre> This joint is not designed to work when <font class="inlinecode"> jointMin = jointMax = 0 </font> and constraint is stiff. In this instance you should use a PivotJoint instead.
+			The equation for this constraint could be written like: <pre>jointMin <= distance(body2.localPointToWorld(anchor2), body1.localPointToWorld(anchor1)) <= jointMax&#13;&#10;</pre> This joint is not designed to work when <font class="inlinecode"> jointMin = jointMax = 0 </font> and constraint is stiff. In this instance you should use a PivotJoint instead.
 				</div>
 	<!-- ========= CONSTRUCTOR DETAIL ======== -->
 	<div class="members-panel">

@@ -719,6 +719,33 @@ var jointMax:Float = direction.length;</pre>
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
 var motorJoint:Constraint = new MotorJoint(body1, body2, rate = 0, ratio = 1);</pre>
+
+                <strong><span class="section">PulleyJoint</span></strong>
+                <p>
+                    A <b>PulleyJoint</b> constrains the weighted sum of distances between two pairs of four locally defined points on the <b>Bodies</b> to be restricted to a given range.
+                </p>
+                <p>
+                    This is, in the most general usage a <b>4</b> body constraint, though it may be used in <b>2</b> and <b>3</b> body set-ups also. The 3-body set-ups are most recognisable
+                    as being a pulley; especcialy if the middle body is static and we get a simple system where one body get's closer, the other get's further away with a positive ratio.
+                </p>
+                <img src="../assets/PulleyJoint.png" alt="[PulleyJoint diagram]"/>
+                <p>
+                    You could represent this like:
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var distance12 = distance(body2.localPointToWorld(anchor2), body1.localPointToWorld(anchor1));
+var distance34 = distance(body4.localPointToWorld(anchor4), body3.localPointToWorld(anchor3));
+jointMin <= (distance12 + ratio * distance34) <= jointMax</pre>
+                <p>
+                    Construction of a <b>PulleyJoint</b> requires four <b>Bodies</b> (Of which body1 may be equal to body4, and body2 may be equal to body3) together with four <b>Vec2s</b> defining the local anchor points
+                    and the ratio, and lower and upper limits for joint.
+                </p>
+                <pre class="prettyprint largecodestyle standard boxedcode">
+var pulleyJoint:Constraint = new PulleyJoint(
+    body1, body2, body3, body4,
+    anchor1, anchor2, anchor3, anchor4,
+    jointMin, jointMax, ratio = 1);</pre>
+
                 <strong><span class="section">UserConstraint</span></strong>
                 <p>
                     The <b>UserConstraint</b> is an advanced API for power-users; <b>UserConstraint</b> provides a way to implement

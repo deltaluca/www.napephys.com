@@ -289,6 +289,7 @@ function shownape__constraint() {
     html += '<li class="class"><a href="../../nape/constraint/LineJoint.html" title="LineJoint">LineJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/MotorJoint.html" title="MotorJoint">MotorJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/PivotJoint.html" title="PivotJoint">PivotJoint</a></li>';
+    html += '<li class="class"><a href="../../nape/constraint/PulleyJoint.html" title="PulleyJoint">PulleyJoint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/UserConstraint.html" title="UserConstraint">UserConstraint</a></li>';
     html += '<li class="class"><a href="../../nape/constraint/WeldJoint.html" title="WeldJoint">WeldJoint</a></li>';
     div.innerHTML = html;
@@ -546,7 +547,7 @@ function shownape__util() {
 			<!-- Comment block -->
             PivotJoint constraining two anchors points of bodies to be equal.
                     <br/><br/>
-			The equation for this constraint is: <pre>body2.localToWorld(anchor2) = body1.localToWorld(anchor1)&#13;&#10;</pre> You may view this constraint as being equal to the DistanceJoint constraint when both its jointMin and jointMax are exactly 0 (In such a case a DistanceJoint becomes degenerate). Compared to the DistanceJoint this is a 2 dimensional constraint.
+			The equation for this constraint is: <pre>body2.localPointToWorld(anchor2) = body1.localPointToWorld(anchor1)&#13;&#10;</pre> You may view this constraint as being equal to the DistanceJoint constraint when both its jointMin and jointMax are exactly 0 (In such a case a DistanceJoint becomes degenerate). Compared to the DistanceJoint this is a 2 dimensional constraint.
 				</div>
 	<!-- ========= CONSTRUCTOR DETAIL ======== -->
 	<div class="members-panel">
