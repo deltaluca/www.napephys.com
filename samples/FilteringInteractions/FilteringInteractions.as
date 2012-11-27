@@ -118,7 +118,7 @@ package {
             for (i = 0; i < 20; i++) {
                 var pentagonBody:Body = new Body();
                 pentagonBody.position.setxy(Math.random() * w, Math.random() * h);
-                var pentagonShape:Shape = new Polygon(Polygon.regular(50, 50, 5));
+                var pentagonShape:Shape = new Polygon(Polygon.regular(25, 25, 5));
 
                 pentagonShape.filter.collisionGroup = 2;
                 pentagonShape.filter.fluidGroup = 2;

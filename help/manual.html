@@ -459,7 +459,7 @@ donutFilter.collisionGroup = 4; // in binary this is 0000...00100</pre>
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
 ballFilter .collisionMask = ~(2|4); // in binary this is 1111...11001
-boxFilter  .collisionMask = ~1;     // in binary this is 1111...11111
+boxFilter  .collisionMask = ~1;     // in binary this is 1111...11110
 donutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
                 <p>
                     The reason this works, is that we can interpret the expression
@@ -737,7 +737,7 @@ var distance12 = distance(body2.localPointToWorld(anchor2), body1.localPointToWo
 var distance34 = distance(body4.localPointToWorld(anchor4), body3.localPointToWorld(anchor3));
 jointMin <= (distance12 + ratio * distance34) <= jointMax</pre>
                 <p>
-                    Construction of a <b>PulleyJoint</b> requires four <b>Bodies</b> (Of which body1 may be equal to body4, and body2 may be equal to body3) together with four <b>Vec2s</b> defining the local anchor points
+                    Construction of a <b>PulleyJoint</b> requires four <b>Bodies</b> (body1 != body2 and body3 != body4) together with four <b>Vec2s</b> defining the local anchor points
                     and the ratio, and lower and upper limits for joint.
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
@@ -833,7 +833,7 @@ for (obj in collectables) {
 
                 <strong><span class="section">Listener Options</span></strong>
                 <p>
-                    <b>Listeners</b> operator over <b>CbTypes</b>, or specifically over sets of <b>CbTypes</b> using an inclusion-exclusion API. This is represented by the <b>OptionType</b> object which has an inclusion, and exclusion set of <b>CbTypes</b>. An objects set of <b>CbTypes</b> matches the <b>options</b> if it contains at least one of the <b>included</b> types, and contains none of the <b>excluded</b> types.
+                    <b>Listeners</b> operate over <b>CbTypes</b>, or specifically over sets of <b>CbTypes</b> using an inclusion-exclusion API. This is represented by the <b>OptionType</b> object which has an inclusion, and exclusion set of <b>CbTypes</b>. An objects set of <b>CbTypes</b> matches the <b>options</b> if it contains at least one of the <b>included</b> types, and contains none of the <b>excluded</b> types.
                 </p>
                 <p>
                     The <b>constructors</b> for the various listeners take this <b>options</b> object as argument, but are typed dynamically to accept one of: <b>CbType</b>, <b>OptionType</b>,

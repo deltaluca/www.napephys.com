@@ -58,7 +58,7 @@ class SoftBodies extends Template {
         // Add some box shaped soft-bodies.
         var poly = new GeomPoly(Polygon.box(60, 60));
         for (y in 4...7) {
-        for (x in -2...3) {                
+        for (x in -2...3) {
             var body = polygonalBody(
                 Vec2.get(w/2 + x * 60, h - (y + 0.5) * 60),
                 /*thickness*/ 10, /*discretisation*/ 15,
@@ -70,9 +70,9 @@ class SoftBodies extends Template {
         }}
 
         // Add some pentangonol shaped soft-bodies.
-        var poly = new GeomPoly(Polygon.regular(60, 60, 5));
+        var poly = new GeomPoly(Polygon.regular(30, 30, 5));
         for (y in 7...10) {
-        for (x in -2...3) {                
+        for (x in -2...3) {
             var body = polygonalBody(
                 Vec2.get(w/2 + x * 60, h - (y + 0.5) * 60),
                 /*thickness*/ 10, /*discretisation*/ 15,
@@ -86,7 +86,7 @@ class SoftBodies extends Template {
 
     override function update(deltaTime:Float) {
         // Iterate over the soft bodies, computing a pressure force
-        // and applying this force to each edge of the soft body.            
+        // and applying this force to each edge of the soft body.
         for (s in softBodies) {
             var pressure = deltaTime * (s.userData.area - polygonalArea(s));
 
@@ -228,10 +228,10 @@ class SoftBodies extends Template {
     static var areaPoly = new GeomPoly();
     static function polygonalArea(s:SoftBody) {
         // Computing the area of the soft body, we use the vertices of its edges
-        // to populate a GeomPoly and use its area function.            
-        var refEdges:Array<Edge> = s.userData.refEdges;            
+        // to populate a GeomPoly and use its area function.
+        var refEdges:Array<Edge> = s.userData.refEdges;
         for (edge in refEdges) {
-            areaPoly.push(edge.worldVertex1);                
+            areaPoly.push(edge.worldVertex1);
         }
         var ret = areaPoly.area();
 

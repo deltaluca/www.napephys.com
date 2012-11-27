@@ -1,7 +1,7 @@
 haxe:
 	haxe -cp . -cp "/" -cp ../common \
 		-main SoftBodies -swf main.swf -swf-header 800:600:60:333333 -swf-version 11 \
-		-lib nape -D haxe3 -D NAPE_RELEASE_BUILD --dead-code-elimination
+		-lib nape -D haxe3 -D NAPE_RELEASE_BUILD --dce full
 	flib --combine ../preloader/preloader.swf main.swf SoftBodies.swf
 
 as3:

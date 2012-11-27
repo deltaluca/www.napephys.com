@@ -117,7 +117,7 @@ class FilteringInteractions extends Template {
         for (i in 0...20) {
             var pentagonBody = new Body();
             pentagonBody.position.setxy(Math.random() * w, Math.random() * h);
-            var pentagonShape = new Polygon(Polygon.regular(50, 50, 5));
+            var pentagonShape = new Polygon(Polygon.regular(25, 25, 5));
 
             pentagonShape.filter.collisionGroup = 2;
             pentagonShape.filter.fluidGroup = 2;

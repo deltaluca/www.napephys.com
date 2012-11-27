@@ -57,7 +57,7 @@ public class SoftBodies extends Template {
         var poly:GeomPoly = new GeomPoly(Polygon.box(60, 60));
         var x:int, y:int, body:Compound;
         for (y = 4; y < 7; y++) {
-        for (x = -2; x < 3; x++) {                
+        for (x = -2; x < 3; x++) {
             body = polygonalBody(
                 Vec2.get(w/2 + x * 60, h - (y + 0.5) * 60),
                 /*thickness*/ 10, /*discretisation*/ 15,
@@ -69,9 +69,9 @@ public class SoftBodies extends Template {
         }}
 
         // Add some pentangonol shaped soft-bodies.
-        poly = new GeomPoly(Polygon.regular(60, 60, 5));
+        poly = new GeomPoly(Polygon.regular(30, 30, 5));
         for (y = 7; y < 10; y++) {
-        for (x = -2; x < 3; x++) {                
+        for (x = -2; x < 3; x++) {
             body = polygonalBody(
                 Vec2.get(w/2 + x * 60, h - (y + 0.5) * 60),
                 /*thickness*/ 10, /*discretisation*/ 15,
@@ -85,14 +85,14 @@ public class SoftBodies extends Template {
 
     override protected function update(deltaTime:Number):void {
         // Iterate over the soft bodies, computing a pressure force
-        // and applying this force to each edge of the soft body.            
+        // and applying this force to each edge of the soft body.
         for (var i:uint = 0; i < softBodies.length; i++) {
-            var s:Compound = softBodies[i];                    
+            var s:Compound = softBodies[i];
             var pressure:Number = deltaTime * (s.userData.area - polygonalArea(s));
 
             var refEdges:Vector.<Edge> = s.userData.refEdges;
             for (var j:uint = 0; j < refEdges.length; j++) {
-                var e:Edge = refEdges[j];                    
+                var e:Edge = refEdges[j];
                 var body:Body = e.polygon.body;
 
                 // We pass 'true' for third argument since this pressure impulse is
@@ -149,7 +149,7 @@ public class SoftBodies extends Template {
             var numSegments:int = Math.ceil(length / discretisation);
             var gap:Number = (1 / numSegments);
 
-            for (i = 0; i < numSegments; i++) {                    
+            for (i = 0; i < numSegments; i++) {
                 // Create softBody segment.
                 // We are careful to create weak Vec2 for the polygon
                 // vertices so that all Vec2 are automatically released
@@ -182,7 +182,7 @@ public class SoftBodies extends Template {
         while (poly.current() != start);
 
         // Create sets of PivotJoints to link segments together.
-        for (i = 0; i < segments.length; i++) {                        
+        for (i = 0; i < segments.length; i++) {
             var leftSegment:Body = segments[(i - 1 + segments.length) % segments.length];
             var rightSegment:Body = segments[i];
 
@@ -219,7 +219,7 @@ public class SoftBodies extends Template {
 
         // Move segments by required offset
         for (i = 0; i < segments.length; i++) {
-            segments[i].position.addeq(position);                
+            segments[i].position.addeq(position);
         }
 
         body.userData.area = polygonalArea(body);
@@ -230,11 +230,11 @@ public class SoftBodies extends Template {
     static private var areaPoly:GeomPoly = new GeomPoly();
     static private function polygonalArea(s:Compound):Number {
         // Computing the area of the soft body, we use the vertices of its edges
-        // to populate a GeomPoly and use its area function.            
-        var refEdges:Vector.<Edge> = s.userData.refEdges;            
+        // to populate a GeomPoly and use its area function.
+        var refEdges:Vector.<Edge> = s.userData.refEdges;
         for (var i:uint = 0; i < refEdges.length; i++) {
-            var edge:Edge = refEdges[i];                
-            areaPoly.push(edge.worldVertex1);                
+            var edge:Edge = refEdges[i];
+            areaPoly.push(edge.worldVertex1);
         }
         var ret:Number = areaPoly.area();
 

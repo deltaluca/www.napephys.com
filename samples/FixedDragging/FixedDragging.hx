@@ -90,7 +90,7 @@ class FixedDragging extends Sprite {
                 body.shapes.add(new Polygon(Polygon.box(40, 40)));
             }
             else {
-                body.shapes.add(new Polygon(Polygon.regular(40, 40, 5)));
+                body.shapes.add(new Polygon(Polygon.regular(20, 20, 5)));
             }
 
             // Set to random position on stage and add to Space.

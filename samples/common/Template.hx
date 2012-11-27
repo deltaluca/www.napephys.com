@@ -13,6 +13,7 @@ import flash.Lib;
 import nape.space.Space;
 import nape.space.Broadphase;
 import nape.phys.Body;
+import nape.phys.BodyList;
 import nape.phys.BodyType;
 import nape.shape.Polygon;
 import nape.geom.Vec2;
@@ -28,7 +29,8 @@ typedef TemplateParams = {
     ?noSpace : Bool,
     ?noHand : Bool,
     ?generator : Vec2->Void,
-    ?variableStep : Bool
+    ?variableStep : Bool,
+    ?noReset : Bool
 };
 
 class Template extends Sprite {
@@ -78,8 +80,10 @@ class Template extends Sprite {
             stage.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
         }
 
-        stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
-        stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
+        if (params.noReset == null || !params.noReset) {
+            stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
+            stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
+        }
 
         if (params.shapeDebug == null || !params.shapeDebug) {
             debug = new BitmapDebug(stage.stageWidth, stage.stageHeight, stage.color);
@@ -146,10 +150,14 @@ class Template extends Sprite {
         }
     }
 
+    var bodyList:BodyList = null;
     function mouseDown(_) {
         var mp = Vec2.get(mouseX, mouseY);
         if (useHand) {
-            for (body in space.bodiesUnderPoint(mp)) {
+            // re-use the same list each time.
+            bodyList = space.bodiesUnderPoint(mp, null, bodyList);
+
+            for (body in bodyList) {
                 if (body.isDynamic()) {
                     hand.body2 = body;
                     hand.anchor2 = body.worldPointToLocal(mp, true);
@@ -157,6 +165,9 @@ class Template extends Sprite {
                     break;
                 }
             }
+
+            // recycle nodes.
+            bodyList.clear();
 
             if (!hand.active) {
                 if (params.generator != null) {

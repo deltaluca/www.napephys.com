@@ -70,8 +70,10 @@ package {
                 stage.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
             }
 
-            stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
-            stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
+            if (params.noReset == null || !params.noReset) {
+                stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
+                stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
+            }
 
             if (params.shapeDebug == null || !params.shapeDebug) {
                 debug = new BitmapDebug(stage.stageWidth, stage.stageHeight, stage.color);
@@ -139,12 +141,14 @@ package {
             }
         }
 
+        private var bodyList:BodyList = null;
         private function mouseDown(ev:MouseEvent):void {
             var mp:Vec2 = Vec2.get(mouseX, mouseY);
             if (useHand) {
-                var bodies:BodyList = space.bodiesUnderPoint(mp);
-                for (var i:uint = 0; i < bodies.length; i++) {
-                    var body:Body = bodies.at(i);
+                // re-use same list each time.
+                bodyList = space.bodiesUnderPoint(mp, null, bodyList);
+                for (var i:uint = 0; i < bodyList.length; i++) {
+                    var body:Body = bodyList.at(i);
                     if (body.isDynamic()) {
                         hand.body2 = body;
                         hand.anchor2 = body.worldPointToLocal(mp, true);
@@ -152,6 +156,9 @@ package {
                         break;
                     }
                 }
+
+                // recycle nodes
+                bodyList.clear();
 
                 if (!hand.active) {
                     if (params.generator != null) {
