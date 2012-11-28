@@ -23,7 +23,12 @@ typedef SoftBody = Compound;
 class SoftBodies extends Template {
     function new() {
         super({
-            gravity: Vec2.get(0, 600)
+            gravity: Vec2.get(0, 600),
+
+            // Use higher than default iteration counts in both cases to increase
+            // stability of the soft bodies.
+            velIterations: 15,
+            posIterations: 15
         });
     }
 

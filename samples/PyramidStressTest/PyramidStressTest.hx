@@ -1,0 +1,69 @@
+package;
+
+import nape.geom.Vec2;
+import nape.phys.Body;
+import nape.phys.BodyType;
+import nape.shape.Circle;
+import nape.shape.Polygon;
+import nape.space.Broadphase;
+
+// Template class is used so that this sample may
+// be as concise as possible in showing Nape features without
+// any of the boilerplate that makes up the sample interfaces.
+import Template;
+
+class PyramidStressTest extends Template {
+    function new() {
+        super({
+            gravity: Vec2.get(0, 600),
+            // SWEEP_AND_PRUNE is a bit more effecient in this very simple
+            // stress test. Real life scenarios are generally far more
+            // suited to the default DYN_AABB_TREE broadphase.
+            broadphase: Broadphase.SWEEP_AND_PRUNE,
+
+            // To keep pyramid somewhat stable, we need to use more velocity iterations
+            // Default is 10, and we use 35 here! This is A LOT.
+            //
+            // Position iterations are not as expensive, nor important
+            // for stability, but this is still an extreme example, so we use 15.
+            velIterations : 35,
+            posIterations : 15,
+
+            // Stress test is likely going to be far below 60fps
+            // for many people, trying to use fixed time steps
+            // will just bog us down even more! so allow
+            // variable steps to trade accuracy for performance.
+            variableStep : true
+        });
+    }
+
+    override function init() {
+        var w = stage.stageWidth;
+        var h = stage.stageHeight;
+
+        createBorder();
+
+        // Disable angle indicators on shapes
+        debug.drawShapeAngleIndicators = false;
+
+        var boxWidth = 10;
+        var boxHeight = 14;
+        var pyramidHeight = 40; //820 blocks
+
+        for (y in 1...(pyramidHeight+1)) {
+        for (x in 0...y) {
+            var block = new Body();
+            // We initialise the blocks to be slightly overlapping so that
+            // all contact points will be created in very first step before the blocks
+            // begin to fall.
+            block.position.x = (w/2) - boxWidth*((y-1)/2 - x)*0.99;
+            block.position.y = h - boxHeight*(pyramidHeight - y + 0.5)*0.99;
+            block.shapes.add(new Polygon(Polygon.box(boxWidth, boxHeight)));
+            block.space = space;
+        }}
+    }
+
+    static function main() {
+        flash.Lib.current.addChild(new PyramidStressTest());
+    }
+}

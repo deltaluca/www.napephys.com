@@ -35,12 +35,22 @@ package {
         protected var textField:TextField;
         protected var baseMemory:Number;
 
+        protected var velIterations:int = 10;
+        protected var posIterations:int = 10;
+
         protected var params:Object;
         protected var useHand:Boolean;
 
         public function Template(params:Object):void {
             baseMemory = System.totalMemoryNumber;
             super();
+
+            if (params.velIterations != null) {
+                velIterations = params.velIterations;
+            }
+            if (params.posIterations != null) {
+                posIterations = params.posIterations;
+            }
 
             this.params = params;
             if (stage != null) {
@@ -95,7 +105,7 @@ package {
             textField.defaultTextFormat = new TextFormat("Arial", null, 0xffffff);
             textField.selectable = false;
             textField.width = 128;
-            textField.height = 64;
+            textField.height = 80;
             addChild(textField);
         }
 
@@ -187,8 +197,14 @@ package {
 
             var fps:Number = (1000 / deltaTime);
             smoothFps = (smoothFps == -1 ? fps : (smoothFps * 0.99) + (fps * 0.01));
-            textField.text = "fps: " + ((""+smoothFps).substr(0, 5)) + "\n" +
-                             "mem: " + ((""+(System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
+            var text:String = "fps: " + ((""+smoothFps).substr(0, 5)) + "\n" +
+                              "mem: " + ((""+(System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
+            if (space != null) {
+                text += "\n\n"+
+                        "velocity-iterations: " + velIterations + "\n" +
+                        "position-iterations: " + posIterations + "\n";
+            }
+            textField.text = text;
 
             if (hand != null && hand.active) {
                 hand.anchor1.setxy(mouseX, mouseY);
@@ -203,7 +219,7 @@ package {
                 }
                 update(deltaTime * 0.001);
                 if (space != null) {
-                    space.step(deltaTime * 0.001);
+                    space.step(deltaTime * 0.001, velIterations, posIterations);
                 }
                 prevTime = curTime;
             }
@@ -221,7 +237,7 @@ package {
                 while (steps-- > 0) {
                     update(stepSize * 0.001);
                     if (space != null) {
-                        space.step(stepSize * 0.001);
+                        space.step(stepSize * 0.001, velIterations, posIterations);
                     }
                 }
             }

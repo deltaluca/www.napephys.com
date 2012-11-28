@@ -30,7 +30,9 @@ typedef TemplateParams = {
     ?noHand : Bool,
     ?generator : Vec2->Void,
     ?variableStep : Bool,
-    ?noReset : Bool
+    ?noReset : Bool,
+    ?velIterations : Int,
+    ?posIterations : Int
 };
 
 class Template extends Sprite {
@@ -46,11 +48,21 @@ class Template extends Sprite {
     var textField:TextField;
     var baseMemory:Float;
 
+    var velIterations:Int = 10;
+    var posIterations:Int = 10;
+
     var params:TemplateParams;
     var useHand:Bool;
     function new(params:TemplateParams) {
         baseMemory = System.totalMemoryNumber;
         super();
+
+        if (params.velIterations != null) {
+            velIterations = params.velIterations;
+        }
+        if (params.posIterations != null) {
+            posIterations = params.posIterations;
+        }
 
         this.params = params;
         if (stage != null) {
@@ -106,7 +118,7 @@ class Template extends Sprite {
         textField.defaultTextFormat = new TextFormat("Arial", null, 0xffffff);
         textField.selectable = false;
         textField.width = 128;
-        textField.height = 64;
+        textField.height = 80;
         addChild(textField);
     }
 
@@ -195,9 +207,15 @@ class Template extends Sprite {
         }
 
         var fps = (1000 / deltaTime);
-        smoothFps = (smoothFps == -1 ? fps : (smoothFps * 0.99) + (fps * 0.01));
-        textField.text = "fps: " + ((""+smoothFps).substr(0, 5)) + "\n" +
-                         "mem: " + ((""+(System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
+        smoothFps = (smoothFps == -1 ? fps : (smoothFps * 0.97) + (fps * 0.03));
+        var text = "fps: " + ((""+smoothFps).substr(0, 5)) + "\n" +
+                   "mem: " + ((""+(System.totalMemoryNumber - baseMemory) / (1024 * 1024)).substr(0, 5)) + "Mb";
+        if (space != null) {
+            text += "\n\n"+
+                    "velocity-iterations: " + velIterations + "\n" +
+                    "position-iterations: " + posIterations + "\n";
+        }
+        textField.text = text;
 
         if (hand != null && hand.active) {
             hand.anchor1.setxy(mouseX, mouseY);
@@ -212,7 +230,7 @@ class Template extends Sprite {
             }
             update(deltaTime * 0.001);
             if (space != null) {
-                space.step(deltaTime * 0.001);
+                space.step(deltaTime * 0.001, velIterations, posIterations);
             }
             prevTime = curTime;
         }
@@ -230,7 +248,7 @@ class Template extends Sprite {
             while (steps-- > 0) {
                 update(stepSize * 0.001);
                 if (space != null) {
-                    space.step(stepSize * 0.001);
+                    space.step(stepSize * 0.001, velIterations, posIterations);
                 }
             }
         }
