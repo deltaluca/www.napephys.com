@@ -6,12 +6,13 @@ body {
 
     background-image: url("../bg.png");
     overflow-y: scroll;
+    color: #000511;
 }
 b {
     font-family: 'Puritan20Normal', Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
-    color: #bf1580;
+    color: #a93123;
 }
 i {
     font-family: 'Puritan20Italic', Arial, sans-serif;
@@ -23,7 +24,7 @@ strong {
     font-weight: normal;
     font-style: normal;
     font-size: 16px;
-    color: #b45;
+    color: #c95143;
 }
 
 
@@ -141,10 +142,10 @@ dt {
     color: #636363;
 }
 .nav-bar .nav-item a:hover {
-    color: #0f70c5;
+    color: #246fb3;
 }
 .nav-bar .nav-item .nav-disabled {
-    color: #0f70c5;
+    color: #246fb3;
 }
 a {
     text-decoration: none;
@@ -156,10 +157,10 @@ a:visited {
     color: #636363;
 }
 a:hover {
-    color: #0f70c5;
+    color: #246fb3;
 }
 .disabled {
-    color: #0f70c5;
+    color: #246fb3;
 }
 
 .subnav-bar {
@@ -174,7 +175,7 @@ a:hover {
 }
 .subnav-bar .subspan {
     font-size: 16px;
-    color: #0f70c5;
+    color: #246fb3;
 }
 .subnav-bar .subspan a {
     text-decoration: none;
@@ -186,7 +187,7 @@ a:hover {
     color: #636363;
 }
 .subnav-bar .subspan a:hover {
-    color: #0f70c5;
+    color: #246fb3;
 }
 
 .section-content {
@@ -234,16 +235,16 @@ a:hover {
 }
 .doclink {
     text-decoration : none;
-    color: #0f50df;
+    color: #246fb3;
 }
 .doclink:link {
-    color: #0f70c5;
+    color: #246fb3;
 }
 .doclink:visited {
-    color: #0f70c5;
+    color: #246fb3;
 }
 .doclink:hover {
-    color: #bf1580;
+    color: #246fb3;
 }
 
 
@@ -287,12 +288,12 @@ a:hover {
 
 .feature-image {
     margin-left: auto;
-    margin-right: auto;        
+    margin-right: auto;
 }
 
 .feature-segment {
     width: auto;
-    background-color: #efefef;
+    background-color: #fff5d6;
     border-radius: 20px;
     border-color: #dadada;
     border-width: 1px;
@@ -483,7 +484,7 @@ a:hover {
 .downloads-segment {
     width: 49.5%;
     vertical-align: top;
-    background-color: #efefef;
+    background-color: #fff5d6;
     border-radius: 20px;
     border-color: #dadada;
     border-width: 1px;
