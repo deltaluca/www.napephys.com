@@ -19,7 +19,7 @@ class PerlinSquares extends Template, implements IsoFunction {
         // is slower with BitmapDebug.
         //
         // We aren't running any simulation so we don't need any Space nor
-        // do we care about fixed time steps.            
+        // do we care about fixed time steps.
         super({
             shapeDebug: true,
             noSpace: true,
@@ -48,7 +48,7 @@ class PerlinSquares extends Template, implements IsoFunction {
         // ShapeDebug or BitmapDebug is pretty damn expensive, so this
         // means we end up with less to draw!
         debug.transform = Mat23.scale(1.5, 1.5);
-        bounds = new AABB(0, 0, stage.stageWidth/1.5, stage.stageHeight/1.5);            
+        bounds = new AABB(0, 0, stage.stageWidth/1.5, stage.stageHeight/1.5);
         cellSize = Vec2.get(10, 10);
         gridSize = Vec2.get(100, 100);
 
@@ -57,7 +57,7 @@ class PerlinSquares extends Template, implements IsoFunction {
         output2 = new GeomPolyList();
     }
 
-    
+
     override function update(deltaTime:Float) {
         perlinZ += deltaTime;
         threshold = 0.35 * Math.cos(0.3 * perlinZ);
@@ -95,7 +95,7 @@ class PerlinSquares extends Template, implements IsoFunction {
     }
 
     public function iso(x:Float, y:Float):Float {
-        return Perlin3D.noise(x/40, y/30, perlinZ) - threshold;            
+        return Perlin3D.noise(x/40, y/30, perlinZ) - threshold;
     }
 
 	inline function colour(p:GeomPoly) {
