@@ -98,7 +98,7 @@ class PerlinSquares extends Template, implements IsoFunction {
         return Perlin3D.noise(x/40, y/30, perlinZ) - threshold;
     }
 
-	inline function colour(p:GeomPoly) {
+    inline function colour(p:GeomPoly) {
         //hue
         var h = p.area()/3000*360; while(h>360) h -= 360;
         var f = (h%60)/60;
