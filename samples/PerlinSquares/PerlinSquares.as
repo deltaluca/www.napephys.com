@@ -7,61 +7,61 @@ package {
     import nape.geom.Mat23;
     import nape.geom.MarchingSquares;
     import nape.geom.Vec2;
-    
+
     // Template class is used so that this sample may
     // be as concise as possible in showing Nape features without
     // any of the boilerplate that makes up the sample interfaces.
     import Template;
-    
+
     public class PerlinSquares  extends Template implements IsoFunction {
         public function PerlinSquares():void {
             // We use ShapeDebug as rendering large amounts of filled polygons
             // is slower with BitmapDebug.
             //
             // We aren't running any simulation so we don't need any Space nor
-            // do we care about fixed time steps.            
+            // do we care about fixed time steps.
             super({
                 shapeDebug: true,
                 noSpace: true,
                 variableStep: true
             });
         }
-    
+
         // Parameters for MarchingSquares
         private var bounds:AABB;
         private var cellSize:Vec2;
         private var gridSize:Vec2;
         private var quality:int = 2;
-    
+
         // Perlin Noise parameters
         private var perlinZ:Number = 0.0;
         private var threshold:Number = 0.0;
-    
+
         // Polygon lists for MarchingSquares and GeomPoly decompositions
         // to avoid constantly creating new ones.
         private var output:GeomPolyList;
         private var output2:GeomPolyList;
-    
+
         override protected function init():void {
             // Scale up debug draw so we can use a smaller area to use
             // for marching squares. Drawing the polygons with either
             // ShapeDebug or BitmapDebug is pretty damn expensive, so this
             // means we end up with less to draw!
             debug.transform = Mat23.scale(1.5, 1.5);
-            bounds = new AABB(0, 0, stage.stageWidth/1.5, stage.stageHeight/1.5);            
+            bounds = new AABB(0, 0, stage.stageWidth/1.5, stage.stageHeight/1.5);
             cellSize = Vec2.get(10, 10);
             gridSize = Vec2.get(100, 100);
-    
+
             Perlin3D.initNoise();
             output = new GeomPolyList();
             output2 = new GeomPolyList();
         }
-    
-        
+
+
         override protected function update(deltaTime:Number):void {
             perlinZ += deltaTime;
             threshold = 0.35 * Math.cos(0.3 * perlinZ);
-    
+
             // Use marching squares to produce set of weakly-simple polygons
             // representing thresholded PerlinNoise.
             //
@@ -71,40 +71,40 @@ package {
                 this, bounds, cellSize, 2,
                 gridSize, true, output
             );
-    
+
             for (var i:int = 0; i < polygons.length; i++) {
-                var p:GeomPoly = polygons.at(i);                    
+                var p:GeomPoly = polygons.at(i);
                 // Decompose section of perlin noise into convex polygons.
                 // Making use of the second polygon list to avoid creating
                 // a new List every single time.
-                var decomposed:GeomPolyList = p.convexDecomposition(output2);
+                var decomposed:GeomPolyList = p.convexDecomposition(true, output2);
                 for (var j:int = 0; j < decomposed.length; j++) {
-                    var q:GeomPoly = decomposed.at(j);                        
+                    var q:GeomPoly = decomposed.at(j);
                     debug.drawFilledPolygon(q, colour(q));
                     // Release to object pool
                     q.dispose();
                 }
                 // Recycle list nodes, clearing list for next time.
                 decomposed.clear();
-    
+
                 debug.drawPolygon(p, 0x000000);
                 // Release to object pool
                 p.dispose();
             }
-    
+
             // Recycle list nodes, clearing list for next time.
             polygons.clear();
         }
-    
+
         public function iso(x:Number, y:Number):Number {
-            return Perlin3D.noise(x/40, y/30, perlinZ) - threshold;            
+            return Perlin3D.noise(x/40, y/30, perlinZ) - threshold;
         }
-    
+
     	private function colour(p:GeomPoly):int {
             //hue
             var h:Number = p.area()/3000*360; while(h>360) h -= 360;
             var f:Number = (h%60)/60;
-    
+
             var r:Number, g:Number, b:Number;
             if     (h<=60 ) { r = 1;   g = f;   b = 0;   }
             else if(h<=120) { r = 1-f; g = 1;   b = 0;   }
@@ -112,7 +112,7 @@ package {
             else if(h<=240) { r = 0;   g = 1-f; b = 1;   }
             else if(h<=300) { r = f;   g = 0;   b = 1;   }
             else            { r = 1;   g = 0;   b = 1-f; }
-    
+
             return (int(r*0xff)<<16)|(int(g*0xff)<<8)|int(b*0xff);
         }
     }
@@ -171,7 +171,7 @@ class Perlin3D {
         49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,
         138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180];
 
-        for (var i:int = 0; i < 256; i++) {                
+        for (var i:int = 0; i < 256; i++) {
             perm[i]=    p[i];
             perm[256+i]=p[i];
         }

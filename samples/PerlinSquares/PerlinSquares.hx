@@ -76,7 +76,7 @@ class PerlinSquares extends Template, implements IsoFunction {
             // Decompose section of perlin noise into convex polygons.
             // Making use of the second polygon list to avoid creating
             // a new List every single time.
-            var decomposed = p.convexDecomposition(output2);
+            var decomposed = p.convexDecomposition(true, output2);
             for (q in decomposed) {
                 debug.drawFilledPolygon(q, colour(q));
                 // Release to object pool
