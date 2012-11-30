@@ -1,5 +1,15 @@
 package {
 
+    /**
+     *
+     * Sample: Basic Simulation
+     * Author: Luca Deltodesco
+     *
+     * In this sample, I show how to construct the most basic of Nape
+     * simulations, together with a debug display.
+     *
+     */
+
     import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.KeyboardEvent;

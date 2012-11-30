@@ -1,5 +1,17 @@
 package;
 
+/**
+ *
+ * Sample: Fixed Dragging
+ * Author: Luca Deltodesco
+ *
+ * Demonstrating how one might perform a Nape simulation
+ * that uses a fixed-time step for better reproducibility.
+ * Also demonstrate how to use a PivotJoint for dragging
+ * of Nape physics objects.
+ *
+ */
+
 import flash.Lib;
 import flash.display.Sprite;
 import flash.events.Event;

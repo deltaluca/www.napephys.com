@@ -37,6 +37,7 @@ package {
 
         protected var velIterations:int = 10;
         protected var posIterations:int = 10;
+        protected var customDraw:Boolean = false;
 
         protected var params:Object;
         protected var useHand:Boolean;
@@ -50,6 +51,9 @@ package {
             }
             if (params.posIterations != null) {
                 posIterations = params.posIterations;
+            }
+            if (params.customDraw != null) {
+                customDraw = params.customDraw;
             }
 
             this.params = params;
@@ -126,7 +130,7 @@ package {
         // to be overriden
         protected function init():void {}
         protected function update(deltaTime:Number):void {}
-        protected function postUpdate():void {}
+        protected function postUpdate(deltaTime:Number):void {}
 
         private var resetted:Boolean = false;
         private function keyUp(ev:KeyboardEvent):void {
@@ -233,6 +237,7 @@ package {
                 if (steps > 4) {
                     steps = 4;
                 }
+                deltaTime = steps * stepSize;
 
                 while (steps-- > 0) {
                     update(stepSize * 0.001);
@@ -242,10 +247,10 @@ package {
                 }
             }
 
-            if (space != null) {
+            if (space != null && !customDraw) {
                 debug.draw(space);
             }
-            postUpdate();
+            postUpdate(deltaTime * 0.001);
             debug.flush();
         }
     }

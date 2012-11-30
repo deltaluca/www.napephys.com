@@ -1,5 +1,26 @@
 package {
 
+    /**
+     *
+     * Sample: Spatial Queries
+     * Author: Luca Deltodesco
+     *
+     * This sample demonstrates the majority of the spatial query
+     * methods available through the Space object.
+     *
+     * Ray casts (single result mode): Useful for things like bullets
+     * and line-of-sight.
+     *
+     * Convex casts (single result mode): Useful for things like very-fast
+     * moving grenades and rockets, as well as adaptive path finding perhaps.
+     *
+     * Sampling methods like bodiesInAABB to find the set of bodies intersecting
+     * an AABB, as well as using the same method to find those bodies entirely
+     * contained.
+     *
+     * etc.
+     */
+
     import nape.dynamics.InteractionFilter;
     import nape.geom.AABB;
     import nape.geom.ConvexResult;
@@ -114,7 +135,7 @@ package {
             }
         }
 
-        override protected function postUpdate():void {
+        override protected function postUpdate(deltaTime:Number):void {
 
             // Shoot cannon through Space to look for collision.
             // we use the convexCast for this which uses a Shape

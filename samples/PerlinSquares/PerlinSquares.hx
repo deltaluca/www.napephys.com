@@ -1,5 +1,22 @@
 package;
 
+/**
+ *
+ * Sample: Perlin Squares
+ * Author: Luca Deltodesco
+ *
+ * Using a quick implementation of 3D Perlin Noise,
+ * this sample serves as both a demonstration, and a
+ * stress test of Nape's MarchingSquares API and GeomPoly
+ * decompositions.
+ *
+ * Sadly, neither the BitmapDebug, or ShapeDebug are
+ * sufficiently fast at drawing filled polygons, that a
+ * profiler will easily show 20% of time being spent on
+ * rendering! sigh.
+ *
+ */
+
 import nape.geom.AABB;
 import nape.geom.GeomPoly;
 import nape.geom.GeomPolyList;

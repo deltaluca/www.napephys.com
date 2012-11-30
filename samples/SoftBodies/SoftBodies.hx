@@ -1,5 +1,29 @@
 package;
 
+/**
+ *
+ * Sample: Soft Bodies
+ * Author: Luca Deltodesco
+ *
+ * Nape does not support Soft Bodies natively, however there
+ * are many ways of creating soft bodies regardless. This sample
+ * demonstrates a succesful (if expensive) approach that has many
+ * nice properties, stable stacking of bodies with inter-collisions
+ * and even self-collisions of a soft body.
+ *
+ * We achieve this by using polygonal segments discretising the
+ * perimeter of the body which are connected on the outside via
+ * stiff PivotJoints, and on the inside by elastic PivotJoints.
+ *
+ * Additionally to help with making bodies more rigid, a gas
+ * pressure force is computed per-body and applied to each segment
+ * outwards.
+ *
+ * Even though this is an expensive method with LOTS of Bodies
+ * and Constraints, it is still highly performant!
+ *
+ */
+
 import nape.constraint.MotorJoint;
 import nape.constraint.PivotJoint;
 import nape.geom.GeomPoly;

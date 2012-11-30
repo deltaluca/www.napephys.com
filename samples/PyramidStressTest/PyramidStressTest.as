@@ -1,5 +1,23 @@
 package {
 
+    /**
+     *
+     * Sample: Pyramid Stress-Test
+     * Author: Luca Deltodesco
+     *
+     * This sample serves as a stress-test of Nape collision detection
+     * and contact physics.
+     *
+     * We have a very large pyramid (820 blocks), and use a very large
+     * amount of iterations in the physics that permit it to be very stable
+     * at the cost of performance.
+     *
+     * Even so, many people (Especcially with newer desktops) will find this
+     * sample has a high FPS! In a real world scenario, we will likely use
+     * far fewer iterations and not have such large stacks of blocks!
+     *
+     */
+
     import nape.geom.Vec2;
     import nape.phys.Body;
     import nape.phys.BodyType;

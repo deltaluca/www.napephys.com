@@ -1,5 +1,17 @@
 package {
 
+    /**
+     *
+     * Sample: Filtering Interactions
+     * Author: Luca Deltodesco
+     *
+     * In this sample, I show to make use of the InteractionFilter
+     * object, together with the fluidEnabled and sensorEnabled Shape
+     * flags to control what type of interaction occurs between various
+     * types of object.
+     *
+     */
+
     import nape.geom.Vec2;
     import nape.phys.Body;
     import nape.phys.BodyType;

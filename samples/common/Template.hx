@@ -32,7 +32,8 @@ typedef TemplateParams = {
     ?variableStep : Bool,
     ?noReset : Bool,
     ?velIterations : Int,
-    ?posIterations : Int
+    ?posIterations : Int,
+    ?customDraw : Bool
 };
 
 class Template extends Sprite {
@@ -50,6 +51,7 @@ class Template extends Sprite {
 
     var velIterations:Int = 10;
     var posIterations:Int = 10;
+    var customDraw:Bool = false;
 
     var params:TemplateParams;
     var useHand:Bool;
@@ -62,6 +64,9 @@ class Template extends Sprite {
         }
         if (params.posIterations != null) {
             posIterations = params.posIterations;
+        }
+        if (params.customDraw != null) {
+            customDraw = params.customDraw;
         }
 
         this.params = params;
@@ -137,7 +142,7 @@ class Template extends Sprite {
     // to be overriden
     function init() {}
     function update(deltaTime:Float) {}
-    function postUpdate() {}
+    function postUpdate(deltaTime:Float) {}
 
     var resetted = false;
     function keyUp(ev:KeyboardEvent) {
@@ -244,6 +249,7 @@ class Template extends Sprite {
             if (steps > 4) {
                 steps = 4;
             }
+            deltaTime = stepSize * steps;
 
             while (steps-- > 0) {
                 update(stepSize * 0.001);
@@ -253,10 +259,10 @@ class Template extends Sprite {
             }
         }
 
-        if (space != null) {
+        if (space != null && !customDraw) {
             debug.draw(space);
         }
-        postUpdate();
+        postUpdate(deltaTime * 0.001);
         debug.flush();
     }
 }

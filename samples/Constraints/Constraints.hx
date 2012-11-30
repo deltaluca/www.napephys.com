@@ -1,5 +1,19 @@
 package;
 
+/**
+ *
+ * Sample: Constraints
+ * Author: Luca Deltodesco
+ *
+ * Simple demonstrations of all the in-built Nape constraints.
+ * All of these constraints can be used in complement to
+ * produce more complex behaviours.
+ *
+ * What is not demonstrated in this sample, is the use of the
+ * UserConstraint API, and of the nape-symbolic module.
+ *
+ */
+
 import nape.constraint.AngleJoint;
 import nape.constraint.Constraint;
 import nape.constraint.DistanceJoint;
