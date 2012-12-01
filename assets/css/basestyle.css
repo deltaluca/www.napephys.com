@@ -92,6 +92,10 @@ dt {
     line-height: 28px;
     color: #484848;
 }
+.footnote {
+    font-size: 12px;
+    line-height: 12px;
+}
 .samples-font {
     font-size: 20px;
     line-height: 20px;

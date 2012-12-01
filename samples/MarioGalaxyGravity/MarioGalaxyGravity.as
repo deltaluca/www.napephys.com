@@ -179,9 +179,6 @@ package {
                     /*position*/ null, // implies body.position
                     /*sleepable*/ true
                 );
-
-                var colour:int = int(0x33 + (0xff - 0x33) * (100 - distance)/100);
-                debug.drawLine(body.position, closestA, (colour << 16) | (colour << 8) | colour);
             }
 
             closestA.dispose();
