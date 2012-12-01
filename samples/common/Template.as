@@ -117,7 +117,7 @@ package {
             return Math.random();
         }
 
-        protected function createBorder():void {
+        protected function createBorder():Body {
             var border:Body = new Body(BodyType.STATIC);
             border.shapes.add(new Polygon(Polygon.rect(0, 0, -2, stage.stageHeight)));
             border.shapes.add(new Polygon(Polygon.rect(0, 0, stage.stageWidth, -2)));
@@ -125,6 +125,7 @@ package {
             border.shapes.add(new Polygon(Polygon.rect(0, stage.stageHeight, stage.stageWidth, 2)));
             border.space = space;
             border.debugDraw = false;
+            return border;
         }
 
         // to be overriden
@@ -215,12 +216,13 @@ package {
                 hand.body2.angularVel *= 0.9;
             }
 
-            debug.clear();
+            var noStepsNeeded:Boolean = false;
 
             if (variableStep) {
                 if (deltaTime > (1000 / 30)) {
                     deltaTime = (1000 / 30);
                 }
+                debug.clear();
                 update(deltaTime * 0.001);
                 if (space != null) {
                     space.step(deltaTime * 0.001, velIterations, posIterations);
@@ -239,6 +241,13 @@ package {
                 }
                 deltaTime = steps * stepSize;
 
+                if (steps == 0) {
+                    noStepsNeeded = true;
+                }
+                else {
+                    debug.clear();
+                }
+
                 while (steps-- > 0) {
                     update(stepSize * 0.001);
                     if (space != null) {
@@ -247,11 +256,13 @@ package {
                 }
             }
 
-            if (space != null && !customDraw) {
+            if (space != null && !customDraw && !noStepsNeeded) {
                 debug.draw(space);
             }
-            postUpdate(deltaTime * 0.001);
-            debug.flush();
+            if (!noStepsNeeded) {
+                postUpdate(deltaTime * 0.001);
+                debug.flush();
+            }
         }
     }
 }

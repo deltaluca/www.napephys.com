@@ -137,6 +137,7 @@ class Template extends Sprite {
         border.shapes.add(new Polygon(Polygon.rect(0, stage.stageHeight, stage.stageWidth, 2)));
         border.space = space;
         border.debugDraw = false;
+        return border;
     }
 
     // to be overriden
@@ -227,12 +228,15 @@ class Template extends Sprite {
             hand.body2.angularVel *= 0.9;
         }
 
-        debug.clear();
+        var noStepsNeeded = false;
 
         if (variableStep) {
             if (deltaTime > (1000 / 30)) {
                 deltaTime = (1000 / 30);
             }
+
+            debug.clear();
+
             update(deltaTime * 0.001);
             if (space != null) {
                 space.step(deltaTime * 0.001, velIterations, posIterations);
@@ -251,6 +255,13 @@ class Template extends Sprite {
             }
             deltaTime = stepSize * steps;
 
+            if (steps == 0) {
+                noStepsNeeded = true;
+            }
+            else {
+                debug.clear();
+            }
+
             while (steps-- > 0) {
                 update(stepSize * 0.001);
                 if (space != null) {
@@ -259,10 +270,12 @@ class Template extends Sprite {
             }
         }
 
-        if (space != null && !customDraw) {
+        if (space != null && !customDraw && !noStepsNeeded) {
             debug.draw(space);
         }
-        postUpdate(deltaTime * 0.001);
-        debug.flush();
+        if (!noStepsNeeded) {
+            postUpdate(deltaTime * 0.001);
+            debug.flush();
+        }
     }
 }
