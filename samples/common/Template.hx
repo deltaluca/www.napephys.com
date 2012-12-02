@@ -184,14 +184,14 @@ class Template extends Sprite {
                 }
             }
 
-            // recycle nodes.
-            bodyList.clear();
-
-            if (!hand.active) {
+            if (bodyList.empty()) {
                 if (params.generator != null) {
                     params.generator(mp);
                 }
             }
+
+            // recycle nodes.
+            bodyList.clear();
         }
         else {
             if (params.generator != null) {

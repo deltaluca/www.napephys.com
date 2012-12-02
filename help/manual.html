@@ -383,8 +383,8 @@ debug.flush();</pre>
                         <tr><td class="dt"><b>Collision</b></td><td class="tdsp"></td><td>Default interaction type; when two
                             <b>Shapes</b> intersect (and are able to collide), they will collide with <b>friction</b> and
                             <b>elasticity</b> as defined by the shape <b>Materials</b>.</td></tr>
-                        <tr><td class="dt"><b>Sensor</b></td><td class="tdsp"></td><td>With this interaction type, two intersecting <b>Shapes</b> will simply pass through eachother. <b>Arbiter</b> objects will still be created to catalogue the overlap, and you can still receive <b>callbacks</b>.</td></tr>
-                        <tr><td class="dt"><b>Fluid</b></td><td class="tdsp"></td><td>This interaction type corresponds to <b>Nape</b>'s implementatino of <b>buoyancy</b>. When two <b>Shapes</b> intersect, the <b>Bodies</b> will receive <b>buoyancy</b> and <b>drag</b> forces as determined by the <b>fluidEnabled</b> <b>Shapes</b>' <b>FluidProperties</b>, and the profiles of the <b>Shapes</b> (A stick will experiance differing drag depending on the direction it moves through the fluid).</td></tr>
+                        <tr><td class="dt"><b>Sensor</b></td><td class="tdsp"></td><td>With this interaction type, two intersecting <b>Shapes</b> will simply pass through each other. <b>Arbiter</b> objects will still be created to catalogue the overlap, and you can still receive <b>callbacks</b>.</td></tr>
+                        <tr><td class="dt"><b>Fluid</b></td><td class="tdsp"></td><td>This interaction type corresponds to <b>Nape</b>'s implementation of <b>buoyancy</b>. When two <b>Shapes</b> intersect, the <b>Bodies</b> will receive <b>buoyancy</b> and <b>drag</b> forces as determined by the <b>fluidEnabled</b> <b>Shapes</b>' <b>FluidProperties</b>, and the profiles of the <b>Shapes</b> (A stick will experience differing drag depending on the direction it moves through the fluid).</td></tr>
                     </table>
                 </p>
                 <strong><span class="section">Controlling Interactions</span></strong>
@@ -428,16 +428,16 @@ else if (bodyA.isDynamic() || bodyB.isDynamic()) {
                 <pre class="prettyprint largecodestyle standard boxedcode">
 (filterA.group &amp; filterB.mask != 0) &amp;&amp; (filterB.group &amp; filterA.mask != 0)</pre>
                 <p>
-                    <b>Nape</b> takes this concept a step further, by having seperate <b>group</b> and <b>masks</b> for each
+                    <b>Nape</b> takes this concept a step further, by having separate <b>group</b> and <b>masks</b> for each
                     interaction type. This permits finer grained control on what sort of interaction occurs; it is for
                     example, possible to have a <b>fluidEnabled</b> <b>Shape</b> which due to interaction filters,
                     collides instead.
                 </p>
                 <p>
-                    If you are unfamiliar with thinking of integers are binary values, it is still easy to contruct suitable
+                    If you are unfamiliar with thinking of integers are binary values, it is still easy to construct suitable
                     <b>group</b>/<b>mask</b> values in a pragmatic way. Say we have 3 types of objects: <b>balls</b>,
-                    <b>boxes</b> and... <b>donuts</b>. Furthermore let's say that the <b>balls</b> should not collide with
-                    <b>boxes</b> or <b>donuts</b>, and <b>donuts</b> should not collide with other <b>donuts</b>.
+                    <b>boxes</b> and... <b>doughnuts</b>. Furthermore let's say that the <b>balls</b> should not collide with
+                    <b>boxes</b> or <b>doughnuts</b>, and <b>doughnuts</b> should not collide with other <b>doughnuts</b>.
                 </p>
                 <p>
                     <table class="table">
@@ -451,21 +451,21 @@ else if (bodyA.isDynamic() || bodyB.isDynamic()) {
                     It is clear this table is symmetric. Now, if we assign <b>groups</b> like:
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
-ballFilter .collisionGroup = 1; // in binary this is 0000...00001
-boxFilter  .collisionGroup = 2; // in binary this is 0000...00010
-donutFilter.collisionGroup = 4; // in binary this is 0000...00100</pre>
+ballFilter    .collisionGroup = 1; // in binary this is 0000...00001
+boxFilter     .collisionGroup = 2; // in binary this is 0000...00010
+doughnutFilter.collisionGroup = 4; // in binary this is 0000...00100</pre>
                 <p>
                     Then we can assign <b>masks</b> to match our table - in the most permissive way - like:
                 </p>
                 <pre class="prettyprint largecodestyle standard boxedcode">
-ballFilter .collisionMask = ~(2|4); // in binary this is 1111...11001
-boxFilter  .collisionMask = ~1;     // in binary this is 1111...11110
-donutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
+ballFilter    .collisionMask = ~(2|4); // in binary this is 1111...11001
+boxFilter     .collisionMask = ~1;     // in binary this is 1111...11110
+doughnutFilter.collisionMask = ~(1|4); // in binary this is 1111...11010</pre>
                 <p>
                     The reason this works, is that we can interpret the expression
                     <span class="codestyle">(group &amp; mask) != 0</span> as meaning "Group and Mask have at least one bit both
-                    equal to 1". In our case, we did not want the <b>donuts</b> to collide amongst themselves, and we seen in
-                    the binary representation of the <b>group</b>/<b>mask</b> that the only place the donut group has bit
+                    equal to 1". In our case, we did not want the <b>doughnuts</b> to collide amongst themselves, and we seen in
+                    the binary representation of the <b>group</b>/<b>mask</b> that the only place the doughnut group has bit
                     equal to 1 is in the 3rd position, and in the mask, this bit is 0.
                 </p>
                 <p>
@@ -572,7 +572,7 @@ body.space = null;</pre>
                     <b>Body</b>, and which are assigned to a <b>Space</b>, which is why the above pattern works.
                 </p>
                 <p>
-                    If you wish to know more about the mathematics behind the constraint deriviations checkout <a class="doclink" href="Constraints.pdf">this</a> pdf.
+                    If you wish to know more about the mathematics behind the constraint derivations checkout <a class="doclink" href="Constraints.pdf">this</a> pdf.
                 </p>
                 <strong><span class="section">PivotJoint</span></strong>
                 <p>
@@ -604,7 +604,7 @@ var pivotJoint:Constraint = new PivotJoint(body1, body2, anchor1, anchor2);</pre
                 <p>
                     A <b>WeldJoint</b> is like a <b>PivotJoint</b>, except that the relative rotations of the <b>Bodies</b>
                     is also locked to a fixed value. This system is solved together for extra stability compared to using
-                    seperate <b>PivotJoint</b> and <b>AngleJoint</b>.
+                    separate <b>PivotJoint</b> and <b>AngleJoint</b>.
                 </p>
                 <img src="../assets/WeldJoint.png" alt="[WeldJoint diagram]"/>
                 <p>
@@ -614,7 +614,7 @@ var pivotJoint:Constraint = new PivotJoint(body1, body2, anchor1, anchor2);</pre
 body2.localPointToWorld(anchor2) == body1.localPointToWorld(anchor1)
 body2.rotation == body1.rotation + phase</pre>
                 <p>
-                    The choice of anchors is important as it defines where the bodies will rotate relative to eachother
+                    The choice of anchors is important as it defines where the bodies will rotate relative to each other
                     whenever the joint is forced to stretch, or when it is set as <b>elastic</b>.
                 </p>
                 <p>
@@ -726,7 +726,7 @@ var motorJoint:Constraint = new MotorJoint(body1, body2, rate = 0, ratio = 1);</
                 </p>
                 <p>
                     This is, in the most general usage a <b>4</b> body constraint, though it may be used in <b>2</b> and <b>3</b> body set-ups also. The 3-body set-ups are most recognisable
-                    as being a pulley; especcialy if the middle body is static and we get a simple system where one body get's closer, the other get's further away with a positive ratio.
+                    as being a pulley; especially if the middle body is static and we get a simple system where one body get's closer, the other get's further away with a positive ratio.
                 </p>
                 <img src="../assets/PulleyJoint.png" alt="[PulleyJoint diagram]"/>
                 <p>
@@ -779,7 +779,7 @@ constraint.compound = c;
 c.space = space;</pre>
                 <p>
                     Note that we added the <b>Compound</b> to the <b>Space</b> instead of the individual objects that form
-                    the <b>Compound</b>. Equally, we remove the <b>Compound</b> from the <b>Space</b> instead of its seperate
+                    the <b>Compound</b>. Equally, we remove the <b>Compound</b> from the <b>Space</b> instead of its separate
                     constituents.
                 </p>
                 <strong><span class="section">Copying</span></strong>
@@ -965,8 +965,8 @@ var listener = new PreListener(interactionType, options1, options2, handler, pre
                 <p>
                     The handler for this listener has type <b>PreListener</b>-&gt;Null&lt;<b>PreFlag</b>&gt;. The <b>PreFlag</b> enumeration has possible values:
                     <table class="dl">
-                        <tr><td class="dt"><b>PreFlag</b>.<b>ACCEPT</b></td><td class="tdsp"></td><td>Accept the interaction, for <b>this step</b>, and <b>all steps</b> that follow. If this is the final state of the interaction, then the <b>PreListener</b> will no longer take effect until the objects have seperated and interact anew.</td></tr>
-                        <tr><td class="dt"><b>PreFlag</b>.<b>IGNORE</b></td><td class="tdsp"></td><td>Ignore the interaction, for <b>this step</b>, and <b>all steps</b> that follow. If this is the final state of the interaction, then the <b>PreListener</b> will no longer take effect until the objects have seperated and interact anew.</td></tr>
+                        <tr><td class="dt"><b>PreFlag</b>.<b>ACCEPT</b></td><td class="tdsp"></td><td>Accept the interaction, for <b>this step</b>, and <b>all steps</b> that follow. If this is the final state of the interaction, then the <b>PreListener</b> will no longer take effect until the objects have separated and interact anew.</td></tr>
+                        <tr><td class="dt"><b>PreFlag</b>.<b>IGNORE</b></td><td class="tdsp"></td><td>Ignore the interaction, for <b>this step</b>, and <b>all steps</b> that follow. If this is the final state of the interaction, then the <b>PreListener</b> will no longer take effect until the objects have separated and interact anew.</td></tr>
                         <tr><td class="dt"><b>PreFlag</b>.<b>ACCEPT_ONCE</b></td><td class="tdsp"></td><td>Accept the interaction for <b>this step</b>. If this is the final state of the interaction, then the <b>PreListener</b> will be invoked in the following step to ask again.</td></tr>
                         <tr><td class="dt"><b>PreFlag</b>.<b>IGNORE_ONCE</b></td><td class="tdsp"></td><td>Ignore the interaction for <b>this step</b>. If this is the final state of the interaction, then the <b>PreListener</b> will be invoked in the following step to ask again.</td></tr>
                     </table>
@@ -1129,7 +1129,7 @@ trace(boxPoints.length); // 0, they were automatically sent to object pool.</pre
                 <img src="../assets/inout.png" alt="[Polygon in-out diagram]"/>
                 <p>
                 <table class="dl">
-                    <tr><td class="dt"><b>NOTE:</b></td><td class="tdsp"></td><td>This method is <b>not</b> 100% robust, you should not rely on it <b>always</b> producing the correct result, or producing a runtime error!</td></tr>
+                    <tr><td class="dt"><b>NOTE:</b></td><td class="tdsp"></td><td>This method is <b>not</b> 100% robust, you should not rely on it <b>always</b> producing the correct result, or producing a run-time error!</td></tr>
                 </table>
                 </p>
 
@@ -1139,7 +1139,7 @@ trace(boxPoints.length); // 0, they were automatically sent to object pool.</pre
                 </p>
                 <img src="../assets/decomp.png" alt="[Decomposition diagram]"/>
                 <p>
-                    All of these algorithms have <b>O(n.log(n))</b> runtime.
+                    All of these algorithms have <b>O(n.log(n))</b> run-time.
                 </p>
 
                 <strong><span class="section">Simplification</span></strong>
@@ -1149,13 +1149,13 @@ trace(boxPoints.length); // 0, they were automatically sent to object pool.</pre
                 </p>
                 <img src="../assets/simpling.png" alt="[Simplification diagram]"/>
                 <p>
-                    This algorithm has <b>O(n.log(n))</b> runtime. <b>NOTE:</b> you must be careful when using this method, as
-                    if you have a polygon that has complex features that nearly touch eachother, but do not self-intersect, and you use too high a distance threshold it is possible for the output polygon to now be self-intersecting! A <b>convex</b> polygon will however always be transformed into a new <b>convex</b> polygon.
+                    This algorithm has <b>O(n.log(n))</b> run-time. <b>NOTE:</b> you must be careful when using this method, as
+                    if you have a polygon that has complex features that nearly touch each other, but do not self-intersect, and you use too high a distance threshold it is possible for the output polygon to now be self-intersecting! A <b>convex</b> polygon will however always be transformed into a new <b>convex</b> polygon.
                 </p>
 
                 <strong><span class="section">Marching Squares</span></strong>
                 <p>
-                    The <b>MarchingSquares</b> class, gives access to a very effecient, and <b>100%</b> stable implementation of the <b>marching squares</b> algorithm producing <b>weakly-simple</b> polygons suitable for further decomposition in <b>Nape</b>. The <b>marching squares</b> algorithm performs iso-surface extractions given a scalar function over a rectangular region.
+                    The <b>MarchingSquares</b> class, gives access to a very efficient, and <b>100%</b> stable implementation of the <b>marching squares</b> algorithm producing <b>weakly-simple</b> polygons suitable for further decomposition in <b>Nape</b>. The <b>marching squares</b> algorithm performs iso-surface extractions given a scalar function over a rectangular region.
                 </p>
                 <img src="../assets/march.png" alt="[Marching Squares diagram]"/>
                 <p>
