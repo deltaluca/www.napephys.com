@@ -77,7 +77,7 @@ package {
                     hand = new PivotJoint(space.world, null, Vec2.weak(), Vec2.weak());
                     hand.active = false;
                     hand.stiff = false;
-                    hand.maxForce = 5e4;
+                    hand.maxForce = 1e5;
                     hand.space = space;
                     stage.addEventListener(MouseEvent.MOUSE_UP, handMouseUp);
                 }
@@ -130,7 +130,7 @@ package {
 
         // to be overriden
         protected function init():void {}
-        protected function update(deltaTime:Number):void {}
+        protected function preStep(deltaTime:Number):void {}
         protected function postUpdate(deltaTime:Number):void {}
 
         private var resetted:Boolean = false;
@@ -223,7 +223,7 @@ package {
                     deltaTime = (1000 / 30);
                 }
                 debug.clear();
-                update(deltaTime * 0.001);
+                preStep(deltaTime * 0.001);
                 if (space != null) {
                     space.step(deltaTime * 0.001, velIterations, posIterations);
                 }
@@ -249,7 +249,7 @@ package {
                 }
 
                 while (steps-- > 0) {
-                    update(stepSize * 0.001);
+                    preStep(stepSize * 0.001);
                     if (space != null) {
                         space.step(stepSize * 0.001, velIterations, posIterations);
                     }

@@ -46,7 +46,7 @@ class Template extends Sprite {
     var prevTime:Int;
 
     var smoothFps:Float = -1;
-    var textField:TextField;
+    public var textField:TextField;
     var baseMemory:Float;
 
     var velIterations:Int = 10;
@@ -90,7 +90,7 @@ class Template extends Sprite {
                 hand = new PivotJoint(space.world, null, Vec2.weak(), Vec2.weak());
                 hand.active = false;
                 hand.stiff = false;
-                hand.maxForce = 5e4;
+                hand.maxForce = 1e5;
                 hand.space = space;
                 stage.addEventListener(MouseEvent.MOUSE_UP, handMouseUp);
             }
@@ -123,7 +123,7 @@ class Template extends Sprite {
         textField.defaultTextFormat = new TextFormat("Arial", null, 0xffffff);
         textField.selectable = false;
         textField.width = 128;
-        textField.height = 80;
+        textField.height = 800;
         addChild(textField);
     }
 
@@ -142,7 +142,7 @@ class Template extends Sprite {
 
     // to be overriden
     function init() {}
-    function update(deltaTime:Float) {}
+    function preStep(deltaTime:Float) {}
     function postUpdate(deltaTime:Float) {}
 
     var resetted = false;
@@ -237,7 +237,7 @@ class Template extends Sprite {
 
             debug.clear();
 
-            update(deltaTime * 0.001);
+            preStep(deltaTime * 0.001);
             if (space != null) {
                 space.step(deltaTime * 0.001, velIterations, posIterations);
             }
@@ -263,7 +263,7 @@ class Template extends Sprite {
             }
 
             while (steps-- > 0) {
-                update(stepSize * 0.001);
+                preStep(stepSize * 0.001);
                 if (space != null) {
                     space.step(stepSize * 0.001, velIterations, posIterations);
                 }

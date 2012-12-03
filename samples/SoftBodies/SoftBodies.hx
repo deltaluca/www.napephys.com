@@ -113,7 +113,7 @@ class SoftBodies extends Template {
         }}
     }
 
-    override function update(deltaTime:Float) {
+    override function preStep(deltaTime:Float) {
         // Iterate over the soft bodies, computing a pressure force
         // and applying this force to each edge of the soft body.
         for (s in softBodies) {

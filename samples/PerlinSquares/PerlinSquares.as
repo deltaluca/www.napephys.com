@@ -75,7 +75,7 @@ package {
         }
 
 
-        override protected function update(deltaTime:Number):void {
+        override protected function preStep(deltaTime:Number):void {
             perlinZ += deltaTime;
             threshold = 0.35 * Math.cos(0.3 * perlinZ);
 

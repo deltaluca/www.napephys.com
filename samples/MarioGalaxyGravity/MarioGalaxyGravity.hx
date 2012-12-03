@@ -132,7 +132,7 @@ class MarioGalaxyGravity extends Template {
         }
     }
 
-    override function update(deltaTime:Float) {
+    override function preStep(deltaTime:Float) {
         for (planet in planetaryBodies) {
             planetaryGravity(planet, deltaTime);
         }

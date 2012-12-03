@@ -75,7 +75,7 @@ class PerlinSquares extends Template, implements IsoFunction {
     }
 
 
-    override function update(deltaTime:Float) {
+    override function preStep(deltaTime:Float) {
         perlinZ += deltaTime;
         threshold = 0.35 * Math.cos(0.3 * perlinZ);
 

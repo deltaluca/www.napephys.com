@@ -112,7 +112,7 @@ package {
             }}
         }
 
-        override protected function update(deltaTime:Number):void {
+        override protected function preStep(deltaTime:Number):void {
             // Iterate over the soft bodies, computing a pressure force
             // and applying this force to each edge of the soft body.
             for (var i:uint = 0; i < softBodies.length; i++) {

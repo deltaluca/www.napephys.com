@@ -135,7 +135,7 @@ package {
             }
         }
 
-        override protected function update(deltaTime:Number):void {
+        override protected function preStep(deltaTime:Number):void {
             for (var i:int = 0; i < planetaryBodies.length; i++) {
                 var planet:Body = planetaryBodies[i];
                 planetaryGravity(planet, deltaTime);
