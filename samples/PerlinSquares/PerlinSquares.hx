@@ -128,7 +128,12 @@ class PerlinSquares extends Template, implements IsoFunction {
         else if(h<=300) { r = f;   g = 0;   b = 1;   }
         else            { r = 1;   g = 0;   b = 1-f; }
 
-        return (Std.int(r*0xff)<<16)|(Std.int(g*0xff)<<8)|Std.int(b*0xff);
+        // untyped __int__ performs better than Std.int when we're only
+        // targetting flash.
+        var red:Int = untyped __int__(r*0xff);
+        var grn:Int = untyped __int__(g*0xff);
+        var blu:Int = untyped __int__(b*0xff);
+        return (red << 16) | (grn << 8) | blu;
     }
 
     static function main() {
@@ -138,9 +143,11 @@ class PerlinSquares extends Template, implements IsoFunction {
 
 class Perlin3D {
     public static inline function noise(x:Float, y:Float, z:Float) {
-        var X = Std.int(x); x -= X; X &= 0xff;
-        var Y = Std.int(y); y -= Y; Y &= 0xff;
-        var Z = Std.int(z); z -= Z; Z &= 0xff;
+        // untyped __int__ performs better than Std.int when we're only
+        // targetting flash.
+        var X:Int = untyped __int__(x); x -= X; X &= 0xff;
+        var Y:Int = untyped __int__(y); y -= Y; Y &= 0xff;
+        var Z:Int = untyped __int__(z); z -= Z; Z &= 0xff;
         var u = fade(x); var v = fade(y); var w = fade(z);
         var A = p(X)  +Y; var AA = p(A)+Z; var AB = p(A+1)+Z;
         var B = p(X+1)+Y; var BA = p(B)+Z; var BB = p(B+1)+Z;
