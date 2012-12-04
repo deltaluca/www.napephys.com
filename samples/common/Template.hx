@@ -28,6 +28,7 @@ typedef TemplateParams = {
     ?broadphase : Broadphase,
     ?noSpace : Bool,
     ?noHand : Bool,
+    ?staticClick : Vec2->Void,
     ?generator : Vec2->Void,
     ?variableStep : Bool,
     ?noReset : Bool,
@@ -187,6 +188,11 @@ class Template extends Sprite {
             if (bodyList.empty()) {
                 if (params.generator != null) {
                     params.generator(mp);
+                }
+            }
+            else if (!hand.active) {
+                if (params.staticClick != null) {
+                    params.staticClick(mp);
                 }
             }
 

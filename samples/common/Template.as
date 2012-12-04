@@ -177,6 +177,11 @@ package {
                         params.generator(mp);
                     }
                 }
+                else if (!hand.active) {
+                    if (params.staticClick != null) {
+                        params.staticClick(mp);
+                    }
+                }
 
                 // recycle nodes.
                 bodyList.clear();

@@ -5,6 +5,9 @@ package;
  * Sample: Body From Graphic
  * Author: Luca Deltodesco
  *
+ * Using MarchingSquares to generate Nape bodies
+ * from both a BitmapData and a standard DisplayObject.
+ *
  */
 
 import nape.geom.AABB;
