@@ -2,7 +2,7 @@ package;
 
 /**
  *
- * Sample: One-Way Platforms
+ * Sample: Destructible Terrain
  * Author: Luca Deltodesco
  *
  * Yet another sample featuring MarchingSquares,

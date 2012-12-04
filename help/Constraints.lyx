@@ -3584,11 +3584,6 @@ status open
 
 \begin_layout Plain Layout
 
-typedef TArray<T> = #if flash9 flash.Vector<T> #else Array<T> #end;
-\end_layout
-
-\begin_layout Plain Layout
-
 class MyConstraint extends UserConstraint {
 \end_layout
 
@@ -4237,11 +4232,6 @@ status open
 
 \begin_layout Plain Layout
 
-typedef TArray<T> = #if flash9 flash.Vector<T> #else Array<T> #end;
-\end_layout
-
-\begin_layout Plain Layout
-
 class UserPivotJoint extends UserConstraint {
 \end_layout
 
@@ -4596,11 +4586,6 @@ Implementing an AngleJoint is more fun :)
 \begin_inset listings
 inline false
 status open
-
-\begin_layout Plain Layout
-
-typedef TArray<T> = #if flash9 flash.Vector<T> #else Array<T> #end;
-\end_layout
 
 \begin_layout Plain Layout
 
