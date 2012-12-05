@@ -49,6 +49,15 @@ function showcreateGraphic() {
 		');
     show("createGraphic");
 }
+function showversion() {
+    var div = document.getElementById("version");
+    div.innerHTML = divved('\
+		<div class="comment"></div>\
+				<dl>\
+							</dl>\
+		');
+    show("version");
+}
 
 function showbgColour() {
     var div = document.getElementById("bgColour");
@@ -668,6 +677,21 @@ function shownape__util() {
                     </div>
                                 </div>
 				<div class="body" id="createGraphic"></div>
+			</div>
+					<div class="member">
+				<div class="header">
+		<h3>
+			<a name="version()"></a>
+		<span class="static  function">static  function</span>
+	<span class="name">version</span>():<font class="fakelink">String</font>
+		</h3>
+	</div>
+                <div class="body">
+                    <div class="comment">
+                        Query Nape version
+                    </div>
+                                </div>
+				<div class="body" id="version"></div>
 			</div>
 				</div>
 	</div>
