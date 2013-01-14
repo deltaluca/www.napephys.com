@@ -326,6 +326,11 @@ class PortalManager {
         }
 
         // Ensure we're not entering a portal that is behind one we're currently going through.
+        //
+        // Bug (deficiency): Really need to test with the shape-[portal sensor] contact points
+        // (which do not exist, we're using sensor) to get an accurate flag here instead of using
+        // portal.sensor.worldCOM. Either need to change portal sensors to colliders with
+        // appropriate PreListener to always ignore interaction, or perhaps use Geom.distance
         if (portalPair == null && shapeData.__portal_id != null && shape.cbTypes.has(PARTIAL)) {
             for (portalData in shapeData.__portals) {
                 if (behindPortal(portalData.portal, portal.sensor.worldCOM)) {
