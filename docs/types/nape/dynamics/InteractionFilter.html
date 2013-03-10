@@ -470,7 +470,7 @@ function shownape__util() {
 			<!-- Comment block -->
             InteractionFilter provides bit flags for low-level filtering of interactions.
                     <br/><br/>
-			For a given interaction type, two Shapes will be permitted to interact only if <font class="inlinecode">(shape1.group & shape2.mask) != 0 && (shape2.group & shape1.mask) != 0</font> <br/><br/> There are 32 real groups corresponding to a set bit in the group/mask fields. For instance a group value of 0x120 corresponds to the &#39;real&#39; groups 5 and 8 as <font class="inlinecode">0x120 = (1<<5) | (1<<8)</font> <br/><br/> Nape provides group/mask for each interaction type. The actual precedence of interactions is further defined simply as: Fluid > Collision > Sensor. <br/> Fluid interactions can never occur between two kinematic/static shapes, so in this case Collisions would instead have highest precedence. <br/> Collision interactions can never occur between two non-dynamic shapes, so in this case Sensor interactino would have highest precedence. <br/> Sensing will never occur between two static shapes, so in this case no interaction will ever occur.
+			For a given interaction type, two Shapes will be permitted to interact only if <font class="inlinecode">(shape1.group & shape2.mask) != 0 && (shape2.group & shape1.mask) != 0</font> <br/><br/> There are 32 real groups corresponding to a set bit in the group/mask fields. For instance a group value of 0x120 corresponds to the &#39;real&#39; groups 5 and 8 as <font class="inlinecode">0x120 = (1<<5) | (1<<8)</font> <br/><br/> Nape provides group/mask for each interaction type. 
 				</div>
 	<!-- ========= CONSTRUCTOR DETAIL ======== -->
 	<div class="members-panel">
