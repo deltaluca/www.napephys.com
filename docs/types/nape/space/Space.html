@@ -85,7 +85,7 @@ function showlisteners() {
 function showliveBodies() {
     var div = document.getElementById("liveBodies");
     div.innerHTML = divved('\
-		<div class="comment">This list contains all bodies regardless of their containment in a Compound. <br/><br/> This list is immutable.</div>\
+		<div class="comment">This list contains all dynamic bodies that are awake, regardless of their containment in a Compound. <br/><br/> This list is immutable.</div>\
 		');
     show("liveBodies");
 }
@@ -1017,7 +1017,7 @@ function shownape__util() {
                                 <a href="javascript:showliveBodies()" class="expand" id="liveBodieslink">
                                 <img class="descript" alt="+" src="../../../images/show.png"/>
                             </a>
-                                                    List of all active Bodies in space.
+                                                    List of all active dynamic Bodies in space.
                         </div>
                                         </div>
 					<div class="body" id="liveBodies"></div>
